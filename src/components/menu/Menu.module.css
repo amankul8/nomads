@@ -1,0 +1,78 @@
+.menu_wrapper{
+    width: 100%;
+    height: 90px;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+.menu_wrapper svg{
+    fill: white;
+}
+.menu_wrapper .items{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.025em;
+    color: #FFFFFF;
+}
+
+.languages_wrapper{
+    width: 110px;
+    height: 33px;
+    background-color: white;
+    border-radius: 10px 0px;
+    overflow: hidden;
+    display: flex;
+    cursor: pointer;
+    position: relative;
+}
+.languages{
+    left: 0;
+    background: none;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.025em;
+    color: #0083E6;
+}
+.icon{
+    right: 0;
+    margin-left: 85%;
+    position: absolute;
+    z-index: 0;
+    width: 15%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon::before{
+    content: '<>';
+    font: 12px "Consolas", Montserrat;
+    color: #0083E6;
+    transform: rotate(90deg);
+    border-bottom: 1px solid #929292;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 70%;
+}
