@@ -1,4 +1,13 @@
 :root {
+  /* Colors */
+  --red: #CB0202;
+  --blue: #0083E6;
+  --white: white;
+  --black: #191919;
+  --green: #00E663;
+  --orange: #E68A00;
+  --darkYellow: #E6B800
+  
 
 }
 * {

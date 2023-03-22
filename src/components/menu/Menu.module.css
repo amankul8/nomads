@@ -8,6 +8,8 @@
     position: relative;
 }
 .menu_wrapper svg{
+    width: 65px;
+    height: 65px;
     fill: white;
 }
 .menu_wrapper .items{

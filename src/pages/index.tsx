@@ -1,4 +1,4 @@
-import { Layout } from '@/layout/Layout';
+import { Layout } from '@/layout/layout/Layout';
 import { Inter } from '@next/font/google';
 import styles from "@/styles/home.module.css";
 
