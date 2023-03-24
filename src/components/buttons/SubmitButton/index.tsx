@@ -1,21 +1,20 @@
-import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, DetailedHTMLProps, forwardRef, HTMLAttributes, ReactNode } from "react";
 import styles from "./SubmitButton.module.css";
 import cn from "classnames";
 
-
-interface buttonProps extends DetailedHTMLProps<HTMLAttributes<HTMLButtonElement>,HTMLButtonElement>{
+interface IButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>,HTMLButtonElement>{
     children: ReactNode,
-    enablbed: boolean
+    enablbed: boolean,
 }
 
-export function SubmitButton({children, enablbed, ...props}: buttonProps):JSX.Element{
-
+export const SubmitButton = forwardRef<HTMLButtonElement, IButtonProps>(({children, enablbed, ...props}, ref):JSX.Element=>{
 
     return(
-        <button disabled={!enablbed} className={cn(styles.button,{
+        <button disabled={!enablbed}
+            className={cn(styles.button,{
             [styles.enabled]: enablbed===true
-        })} {...props}>
+        })} {...props} ref={ref}>
             {children}
         </button>
     )
-}
+});
