@@ -8,6 +8,7 @@ import Link from "next/link";
 import {SubmitButton} from '@/components/buttons/SubmitButton';
 import {useForm, SubmitHandler} from "react-hook-form";
 import { emit } from 'process';
+import axios from 'axios';
 
 interface ISigninState{
   email: string,
@@ -23,10 +24,19 @@ export default function SignIn() {
     mode: "onChange"
   });
 
-  const onSubmit: SubmitHandler<ISigninState> =  data=>{
-    console.log(data);
-    reset();
+  const onSubmit: SubmitHandler<ISigninState> = async data=>{
+    
+    let res = await axios.post(process.env.NEXT_PUBLIC_DOMAIN+'/auth/jwt/create/', {
+      email: data.email,
+      password: data.password
+    });
+
+    console.log(res);
+
+    //reset();
   }
+
+  console.log();
 
   return (
     <main className={styles.signin_wrapper}>

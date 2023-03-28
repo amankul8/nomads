@@ -1,6 +1,8 @@
 import styles from "./Menu.module.css";
 import Logo from "@/components/svg/logo.svg";
 import Link from "next/link";
+import { useContext } from "react";
+import { TokenContext } from "@/context";
 
 const menu_items:string[] = [
     'Plan a trip',
@@ -15,7 +17,9 @@ const menu_items:string[] = [
 
 export const Menu = ():JSX.Element=>{
 
+    const {tokens} = useContext(TokenContext);
 
+    console.log(tokens);
 
     return(
         <div className={styles.menu_wrapper}>
