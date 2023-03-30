@@ -1,2 +1,2 @@
 export * from './TokenHelper';
-export * from './AxiosHelper';
+export * from './ApiHelper';

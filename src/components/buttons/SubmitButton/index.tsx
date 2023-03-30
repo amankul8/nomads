@@ -7,13 +7,13 @@ interface IButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButton
     enablbed: boolean,
 }
 
-export const SubmitButton = forwardRef<HTMLButtonElement, IButtonProps>(({children, enablbed, ...props}, ref):JSX.Element=>{
+export const SubmitButton = forwardRef<HTMLButtonElement, IButtonProps>(({children, enablbed, onClick,  ...props}, ref):JSX.Element=>{
 
     return(
         <button disabled={!enablbed}
             className={cn(styles.button,{
             [styles.enabled]: enablbed===true
-        })} {...props} ref={ref}>
+        })} {...props} onClick={onClick} ref={ref}>
             {children}
         </button>
     )
