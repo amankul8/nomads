@@ -1,0 +1,127 @@
+/* general style */
+.button_wrapper{
+    font-style: normal;
+    font-family: var(--font_family_montserrat);
+    border: none;
+    background: none;
+    transition: 300ms ease-in-out;
+    cursor: pointer;
+}
+
+/* size */
+.xl{
+    width: 200px;
+    height: 36px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.l{
+    width: 150px;
+    height: 32px;
+    font-size: 11px;
+    font-weight: 600;
+}
+.m{
+    width: 100px;
+    height: 28px;
+    font-size: 10px;
+    font-weight: 500;
+}
+.arrow{
+    width: 40px;
+    height: 28px;
+}
+/* view button */
+.btn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn svg{
+    position: absolute;
+    z-index: 1;
+    stroke-width: 2px;
+}
+.btn span{
+    z-index: 2;
+}
+
+/* btn arrow */
+.arrow{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.arrow svg{
+    position: absolute;
+    z-index: 1;
+    stroke-width: 2px;
+}
+.arrow img{
+    z-index: 2;
+}
+
+/* btn colors */
+
+.white{
+    color: var(--white);
+}
+.white svg{
+    fill: none;
+    stroke: var(--white);
+}
+
+.blue{
+    color: var(--blue);
+}
+.blue svg{
+    fill: var(--white);
+    stroke: var(--blue);
+}
+
+.red{
+    color: var(--red);
+}
+.red svg{
+    fill: var(--white);
+    stroke: var(--red);
+}
+
+
+/* eneabled */
+.enabledForWhite{
+    color: var(--black);
+}
+.enabledForWhite svg{
+    fill: var(--white);
+    stroke: var(--white);
+}
+
+.enabledForBlue{
+    color: var(--white);
+}
+.enabledForBlue svg{
+    fill: var(--blue);
+    stroke: var(--blue);
+}
+
+.enabledForRed{
+    color: var(--white);
+}
+.enabledForRed svg{
+    fill: var(--red);
+    stroke: var(--red);
+}
+
+/* arrow  */
+.up{
+    transform: rotateZ(90deg);
+}
+.right{
+    transform: rotateZ(180deg);
+}
+.down{
+    transform: rotateZ(270deg);
+}

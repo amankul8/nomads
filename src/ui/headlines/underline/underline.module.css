@@ -1,0 +1,8 @@
+.underline{
+    display: block;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: var(--black);
+    margin-top: 8px;
+}

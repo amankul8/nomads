@@ -6,10 +6,14 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"]
-    });
+    }); 
 
     return config;
-  }
+  },
+
+  images: {
+    domains: ['cdn.wallpapersafari.com'],
+  },
 }
 
 module.exports = nextConfig

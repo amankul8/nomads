@@ -1,8 +1,7 @@
-import { Footer } from "@/components/footer";
+import { Footer, Header} from "@/modules";
 import styles from "./Layout.module.css";
 import {DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import Head from 'next/head';
-import {Header} from '@/components/header/index';
 import { TokenContextProvider } from "@/context";
 
 interface layoutProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import styles from "./AuthLayout.module.css";
-import {Menu} from "@/components/auth/menu/Menu";
+import {Menu} from "@/components/auth/navbar/Menu";
 import { TokenContextProvider } from "@/context";
 
 interface authLayoutProps {
