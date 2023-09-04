@@ -5,7 +5,7 @@ import generalStyle from "../headlinesStyle.module.css";
 import styles from "./simple.module.css";
 import cn from 'classnames';
 
-export const SimpleHeadline = ({color, tag, fontFamily, children, ...props}: IHeadline):JSX.Element=>{
+export const SimpleHeadline = ({color, tag, fontFamily, children, classname}: IHeadline):JSX.Element=>{
 
     switch(tag){
         case headlineTagTypes.h1:
@@ -20,7 +20,8 @@ export const SimpleHeadline = ({color, tag, fontFamily, children, ...props}: IHe
                             [generalStyle.blueColor]: color === headlineColorTypes.blue,
                             [generalStyle.fontFamilyCaveatBrush]: fontFamily === headlineFontFamilyTypes.caveatBrush,
                             [generalStyle.fontFamilyMontserrat]: fontFamily === headlineFontFamilyTypes.montserrat,
-                        }
+                        },
+                        classname
                     )}
                 >
                     {children}
@@ -38,7 +39,8 @@ export const SimpleHeadline = ({color, tag, fontFamily, children, ...props}: IHe
                             [generalStyle.blueColor]: color === headlineColorTypes.blue,
                             [generalStyle.fontFamilyCaveatBrush]: fontFamily === headlineFontFamilyTypes.caveatBrush,
                             [generalStyle.fontFamilyMontserrat]: fontFamily === headlineFontFamilyTypes.montserrat,
-                        }
+                        },
+                        classname
                     )}
                 >
                     {children}
@@ -56,7 +58,8 @@ export const SimpleHeadline = ({color, tag, fontFamily, children, ...props}: IHe
                             [generalStyle.blueColor]: color === headlineColorTypes.blue,
                             [generalStyle.fontFamilyCaveatBrush]: fontFamily === headlineFontFamilyTypes.caveatBrush,
                             [generalStyle.fontFamilyMontserrat]: fontFamily === headlineFontFamilyTypes.montserrat,
-                        }
+                        },
+                        classname
                     )}
                 >
                     {children}
@@ -74,7 +77,8 @@ export const SimpleHeadline = ({color, tag, fontFamily, children, ...props}: IHe
                             [generalStyle.blueColor]: color === headlineColorTypes.blue,
                             [generalStyle.fontFamilyCaveatBrush]: fontFamily === headlineFontFamilyTypes.caveatBrush,
                             [generalStyle.fontFamilyMontserrat]: fontFamily === headlineFontFamilyTypes.montserrat,
-                        }
+                        },
+                        classname
                     )}
                 >
                     {children}

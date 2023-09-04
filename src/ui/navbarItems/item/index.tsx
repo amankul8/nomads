@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "./item.module.css";
 
 
-export const Item = ({itemTextColor, itemTextSize, item, children, classname, active=false}:IItem):JSX.Element=>{
+export const Item = ({itemTextColor, itemTextSize, item, children, classname, active, ...props}:IItem):JSX.Element=>{
 
 
     return(
@@ -26,6 +26,7 @@ export const Item = ({itemTextColor, itemTextSize, item, children, classname, ac
                     classname
                 )
             }
+            {...props}
         >
             {children}
         </div>

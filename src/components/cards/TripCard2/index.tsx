@@ -12,8 +12,8 @@ import { Ptag } from "@/components/tagComponents/Ptag";
 import Image from "next/image";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import styles from "./TripCard2.module.css";
-import ClockIcon from "public/icons/cards/ClockIcon.svg";
-import { LittleMan } from "../icons/littleMan";
+import ClockIcon from "public/icons/cardIcons/ClockIcon.svg";
+import { LittleMan } from "../iconComponents/littleMan";
 
 interface IToureCard2Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
     imageUrl: string,

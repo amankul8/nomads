@@ -1,6 +1,6 @@
 import styles from "./resetPassword.module.css";
 import { AuthLayout } from '@/layout/authLayout/AuthLayout';
-import {Input, SubmitButton} from '@/ui';
+import {Input, Button, btnColorType, btnBorderSizeType, btnViewType} from '@/ui';
 import {useForm, SubmitHandler} from 'react-hook-form';
 
 interface IResetPassState {
@@ -56,7 +56,13 @@ export function ResetPassword() {
                     })}
                 />
 
-                    <SubmitButton enablbed={isValid}> Send </SubmitButton>
+                  <Button 
+                      btnColor={btnColorType.red}
+                      btnSize={btnBorderSizeType.l}
+                      btnView={btnViewType.button}
+                      enabled={isValid}
+                      classname={styles.button}
+                  > Send  </Button>
                 </form>
             </div>
         </div>

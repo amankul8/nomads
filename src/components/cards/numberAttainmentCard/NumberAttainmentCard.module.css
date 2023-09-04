@@ -1,0 +1,36 @@
+.card_wrapper{
+    width: 300px;
+    height: 170px;
+    background-image: url('/icons/cardIcons/attainmentIcons/numberAttainmentBg.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-style: normal;
+}
+
+.name{
+    margin-top: 20px;
+    color: var(--grey);
+    font-family: var(--font_family_montserrat);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30.6px;
+}
+
+.quantity{
+    color: var(--black);
+    font-family: var(--font_family_open_sans);
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 50px;
+}

@@ -1,0 +1,48 @@
+.card_wrapper{
+    width: 500px;
+    height: 330px;
+    border-radius: 20px 0px;
+    position: relative;
+    overflow: hidden;
+}
+.card_wrapper:hover .content{
+    background: rgba(0, 0, 0, .5);
+}
+
+.bg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, .3);
+    transition: 500ms ease-in-out;
+    display: flex;
+    flex-direction: row;
+}
+.left{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left svg{
+    width: 90%;
+}
+.right{
+    width: 70%;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}

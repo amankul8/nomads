@@ -1,0 +1,16 @@
+.wrapper{
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+
+.skirt{
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+.image{
+    width: 20%;
+    height: min-content;
+}

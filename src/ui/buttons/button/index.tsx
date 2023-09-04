@@ -10,7 +10,7 @@ import ArrowBorder from "../svg/btnSvgBorders/arrowBorder.svg";
 import Arrow from "../svg/arrow/arrow.png";
 import Image from "next/image";
 
-export const Button = forwardRef(({btnSize, btnView, btnColor, enabled=false, btnArrow, children, classname, icon,}:IButton, ref:ForwardedRef<HTMLButtonElement>):JSX.Element=>{
+export const Button = forwardRef(({btnSize, btnView, btnColor, enabled=false, btnArrow, children, classname, ...props}:IButton, ref:ForwardedRef<HTMLButtonElement>):JSX.Element=>{
 
     const btnViewHandler = ():JSX.Element=>{
         switch(btnView){
@@ -87,6 +87,7 @@ export const Button = forwardRef(({btnSize, btnView, btnColor, enabled=false, bt
                 },
                 classname,
             )}
+            {...props}
         >
             {btnViewHandler()}
         </button>

@@ -5,6 +5,7 @@ export interface IHeadline{
     color: headlineColorTypes,
     fontFamily: headlineFontFamilyTypes,
     tag: headlineTagTypes,
-    children: ReactNode
+    children: ReactNode,
+    classname?: string
 }
 

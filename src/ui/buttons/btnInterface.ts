@@ -7,7 +7,6 @@ export interface IButton extends DetailedHTMLProps<HTMLAttributes<HTMLButtonElem
     btnView: btnViewType,
     btnColor: btnColorType,
     btnArrow?: btnArrowType,
-    icon?: HTMLOrSVGElement,
     classname?: string,
     enabled?: boolean
 }

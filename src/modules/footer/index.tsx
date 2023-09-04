@@ -1,11 +1,13 @@
 import styles from "./Footer.module.css";
 import cn from "classnames";
 import {
-    Span,
     Paragraph,
     textColor,
     textSize,
-    textFamily
+    textFamily,
+    Item,
+    itemTextColorTypes,
+    Span
 } from "@/ui";
 import { SimpleHeadline, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes} from "@/ui";
 import Logo from "public/icons/logo.svg";
@@ -37,11 +39,11 @@ export const Footer = ():JSX.Element=>{
                         <p>Adventures in Central Asia</p>
                     </div>             
                 </div>
-                <span>
                 <SimpleHeadline 
                     tag={headlineTagTypes.h4} 
                     color={headlineColorTypes.white}
                     fontFamily={headlineFontFamilyTypes.montserrat}
+                    classname={styles.title}
                 >
                     Privacy Policy
                 </SimpleHeadline>
@@ -50,31 +52,77 @@ export const Footer = ():JSX.Element=>{
                     color={textColor.white}
                     fontFamily={textFamily.openSanse}
                 >
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque architecto voluptatum fugit doloremque cum soluta ullam officiis praesentium quasi sint quis sit delectus doloribus, perferendis natus labore reprehenderit dolorum! Veritatis accusamus porro dignissimos fugiat tenetur?
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque architecto voluptatum fugit doloremque cum soluta ullam officiis praesentium quasi sint quis sit delectus doloribus, perferendis natus labore reprehenderit dolorum!
                 </Paragraph>
-                </span>
             </div>
             <div className={styles.col_2}>
-                <span>destinations</span>
-                <span>tours</span>
-                <span>map</span>
-                <span>hotels & lodges</span>
-                <span>check flights</span>
-                <span>useful information</span>
-                <span>about us</span>
+                <Item
+                    itemTextColor={itemTextColorTypes.white}
+                    classname={styles.item}
+                >
+                    Destinations
+                </Item><br/>
+                <Item
+                    itemTextColor={itemTextColorTypes.white}
+                    classname={styles.item}
+                >
+                    Tours
+                </Item><br/>
+                <Item
+                    itemTextColor={itemTextColorTypes.white}
+                    classname={styles.item}
+                >
+                    Map
+                </Item><br/>
+                <Item
+                    itemTextColor={itemTextColorTypes.white}
+                    classname={styles.item}
+                >
+                    Hotels & Lodges
+                </Item><br/>
+                <Item
+                    itemTextColor={itemTextColorTypes.white}
+                    classname={styles.item}
+                >
+                    Check flights
+                </Item><br/>
+                <Item
+                    itemTextColor={itemTextColorTypes.white}
+                    classname={styles.item}
+                >
+                    Useful information
+                </Item><br/>
+                <Item
+                    itemTextColor={itemTextColorTypes.white}
+                    classname={styles.item}
+                >
+                    About us
+                </Item><br/>
             </div>
             <div className={styles.col_3}>
                 <div className={cn(styles.row, styles.row_1)}>
                     <Phone/>
-                    <p>+996 701 880 016</p>
+                    <Paragraph
+                        color={textColor.white}
+                        fontFamily={textFamily.openSanse}
+                        size={textSize.m}
+                    >+996 701 880 016</Paragraph>
                 </div>
                 <div className={cn(styles.row, styles.row_2)}>
                     <Location/>
-                    <p>Kyrgyzstan, Bishkek, J.Pudovkina 58</p>
+                    <Paragraph
+                        color={textColor.white}
+                        fontFamily={textFamily.openSanse}
+                        size={textSize.m}
+                    >Kyrgyzstan, Bishkek, J.Pudovkina 58</Paragraph>
                 </div>
                 <div className={cn(styles.row, styles.row_3)}>
                     <Email/>
-                    <p>askat.taalaibekov@gmail.com</p>
+                    <Paragraph
+                        color={textColor.white}
+                        fontFamily={textFamily.openSanse}
+                        size={textSize.m}
+                    >askat.taalaibekov@gmail.com</Paragraph>
                 </div>
                 <div className={styles.row}>
                     <span><Whatsapp/></span>

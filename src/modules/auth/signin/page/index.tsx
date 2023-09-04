@@ -2,9 +2,11 @@ import Link from "next/link";
 import {useForm, SubmitHandler} from "react-hook-form";
 import  FormData from 'form-data';
 import myAxios from '@/helpers/ApiHelper';
-import { Input, SubmitButton } from "@/ui";
+import { Input, Button, btnViewType, btnBorderSizeType, btnColorType } from "@/ui";
 import { AuthLayout } from "@/layout/authLayout/AuthLayout";
 import styles from "./signin.module.css";
+import FIcon from "public/icons/authIcons/withFacebookIcon.svg";
+import GIcon from "public/icons/authIcons/withGoogleIcon.svg";
 
 interface ISigninState{
   email: string,
@@ -44,12 +46,12 @@ export function SignIn() {
                 <span className={styles.title}>Sign in with</span>
                 <div className={styles.signin_with}>
                     <div className={styles.icons}>
-                        {/* facebook icon */}
+                        <FIcon/>
                         <span>Login with Facebook</span>
                     </div>
                     
                     <div className={styles.icons}>
-                        {/* google icon  */}
+                        <GIcon/>
                         <span>Login with Google</span>
                     </div>
                 </div>
@@ -101,7 +103,13 @@ export function SignIn() {
                         <Link href={"/auth/forgot-password"}>Forgot password?</Link>
                     </div>
 
-                    <SubmitButton type="submit" enablbed={  isValid}> Sign in </SubmitButton>
+                    <Button 
+                      btnColor={btnColorType.red}
+                      btnSize={btnBorderSizeType.xl}
+                      btnView={btnViewType.button}
+                      enabled={isValid}
+                      classname={styles.button}
+                    > Sign in  </Button>
                 </form>
             </div>
           </div>

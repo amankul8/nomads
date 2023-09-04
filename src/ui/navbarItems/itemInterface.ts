@@ -1,7 +1,7 @@
 import {itemTextColorTypes, itemTextSizeTypes, itemTypes} from "@/ui";
-import { ReactNode } from "react";
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 
-export interface IItem{
+export interface IItem extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
     children: ReactNode,
     itemTextColor?: itemTextColorTypes,
     itemTextSize?: itemTextSizeTypes,

@@ -9,7 +9,6 @@ export const Paragraph = ({size, color, fontFamily, children, classname}:IParagr
         <p 
             className={cn(
                 generalStyles.text,
-                classname,
                 {
                     [generalStyles.xl]:size===textSize.xl,
                     [generalStyles.l]:size===textSize.l,
@@ -25,7 +24,8 @@ export const Paragraph = ({size, color, fontFamily, children, classname}:IParagr
 
                     [generalStyles.montserrat]:fontFamily===textFamily.montserrat,
                     [generalStyles.openSanse]:fontFamily===textFamily.openSanse
-                }
+                },
+                classname
                 )}
         >  
             {children}

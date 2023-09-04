@@ -7,17 +7,18 @@ import {
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
-import { LittleMan } from "../icons/littleMan";
+import { LittleMan } from "../iconComponents/littleMan";
 import styles from "./TripCard1.module.css";
 
 interface IToureCard1Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
     imageUrl: string,
     title: string,
     text: string,
-    href: string
+    href: string,
+    className?: string
 }
 
-export const TripCard1 = ({imageUrl, title, text, href, ...props}:IToureCard1Props):JSX.Element=>{
+export const TripCard1 = ({imageUrl, title, text, href, className, ...props}:IToureCard1Props):JSX.Element=>{
 
     const route = useRouter();
 
@@ -28,9 +29,12 @@ export const TripCard1 = ({imageUrl, title, text, href, ...props}:IToureCard1Pro
     }
 
     return(
-        <div className={styles.wrapper} onClick={onClickHandler} {...props}>
+        <div 
+            className={styles.wrapper+' '+ className} 
+            onClick={onClickHandler} {...props}
+        >
             <Image
-                src="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+                src={imageUrl}
                 alt="My Card Image"
                 width={800}
                 height={800}
@@ -45,10 +49,10 @@ export const TripCard1 = ({imageUrl, title, text, href, ...props}:IToureCard1Pro
                         color={textColor.white}
                         fontFamily={textFamily.openSanse}
                     >
-                        Lorem ipsum dolor sit amet.
+                        {text}
                     </Paragraph>
 
-                    <h2>The Virgin Nature</h2>
+                    <h2>{title}</h2>
 
                     <div className={styles.icons_wrapper}>
                         {

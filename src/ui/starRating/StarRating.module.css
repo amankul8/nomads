@@ -1,0 +1,11 @@
+.grade_wrapper{
+    display: flex;
+}
+.star{
+    margin: 1px;
+    width: 22px;
+    height: 20px;
+}
+.grade{
+    margin-left: 20px;
+}

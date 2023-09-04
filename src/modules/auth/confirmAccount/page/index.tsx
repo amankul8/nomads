@@ -1,6 +1,6 @@
 import styles from "./confirmAccount.module.css";
 import { AuthLayout } from '@/layout/authLayout/AuthLayout';
-import {Input, SubmitButton} from '@/ui';
+import {Input, Button, btnColorType, btnBorderSizeType, btnViewType} from '@/ui';
 import {useForm, SubmitHandler} from "react-hook-form";
 
 
@@ -49,7 +49,13 @@ export function ConfirmAccount() {
                     })}
                   />
 
-                  <SubmitButton enablbed={isValid}> Send </SubmitButton>
+                  <Button 
+                    btnColor={btnColorType.red}
+                    btnSize={btnBorderSizeType.l}
+                    btnView={btnViewType.button}
+                    enabled={isValid}
+                    classname={styles.button}
+                > Confirm </Button>
               </form>
           </div>
         </div>

@@ -9,8 +9,8 @@ import {
     UnderlineHeadLine,
     Paragraph
 } from "@/ui";
-import Icon1 from "public/icons/blocks/icons/Icon1.svg"
-import Icon2 from "public/iconsblocks/icons/Icon2.svg"
+import Icon1 from "public/icons/infoBlockIcons/Icon1.svg";
+import Icon2 from "public/icons/infoBlockIcons/Icon2.svg"
 import { IParagraph, textColor, textSize, textFamily} from "@/ui";
 
 interface IInfoBlockProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{

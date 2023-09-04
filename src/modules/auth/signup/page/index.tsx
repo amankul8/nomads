@@ -1,6 +1,6 @@
 import styles from "./signup.module.css";
 import { AuthLayout } from '@/layout/authLayout/AuthLayout';
-import {Input, SubmitButton} from '@/ui';
+import {Input, Button, btnColorType, btnBorderSizeType, btnViewType} from '@/ui';
 import Link from "next/link";
 import {useForm} from "react-hook-form";
 import { SubmitHandler } from 'react-hook-form/dist/types';
@@ -120,7 +120,13 @@ export function SignUp() {
                     </label>
                 </div>
 
-                <SubmitButton enablbed={isValid}> Sign up </SubmitButton>
+                <Button 
+                    btnColor={btnColorType.red}
+                    btnSize={btnBorderSizeType.xl}
+                    btnView={btnViewType.button}
+                    enabled={isValid}
+                    classname={styles.button}
+                > Sign up </Button>
             </form>
         </div>
         </div>

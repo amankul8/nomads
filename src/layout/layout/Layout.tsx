@@ -11,7 +11,7 @@ interface layoutProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,H
 export const Layout = ({children}:layoutProps):JSX.Element=>{
 
     return(
-        <div className={styles.wrapper}>
+        <main className={styles.wrapper}>
             <TokenContextProvider>
                 <Head>
                     <title>Nomads Treval</title>
@@ -23,6 +23,6 @@ export const Layout = ({children}:layoutProps):JSX.Element=>{
                 {children}
                 <Footer/>
             </TokenContextProvider>
-        </div>
+        </main>
     )
 }

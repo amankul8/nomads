@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { ReactNode } from "react";
 import styles from "./AuthLayout.module.css";
-import {Menu} from "@/components/auth/navbar/Menu";
+import {AuthMenu} from "@/components/navbar";
 import { TokenContextProvider } from "@/context";
 
 interface authLayoutProps {
@@ -21,7 +21,7 @@ export function AuthLayout ({children, title}: authLayoutProps):JSX.Element {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 
-                <Menu/>
+                <AuthMenu/>
                 {children}
             </TokenContextProvider>
         </div>

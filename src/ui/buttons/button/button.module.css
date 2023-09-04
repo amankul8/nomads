@@ -6,6 +6,7 @@
     background: none;
     transition: 300ms ease-in-out;
     cursor: pointer;
+    z-index: 2;
 }
 
 /* size */
@@ -28,8 +29,8 @@
     font-weight: 500;
 }
 .arrow{
-    width: 40px;
-    height: 28px;
+    width: 50px;
+    height: 58px;
 }
 /* view button */
 .btn{
@@ -40,7 +41,6 @@
 }
 .btn svg{
     position: absolute;
-    z-index: 1;
     stroke-width: 2px;
 }
 .btn span{
@@ -56,7 +56,6 @@
 }
 .arrow svg{
     position: absolute;
-    z-index: 1;
     stroke-width: 2px;
 }
 .arrow img{
@@ -93,26 +92,32 @@
 /* eneabled */
 .enabledForWhite{
     color: var(--black);
+    cursor: pointer;
 }
 .enabledForWhite svg{
     fill: var(--white);
     stroke: var(--white);
+    cursor: pointer;
 }
 
 .enabledForBlue{
     color: var(--white);
+    cursor: pointer;
 }
 .enabledForBlue svg{
     fill: var(--blue);
     stroke: var(--blue);
+    cursor: pointer;
 }
 
 .enabledForRed{
     color: var(--white);
+    cursor: pointer;
 }
 .enabledForRed svg{
     fill: var(--red);
     stroke: var(--red);
+    cursor: pointer;
 }
 
 /* arrow  */

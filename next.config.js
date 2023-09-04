@@ -12,7 +12,7 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['cdn.wallpapersafari.com'],
+    domains: ['cdn.wallpapersafari.com', 'mcdn.wallpapersafari.com'],
   },
 }
 

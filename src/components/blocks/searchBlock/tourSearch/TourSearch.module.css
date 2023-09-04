@@ -1,0 +1,36 @@
+.wrapper{
+    width: 100%;
+    padding: 50px 60px 70px 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.title{
+    margin-bottom: 50px;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.inputDateBlock{
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1155px){
+    .form{
+        flex-direction: column;
+        gap: 20px;
+    }
+    .formItem{
+        width: 300px;
+    }
+    .inputDateBlock{
+        width: 300px;
+    }
+}
