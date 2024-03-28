@@ -31,7 +31,11 @@ export const UnderlineHeadLine = ({color, tag, fontFamily, children, classname}:
                     )}
                 >
                     {children}
-                    <span className={styles.underline}></span>
+                    <span className={cn(styles.underline,{
+                        [styles.black]: color === headlineColorTypes.black,
+                        [styles.white]: color === headlineColorTypes.white,
+                        [styles.blue]: color === headlineColorTypes.blue,
+                    })}></span>
                 </h2>
             )
         case headlineTagTypes.h3:
@@ -51,7 +55,11 @@ export const UnderlineHeadLine = ({color, tag, fontFamily, children, classname}:
                     )}
                 >
                     {children}
-                    <span className={styles.underline}></span>
+                    <span className={cn(styles.underline,{
+                        [styles.black]: color === headlineColorTypes.black,
+                        [styles.white]: color === headlineColorTypes.white,
+                        [styles.blue]: color === headlineColorTypes.blue,
+                    })}></span>
                 </h3>
             )
         case headlineTagTypes.h4:
@@ -71,7 +79,11 @@ export const UnderlineHeadLine = ({color, tag, fontFamily, children, classname}:
                     )}
                 >
                     {children}
-                    <span className={styles.underline}></span>
+                    <span className={cn(styles.underline,{
+                        [styles.black]: color === headlineColorTypes.black,
+                        [styles.white]: color === headlineColorTypes.white,
+                        [styles.blue]: color === headlineColorTypes.blue,
+                    })}></span>
                 </h4>
             )    
         default:

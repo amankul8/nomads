@@ -1,6 +1,5 @@
 import styles from "./Menu.module.css";
 import Logo from "public/icons/logo.svg";
-import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import { TokenContext } from "@/context";
 import Phone from "public/icons/socialMediaIcons/phone.svg";
@@ -136,9 +135,9 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
             </div>
 
             <div className={styles.menu}>
-                <Link href={"/"}>
+                <a href={"/"}>
                     <Logo/>
-                </Link>
+                </a>
                 <ul className={cn(styles.menu_items, {
                     [styles.show_menu_items]:menuIsOpen
                 }) }>
@@ -151,7 +150,7 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                 })
                             }
                             >
-                                <Link href={
+                                <a href={
                                         item.submenu===null? 
                                         item.url:
                                         isMobile?
@@ -172,7 +171,7 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                     >
                                             {item.name}
                                     </Item>
-                                </Link>
+                                </a>
                                     {   item.submenu!==null?
                                         <ul className={cn(
                                                 styles.submenu_wrapper
@@ -184,7 +183,7 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                                 key={index}
                                                 onClick={(e)=>menuItemClickHandler(e, item.id, false)}
                                             >
-                                                <Link href={'#'}>
+                                                <a href={'#'}>
                                                     <OrnamentIcon/>
                                                     <Item
                                                         item={itemTypes.item}
@@ -194,7 +193,7 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                                     >
                                                             {item.name}
                                                     </Item>
-                                                </Link>
+                                                </a>
                                             </li>
                                         {
                                             item.submenu.map((subItem, index)=>{
@@ -205,7 +204,7 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                                             }
                                                             key={index}
                                                         >
-                                                            <Link href={subItem.url}>
+                                                            <a href={subItem.url}>
                                                                 <OrnamentIcon/>
                                                                 <Item
                                                                     item={itemTypes.item}
@@ -215,7 +214,7 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                                                 >
                                                                         {subItem.name}
                                                                 </Item>
-                                                            </Link>   
+                                                            </a>   
                                                         </li>
                                                     
                                                 )

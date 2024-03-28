@@ -17,7 +17,7 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
             active: false, //for mobile 
             isMouseOver: false, //for desktop
             name: 'Destinations',
-            url: 'asd 1',
+            url: '/destinations',
             image: 'https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?cs=srgb&dl=pexels-pixabay-147411.jpg&fm=jpg',
             submenu: [
                 {id: 1, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
@@ -43,7 +43,7 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
             active: false, // for mobile 
             isMouseOver: false, // for desktop 
             name: 'Activities & Tours',
-            url: 'asd 2',
+            url: '/tours',
             image: 'https://www.wallpaperflare.com/static/90/294/365/mountains-lake-mountain-river-wallpaper.jpg',
             submenu: [
                 {id: 1, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
@@ -69,7 +69,7 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
             active: false,
             isMouseOver: false,
             name: 'Trip planner',
-            url: 'asd 3',
+            url: '/trip-planner',
             image: 'https://a-static.besthdwallpaper.com/green-lake-mountain-wallpaper-3554x1999-105353_53.jpg',
             submenu: null
         },
@@ -78,7 +78,7 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
             active: false,
             isMouseOver: false,
             name: 'Accommodations',
-            url: 'asd 4',
+            url: '/accommodations',
             image: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-james-wheeler-417074.jpg&fm=jpg',
             submenu: [
                 {id: 1, name: 'Accommodations', url: 'dsfs', image: ''},
@@ -104,7 +104,7 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
             active: false,
             isMouseOver: false,
             name: 'Our map',
-            url: 'asd 5',
+            url: '/our-map',
             image: 'https://free4kwallpapers.com/uploads/originals/2020/05/09/mountain-lake-wallpaper.png',
             submenu: null
         },
@@ -113,7 +113,7 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
             active: false,
             isMouseOver: false,
             name: 'Check flights',
-            url: 'asd 6',
+            url: '/check-flights',
             image: 'https://wallpapercave.com/wp/wp7882026.jpg',
             submenu: null
         },
@@ -122,7 +122,7 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
             active: false,
             isMouseOver: false,
             name: 'Useful Info',
-            url: 'asd 7',
+            url: '/useful-info',
             image: 'https://wallpaperaccess.com/full/1993211.jpg',
             submenu: [
                 {id: 1, name: 'Useful info', url: 'dsfs', image: ''},

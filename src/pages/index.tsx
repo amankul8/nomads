@@ -1,11 +1,9 @@
 import {Layout, FirstBlockLayout} from "@/layout"
 import {MainFirstBlock} from '@/components/blocks/firstBlocks';
-import { InfoBlock } from '@/components/blocks/InfoBlock';
+import { InfoBlock } from '@/components/blocks/InfoBlocks';
 import { TripCard2 } from '@/components/cards/TripCard2';
-import { useState } from "react";
 import { TourSearch } from "@/components/blocks/searchBlock";
 import { UniversalBlockItems } from "@/components/blocks/UniversalBlockItems";
-import { PopularToursBlock } from "@/components/blocks/popularToursBlock";
 import { BlockLayout } from "@/layout/blockLayout";
 import AttainmentIcon1 from "public/icons/cardIcons/attainmentIcons/icon_1.svg";
 import AttainmentIcon2 from "public/icons/cardIcons/attainmentIcons/icon_2.svg";
@@ -153,7 +151,15 @@ export default function Main() {
         href=''
       />
       <BlockLayout>
-        <PopularToursBlock/>
+        <UniversalBlockItems
+          title='Find Our Populer Tours'
+          isBg={true}
+        >  
+                <TripCard2 />
+                <TripCard2 />
+                <TripCard2 />
+                <TripCard2 />
+        </UniversalBlockItems>
       </BlockLayout>
       <UniversalBlockItems
         title='Our experience in quantitative terms'

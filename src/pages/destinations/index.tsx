@@ -1,6 +1,7 @@
+import { DestinationsFirstBlock } from "@/components/blocks/firstBlocks";
 import { UniversalBlockItems } from "@/components/blocks/UniversalBlockItems";
 import { DestinationCard } from "@/components/cards/destinationCard";
-import { FirstBlockLayout, Layout } from "@/layout";
+import {Layout } from "@/layout";
 import { btnBorderSizeType, btnColorType, btnViewType, Button } from "@/ui";
 import React from "react";
 
@@ -56,11 +57,7 @@ export default function Destinations():JSX.Element{
 
     return(
         <Layout>
-            <FirstBlockLayout
-                bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"
-                isFullSize={true}
-            >
-            </FirstBlockLayout>
+            <DestinationsFirstBlock/>
 
             <UniversalBlockItems
                 title="Destinations By Region"

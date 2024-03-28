@@ -5,7 +5,7 @@ import cloudImage from '/public/images/headerSkirt.png';
 import cn from "classnames";
 
 interface IFirstBlockLayout{
-    children: ReactNode,
+    children?: ReactNode,
     isFullSize?: boolean,
     withCloud?: boolean,
     bg_image?: string
@@ -23,6 +23,8 @@ export function FirstBlockLayout({children, bg_image, isFullSize=false, withClou
             className={cn(styles.skirt, {
               [styles.hidden_skirt]: !withCloud
             })}
+            height={1080}
+            width={1920}
             src={cloudImage}
             alt={''}
         />

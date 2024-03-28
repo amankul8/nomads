@@ -1,0 +1,25 @@
+.content_wrapper{
+    padding: 60px;
+}
+
+.headline{
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.headline svg{
+    margin-right: 15px;
+}
+.headline svg path{
+    fill: var(--blue);
+}
+
+.reviews{
+    padding-top: 40px;
+}
+
+@media only screen and (max-width: 720px){
+    .content_wrapper{
+        padding: 30px;
+    }
+}

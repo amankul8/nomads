@@ -1,0 +1,12 @@
+.map{
+    width: 90%;
+}
+.region:hover{
+    cursor: pointer;
+    transition: 500ms ease-in-out;
+    fill: var(--blue);
+}
+
+.active{
+    fill: var(--blue);
+}

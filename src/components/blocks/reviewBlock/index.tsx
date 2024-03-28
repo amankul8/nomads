@@ -19,30 +19,16 @@ export const ReviewBlock = ({}:IReviewBlock):JSX.Element=>{
         speed: 500,
         responsive: [
               {
-                breakpoint: 1900,
+                breakpoint: 2350,
                 settings: {
-                  slidesToShow: 3,
+                  slidesToShow: 2,
                 }
               },
             {
-              breakpoint: 1750,
+              breakpoint: 1650,
               settings: {
-                slidesToShow: 2,
+                slidesToShow: 1,
               }
-            },
-            {
-                breakpoint: 1250,
-                settings: {
-                  slidesToShow: 1,
-                }
-            },
-            {
-                breakpoint: 750,
-                settings: {
-                  slidesToShow: 1,
-                  className: "",
-                  centerMode: false,
-                }
             }
           ]
     }

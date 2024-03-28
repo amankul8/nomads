@@ -1,10 +1,10 @@
-.wrapper{
-    width: 200px;
-    height: 300px;
+.slide_wrapper{
     border-radius: 18px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    width: 200px;
+    height: 300px;
 }
 .image{
     position: absolute;

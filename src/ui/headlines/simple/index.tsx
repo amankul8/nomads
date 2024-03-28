@@ -2,7 +2,6 @@ import React from "react";
 import { IHeadline } from "@/ui";
 import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes} from "@/ui";
 import generalStyle from "../headlinesStyle.module.css";
-import styles from "./simple.module.css";
 import cn from 'classnames';
 
 export const SimpleHeadline = ({color, tag, fontFamily, children, classname}: IHeadline):JSX.Element=>{

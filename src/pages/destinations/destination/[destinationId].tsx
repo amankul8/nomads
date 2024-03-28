@@ -1,4 +1,6 @@
-import { FirstBlockLayout, Layout } from "@/layout";
+import { DestinationFirstBlock } from "@/components/blocks/firstBlocks";
+import { DestinationContent } from "@/components/content/destination";
+import { Layout } from "@/layout";
 import { GetStaticPropsContext } from "next";
 import React from "react";
 
@@ -6,11 +8,8 @@ export default function Destination(props:any):JSX.Element{
 
     return(
         <Layout>
-            <FirstBlockLayout
-                bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"
-                isFullSize={true}
-            >
-            </FirstBlockLayout>
+            <DestinationFirstBlock/>
+            <DestinationContent/>
         </Layout>
     )
 } 

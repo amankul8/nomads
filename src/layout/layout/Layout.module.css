@@ -3,4 +3,6 @@
     height: 100%;
     background: var(--white);
     position: relative;
+    max-width: 2560px;
+    margin: auto;
 }

@@ -18,20 +18,19 @@ interface IToureCard1Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
     className?: string
 }
 
-export const TripCard1 = ({imageUrl, title, text, href, className, ...props}:IToureCard1Props):JSX.Element=>{
+export const TripCard1 = ({imageUrl, title, text, href, className}:IToureCard1Props):JSX.Element=>{
 
-    const route = useRouter();
+    const router = useRouter();
 
     const onClickHandler = ():void => {
         if(href){
-            route.push(href);
+            router.push(href);
         }
     }
 
     return(
         <div 
-            className={styles.wrapper+' '+ className} 
-            onClick={onClickHandler} {...props}
+            className={styles.slide_wrapper+' '+ className} 
         >
             <Image
                 src={imageUrl}
@@ -52,7 +51,7 @@ export const TripCard1 = ({imageUrl, title, text, href, className, ...props}:ITo
                         {text}
                     </Paragraph>
 
-                    <h2>{title}</h2>
+                    <h2 onClick={onClickHandler} >{title}</h2>
 
                     <div className={styles.icons_wrapper}>
                         {
