@@ -1,0 +1,24 @@
+.tour {
+    margin: 30px;
+    width: 200px;
+    height: 300px;
+    border-radius: 18px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    
+    .content {
+        width: 100%;
+        padding: 1.5em .8em;
+        display: flex;
+        flex-direction: column;
+        gap: .8em;
+    }
+
+}

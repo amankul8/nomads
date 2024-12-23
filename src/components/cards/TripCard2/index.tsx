@@ -8,12 +8,10 @@ import {
     textFamily,
     textSize
 } from "@/ui";
-import { Ptag } from "@/components/tagComponents/Ptag";
 import Image from "next/image";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import styles from "./TripCard2.module.css";
 import ClockIcon from "public/icons/cardIcons/ClockIcon.svg";
-import { LittleMan } from "../iconComponents/littleMan";
 
 interface IToureCard2Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
     imageUrl: string,
@@ -59,14 +57,6 @@ export const TripCard2 = ():JSX.Element=>{
                 <div className={styles.time}>
                     <ClockIcon className={styles.clock_icon}/>
                     <span> 12 days </span>
-                </div>
-                <div className={styles.rating}>
-                    <LittleMan className={styles.little_man_icon} opacity={1}/>
-                    <LittleMan className={styles.little_man_icon} opacity={1}/>
-                    <LittleMan className={styles.little_man_icon} opacity={1}/>
-                    <LittleMan className={styles.little_man_icon} opacity={1}/>
-                    <LittleMan className={styles.little_man_icon} opacity={1}/>
-                    <LittleMan className={styles.little_man_icon} opacity={1}/>
                 </div>
             </div>
             <button className={styles.button}>

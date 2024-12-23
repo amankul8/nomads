@@ -15,6 +15,8 @@ import { ReviewBlock } from "@/components/blocks/reviewBlock";
 import { PartnersBlock } from "@/components/blocks/partnersBlock";
 import { ImagesBlock } from "@/components/blocks/imagesBlock";
 
+import {TourSimpleCard} from '@/components/cards/index';
+
 export interface ISlides{
   id: number,
   title: string,
@@ -155,10 +157,10 @@ export default function Main() {
           title='Find Our Populer Tours'
           isBg={true}
         >  
-                <TripCard2 />
-                <TripCard2 />
-                <TripCard2 />
-                <TripCard2 />
+          <TripCard2 />
+          <TripCard2 />
+          <TripCard2 />
+          <TripCard2 />
         </UniversalBlockItems>
       </BlockLayout>
       <UniversalBlockItems
@@ -181,6 +183,16 @@ export default function Main() {
       </BlockLayout>
       <PartnersBlock/>
       <ImagesBlock/>
+      
+      <TourSimpleCard
+        title = "Title"
+        text = "Text"
+        link = ''
+        rating = {12}
+        image = "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+      />
+
+      
 
     </Layout>
   );

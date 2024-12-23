@@ -1,0 +1,1 @@
+export {TourSimpleCard} from "./tourSimpleCard";

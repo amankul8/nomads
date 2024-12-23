@@ -11,6 +11,7 @@ export {SelectList } from "./inputs/selectList";
 export {InputDate} from "./inputs/inputDate";
 export {SelectCheckbox} from "./inputs/selectCheckbox";
 export {StarRating} from "./starRating";
+export {Rating} from './rating/index';
 
 
 

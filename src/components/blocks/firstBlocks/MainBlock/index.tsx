@@ -17,12 +17,12 @@ import {
 import React, {useRef, useState } from "react";
 import styles from "./MainBlock.module.css";
 import { ISlides } from "@/pages";
-import { TripCard1 } from "@/components/cards/TripCard1";
 import {animate, motion} from 'framer-motion';
 import cn from "classnames";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { TourSimpleCard } from "@/components/cards";
 
 interface IDestinationBlock{
     slides: ISlides[],
@@ -171,11 +171,12 @@ export const MainFirstBlock=({slides}:IDestinationBlock):JSX.Element=>{
                                             className={styles.slide}
                                             key={item.id}
                                         >
-                                            <TripCard1
-                                                title={item.title}
-                                                text={item.description}
-                                                imageUrl={item.image}
-                                                href={''}
+                                            <TourSimpleCard
+                                                title = {item.title}
+                                                text = {item.description}
+                                                image = {item.image}
+                                                rating = {3}
+                                                link = {''}
                                             />
                                         </div>
                                     )
