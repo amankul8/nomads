@@ -5,6 +5,7 @@ import cls from "classnames";
 import { useState } from "react";
 
 import styles from "./tourSimpleCard.module.scss";
+
 import { 
     Paragraph,
     textColor,
@@ -21,15 +22,15 @@ import {
 
 
 interface ITTourSimpleCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
-    title: string,
-    text: string,
+    name: string,
+    description: string,
     link: string,
-    rating: number,
+    complexity: number,
     image: string,
     classnames?: string 
 }
 
-export const TourSimpleCard: React.FC<ITTourSimpleCard> = ({ title, text, link, rating, classnames, image, ...rest}) => {
+export const TourSimpleCard: React.FC<ITTourSimpleCard> = ({ name, description, link, complexity, classnames, image, ...rest}) => {
 
     const [isHovered, setIsHovered] = useState<boolean>(false);
     
@@ -45,7 +46,7 @@ export const TourSimpleCard: React.FC<ITTourSimpleCard> = ({ title, text, link, 
         <div 
             style = {{ backgroundImage: 'url('+ image +')' }}
             className={cls(
-                styles.tour, 
+                styles.card, 
                 classnames,
                 { [styles.hovered]: isHovered }
             )} {...rest}
@@ -57,19 +58,19 @@ export const TourSimpleCard: React.FC<ITTourSimpleCard> = ({ title, text, link, 
                     fontFamily={textFamily.openSanse}
 
                 >
-                    {text}
+                    {description}
                 </Paragraph>
                 <SimpleHeadline
                     color={headlineColorTypes.white}
                     fontFamily={headlineFontFamilyTypes.caveatBrush}
                     tag={headlineTagTypes.h2}
                 >
-                    {title}
+                    {name}
                 </SimpleHeadline>
 
                 <Rating 
                     type = "human"
-                    rating = {3}
+                    rating = {complexity}
                     size = {16}
                 /> 
             </div>            

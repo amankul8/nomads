@@ -15,7 +15,7 @@ import { ReviewBlock } from "@/components/blocks/reviewBlock";
 import { PartnersBlock } from "@/components/blocks/partnersBlock";
 import { ImagesBlock } from "@/components/blocks/imagesBlock";
 
-import {TourSimpleCard} from '@/components/cards/index';
+import {TourSimpleCard, TourInfoCard} from '@/components/cards/index';
 
 export interface ISlides{
   id: number,
@@ -185,14 +185,26 @@ export default function Main() {
       <ImagesBlock/>
       
       <TourSimpleCard
-        title = "Title"
-        text = "Text"
+        name = "Title"
+        description = "Text"
         link = ''
-        rating = {12}
+        complexity = {12}
         image = "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
       />
 
-      
+        <TourInfoCard
+          name="Title"
+          description="Ipsum text"
+          link=""
+          image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+          days={5}
+          price={1000}
+          promotion={30}
+          countries={['Kyrgyzstan', 'Kazakstan']}
+          complexity={3}
+          rating={3}
+          reviewsCount={73}
+        />
 
     </Layout>
   );
