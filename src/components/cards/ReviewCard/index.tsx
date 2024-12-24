@@ -1,5 +1,5 @@
 import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, textColor, textFamily, textSize } from "@/ui";
-import { StarRating } from "@/ui";
+import { Rating } from "@/ui";
 import Image from "next/image";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import styles from "./ReviewCard.module.css";
@@ -42,8 +42,10 @@ export const ReviewCard = ({}:IReviewCardProps):JSX.Element=>{
                     >
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, tempore earum. Laborum minima cumque cum ipsa neque blanditiis fugit dolor est nisi officia accusantium, recusandae mollitia quis alias totam rerum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, tempore earum. 
                     </Paragraph>
-                    <StarRating 
-                        grade={3.7}
+                    <Rating 
+                        type="star"
+                        color="var(--white)"
+                        rating={4}
                     />
                 </div>
             </div>

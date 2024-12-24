@@ -10,8 +10,8 @@ export {SandwichIcon} from "./navbarItems/sandwichIcon";
 export {SelectList } from "./inputs/selectList";
 export {InputDate} from "./inputs/inputDate";
 export {SelectCheckbox} from "./inputs/selectCheckbox";
-export {StarRating} from "./starRating";
 export {Rating} from './rating/index';
+export {TourProperty} from "./properties/tour";
 
 
 
@@ -33,3 +33,5 @@ export type {IButton} from './buttons/btnInterface';
 //export navbar types
 export {itemTextColorTypes, itemTextSizeTypes, itemTypes} from "./navbarItems/types";
 export type {IItem} from "./navbarItems/itemInterface";
+
+export {TourPropertyType} from "./properties/tour";

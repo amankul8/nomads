@@ -12,8 +12,12 @@ import {
     SimpleHeadline, 
     textColor,
     textFamily,
-    textSize
+    textSize,
+    TourProperty,
+    TourPropertyType,
 } from "@/ui";
+import Trekking from "public/icons/tour/properties/trekking.svg";
+import Ticket from "public/icons/tour/properties/ticket.svg";
 
 interface ITourInfoCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     name: string,
@@ -85,10 +89,20 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
 
     return (
         <div 
-            className={
-                styles.card
-            }
+            className={ cls(styles.card, {
+                [styles.hovered]: !isList && hovered,
+                [styles.list]: isList
+            }) }
+            
             {...rest}
+            
+            onMouseOver={()=>{
+                setHovered(true);
+            }}
+
+            onMouseOut={()=>{
+                setHovered(false);
+            }}
         >
             <div 
                 className={styles.image}
@@ -97,15 +111,16 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
 
             <div className={styles.info}>
                 <div className={styles.curcle}>
-                    {0}
+                    <Trekking/>
                 </div>
 
                 <div className={styles.price}>
-                    {price + ' USD'}
+                    <Ticket/> 
+                    { price + ' USD'}
                 </div>
 
                 <div className={styles.content}>
-                    <div>
+                    <div className={styles.content_info}>
                         <SimpleHeadline
                             color={headlineColorTypes.black}
                             fontFamily={headlineFontFamilyTypes.montserrat}
@@ -123,16 +138,61 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                         </Paragraph>
                     </div>
 
-                    <Rating
-                        rating={4}
-                        type="human"
-                        color="var(--blue)"
-                        size={20}
-                    />
+                    <div className={styles.properties}>
+                        <TourProperty 
+                            color="var(--blue)" 
+                            type={TourPropertyType.cycle} 
+                        />
+                        <TourProperty 
+                            color="var(--blue)" 
+                            type={TourPropertyType.family} 
+                        />
+                        <TourProperty 
+                            color="var(--blue)" 
+                            type={TourPropertyType.horse_ridding} 
+                        />
+                        <TourProperty 
+                            color="var(--blue)" 
+                            type={TourPropertyType.multiactive} 
+                        />
+                        <TourProperty 
+                            color="var(--blue)" 
+                            type={TourPropertyType.jeep} 
+                        />
+                        <TourProperty 
+                            color="var(--blue)" 
+                            type={TourPropertyType.paragliding} 
+                        />
+                        <TourProperty 
+                            color="var(--blue)" 
+                            type={TourPropertyType.photo} 
+                        />
+                    </div>
+
+                    <div className={styles.icons_wrapper}>
+                        <Rating
+                            rating={4}
+                            type="human"
+                            color="var(--blue)"
+                            size={20}
+                        />
+                        <div className={styles.days}>
+                            <TourProperty 
+                                color="var(--blue)" 
+                                type={TourPropertyType.day} 
+                                days={12}
+                            />
+                            <TourProperty 
+                                color="var(--blue)" 
+                                type={TourPropertyType.night} 
+                                days={11}
+                            />
+                        </div> 
+                    </div>
                 </div>   
 
                 <div className={styles.btn}>
-
+                    Discover This Trip
                 </div>
             </div>
 

@@ -172,10 +172,10 @@ export const MainFirstBlock=({slides}:IDestinationBlock):JSX.Element=>{
                                             key={item.id}
                                         >
                                             <TourSimpleCard
-                                                title = {item.title}
-                                                text = {item.description}
+                                                name = {item.title}
+                                                description = {item.description}
                                                 image = {item.image}
-                                                rating = {3}
+                                                complexity = {3}
                                                 link = {''}
                                             />
                                         </div>
