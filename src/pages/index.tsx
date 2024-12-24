@@ -207,6 +207,21 @@ export default function Main() {
         isList={true}
       />
 
+<TourInfoCard
+        name="Title"
+        description="Ipsum text"
+        link=""
+        image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+        days={5}
+        price={1000}
+        promotion={30}
+        countries={['Kyrgyzstan', 'Kazakstan']}
+        complexity={3}
+        rating={3}
+        reviewsCount={73}
+        isList={false}
+      />
+
     </Layout>
   );
 };
