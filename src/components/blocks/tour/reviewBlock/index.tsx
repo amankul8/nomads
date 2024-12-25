@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, Span, StarRating, textColor, textFamily, textSize } from "@/ui";
+import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, Span, Rating, textColor, textFamily, textSize } from "@/ui";
 import Image from "next/image";
 import styles from "./ReviewBlock.module.css";
 
@@ -43,9 +43,10 @@ export const TourReviewBlock = ({userName, avatar, country, tour, date, review, 
                         </Span>
                     </div>
                 </div>
-                <StarRating 
-                    grade={grade}
-                    className={styles.rating}
+                <Rating 
+                    rating={grade}
+                    type="star"
+                    color="var(--white)"
                 />
             </div>
             <div className={styles.review_block}>

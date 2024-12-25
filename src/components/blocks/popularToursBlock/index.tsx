@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./PopularToursBlock.module.css";
-import { TripCard2 } from "@/components/cards/TripCard2";
 import { HeaderBlock, headerBlockColorType, headerBlockTourType } from "./headerBlock";
 import SliderBlock from "@/components/blocks/sliderBlock";
+import { TourInfoCard } from "@/components/cards";
 
 export const PopularToursBlock = ({ind}: {ind: number}):JSX.Element=>{
 
@@ -53,15 +53,119 @@ export const PopularToursBlock = ({ind}: {ind: number}):JSX.Element=>{
                   }
                 ]}
             >
-                <TripCard2/>
-                <TripCard2/>
-                <TripCard2/>
-                <TripCard2/>
-                <TripCard2/>
-                <TripCard2/>
-                <TripCard2/>
-                <TripCard2/>
-                <TripCard2/>
+              <div>
+                <TourInfoCard
+                  name="Title"
+                  description="Ipsum text"
+                  link=""
+                  image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+                  days={5}
+                  price={1000}
+                  promotion={30}
+                  countries={['Kyrgyzstan', 'Kazakstan']}
+                  complexity={3}
+                  rating={3}
+                  reviewsCount={73}
+                  isList={false}
+                />
+              </div>
+              <div>
+                <TourInfoCard
+                  name="Title"
+                  description="Ipsum text"
+                  link=""
+                  image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+                  days={5}
+                  price={1000}
+                  promotion={30}
+                  countries={['Kyrgyzstan', 'Kazakstan']}
+                  complexity={3}
+                  rating={3}
+                  reviewsCount={73}
+                  isList={false}
+                />
+              </div>
+              <div>
+                <TourInfoCard
+                  name="Title"
+                  description="Ipsum text"
+                  link=""
+                  image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+                  days={5}
+                  price={1000}
+                  promotion={30}
+                  countries={['Kyrgyzstan', 'Kazakstan']}
+                  complexity={3}
+                  rating={3}
+                  reviewsCount={73}
+                  isList={false}
+                />
+              </div>
+              <div>
+                <TourInfoCard
+                  name="Title"
+                  description="Ipsum text"
+                  link=""
+                  image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+                  days={5}
+                  price={1000}
+                  promotion={30}
+                  countries={['Kyrgyzstan', 'Kazakstan']}
+                  complexity={3}
+                  rating={3}
+                  reviewsCount={73}
+                  isList={false}
+                />
+              </div>
+              <div>
+                <TourInfoCard
+                  name="Title"
+                  description="Ipsum text"
+                  link=""
+                  image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+                  days={5}
+                  price={1000}
+                  promotion={30}
+                  countries={['Kyrgyzstan', 'Kazakstan']}
+                  complexity={3}
+                  rating={3}
+                  reviewsCount={73}
+                  isList={false}
+                />
+              </div>
+              <div>
+                <TourInfoCard
+                  name="Title"
+                  description="Ipsum text"
+                  link=""
+                  image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+                  days={5}
+                  price={1000}
+                  promotion={30}
+                  countries={['Kyrgyzstan', 'Kazakstan']}
+                  complexity={3}
+                  rating={3}
+                  reviewsCount={73}
+                  isList={false}
+                />
+              </div>
+              <div>
+                <TourInfoCard
+                  name="Title"
+                  description="Ipsum text"
+                  link=""
+                  image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+                  days={5}
+                  price={1000}
+                  promotion={30}
+                  countries={['Kyrgyzstan', 'Kazakstan']}
+                  complexity={3}
+                  rating={3}
+                  reviewsCount={73}
+                  isList={false}
+                />
+              </div>
+        
             </SliderBlock>
         </section>
     )

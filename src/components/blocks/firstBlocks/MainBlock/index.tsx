@@ -46,7 +46,7 @@ export const MainFirstBlock=({slides}:IDestinationBlock):JSX.Element=>{
         beforeChange: handleBeforeChange,
         responsive: [
               {
-                breakpoint: 1900,
+                breakpoint: 2000,
                 settings: {
                   slidesToShow: 4,
                   slidesToScroll: 1,
@@ -54,7 +54,7 @@ export const MainFirstBlock=({slides}:IDestinationBlock):JSX.Element=>{
                 }
               },
             {
-              breakpoint: 1500,
+              breakpoint: 1700,
               settings: {
                 slidesToShow: 3,
                 slidesToScroll: 1,
@@ -62,7 +62,7 @@ export const MainFirstBlock=({slides}:IDestinationBlock):JSX.Element=>{
               }
             },
             {
-              breakpoint: 1150,
+              breakpoint: 1300,
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,

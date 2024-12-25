@@ -1,9 +1,7 @@
 import {Layout, FirstBlockLayout} from "@/layout"
 import {MainFirstBlock} from '@/components/blocks/firstBlocks';
 import { InfoBlock } from '@/components/blocks/InfoBlocks';
-import { TripCard2 } from '@/components/cards/TripCard2';
-import { TourSearch } from "@/components/blocks/searchBlock";
-import { UniversalBlockItems } from "@/components/blocks/UniversalBlockItems";
+import { UniversalBlockItems } from "@/components/blocks/universalBlockItems";
 import { BlockLayout } from "@/layout/blockLayout";
 import AttainmentIcon1 from "public/icons/cardIcons/attainmentIcons/icon_1.svg";
 import AttainmentIcon2 from "public/icons/cardIcons/attainmentIcons/icon_2.svg";
@@ -16,6 +14,7 @@ import { PartnersBlock } from "@/components/blocks/partnersBlock";
 import { ImagesBlock } from "@/components/blocks/imagesBlock";
 
 import {TourSimpleCard, TourInfoCard} from '@/components/cards/index';
+import styles from "@/styles/home.module.scss";
 
 export interface ISlides{
   id: number,
@@ -122,7 +121,11 @@ export default function Main() {
       <FirstBlockLayout>
         <MainFirstBlock slides={slides}/>
       </FirstBlockLayout>
-      <TourSearch/>
+
+      <div className={styles.search}>
+        
+      </div>
+      
       <InfoBlock 
         title='' 
         text=''
@@ -157,10 +160,66 @@ export default function Main() {
           title='Find Our Populer Tours'
           isBg={true}
         >  
-          <TripCard2 />
-          <TripCard2 />
-          <TripCard2 />
-          <TripCard2 />
+          <TourInfoCard
+            name="Title"
+            description="Ipsum text"
+            link=""
+            image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+            days={5}
+            price={1000}
+            promotion={30}
+            countries={['Kyrgyzstan', 'Kazakstan']}
+            complexity={3}
+            rating={3}
+            reviewsCount={73}
+            isList={false}
+          />
+
+          <TourInfoCard
+            name="Title"
+            description="Ipsum text"
+            link=""
+            image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+            days={5}
+            price={1000}
+            promotion={30}
+            countries={['Kyrgyzstan', 'Kazakstan']}
+            complexity={3}
+            rating={3}
+            reviewsCount={73}
+            isList={false}
+          />
+
+          <TourInfoCard
+            name="Title"
+            description="Ipsum text"
+            link=""
+            image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+            days={5}
+            price={1000}
+            promotion={30}
+            countries={['Kyrgyzstan', 'Kazakstan']}
+            complexity={3}
+            rating={3}
+            reviewsCount={73}
+            isList={false}
+          />
+
+          <TourInfoCard
+            name="Title"
+            description="Ipsum text"
+            link=""
+            image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+            days={5}
+            price={1000}
+            promotion={30}
+            countries={['Kyrgyzstan', 'Kazakstan']}
+            complexity={3}
+            rating={3}
+            reviewsCount={73}
+            isList={false}
+          />
+
         </UniversalBlockItems>
       </BlockLayout>
       <UniversalBlockItems
@@ -193,21 +252,6 @@ export default function Main() {
       />
 
       <TourInfoCard
-        name="Title"
-        description="Ipsum text"
-        link=""
-        image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
-        days={5}
-        price={1000}
-        promotion={30}
-        countries={['Kyrgyzstan', 'Kazakstan']}
-        complexity={3}
-        rating={3}
-        reviewsCount={73}
-        isList={true}
-      />
-
-<TourInfoCard
         name="Title"
         description="Ipsum text"
         link=""

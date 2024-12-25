@@ -1,5 +1,5 @@
 import { DestinationsFirstBlock } from "@/components/blocks/firstBlocks";
-import { UniversalBlockItems } from "@/components/blocks/UniversalBlockItems";
+import { UniversalBlockItems } from "@/components/blocks/universalBlockItems";
 import { DestinationCard } from "@/components/cards/destinationCard";
 import {Layout } from "@/layout";
 import { btnBorderSizeType, btnColorType, btnViewType, Button } from "@/ui";

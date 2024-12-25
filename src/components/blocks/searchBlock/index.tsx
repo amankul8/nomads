@@ -1,2 +1,0 @@
-
-export {TourSearch} from "./tourSearch"

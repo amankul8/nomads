@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { DetailedHTMLProps, HTMLAttributes, ReactNode, useEffect, useState } from 'react';
 import cls from "classnames";
 
 import styles from "./rating.module.scss";
@@ -9,7 +9,7 @@ import StarIcon from "public/icons/ratingIcons/star.svg";
 
 type RatingType = 'star' | 'human';
 
-interface IRating {
+interface IRating extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     type: RatingType
     rating: number,
     size?: number,

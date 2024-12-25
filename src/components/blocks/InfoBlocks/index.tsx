@@ -49,7 +49,9 @@ export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBloc
                         size={textSize.l}
                         fontFamily={textFamily.openSanse}
                     >
-                        The Alps are the highest and most extensive mountain range system that lies entirely in Europe, separating Southern from Central and Western Europe and stretching approximately 1,200 kilometres across eight Alpine countries: France, Switzerland, Italy, Monaco, Liechtenstein, Austria, Germany, and Slovenia.
+                        The Alps are the highest and most extensive mountain range system that lies entirely in Europe, separating Southern from Central and Western Europe and stretching approximately 1,200 kilometres across eight 
+                        Alpine countries: France, Switzerland, Italy, Monaco, Liechtenstein, Austria, Germany, and Slovenia.
+                        flsktjnbhsrk fgbsfgb sdfgbd hdfdts
                     </Paragraph>
                     {/* More info button */}
                 </div>
