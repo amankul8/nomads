@@ -15,6 +15,7 @@ import { ImagesBlock } from "@/components/blocks/imagesBlock";
 
 import {TourSimpleCard, TourInfoCard} from '@/components/cards/index';
 import styles from "@/styles/home.module.scss";
+import {SelectList} from "@/ui/inputs/selectList";
 
 export interface ISlides{
   id: number,
@@ -123,7 +124,18 @@ export default function Main() {
       </FirstBlockLayout>
 
       <div className={styles.search}>
-        
+      <SelectList
+        label="Destination"
+        list={[
+          { id: 1, name: "Первый элемент" },
+          { id: 2, name: "Второй элемент" },
+          { id: 3, name: "Третий элемент" },
+          { id: 4, name: "Четвёртый элемент" },
+        ]}
+        selectHandler={(item) => {
+          console.log("Выбранный элемент:", item);
+        }}
+      />
       </div>
       
       <InfoBlock 
