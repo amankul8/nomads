@@ -63,8 +63,42 @@ export const SelectList = ({
     };
 
     return (
-        <div >
+        <div className={styles.select}>
+            <label 
+                className={cls(styles.label, {
+                    [styles.up_label]: isFocus || text.length > 0
+                })} 
+                htmlFor="text_input_id"
+            >
+                {label} 
 
+            </label>
+            <input 
+                className={styles.input}
+                type="text" id="text_input_id"
+                autoComplete="off"
+                onFocus={handleInputFocus}
+                onBlur={handleInputBlur}
+                onChange={(e)=>handleInputChanged(e.target.value)}
+            />
+
+            <div className={styles.list}>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+                <div>dfsd </div>
+            </div>
         </div>
     );
 };

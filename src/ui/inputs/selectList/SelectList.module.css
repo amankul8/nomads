@@ -1,77 +1,46 @@
-.select{
+.select {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--grey);
-    font-family: var(--font_family_open_sans);
+    width: min-content;
+    height: min-content;
+    min-width: 150px;
 
-    .input_wrapper {
-        min-width: 200px;
-        position: relative;
-
-        .label {
-            position: absolute;
-            left: 0px;
-            top: 7px;
-            transition: 150ms linear;
-        }
-        
-        .input {
-            width: 100%;
-            outline: none;
-            border: none;
-            border-bottom: 2px solid var(--blue);
-            min-height: 2.3em;
-            padding: 8px 0;
-            color: var(--grey);
-        }
+    .label {
+        position: absolute;
+        left: 3px;
+        top: 3px;
+        transition: 150ms linear;
+        color: grey;
+    }
+    
+    .up_label {
+        top: auto;
+        top: -1.1em;
+        left: 0;
+        font-size: .8em;
     }
 
-    .upLabel {
-        top: -1em;
-        font-size: .8em;
-    } 
+    .input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid var(--blue);
+        padding: 5px 3px;
+        color: grey;
+    }
 
     .list {
-        display: none;
         position: absolute;
+        z-index: 3;
+        width: 100%;
+        min-height: 100px;
+        max-height: 150px;
         left: 0;
         top: 105%;
-        width: 100%;
-        height: min-content;
-        max-height: 150px;
-        z-index: 3;
+        border-radius: 5px;
+        padding: 5px;
         background-color: var(--white);
         overflow-x: hidden;
-        overflow-y: scroll;
-        -webkit-box-shadow: 0px 2px 2px 0px rgba(34, 60, 80, 0.2);
-        -moz-box-shadow: 0px 2px 2px 0px rgba(34, 60, 80, 0.2);
-        box-shadow: 0px 2px 2px 0px rgba(34, 60, 80, 0.2);
-        scrollbar-width: thin;
-        
-        .list_item {
-            padding: 5px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        .list_item:hover {
-            background: rgb(243, 243, 243);
-            cursor: pointer;
-        }
+        scrollbar-width: none;
     }
-}
-
-.disclosed {
-    .input_wrapper {
-        .label {
-            top: -1em;
-            font-size: .8em;
-        } 
-    }
-
-    .list {
-        display: block;
-    }
-
-
 }
