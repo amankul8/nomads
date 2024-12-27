@@ -1,0 +1,1 @@
+export {TourSearchBlock} from './tourSearchBlock';

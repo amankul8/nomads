@@ -7,7 +7,7 @@ import Photos from "public/icons/headlines/Photos.svg";
 import Review from "public/icons/headlines/Review.svg";
 import { DayInfoBlock } from "@/components/blocks/tour/dayInfoBlock";
 import dynamic from "next/dynamic";
-import { TourAdditionalBlock } from "@/components/blocks/tour/AdditionalBlock";
+import { TourAdditionalBlock } from "@/components/blocks/tour/additionalBlock";
 import { TourReviewBlock } from "@/components/blocks/tour/reviewBlock";
 import Gallery from "@/components/blocks/galleryBlock";
 
