@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, HtmlHTMLAttributes } from "react";
+import React, { DetailedHTMLProps, HtmlHTMLAttributes, useState } from "react";
 
 import styles from "./tourSearchBlock.module.scss";
 import { 
@@ -18,6 +18,9 @@ interface ITourSearchBlock extends DetailedHTMLProps<HtmlHTMLAttributes<HTMLDivE
 }
 
 export const TourSearchBlock:React.FC<ITourSearchBlock> = () => {
+
+    const [value, setValue] = useState<string | number | Date>();
+
     return (
         <section className={styles.block}>
             
