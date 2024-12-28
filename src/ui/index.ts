@@ -12,6 +12,7 @@ export {InputDate} from "./inputs/search/inputDate";
 export {SelectCheckbox} from "./inputs/selectCheckbox";
 export {Rating} from './rating/index';
 export {TourProperty} from "./properties/tour";
+export {SearchInput} from "./inputs/search/input"
 
 
 

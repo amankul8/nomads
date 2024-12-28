@@ -1,7 +1,15 @@
 import React, { DetailedHTMLProps, HtmlHTMLAttributes } from "react";
 
 import styles from "./tourSearchBlock.module.scss";
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Input, InputDate, InputSelectList, SimpleHeadline } from "@/ui";
+import { 
+    headlineColorTypes, 
+    headlineFontFamilyTypes, 
+    headlineTagTypes,  
+    InputDate, 
+    InputSelectList, 
+    SearchInput, 
+    SimpleHeadline, 
+} from "@/ui";
 
 
 
@@ -35,7 +43,11 @@ export const TourSearchBlock:React.FC<ITourSearchBlock> = () => {
                     }}
                 />
 
-                <InputDate label="Date" />
+                <SearchInput 
+                    label="Duration"
+                    type="text"
+                />
+                
             </div>
         </section>
     )

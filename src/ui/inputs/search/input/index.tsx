@@ -11,10 +11,37 @@ interface ISearchInput extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement
     type: InputType
 }
 
-export const SearchInput:React.FC<ISearchInput> = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+export const SearchInput:React.FC<ISearchInput> = ({label, type}) => {
+   switch(type) {
+    case 'text':
+        return (
+            <div className={styles.input_wrapper}>
+                <label className={styles.label}> {label} </label>
+                <input type="text" />
+            </div>
+        );
+    case 'number':
+        return (
+            <div className={styles.input_wrapper}>
+                <label className={styles.label}> {label} </label>
+                <input className='input' type="number" />
+            </div>
+        );
+    case 'date':
+        return (
+            <div className={styles.input_wrapper}>
+                <label className={styles.label}> {label} </label>
+                date
+            </div>
+        );
+    case 'range':
+        return (
+            <div className={styles.input_wrapper}>
+                <label className={styles.label}> {label} </label>
+                range
+            </div>
+        );    
+    default:
+        return <></>
+   }
 }
