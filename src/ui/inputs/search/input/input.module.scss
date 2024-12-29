@@ -1,6 +1,39 @@
 .input_wrapper {
-    .input_wrapper {
-        width: 60px;
-        background: red;
+    position: relative;
+    height: 30px;
+    color: var(--grey);
+    display: flex;
+    flex-direction: row;
+
+    .label {
+        position: absolute;
+        left: 3px;
+        top: 5px;
+        transition: 150ms linear;
+    }
+
+    .upLabel {
+        top: -1em;
+        left: 0; 
+    }
+    
+    .input {
+        height: 100%;
+        width: 100%;
+        color: var(--grey);
+        border: none;
+        outline: none;
+        border-bottom: 2px solid var(--blue);
+    }
+
+    .input_date {
+        position: relative;
+        .upLabel {
+            top: -1em;
+            left: 0; 
+        }
+    }
+    .input_date:first-child {
+        margin-right: 20px;
     }
 }

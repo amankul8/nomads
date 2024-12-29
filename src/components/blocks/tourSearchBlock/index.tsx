@@ -50,6 +50,21 @@ export const TourSearchBlock:React.FC<ITourSearchBlock> = () => {
                     label="Duration"
                     type="text"
                 />
+
+                <SearchInput 
+                    label="Defficalt"
+                    type="range"
+                />
+
+                <SearchInput 
+                    label="Duration"
+                    type="number"
+                />
+
+                <SearchInput 
+                    label="Duration"
+                    type="date"
+                />
                 
             </div>
         </section>
