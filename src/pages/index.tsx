@@ -1,21 +1,26 @@
-import {Layout, FirstBlockLayout} from "@/layout"
-import {MainFirstBlock} from '@/components/blocks/firstBlocks';
-import { InfoBlock } from '@/components/blocks/InfoBlocks';
-import { UniversalBlockItems } from "@/components/blocks/universalBlockItems";
-import { BlockLayout } from "@/layout/blockLayout";
+import {Layout, FirstBlockLayout, UniversalBlock} from "@/layouts"
+import {MainFirstBlock} from '@/components/pageFirstBlocks';
+import { InfoBlock } from '@/components/blocks/info';
 import AttainmentIcon1 from "public/icons/cardIcons/attainmentIcons/icon_1.svg";
 import AttainmentIcon2 from "public/icons/cardIcons/attainmentIcons/icon_2.svg";
 import AttainmentIcon3 from "public/icons/cardIcons/attainmentIcons/icon_3.svg";
 import AttainmentIcon4 from "public/icons/cardIcons/attainmentIcons/icon_4.svg";
 import { AttainmentCard } from "@/components/cards/attainmentCard";
 import { NumberAttainmentCard } from "@/components/cards/numberAttainmentCard";
-import { ReviewBlock } from "@/components/blocks/reviewBlock";
-import { PartnersBlock } from "@/components/blocks/partnersBlock";
-import { ImagesBlock } from "@/components/blocks/imagesBlock";
+import { ReviewBlock } from "@/components/sliders/review";
 
-import {TourSimpleCard, TourInfoCard} from '@/components/cards/index';
 import styles from "@/styles/home.module.scss";
-import { TourSearchBlock } from "@/components/blocks";
+import { TourSearch,  } from "@/components/blocks";
+import { CustomButton, CustomIconButton, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, UnderlineHeadLine} from "@/ui";
+
+import logo1 from "public/icons/partnersLogos/img1.png"
+import logo2 from "public/icons/partnersLogos/img2.png"
+import logo3 from "public/icons/partnersLogos/img3.png"
+import logo4 from "public/icons/partnersLogos/img4.png"
+import logo5 from "public/icons/partnersLogos/img5.png"
+import Image from "next/image";
+import TourSlider from "@/components/sliders/tour";
+import { BlockWithSkirt } from "@/layouts/index";
 
 export interface ISlides{
   id: number,
@@ -23,6 +28,7 @@ export interface ISlides{
   description: string,
   image: string
 }
+
 
 const slides: ISlides[] = [
   {
@@ -60,7 +66,19 @@ const slides: ISlides[] = [
     title: 'The Virgin Nature 6',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
     image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
-  }
+  },
+  {
+    id: 6,
+    title: 'The Virgin Nature 6',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
+    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
+  },
+  {
+    id: 6,
+    title: 'The Virgin Nature 6',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
+    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
+  },
 ]
 
 const attainments = [
@@ -123,7 +141,7 @@ export default function Main() {
         <MainFirstBlock slides={slides}/>
       </FirstBlockLayout>
 
-      <TourSearchBlock/>
+      <TourSearch/>
       
       <InfoBlock 
         title='' 
@@ -132,7 +150,7 @@ export default function Main() {
         href=''
       />
 
-      <UniversalBlockItems
+      <UniversalBlock
         title="Our experience"
         isBg={true}
       >
@@ -148,83 +166,26 @@ export default function Main() {
             )
           })
         }
-      </UniversalBlockItems>  
+      </UniversalBlock>  
 
       <InfoBlock 
         title='' 
         text=''
         imageUrl=''
         href=''
+        def={true}
       />
       
-      <BlockLayout>
-        <UniversalBlockItems
-          title='Find Our Populer Tours'
-          isBg={true}
-        >  
-          <TourInfoCard
-            name="Title"
-            description="Ipsum text"
-            link=""
-            image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
-            days={5}
-            price={1000}
-            promotion={30}
-            countries={['Kyrgyzstan', 'Kazakstan']}
-            complexity={3}
-            rating={3}
-            reviewsCount={73}
-            isList={false}
-          />
-
-          <TourInfoCard
-            name="Title"
-            description="Ipsum text"
-            link=""
-            image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
-            days={5}
-            price={1000}
-            promotion={30}
-            countries={['Kyrgyzstan', 'Kazakstan']}
-            complexity={3}
-            rating={3}
-            reviewsCount={73}
-            isList={false}
-          />
-
-          <TourInfoCard
-            name="Title"
-            description="Ipsum text"
-            link=""
-            image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
-            days={5}
-            price={1000}
-            promotion={30}
-            countries={['Kyrgyzstan', 'Kazakstan']}
-            complexity={3}
-            rating={3}
-            reviewsCount={73}
-            isList={false}
-          />
-
-          <TourInfoCard
-            name="Title"
-            description="Ipsum text"
-            link=""
-            image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
-            days={5}
-            price={1000}
-            promotion={30}
-            countries={['Kyrgyzstan', 'Kazakstan']}
-            complexity={3}
-            rating={3}
-            reviewsCount={73}
-            isList={false}
-          />
-
-        </UniversalBlockItems>
-      </BlockLayout>
-      <UniversalBlockItems
+      <BlockWithSkirt
+        image=""
+      >
+        <TourSlider
+          list={slides}
+          isCenteredMode
+        />
+      </BlockWithSkirt>
+      
+      <UniversalBlock
         title='Our experience in quantitative terms'
       >
         {
@@ -238,35 +199,59 @@ export default function Main() {
             )
           })
         }
-      </UniversalBlockItems> 
-      <BlockLayout>
-        <ReviewBlock/>
-      </BlockLayout>
-      <PartnersBlock/>
-      <ImagesBlock/>
-      
-      <TourSimpleCard
-        name = "Title"
-        description = "Text"
-        link = ''
-        complexity = {12}
-        image = "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
-      />
+      </UniversalBlock> 
 
-      <TourInfoCard
-        name="Title"
-        description="Ipsum text"
-        link=""
-        image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
-        days={5}
-        price={1000}
-        promotion={30}
-        countries={['Kyrgyzstan', 'Kazakstan']}
-        complexity={3}
-        rating={3}
-        reviewsCount={73}
-        isList={false}
-      />
+      <BlockWithSkirt
+        image=""
+      >
+        <ReviewBlock/>
+      </BlockWithSkirt>
+
+      <section className={styles.partners}>
+            <UnderlineHeadLine
+                color={headlineColorTypes.black}
+                fontFamily={headlineFontFamilyTypes.caveatBrush}
+                tag={headlineTagTypes.h2}
+            >
+                We are featured in
+            </UnderlineHeadLine>
+            <div className={styles.content}>
+                <Image
+                    className={styles.logo}
+                    src={logo1}
+                    alt=""
+                />
+                <Image
+                    className={styles.logo}
+                    src={logo2}
+                    alt=""
+                />
+                <Image
+                    className={styles.logo}
+                    src={logo3}
+                    alt=""
+                />
+                <Image
+                    className={styles.logo}
+                    src={logo4}
+                    alt=""
+                />
+                <Image
+                    className={styles.logo}
+                    src={logo5}
+                    alt=""
+                />
+            </div>
+        </section>
+
+      <section className={styles.images}>
+        <img className={styles.image} src='https://alizila.oss-us-west-1.aliyuncs.com/uploads/2018/02/chinese-tourists_featured.jpg' alt={''} key={'1'}/>
+        <img className={styles.image} src='https://static.euronews.com/articles/stories/07/20/09/70/1440x810_cmsv2_9fd3e55d-8994-5043-a421-db603f303be9-7200970.jpg' alt={''} key={'2'}/>
+        <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/57/40/lzjXFh.jpg' alt={''} key={'3'}/>
+        <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/0/89/LjaVd1.jpg' alt={''} key={'4'} />
+        <img className={styles.image} src='https://www.marketplace.org/wp-content/uploads/2022/05/LastTourist_cropped_nl.jpg?w=1200' alt={''} key={'5'}/>
+        <img className={styles.skirt} src={'/icons/blockSkirts/blueBlockSkirt.svg'} alt="" />
+      </section>
 
     </Layout>
   );

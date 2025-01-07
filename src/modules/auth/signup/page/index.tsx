@@ -1,5 +1,5 @@
 import styles from "./signup.module.css";
-import { AuthLayout } from '@/layout/authLayout/AuthLayout';
+import { AuthLayout } from '@/layouts/authLayout/AuthLayout';
 import {Input, Button, btnColorType, btnBorderSizeType, btnViewType} from '@/ui';
 import Link from "next/link";
 import {useForm} from "react-hook-form";

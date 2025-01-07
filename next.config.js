@@ -26,7 +26,17 @@ const nextConfig = {
   },
 
   images: {
-    domains: ['cdn.wallpapersafari.com', 'mcdn.wallpapersafari.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'mcdn.wallpapersafari.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.wallpapersafari.com'
+      }
+    ],
+    
   },
 }
 

@@ -1,9 +1,10 @@
-import { DestinationsFirstBlock } from "@/components/blocks/firstBlocks";
-import { UniversalBlockItems } from "@/components/blocks/universalBlockItems";
+import { DestinationsFirstBlock } from "@/components/pageFirstBlocks";
+import { UniversalBlock } from "@/layouts/block/universal";
 import { DestinationCard } from "@/components/cards/destinationCard";
-import {Layout } from "@/layout";
-import { btnBorderSizeType, btnColorType, btnViewType, Button } from "@/ui";
+import { useRouter } from 'next/navigation'
+import {Layout } from "@/layouts";
 import React from "react";
+import { CustomButton } from "@/ui";
 
 const regions = [
     {
@@ -55,43 +56,49 @@ const regions = [
 
 export default function Destinations():JSX.Element{
 
+    const router = useRouter();
+
+    const handleDescription = (id: number) => {
+        router.push('/destinations/destination/1')
+    }
+
     return(
         <Layout>
             <DestinationsFirstBlock/>
 
-            <UniversalBlockItems
+            <UniversalBlock
                 title="Destinations By Region"
             >
                 {
                     regions.map((item)=>{
                         return(
-                            <Button
-                                btnColor={btnColorType.blue}
-                                btnSize={btnBorderSizeType.l}
-                                btnView={btnViewType.button}
-                                enabled={item.isActive}
-                                key={item.id}
+                            <CustomButton
+                                color="blue"
+                                handler={()=>{}}
                             >
                                 {item.name}
-                            </Button>
+                            </CustomButton>
                     )})
                 }
-            </UniversalBlockItems>
-            <UniversalBlockItems>
-                <DestinationCard key={1}/>
-                <DestinationCard key={2}/>
-                <DestinationCard key={3}/>
-                <DestinationCard key={4}/>
-                <DestinationCard key={5}/>
-                <DestinationCard key={6}/>
-                <DestinationCard key={7}/>
-                <DestinationCard key={8}/>
-                <DestinationCard key={9}/>
-                <DestinationCard key={10}/>
-                <DestinationCard key={11}/>
-                <DestinationCard key={12}/>
-                <DestinationCard key={13}/>
-            </UniversalBlockItems>
+            </UniversalBlock>
+            
+            <UniversalBlock>
+                <DestinationCard 
+                    name="Bishkek"
+                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
+                    onClick={ ()=>handleDescription(1) }
+                />
+                <DestinationCard
+                    name="Bishkek"
+                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
+                    onClick={ ()=>handleDescription(2) }
+                />
+                <DestinationCard
+                    name="Bishkek"
+                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
+                    onClick={ ()=>handleDescription(3) }
+                />
+            </UniversalBlock>
         </Layout>
     )
 }

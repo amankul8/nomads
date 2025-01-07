@@ -4,3 +4,47 @@
     justify-content: space-around;
     padding: 40px 60px;
 }
+
+.images{
+    width: 100%;
+    height: calc(100vh/5);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background: red;
+}
+
+.skirt{
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+.image{
+    width: calc(100%/5);
+    height: 100%;
+    object-fit: cover;
+}
+
+.partners{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding: 40px 0;
+}
+
+.logo{
+    width: 150px;
+    height: 80px;
+    margin: 0 20px;
+}

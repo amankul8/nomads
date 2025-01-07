@@ -3,7 +3,7 @@ import styles from "./subheader.module.css";
 import {ISubheader} from "@/components/content";
 import cn from "classnames";
 import {motion, Variants} from "framer-motion";
-import { btnBorderSizeType, btnColorType, btnViewType, Button, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Item, itemTextColorTypes, itemTextSizeTypes, itemTypes, Paragraph, SimpleHeadline, textColor, textFamily, textSize } from "@/ui";
+import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Item, itemTextColorTypes, itemTextSizeTypes, itemTypes, Paragraph, SimpleHeadline, textColor, textFamily, textSize } from "@/ui";
 import OrnamentIcon from 'public/icons/listMarkers/ornament.svg';
 import Compass from "./svg/compass.svg";
 import CheckFlights from "./svg/checkFlights.svg";
@@ -188,14 +188,14 @@ export const SubHeaderContent = ({data, name, className, isMouseOver, bg_image, 
                                 >
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eligendi explicabo ut saepe repudiandae reiciendis eaque quae corporis et quaerat!Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, explicabo blanditiis necessitatibus dolores ad quibusdam eius voluptate culpa eos non vitae optio consequatur commodi hic.
                                 </Paragraph>
-                                <Button
+                                {/* <Button
                                     btnColor={btnColorType.white}
                                     btnSize={btnBorderSizeType.l}
                                     btnView={btnViewType.button}
                                     classname={styles.button}
                                 >
                                     Discover
-                                </Button>
+                                </Button> */}
                             </div>
                         </motion.div>
                     </div>

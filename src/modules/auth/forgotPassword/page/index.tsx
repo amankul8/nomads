@@ -1,5 +1,5 @@
 import styles from "./forgotPassword.module.css";
-import { AuthLayout } from '@/layout/authLayout/AuthLayout';
+import { AuthLayout } from '@/layouts/authLayout/AuthLayout';
 import {Input, Button, btnColorType, btnBorderSizeType, btnViewType} from '@/ui';
 import {useForm} from "react-hook-form";
 import { SubmitHandler } from 'react-hook-form/dist/types';

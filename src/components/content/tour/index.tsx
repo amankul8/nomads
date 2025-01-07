@@ -5,26 +5,12 @@ import MapIcon from "public/icons/headlines/Map.svg";
 import Additional from "public/icons/headlines/Additional.svg";
 import Photos from "public/icons/headlines/Photos.svg";
 import Review from "public/icons/headlines/Review.svg";
-import { DayInfoBlock } from "@/components/blocks/tour/dayInfoBlock";
 import dynamic from "next/dynamic";
-import { TourAdditionalBlock } from "@/components/blocks/tour/additionalBlock";
-import { TourReviewBlock } from "@/components/blocks/tour/reviewBlock";
-import Gallery from "@/components/blocks/galleryBlock";
+import { DayInfoBlock } from "@/components/blocks/tourDetail/dayInfoBlock";
+import { TourAdditionalBlock } from "@/components/blocks/tourDetail/additionalBlock";
+import { TourReviewBlock } from "@/components/blocks/tourDetail/reviewBlock";
 
-const Map = dynamic(() => import('@/components/blocks/mapBlock').then((m) => m.Map), { ssr: false });
-
-const images = [
-    "https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg",
-    "https://mcdn.wallpapersafari.com/medium/90/19/rKHwW9.jpg",
-    "https://mcdn.wallpapersafari.com/335/73/19/BF6f7i.jpg",
-    "https://mcdn.wallpapersafari.com/medium/51/76/M5Sixv.jpg",
-    "https://mcdn.wallpapersafari.com/335/82/70/nv9j5J.jpg",
-    "https://mcdn.wallpapersafari.com/medium/9/2/U8jznD.jpg",
-    "https://mcdn.wallpapersafari.com/medium/43/23/BpwJ56.jpg",
-    "https://mcdn.wallpapersafari.com/335/51/51/sdioGm.jpg",
-    "https://mcdn.wallpapersafari.com/medium/64/7/qrZYhn.jpg"
-
-]
+const Map = dynamic(() => import('@/components/blocks/map').then((m) => m.Map), { ssr: false });
 
 export const TourContent = ():JSX.Element=>{
 
@@ -100,8 +86,6 @@ export const TourContent = ():JSX.Element=>{
                     <Photos/>
                     Photos
                 </SimpleHeadline>
-
-                <Gallery images={images}/>
 
             </div>
             <div className={styles.reviews}>

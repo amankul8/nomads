@@ -1,5 +1,5 @@
 import styles from "./resetPassword.module.css";
-import { AuthLayout } from '@/layout/authLayout/AuthLayout';
+import { AuthLayout } from '@/layouts/authLayout/AuthLayout';
 import {Input, Button, btnColorType, btnBorderSizeType, btnViewType} from '@/ui';
 import {useForm, SubmitHandler} from 'react-hook-form';
 

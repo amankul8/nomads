@@ -1,0 +1,23 @@
+.wrapper{
+    width: 100%;
+    padding: 50px 60px;
+    background-color: var(--white);
+    text-align: center;
+}
+.title{
+    margin-bottom: 40px;
+}
+.content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.bg{
+    background-image: url('/images/attainment_bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

@@ -1,0 +1,121 @@
+.btn {
+    border: none;
+    height: 40px;
+    display: inline-flex;
+    width: min-content;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    flex-direction: row;
+
+    span {
+        padding: 0 1em;
+        font-size: 1em;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: capitalize;
+        white-space: nowrap;
+    }
+    
+    .left_svg {
+        height: 100%;
+        fill: none;
+        stroke-width: 10;
+    }
+
+    .right_svg {
+        height: 100%;
+        fill: none;
+        stroke-width: 10;
+    }
+}
+
+.btn_white {
+    span {
+        border-top: 4px solid var(--white);
+        border-bottom: 4px solid var(--white);
+        color: var(--white);
+    }
+    
+    .left_svg {
+        stroke: var(--white);
+    }
+
+    .right_svg {
+        stroke: var(--white);
+    }
+}
+
+.btn_blue {
+    span {
+        border-top: 4px solid var(--blue);
+        border-bottom: 4px solid var(--blue);
+        color: var(--blue);
+    }
+    
+    .left_svg {
+        stroke: var(--blue);
+    }
+
+    .right_svg {
+        stroke: var(--blue);
+    }
+}
+
+.btn_red {
+    span {
+        border-top: 4px solid var(--red);
+        border-bottom: 4px solid var(--red);
+        color: var(--red);
+    }
+    
+    .left_svg {
+        stroke: var(--red);
+    }
+
+    .right_svg {
+        stroke: var(--red);
+    }
+}
+
+
+.white_active {
+    .left_svg {
+        fill: var(--white);
+    }
+    .right_svg {
+        fill: var(--white);
+    }
+    span {
+        background-color: var(--white);
+        color: var(--blue)
+    }
+}
+
+.blue_active {
+    .left_svg {
+        fill: var(--blue);
+    }
+    .right_svg {
+        fill: var(--blue);
+    }
+    span {
+        background-color: var(--blue);
+        color: var(--white)
+    }
+}
+
+.red_active {
+    .left_svg {
+        fill: var(--red);
+    }
+    .right_svg {
+        fill: var(--red);
+    }
+    span {
+        background-color: var(--red);
+        color: var(--white)
+    }
+}

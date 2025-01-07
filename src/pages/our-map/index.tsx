@@ -1,5 +1,5 @@
 import { MapContent } from "@/components/content/map";
-import {Layout} from "@/layout"
+import {Layout} from "@/layouts"
 
 export default function Map() {
 

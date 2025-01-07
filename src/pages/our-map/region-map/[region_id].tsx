@@ -1,5 +1,5 @@
 import { RegionMapContent } from "@/components/content/regionMapContent";
-import { Layout } from "@/layout";
+import { Layout } from "@/layouts";
 import { GetStaticPropsContext } from "next";
 
 export default function RegionMap(props:any):JSX.Element{

@@ -1,0 +1,25 @@
+.wrapper{
+    width: 100%;
+    position: relative;
+    background-image: url('/images/skirtBlockBg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: border-box;
+    overflow: hidden;
+}
+.upSkirt{
+    position:absolute;
+    width: 100%;
+    left: 0;
+    top: -1px;
+    z-index: 1;
+}
+.downSkirt{
+    position:absolute;
+    width: 100%;
+    left: 0;
+    bottom: -1px;
+    z-index: 1;
+    transform: rotateZ(180deg);
+}

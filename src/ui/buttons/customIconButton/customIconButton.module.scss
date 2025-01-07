@@ -1,0 +1,57 @@
+.btn {
+    min-height: 40px;
+    min-width: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    
+    .phone {
+        height: 100%;
+        position: absolute;
+    }
+
+    .icon {
+        position: absolute;
+        z-index: 1;
+        height: 1em;
+    }
+}
+
+.curled {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}   
+
+.squared {
+    height: 40px;
+    width: 60px;
+}
+
+.red {
+    .phone {
+        fill: var(--red);
+    }
+    .icon {
+        fill: var(--white);
+    }
+}
+.blue {
+    .phone {
+        fill: var(--blue);
+    }
+    .icon {
+        fill: var(--white);
+    }
+}
+.white {
+    .phone {
+        fill: var(--white);
+    }
+    .icon {
+        fill: var(--blue);
+    }
+}

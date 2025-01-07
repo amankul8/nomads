@@ -1,12 +1,17 @@
 import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, SimpleHeadline } from "@/ui";
 import Image from "next/image";
-import React from "react";
+import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 import styles from "./DestinationCard.module.css";
 
-export const DestinationCard = ():JSX.Element =>{
+interface IDescriptionCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    name: string,
+    image: string,
+}
+
+export const DestinationCard:React.FC<IDescriptionCard> = ({name, image, ...rest}):JSX.Element =>{
 
     return(
-        <div className={styles.card_wrapper}>
+        <div className={styles.card_wrapper} {...rest}>
             <Image
                 src={'https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg'}
                 width={320}
@@ -20,7 +25,7 @@ export const DestinationCard = ():JSX.Element =>{
                     fontFamily={headlineFontFamilyTypes.montserrat}
                     tag={headlineTagTypes.h3}
                 >
-                    Bishkek
+                    {name}
                 </SimpleHeadline>
             </div>
         </div>

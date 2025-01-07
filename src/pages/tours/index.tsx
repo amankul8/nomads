@@ -1,6 +1,6 @@
-import { ToursFirstBlock } from "@/components/blocks/firstBlocks";
+import { ToursFirstBlock } from "@/components/pageFirstBlocks";
 import ToursContent from "@/components/content/tours";
-import {Layout} from "@/layout"
+import {Layout} from "@/layouts"
 
 export default function Main() {
 

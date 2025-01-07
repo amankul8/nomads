@@ -3,7 +3,7 @@ import {useForm, SubmitHandler} from "react-hook-form";
 import  FormData from 'form-data';
 import myAxios from '@/helpers/ApiHelper';
 import { Input, Button, btnViewType, btnBorderSizeType, btnColorType } from "@/ui";
-import { AuthLayout } from "@/layout/authLayout/AuthLayout";
+import { AuthLayout } from "@/layouts/authLayout/AuthLayout";
 import styles from "./signin.module.css";
 import FIcon from "public/icons/authIcons/withFacebookIcon.svg";
 import GIcon from "public/icons/authIcons/withGoogleIcon.svg";

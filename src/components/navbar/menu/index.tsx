@@ -7,11 +7,8 @@ import Email from "public/icons/socialMediaIcons/email.svg";
 import Facebook from "public/icons/socialMediaIcons/facebook.svg";
 import Instagram from "public/icons/socialMediaIcons/instagram.svg";
 import Twitter from "public/icons/socialMediaIcons/twitter.svg";
-import { 
-    btnBorderSizeType, 
-    btnColorType, 
-    btnViewType, 
-    Button, 
+import {
+    CustomButton,
     Item, 
     itemTextColorTypes, 
     itemTextSizeTypes, 
@@ -58,6 +55,11 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
             }
         })
         return lang;
+    }
+
+    const handleLangs = () => {
+        console.log('work');
+        setIsLangsOpen(() => !isLangsOpen);
     }
 
     const menuItemClickHandler=(e:React.MouseEvent<HTMLElement, MouseEvent>, id:number, isActive:boolean)=>{
@@ -230,16 +232,15 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                 
                 <div className={styles.control_block}>
                     <div className={styles.languages_wrapper}>
-                        <Button 
-                            btnColor={btnColorType.blue}
-                            btnSize={btnBorderSizeType.l}
-                            btnView={btnViewType.button}
-                            onClick={()=>{setIsLangsOpen(!isLangsOpen);}}
+                        <CustomButton
+                            color="white"
+                            active={true}
+                            handler={handleLangs}
                         >
                             {
                                 getCurrentLanguage(currentLanguageCode)
                             }
-                        </Button>
+                        </CustomButton>
                         <div 
                             className={cn(
                                 styles.languages,

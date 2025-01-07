@@ -1,1 +1,1 @@
-export {TourSearchBlock} from './tourSearchBlock';
+export {TourSearch} from './tourSearch';

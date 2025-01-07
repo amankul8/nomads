@@ -185,13 +185,6 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                         />
                     </div>
 
-                    <Rating
-                        rating={4}
-                        color="var(--blue)"
-                        type="human"
-                        size={20}
-                    />
-
                     <div className={styles.card_days}>
                         <TourProperty
                             type={TourPropertyType.day}
@@ -204,6 +197,13 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                             days={11}
                         />
                     </div>
+
+                    <Rating
+                        rating={4}
+                        color="var(--blue)"
+                        type="human"
+                        size={16}
+                    />
                 </div>
 
                 <div className={styles.list_card_proporties}>

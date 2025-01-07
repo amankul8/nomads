@@ -1,5 +1,5 @@
-import { TourFirstBlock } from "@/components/blocks/firstBlocks";
-import {FirstBlockLayout, Layout} from "@/layout"
+import { TourFirstBlock } from "@/components/pageFirstBlocks";
+import {FirstBlockLayout, Layout} from "@/layouts"
 import { GetStaticPropsContext } from "next";
 import { TourContent } from "@/components/content";
 

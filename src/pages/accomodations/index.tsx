@@ -1,5 +1,5 @@
-import { ToursFirstBlock } from "@/components/blocks/firstBlocks";
-import {Layout} from "@/layout"
+import { ToursFirstBlock } from "@/components/pageFirstBlocks";
+import {Layout} from "@/layouts"
 
 export default function Main() {
 
