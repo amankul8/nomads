@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap');
+ 
+@font-face {
+    font-family: 'Caveat Brush';
+    src: url('/fonts/CaveatBrush-Regular.woff2') format('woff2'),
+        url('/fonts/CaveatBrush-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+font-family: "Montserrat";
+src: url('/fonts/Montserrat-VariableFont_wght.woff') format('woff'),
+    url('/fonts/Montserrat-VariableFont_wght.woff2') format('woff2');
+font-optical-sizing: auto;
+font-style: normal;
+
+}
+
+@font-face {
+font-family: "Open Sans";
+src: url('/fonts/OpenSans-VariableFont_wdth\,wght.woff2') format('woff2'),
+    url('/fonts/OpenSans-VariableFont_wdth\,wght.woff') format('woff');
+font-family: "Open Sans", serif;
+font-optical-sizing: auto;
+font-style: normal;    
+}
