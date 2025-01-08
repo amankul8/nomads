@@ -2,12 +2,7 @@ import styles from "./Footer.module.css";
 import cn from "classnames";
 import {
     Paragraph,
-    textColor,
-    textSize,
-    textFamily,
-    Item,
-    itemTextColorTypes,
-    Span
+    NavbarItem,
 } from "@/ui";
 import { SimpleHeadline, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes} from "@/ui";
 import Logo from "public/icons/logo.svg";
@@ -47,82 +42,79 @@ export const Footer = ():JSX.Element=>{
                 >
                     Privacy Policy
                 </SimpleHeadline>
-                <Paragraph
-                    size={textSize.l}
-                    color={textColor.white}
-                    fontFamily={textFamily.openSanse}
-                >
+                <Paragraph>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque architecto voluptatum fugit doloremque cum soluta ullam officiis praesentium quasi sint quis sit delectus doloribus, perferendis natus labore reprehenderit dolorum!
                 </Paragraph>
             </div>
             <div className={styles.col_2}>
-                <Item
-                    itemTextColor={itemTextColorTypes.white}
+                <NavbarItem
+                    color='white'
+                    item={false}
                     classname={styles.item}
                 >
                     Destinations
-                </Item><br/>
-                <Item
-                    itemTextColor={itemTextColorTypes.white}
+                </NavbarItem><br/>
+                <NavbarItem
+                    color='white'
+                    item={false}
                     classname={styles.item}
                 >
                     Tours
-                </Item><br/>
-                <Item
-                    itemTextColor={itemTextColorTypes.white}
+                </NavbarItem><br/>
+                <NavbarItem
+                    color='white'
+                    item={false}
                     classname={styles.item}
                 >
                     Map
-                </Item><br/>
-                <Item
-                    itemTextColor={itemTextColorTypes.white}
+                </NavbarItem><br/>
+                <NavbarItem
+                    color='white'
+                    item={false}
                     classname={styles.item}
                 >
                     Hotels & Lodges
-                </Item><br/>
-                <Item
-                    itemTextColor={itemTextColorTypes.white}
+                </NavbarItem><br/>
+                <NavbarItem
+                    color='white'
+                    item={false}
                     classname={styles.item}
                 >
                     Check flights
-                </Item><br/>
-                <Item
-                    itemTextColor={itemTextColorTypes.white}
+                </NavbarItem><br/>
+                <NavbarItem
+                    color='white'
+                    item={false}
                     classname={styles.item}
                 >
                     Useful information
-                </Item><br/>
-                <Item
-                    itemTextColor={itemTextColorTypes.white}
+                </NavbarItem><br/>
+                <NavbarItem
+                    color='white'
+                    item={false}
                     classname={styles.item}
                 >
                     About us
-                </Item><br/>
+                </NavbarItem><br/>
             </div>
             <div className={styles.col_3}>
                 <div className={cn(styles.row, styles.row_1)}>
                     <Phone/>
-                    <Paragraph
-                        color={textColor.white}
-                        fontFamily={textFamily.openSanse}
-                        size={textSize.m}
-                    >+996 701 880 016</Paragraph>
+                    <Paragraph>
+                        +996 701 880 016
+                    </Paragraph>
                 </div>
                 <div className={cn(styles.row, styles.row_2)}>
                     <Location/>
-                    <Paragraph
-                        color={textColor.white}
-                        fontFamily={textFamily.openSanse}
-                        size={textSize.m}
-                    >Kyrgyzstan, Bishkek, J.Pudovkina 58</Paragraph>
+                    <Paragraph>
+                        Kyrgyzstan, Bishkek, J.Pudovkina 58
+                    </Paragraph>
                 </div>
                 <div className={cn(styles.row, styles.row_3)}>
                     <Email/>
-                    <Paragraph
-                        color={textColor.white}
-                        fontFamily={textFamily.openSanse}
-                        size={textSize.m}
-                    >askat.taalaibekov@gmail.com</Paragraph>
+                    <Paragraph>
+                        askat.taalaibekov@gmail.com
+                    </Paragraph>
                 </div>
                 <div className={styles.row}>
                     <span><Whatsapp/></span>

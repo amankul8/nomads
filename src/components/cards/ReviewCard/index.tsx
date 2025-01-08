@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, textColor, textFamily, textSize } from "@/ui";
+import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline } from "@/ui";
 import { Rating } from "@/ui";
 import Image from "next/image";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
@@ -35,9 +35,6 @@ export const ReviewCard = ({}:IReviewCardProps):JSX.Element=>{
                         Askat Taalaibekov, Kyrgyzstan 23
                     </SimpleHeadline>
                     <Paragraph
-                        color={textColor.white}
-                        fontFamily={textFamily.openSanse}
-                        size={textSize.m}
                         classname={styles.review}
                     >
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, tempore earum. Laborum minima cumque cum ipsa neque blanditiis fugit dolor est nisi officia accusantium, recusandae mollitia quis alias totam rerum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse, tempore earum. 

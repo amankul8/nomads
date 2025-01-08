@@ -6,10 +6,6 @@ import {
     headlineTagTypes, 
     Paragraph, 
     SimpleHeadline, 
-    textColor, 
-    textFamily, 
-    textSize 
-
 } from "@/ui";
 import React, {useRef, useState } from "react";
 import styles from "./MainBlock.module.css";
@@ -138,9 +134,6 @@ export const MainFirstBlock=({slides}:IDestinationBlock):JSX.Element=>{
                                 {slides[currentIndex].title}
                             </SimpleHeadline>
                             <Paragraph
-                                color={textColor.white}
-                                fontFamily={textFamily.openSanse}
-                                size={textSize.xl}
                                 classname={styles.text}
                             >
                                 {slides[currentIndex].description}

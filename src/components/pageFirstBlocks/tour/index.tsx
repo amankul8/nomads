@@ -1,5 +1,5 @@
 import {FirstBlockLayout} from "@/layouts"
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, SimpleHeadline, Span, StarRating, textColor, textFamily, textSize} from "@/ui";
+import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, SimpleHeadline, Span} from "@/ui";
 import styles from "./Tour.module.css";
 import { InfoSticker } from "@/components/stickers/infoSticker";
 import Car from "public/icons/tour/Car.svg";
@@ -28,20 +28,14 @@ export function TourFirstBlock() {
 
             <div className={styles.first_sticker_block}>
               <Span
-                color={textColor.white}
-                fontFamily={textFamily.montserrat}
-                size={textSize.l}
+                fontFamily="montserrat"
               >
                 Trevelers reviews 59 voters
               </Span>
               <Span
-                color={textColor.white}
-                fontFamily={textFamily.montserrat}
-                size={textSize.l}
+                fontFamily="montserrat"
               >
-                <StarRating
-                  grade={4.6}
-                />
+                Star rating
               </Span>
             </div>
 

@@ -89,7 +89,7 @@ const TourSlider:React.FC<ITourSlider> = ({ isCenteredMode, list}):JSX.Element=>
           
         <Slider ref={sliderRef} {...settings}>
           {
-            list.map(item => {
+            list.map((item:any) => {
               return (
                 <>
                   <div className={styles.slider}>

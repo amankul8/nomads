@@ -1,4 +1,4 @@
-import { btnBorderSizeType, btnColorType, btnViewType, Button, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, textColor, textFamily, textSize } from "@/ui";
+import { CustomButton, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline } from "@/ui";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./MapContent.module.css";
@@ -89,9 +89,6 @@ export const MapContent = ():JSX.Element=>{
                     </SimpleHeadline>
 
                     <Paragraph
-                        color={textColor.black}
-                        fontFamily={textFamily.openSanse}
-                        size={textSize.l}
                         classname={styles.region_description}
                     >
                         {destination.description}
@@ -126,14 +123,13 @@ export const MapContent = ():JSX.Element=>{
                         </div>
                         
                     </div>
-                    <Button 
-                        btnColor={btnColorType.blue}
-                        btnSize={btnBorderSizeType.xl}
-                        btnView={btnViewType.button}
-                        enabled={true}
+                    <CustomButton 
+                        color="blue"
+                        handler={()=>{}}
+                        active={true}
                     >
                         Destination in tish region
-                    </Button>
+                    </CustomButton>
                 </div>
             </div>
         </section>

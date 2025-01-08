@@ -32,7 +32,7 @@
         align-items: center;
         justify-content: center;
         color: var(--white);
-        font-family: (--font_family_montserrat);
+        font-family: (--montserrat);
         font-size: 1em;
         font-weight: 600;
         z-index: 3;
@@ -53,7 +53,7 @@
         white-space: nowrap;
         gap: 6px;
         color: var(--white);
-        font-family: (--font_family_montserrat);
+        font-family: (--montserrat);
         font-weight: 600;
         font-size: 1em;
         z-index: 3;
@@ -110,10 +110,11 @@
         .card_info {
             width: 100%;
             height: calc(100% - 5px);
-            padding: 1em;
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 5px;
+            position: relative;
 
             .card_subtitle {
                 display: none;
@@ -143,16 +144,39 @@
                 }
             }
 
-            .card_proporties {
-                display: none;
-                grid-template-columns: auto auto;
-                gap: 8px;
+            .text {
+                width: 100%;
+                position: relative;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
-            .card_days {
-                display: grid;
-                grid-template-columns: auto auto;
+            .card_proporties {
+                display: none;
+                max-height: 130px;
+                overflow: hidden;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2px;
+                overflow: hidden;                    
             }
+
+            .footer {
+                position: absolute;
+                width: calc(100% - 20px);
+                bottom: 5px;
+                left: 10px;
+                background-color: var(--white);
+                .card_days {
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    gap: 15px;
+                    margin-bottom: 5px;
+                }
+            }
+
+            
         }
 
         .list_card_proporties {
@@ -206,10 +230,16 @@
             width: 70%;
             padding-left: 30px;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
 
             .card_subtitle {
                 display: block;
+            }
+
+            .footer {
+                width: calc(100% - 40px);
+                bottom: 10px;
+                left: 20px;                
             }
         }
 
@@ -218,8 +248,14 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            padding: 30px 20px;
+            gap: 2px;
+            padding: 12px;
+
+            .btn {
+                position: absolute;
+                bottom: 10px;
+                left: auto;
+            }
         }
 
         .curcle {

@@ -9,10 +9,7 @@ import Instagram from "public/icons/socialMediaIcons/instagram.svg";
 import Twitter from "public/icons/socialMediaIcons/twitter.svg";
 import {
     CustomButton,
-    Item, 
-    itemTextColorTypes, 
-    itemTextSizeTypes, 
-    itemTypes, 
+    NavbarItem,
     SandwichIcon
 } from "@/ui";
 import { useScrollLock } from "@/hooks";
@@ -87,52 +84,47 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
             <div className={styles.up}>
                 <div className={styles.block}>
 
-                    <Item 
-                        item={itemTypes.itemWithIcon}
-                        itemTextColor={itemTextColorTypes.white}
-                        itemTextSize={itemTextSizeTypes.s}
+                    <NavbarItem 
+                        item={true}
+                        color='white'
                         classname={styles.up_item}
                     >
                         <Phone/>
-                        <span>+41 21 634 05 05</span>
-                    </Item>
+                        +41 21 634 05 05
+                    </NavbarItem>
                     
-                    <Item 
-                        item={itemTypes.itemWithIcon}
-                        itemTextColor={itemTextColorTypes.white}
-                        itemTextSize={itemTextSizeTypes.s}
+                    <NavbarItem 
+                        item={true}
+                        color='white'
                         classname={styles.up_item}
                     >
                         <Email/>
-                        <span>+41 21 634 05 05</span>
-                    </Item>
+                        +41 21 634 05 05
+                    </NavbarItem>
                     
-                    <Item 
-                        item={itemTypes.itemWithIcon}
-                        itemTextColor={itemTextColorTypes.white}
-                        itemTextSize={itemTextSizeTypes.s}
+                    <NavbarItem 
+                        item={true}
+                        color='white'
                         classname={styles.up_item}
                     >
                         <Twitter/>
-                    </Item>
+                    </NavbarItem>
 
-                    <Item 
-                        item={itemTypes.itemWithIcon}
-                        itemTextColor={itemTextColorTypes.white}
-                        itemTextSize={itemTextSizeTypes.s}
+                    <NavbarItem 
+                        item={true}
+                        color='white'
                         classname={styles.up_item}
                     >
                         <Instagram/>
-                    </Item>
+                    </NavbarItem>
 
-                    <Item 
-                        item={itemTypes.itemWithIcon}
-                        itemTextColor={itemTextColorTypes.white}
-                        itemTextSize={itemTextSizeTypes.s}
+                    <NavbarItem 
+                        item={true}
+                        color='white'
                         classname={styles.up_item}
                     >
                         <Facebook/>
-                    </Item>
+                    </NavbarItem>
                 </div>
             </div>
 
@@ -162,17 +154,16 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                     onClick={(e)=>menuItemClickHandler(e, item.id, true)}  
                                 >
                                     <OrnamentIcon/>
-                                    <Item
-                                        item={itemTypes.item}
-                                        itemTextColor={itemTextColorTypes.white}
-                                        itemTextSize={itemTextSizeTypes.m}
+                                    <NavbarItem
+                                        item={false}
+                                        color='white'
                                         classname={styles.item}
                                         active={item.active}
-                                        onMouseOver={(e)=>mouseOverHandler(e, item.id, true)}
-                                        onMouseOut={(e)=>mouseOverHandler(e, item.id, false)}
+                                        onMouseOver={(e: any)=>mouseOverHandler(e, item.id, true)}
+                                        onMouseOut={(e: any)=>mouseOverHandler(e, item.id, false)}
                                     >
                                             {item.name}
-                                    </Item>
+                                    </NavbarItem>
                                 </a>
                                     {   item.submenu!==null?
                                         <ul className={cn(
@@ -187,14 +178,13 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                             >
                                                 <a href={'#'}>
                                                     <OrnamentIcon/>
-                                                    <Item
-                                                        item={itemTypes.item}
-                                                        itemTextColor={itemTextColorTypes.white}
-                                                        itemTextSize={itemTextSizeTypes.m}
+                                                    <NavbarItem
+                                                        item={false}
+                                                        color='white'
                                                         classname={styles.item}
                                                     >
                                                             {item.name}
-                                                    </Item>
+                                                    </NavbarItem>
                                                 </a>
                                             </li>
                                         {
@@ -208,14 +198,13 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                                         >
                                                             <a href={subItem.url}>
                                                                 <OrnamentIcon/>
-                                                                <Item
-                                                                    item={itemTypes.item}
-                                                                    itemTextColor={itemTextColorTypes.white}
-                                                                    itemTextSize={itemTextSizeTypes.m}
+                                                                <NavbarItem
+                                                                    item={false}
+                                                                    color='white'
                                                                     classname={styles.item}
                                                                 >
                                                                         {subItem.name}
-                                                                </Item>
+                                                                </NavbarItem>
                                                             </a>   
                                                         </li>
                                                     
@@ -252,10 +241,9 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                             {
                                 languages.map(item=>{
                                     return(
-                                        <Item
-                                            item={itemTypes.itemWithIcon}
-                                            itemTextSize={itemTextSizeTypes.s}
-                                            itemTextColor={itemTextColorTypes.blue}
+                                        <NavbarItem
+                                            item={true}
+                                            color='blue'
                                             classname={styles.lang_item}
                                             key={item.lang}
                                             onClick={()=>{
@@ -264,8 +252,8 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                             }}
                                         >
                                             {item.icon}
-                                            <span>{item.lang}</span>
-                                        </Item>
+                                            {item.lang}
+                                        </NavbarItem>
                                     )
                                 })
                             }

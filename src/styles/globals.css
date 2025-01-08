@@ -15,10 +15,9 @@
   --pink: #E60083;
 
   /* Font families */
-
-  --font_family_caveat_brush: 'Caveat Brush';
-  --font_family_open_sans: 'Open Sans';
-  --font_family_montserrat: 'Montserrat';
+  --caveat_brush: 'Caveat Brush';
+  --open_sans:  'Open Sans';
+  --montserrat: 'Montserrat';
 }
 * {
   box-sizing: border-box;

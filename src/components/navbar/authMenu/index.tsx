@@ -2,11 +2,6 @@ import styles from "./Menu.module.css";
 import Logo from "public/icons/logo.svg";
 import {useRouter} from "next/router";
 import Link from "next/link";
-import cn from "classnames";
-import {
-    Item,
-    
-}from "@/ui";
 
 export function AuthMenu():JSX.Element {
 

@@ -4,17 +4,15 @@ import cls from "classnames";
 
 import styles from "./tourInfoCard.module.scss";
 import { 
+    CustomButton,
     headlineColorTypes, 
     headlineFontFamilyTypes, 
     headlineTagTypes, 
     Paragraph, 
     Rating, 
     SimpleHeadline, 
-    textColor,
-    textFamily,
-    textSize,
-    TourProperty,
-    TourPropertyType,
+    TourActivity,
+    TourActivityType,
 } from "@/ui";
 import Trekking from "public/icons/tour/properties/trekking.svg";
 import Ticket from "public/icons/tour/properties/ticket.svg";
@@ -142,106 +140,111 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                         </div>
                     </div>
 
-                    <Paragraph
-                        color={textColor.black}
-                        fontFamily={textFamily.openSanse}
-                        size={textSize.m}
-                    >
+                    <Paragraph classname={styles.text}>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     </Paragraph>
 
                     <div className={styles.card_proporties}>
-                        <TourProperty
-                            type={TourPropertyType.culture}
-                            color="var(--blue)"
+                        <TourActivity
+                            type={TourActivityType.culture}
+                            color="blue"
                         />
-                        <TourProperty
-                            type={TourPropertyType.cycle}
-                            color="var(--blue)"
+                        <TourActivity
+                            type={TourActivityType.cycle}
+                            color="blue"
                         />
-                        <TourProperty
-                            type={TourPropertyType.family}
-                            color="var(--blue)"
+                        <TourActivity
+                            type={TourActivityType.family}
+                            color="blue"
                         />
-                        <TourProperty
-                            type={TourPropertyType.horse_ridding}
-                            color="var(--blue)"
+                        <TourActivity
+                            type={TourActivityType.horse_ridding}
+                            color="blue"
                         />
-                        <TourProperty
-                            type={TourPropertyType.jeep}
-                            color="var(--blue)"
+                        <TourActivity
+                            type={TourActivityType.jeep}
+                            color="blue"
                         />
-                        <TourProperty
-                            type={TourPropertyType.multiactive}
-                            color="var(--blue)"
+                        <TourActivity
+                            type={TourActivityType.multiactive}
+                            color="blue"
                         />
-                        <TourProperty
-                            type={TourPropertyType.paragliding}
-                            color="var(--blue)"
+                        <TourActivity
+                            type={TourActivityType.paragliding}
+                            color="blue"
                         />
-                        <TourProperty
-                            type={TourPropertyType.rafting}
-                            color="var(--blue)"
-                        />
-                    </div>
-
-                    <div className={styles.card_days}>
-                        <TourProperty
-                            type={TourPropertyType.day}
-                            color="var(--blue)"
-                            days={12}
-                        />
-                        <TourProperty
-                            type={TourPropertyType.night}
-                            color="var(--blue)"
-                            days={11}
+                        <TourActivity
+                            type={TourActivityType.rafting}
+                            color="blue"
                         />
                     </div>
 
-                    <Rating
-                        rating={4}
-                        color="var(--blue)"
-                        type="human"
-                        size={16}
-                    />
+                    <div className={styles.footer}>
+                        <div className={styles.card_days}>
+                            <TourActivity
+                                type={TourActivityType.day}
+                                color="blue"
+                                days={12}
+                            />
+                            <TourActivity
+                                type={TourActivityType.night}
+                                color="blue"
+                                days={11}
+                            />
+                        </div>
+                        <Rating
+                            rating={3}
+                            color="blue"
+                            type="human"
+                            size={16}
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.list_card_proporties}>
-                    <TourProperty
-                        type={TourPropertyType.culture}
-                        color="var(--blue)"
+                    <TourActivity
+                        type={TourActivityType.culture}
+                        color="blue"
                     />
-                    <TourProperty
-                        type={TourPropertyType.cycle}
-                        color="var(--blue)"
+                    <TourActivity
+                        type={TourActivityType.cycle}
+                        color="blue"
                     />
-                    <TourProperty
-                        type={TourPropertyType.family}
-                        color="var(--blue)"
+                    <TourActivity
+                        type={TourActivityType.family}
+                        color="blue"
                     />
-                    <TourProperty
-                        type={TourPropertyType.horse_ridding}
-                        color="var(--blue)"
+                    <TourActivity
+                        type={TourActivityType.horse_ridding}
+                        color="blue"
                     />
-                    <TourProperty
-                        type={TourPropertyType.jeep}
-                        color="var(--blue)"
+                    <TourActivity
+                        type={TourActivityType.jeep}
+                        color="blue"
                     />
-                    <TourProperty
-                        type={TourPropertyType.multiactive}
-                        color="var(--blue)"
+                    <TourActivity
+                        type={TourActivityType.multiactive}
+                        color="blue"
                     />
-                    <TourProperty
-                        type={TourPropertyType.paragliding}
-                        color="var(--blue)"
+                    <TourActivity
+                        type={TourActivityType.paragliding}
+                        color="blue"
                     />
-                    <TourProperty
-                        type={TourPropertyType.rafting}
-                        color="var(--blue)"
+                    <TourActivity
+                        type={TourActivityType.rafting}
+                        color="blue"
                     />
+
+                    <CustomButton 
+                        color="blue"
+                        handler={()=>{}}
+                        classname={styles.btn}
+                    >
+                        Discover
+                    </CustomButton>
                 </div>
 
-                <div className={styles.card_btn}>
+                <div className={cls('btn', styles.card_btn)}>
                     Discover This Trip
                 </div>
             </div>

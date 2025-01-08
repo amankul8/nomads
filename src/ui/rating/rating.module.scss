@@ -31,4 +31,22 @@
             opacity: 0.4;
         }
     }
+
+    .blue {
+        svg {
+            fill: var(--blue);
+        }
+    }
+
+    .white {
+        svg {
+            fill: var(--white);
+        }
+    }
+
+    .red {
+        svg {
+            fill: var(--red);
+        }
+    } 
 }

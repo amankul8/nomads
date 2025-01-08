@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, Span, textColor, textFamily, textSize } from "@/ui";
+import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, Span } from "@/ui";
 import Image from "next/image";
 import styles from "./DayInfo.module.css";
 import Car from "public/icons/tour/Car.svg";
@@ -20,26 +20,17 @@ export const DayInfoBlock = ():JSX.Element=>{
                     Day 1-2: Airport – Bishkek – Chunkurchak
                 </SimpleHeadline>
                 <Paragraph
-                    color={textColor.black}
-                    fontFamily={textFamily.openSanse}
-                    size={textSize.m}
                     classname={styles.text}
                 >
                     Arrival in Bishkek early in the morning. Meeting at the airport
                     and transfer to the traditional-modern Kyrgyz village at Supara national ethnic restaurant. After some rest you can walk around or ride horse. We will see the place on top of the mountain there you can see whole Bishkek city. You will spend 2 nights in Supara.
                 </Paragraph>
                 <Span
-                    color={textColor.black}
-                    fontFamily={textFamily.openSanse}
-                    size={textSize.m}
                     classname={styles.span}
                 >
                     <strong>Meals:</strong> Breakfast, lunch, dinner
                 </Span>
                 <Span
-                    color={textColor.black}
-                    fontFamily={textFamily.openSanse}
-                    size={textSize.m}
                     classname={styles.span}
                 >
                     <strong>Accommodation:</strong> Hotel
@@ -57,46 +48,30 @@ export const DayInfoBlock = ():JSX.Element=>{
                 <div className={styles.additional_info}>
                     <div className={styles.info}>
                         <Span
-                            color={textColor.black}
-                            fontFamily={textFamily.montserrat}
-                            size={textSize.s}
                             classname={styles.info}
                         >
-                            <Car/>
-                            car
+                            <Car/> car
                         </Span>
                     </div>
                     <div className={styles.info}>
                         <Span
-                            color={textColor.black}
-                            fontFamily={textFamily.montserrat}
-                            size={textSize.s}
                             classname={styles.info}
                         >
-                            <Mountain/>
-                            high
+                            <Mountain/> high
                         </Span>
                     </div>
                     <div className={styles.info}>
                         <Span
-                            color={textColor.black}
-                            fontFamily={textFamily.montserrat}
-                            size={textSize.s}
                             classname={styles.info}
                         >
-                            <Man/>
-                            trip
+                            <Man/> trip
                         </Span>
                     </div>
                     <div className={styles.info}>
                         <Span
-                            color={textColor.black}
-                            fontFamily={textFamily.montserrat}
-                            size={textSize.s}
                             classname={styles.info}
                         >
-                            <Level/>
-                            583/-132
+                            <Level/> 583/-132
                         </Span>
                     </div>
                 </div>

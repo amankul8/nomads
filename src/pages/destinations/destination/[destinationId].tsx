@@ -11,10 +11,7 @@ import {
     headlineFontFamilyTypes, 
     headlineTagTypes, 
     Paragraph, 
-    SimpleHeadline, 
-    textColor, 
-    textFamily, 
-    textSize 
+    SimpleHeadline,
 } from "@/ui";
 import Image from "next/image";
 
@@ -52,11 +49,7 @@ export default function Destination(props:any):JSX.Element{
                         >
                             Kel-Suu
                         </SimpleHeadline>
-                        <Paragraph
-                            color={textColor.black}
-                            fontFamily={textFamily.openSanse}
-                            size={textSize.l}
-                        >
+                        <Paragraph>
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
                         </Paragraph>
                     </div>

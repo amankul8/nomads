@@ -14,7 +14,6 @@ import {
 } from "@/ui";
 import Icon1 from "public/icons/infoBlockIcons/Icon1.svg";
 import Icon2 from "public/icons/infoBlockIcons/Icon2.svg"
-import { IParagraph, textColor, textSize, textFamily} from "@/ui";
 
 interface IInfoBlockProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
     title: string,
@@ -48,11 +47,7 @@ export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBloc
                     >
                         We are featured in
                     </UnderlineHeadLine>
-                    <Paragraph
-                        color={textColor.blackGray}
-                        size={textSize.l}
-                        fontFamily={textFamily.openSanse}
-                    >
+                    <Paragraph>
                         The Alps are the highest and most extensive mountain range system that lies entirely in Europe, separating Southern from Central and Western Europe and stretching approximately 1,200 kilometres across eight 
                         Alpine countries: France, Switzerland, Italy, Monaco, Liechtenstein, Austria, Germany, and Slovenia.
                         
@@ -81,11 +76,7 @@ export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBloc
                         We are featured in
                     </UnderlineHeadLine>
                         
-                    <Paragraph
-                        color={textColor.blackGray}
-                        size={textSize.l}
-                        fontFamily={textFamily.openSanse}
-                    >
+                    <Paragraph>
                         The Alps are the highest and most extensive mountain range system that lies entirely in Europe, separating Southern from Central and Western Europe and stretching approximately 1,200 kilometres across eight Alpine countries: France, Switzerland, Italy, Monaco, Liechtenstein, Austria, Germany, and Slovenia.
                     </Paragraph>
                     

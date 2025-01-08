@@ -21,7 +21,7 @@
 .name{
     margin-top: 20px;
     color: var(--grey);
-    font-family: var(--font_family_montserrat);
+    font-family: var(--montserrat);
     font-size: 18px;
     font-weight: 400;
     line-height: 30.6px;
@@ -29,7 +29,7 @@
 
 .quantity{
     color: var(--black);
-    font-family: var(--font_family_open_sans);
+    font-family: var(--open_sans);
     font-size: 50px;
     font-weight: 700;
     line-height: 50px;

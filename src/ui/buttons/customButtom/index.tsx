@@ -41,7 +41,7 @@ export const CustomButton:React.FC<ICustomButton> = ({color, active, handler, ch
             onClick={handler}
         >
             <LeftBorder className={styles.left_svg}/>
-            <span> {children} </span>
+            <span className="btn"> {children} </span>
             <RightBorder className={styles.right_svg}/>
         </div>
     )

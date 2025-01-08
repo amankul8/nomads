@@ -1,4 +1,5 @@
 import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import cls from 'classnames';
 
 import styles from "./tourProperties.module.scss";
 
@@ -17,8 +18,9 @@ import Wild from "public/icons/tour/properties/wild.svg";
 import Multiactive from "public/icons/tour/properties/multiactive.svg";
 import Rafting from "public/icons/tour/properties/rafting.svg";
 import Sightseen from "public/icons/tour/properties/sightseen.svg";
+import { Paragraph } from "@/ui/texts/paragraph";
 
-export enum TourPropertyType {
+export enum TourActivityType {
     day,
     night,
     trekking,
@@ -36,72 +38,72 @@ export enum TourPropertyType {
     sightseen
 }
 
-interface ITourProperty extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
-    type: TourPropertyType,
-    color: string,
+interface ITourActivity extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
+    type: TourActivityType,
+    color: 'white' | 'blue' | 'red',
     days?: number
 }
 
-export const TourProperty: React.FC<ITourProperty> = ({type, color, days}) => {
+export const TourActivity: React.FC<ITourActivity> = ({type, color, days}) => {
 
     let Icon = Day;
     let name = 'Days';
     let dayCount =  days? days: '';
 
     switch( type ) {
-        case TourPropertyType.night:
+        case TourActivityType.night:
             Icon = Night;
             name = 'Nights';
             break;
-        case TourPropertyType.trekking:
+        case TourActivityType.trekking:
             Icon = Trekking;
             name = 'Trekking';
             break;
-        case TourPropertyType.horse_ridding:
+        case TourActivityType.horse_ridding:
             Icon = Horse_ridding;
             name = 'Horse ridding';
             break;
-        case TourPropertyType.jeep:
+        case TourActivityType.jeep:
             Icon = Jeep;
             name = 'Jeep';
             break;
-        case TourPropertyType.paragliding:
+        case TourActivityType.paragliding:
             Icon = Paragliding;
             name = 'Paragliding';
             break;
-        case TourPropertyType.photo:
+        case TourActivityType.photo:
             Icon = Photo;
             name = 'Photo';
             break;    
-        case TourPropertyType.family:
+        case TourActivityType.family:
             Icon = Family;
             name = 'Family';
             break;
-        case TourPropertyType.culture:
+        case TourActivityType.culture:
             Icon = Culture;
             name = 'Culture';
             break;
-        case TourPropertyType.show_shoes:
+        case TourActivityType.show_shoes:
             Icon = Show_shoes;
             name = 'Show shoes';
             break;
-        case TourPropertyType.cycle:
+        case TourActivityType.cycle:
             Icon = Cycle;
             name = 'Cycle';
             break;
-        case TourPropertyType.wild:
+        case TourActivityType.wild:
             Icon = Wild;
             name = 'Wild';
             break;
-        case TourPropertyType.multiactive:
+        case TourActivityType.multiactive:
             Icon = Multiactive;
             name = 'Multiactive';
             break;
-        case TourPropertyType.rafting:
+        case TourActivityType.rafting:
             Icon = Rafting;
             name = 'Rafting';
             break;
-        case TourPropertyType.sightseen:
+        case TourActivityType.sightseen:
             Icon = Sightseen;
             name = 'Sightseen';
             break;
@@ -112,10 +114,15 @@ export const TourProperty: React.FC<ITourProperty> = ({type, color, days}) => {
     }
 
     return (
-        <div 
-            className={styles.property} 
-        >
-            <Icon/> {dayCount + ' ' + name}
+        <div className={styles.activity}>
+            <Icon className={cls({
+                [styles.blue]: color == 'blue',
+                [styles.white]: color == 'white',
+                [styles.red]: color == 'red'
+            })} />
+            <Paragraph classname={styles.text}>
+                {dayCount + ' ' + name}
+            </Paragraph>
         </div>
     )
 }

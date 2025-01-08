@@ -21,6 +21,7 @@ import logo5 from "public/icons/partnersLogos/img5.png"
 import Image from "next/image";
 import TourSlider from "@/components/sliders/tour";
 import { BlockWithSkirt } from "@/layouts/index";
+import { TourInfoCard } from "@/components/cards";
 
 export interface ISlides{
   id: number,
@@ -252,6 +253,21 @@ export default function Main() {
         <img className={styles.image} src='https://www.marketplace.org/wp-content/uploads/2022/05/LastTourist_cropped_nl.jpg?w=1200' alt={''} key={'5'}/>
         <img className={styles.skirt} src={'/icons/blockSkirts/blueBlockSkirt.svg'} alt="" />
       </section>
+
+      <TourInfoCard
+        name="Title"
+        description="Ipsum text"
+        link=""
+        image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
+        days={5}
+        price={1000}
+        promotion={30}
+        countries={['Kyrgyzstan', 'Kazakstan']}
+        complexity={3}
+        rating={3}
+        reviewsCount={73}
+        isList={true}
+      />
 
     </Layout>
   );

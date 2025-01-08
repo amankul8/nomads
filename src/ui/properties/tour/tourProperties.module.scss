@@ -1,16 +1,33 @@
-.property {
+.activity {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: min-content;
-    gap: 3px;
-    font-size: .7em;
-    font-weight: 600;
-    font-family: var(--font_family_montserrat);
+    gap: 5px;
     white-space: nowrap;
+    position: relative;
 
     svg {
-        width: 2.5em;
-        height: 1.5em;
+        height: 16px;
+        max-width: 25px;
+    }
+
+    .text {
+        width: calc(100% - 25px);
+    }
+
+    .blue {
+        fill: var(--blue);
+        stroke: var(--blue);
+    }
+    
+    .white {
+        fill: var(--white);
+        stroke: var(--white);
+    }
+    
+    .red {
+        fill: var(--red);
+        stroke: var(--red);
     }
 }

@@ -8,6 +8,10 @@
     grid-template-rows: 1fr;
 }
 
+.col_1 {
+    color: var(--white);
+}
+
 .col_1 .footer_icon_wrapper{
     margin-bottom: 30px;
     display: inline-flex;
@@ -44,6 +48,7 @@
     justify-content: space-between;
     margin: 25px 0;
     padding: 0 10%;
+    color: var(--white);
 }
 .col_3 .row span{
     display: flex;

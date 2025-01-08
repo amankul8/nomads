@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, Span, Rating, textColor, textFamily, textSize } from "@/ui";
+import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, Span, Rating, } from "@/ui";
 import Image from "next/image";
 import styles from "./ReviewBlock.module.css";
 
@@ -34,11 +34,7 @@ export const TourReviewBlock = ({userName, avatar, country, tour, date, review, 
                         >
                             {userName}
                         </SimpleHeadline>
-                        <Span 
-                            color={textColor.black}
-                            fontFamily={textFamily.openSanse}
-                            size={textSize.l}
-                        >
+                        <Span>
                             {country}
                         </Span>
                     </div>
@@ -57,18 +53,10 @@ export const TourReviewBlock = ({userName, avatar, country, tour, date, review, 
                 >
                     {tour}
                 </SimpleHeadline>
-                <Span
-                    color={textColor.black}
-                    fontFamily={textFamily.openSanse}
-                    size={textSize.m}
-                >
+                <Span>
                     {date}
                 </Span>
-                <Paragraph
-                    color={textColor.black}
-                    fontFamily={textFamily.openSanse}
-                    size={textSize.m}
-                >
+                <Paragraph>
                     {review}
                 </Paragraph>
             </div>

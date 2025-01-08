@@ -8,10 +8,6 @@ import styles from "./tourSimpleCard.module.scss";
 
 import { 
     Paragraph,
-    textColor,
-    textFamily,
-    textSize,
-
     SimpleHeadline,
     headlineColorTypes,
     headlineFontFamilyTypes,
@@ -52,12 +48,7 @@ export const TourSimpleCard: React.FC<ITTourSimpleCard> = ({ name, description, 
             )} {...rest}
         >
             <div className={styles.content}>
-                <Paragraph
-                    size={textSize.m}
-                    color={textColor.white}
-                    fontFamily={textFamily.openSanse}
-
-                >
+                <Paragraph>
                     {description}
                 </Paragraph>
                 <SimpleHeadline

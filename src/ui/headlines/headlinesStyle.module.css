@@ -31,10 +31,10 @@
 
 /* headlines font family styles */
 .fontFamilyCaveatBrush{
-    font-family: var(--font_family_caveat_brush);
+    font-family: var(--caveat_brush);
 }
 .fontFamilyMontserrat{
-    font-family: var(--font_family_montserrat);
+    font-family: var(--montserrat);
 }
 
 /* headlines color styles*/
