@@ -1,4 +1,4 @@
-import { CustomButton, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline } from "@/ui";
+import { CustomButton, Paragraph, Headline } from "@/ui";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./MapContent.module.css";
@@ -66,27 +66,25 @@ export const MapContent = ():JSX.Element=>{
             <div className={styles.first_block}/>
             <div className={styles.content_wrapper}>
                 <div className={styles.map_wrapper}>
-                    <SimpleHeadline 
-                        color={headlineColorTypes.black}
-                        fontFamily={headlineFontFamilyTypes.caveatBrush}
-                        tag={headlineTagTypes.h2}
+                    <Headline 
+                        color='black'
+                        type='section'
                         classname={styles.map_title}
                     >
                         Kyrgyz Republic map
-                    </SimpleHeadline>
+                    </Headline>
                     <KyrgyzRepublic
                         clickHandler={mapClickHandler}
                         id={destination.id}
                     />
                 </div>
                 <div className={styles.info_wrapper}>
-                    <SimpleHeadline 
-                        color={headlineColorTypes.black}
-                        fontFamily={headlineFontFamilyTypes.caveatBrush}
-                        tag={headlineTagTypes.h2}
+                    <Headline 
+                        color='black'
+                        type='section'
                     >
                         {destination.name}
-                    </SimpleHeadline>
+                    </Headline>
 
                     <Paragraph
                         classname={styles.region_description}

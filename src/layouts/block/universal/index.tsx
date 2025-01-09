@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, UnderlineHeadLine } from "@/ui";
+import { Headline } from "@/ui";
 import React, { ReactNode } from "react";
 import styles from "./universal.module.css";
 import cn from "classnames";
@@ -20,14 +20,14 @@ interface IAttainment{
         >
             {
                 title?
-                <UnderlineHeadLine
-                    color={headlineColorTypes.black}
-                    fontFamily={headlineFontFamilyTypes.caveatBrush}
-                    tag={headlineTagTypes.h2}
+                <Headline
+                    color='black'
+                    type='section'
+                    underline={true}
                     classname={styles.title}
                 >
                     {title}
-                </UnderlineHeadLine>:
+                </Headline>:
                 <></>
             }
             <div className={styles.content}>

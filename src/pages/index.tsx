@@ -11,7 +11,7 @@ import { ReviewBlock } from "@/components/sliders/review";
 
 import styles from "@/styles/home.module.scss";
 import { TourSearch,  } from "@/components/blocks";
-import { CustomButton, CustomIconButton, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, UnderlineHeadLine} from "@/ui";
+import { CustomButton, CustomIconButton, Headline} from "@/ui";
 
 import logo1 from "public/icons/partnersLogos/img1.png"
 import logo2 from "public/icons/partnersLogos/img2.png"
@@ -183,6 +183,7 @@ export default function Main() {
         <TourSlider
           list={slides}
           isCenteredMode
+          title="Find our popular tours"
         />
       </BlockWithSkirt>
       
@@ -209,13 +210,12 @@ export default function Main() {
       </BlockWithSkirt>
 
       <section className={styles.partners}>
-            <UnderlineHeadLine
-                color={headlineColorTypes.black}
-                fontFamily={headlineFontFamilyTypes.caveatBrush}
-                tag={headlineTagTypes.h2}
+            <Headline
+                color='black'
+                type='section'
             >
                 We are featured in
-            </UnderlineHeadLine>
+            </Headline>
             <div className={styles.content}>
                 <Image
                     className={styles.logo}
@@ -253,21 +253,6 @@ export default function Main() {
         <img className={styles.image} src='https://www.marketplace.org/wp-content/uploads/2022/05/LastTourist_cropped_nl.jpg?w=1200' alt={''} key={'5'}/>
         <img className={styles.skirt} src={'/icons/blockSkirts/blueBlockSkirt.svg'} alt="" />
       </section>
-
-      <TourInfoCard
-        name="Title"
-        description="Ipsum text"
-        link=""
-        image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
-        days={5}
-        price={1000}
-        promotion={30}
-        countries={['Kyrgyzstan', 'Kazakstan']}
-        complexity={3}
-        rating={3}
-        reviewsCount={73}
-        isList={true}
-      />
 
     </Layout>
   );

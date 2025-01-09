@@ -1,5 +1,5 @@
 import {FirstBlockLayout} from "@/layouts"
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, SimpleHeadline, Span} from "@/ui";
+import { Headline, Span} from "@/ui";
 import styles from "./Tour.module.css";
 import { InfoSticker } from "@/components/stickers/infoSticker";
 import Car from "public/icons/tour/Car.svg";
@@ -18,23 +18,18 @@ export function TourFirstBlock() {
     >
         <div className={styles.content}>
           <div className={styles.main_info_block}>
-            <SimpleHeadline
-              color={headlineColorTypes.white}
-              fontFamily={headlineFontFamilyTypes.caveatBrush}
-              tag={headlineTagTypes.h1}
+            <Headline
+              color='white'
+              type='main'
             >
               Kel Suu
-            </SimpleHeadline>
+            </Headline>
 
             <div className={styles.first_sticker_block}>
-              <Span
-                fontFamily="montserrat"
-              >
+              <Span>
                 Trevelers reviews 59 voters
               </Span>
-              <Span
-                fontFamily="montserrat"
-              >
+              <Span>
                 Star rating
               </Span>
             </div>

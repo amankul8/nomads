@@ -2,18 +2,20 @@ import React from "react";
 import dynamic from "next/dynamic";
 import cls from "classnames";
 
+import Box from '@mui/material/Box';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+
 import { DestinationFirstBlock } from "@/components/pageFirstBlocks";
-import { Layout } from "@/layouts";
+import { BlockWithSkirt, Layout, UniversalBlock } from "@/layouts";
 import { GetStaticPropsContext } from "next";
 import styles from "./destination.module.scss";
 import {
-    headlineColorTypes, 
-    headlineFontFamilyTypes, 
-    headlineTagTypes, 
     Paragraph, 
-    SimpleHeadline,
+    Headline,
 } from "@/ui";
 import Image from "next/image";
+import TourSlider from "@/components/sliders/tour";
 
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 
@@ -31,6 +33,57 @@ const images = [
 
 ]
 
+const slides = [
+  {
+    id: 1,
+    title: 'The Virgin Nature 1',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 1.',
+    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
+  },
+  {
+    id: 2,
+    title: 'The Virgin Nature 2',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 2 .',
+    image: 'https://mcdn.wallpapersafari.com/medium/17/17/5f7pHi.jpg',
+  },
+  {
+    id: 3,
+    title: 'The Virgin Nature 3',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 3.',
+    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
+  },
+  {
+    id:4,
+    title: 'The Virgin Nature 4',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 4.',
+    image: 'https://mcdn.wallpapersafari.com/medium/17/17/5f7pHi.jpg',
+  },
+  {
+    id: 5,
+    title: 'The Virgin Nature 5',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
+    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
+  },
+  {
+    id: 6,
+    title: 'The Virgin Nature 6',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
+    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
+  },
+  {
+    id: 6,
+    title: 'The Virgin Nature 6',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
+    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
+  },
+  {
+    id: 6,
+    title: 'The Virgin Nature 6',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
+    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
+  },
+]
+
 
 export default function Destination(props:any):JSX.Element{
 
@@ -42,159 +95,70 @@ export default function Destination(props:any):JSX.Element{
 
                 <div className={styles.left_content}>
                     <div className={cls(styles.content, styles.info)}>
-                        <SimpleHeadline
-                            color={headlineColorTypes.black}
-                            fontFamily={headlineFontFamilyTypes.caveatBrush}
-                            tag={headlineTagTypes.h3}                        
+                        <Headline
+                            color='black'
+                            type='section'                      
                         >
                             Kel-Suu
-                        </SimpleHeadline>
+                        </Headline>
                         <Paragraph>
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet
                         </Paragraph>
                     </div>
 
                     <div className={cls(styles.content)}>
-                        <SimpleHeadline
-                            color={headlineColorTypes.black}
-                            fontFamily={headlineFontFamilyTypes.caveatBrush}
-                            tag={headlineTagTypes.h3}                        
+                        <Headline
+                            color='black'
+                            type='section'                         
                         >
                             Photo
-                        </SimpleHeadline>
+                        </Headline>
 
-
-                        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-                            <div className="grid gap-4">
-                                <div>
+                        <Box className={styles.photos}>
+                            <ImageList variant="masonry" cols={3} gap={3}>
+                                {images.map((item) => (
+                                <ImageListItem key={item}>
                                     <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center"
-                                    src="https://images.unsplash.com/photo-1432462770865-65b70566d673?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-                                    alt="gallery-photo"
+                                        srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                        src={`${item}?w=248&fit=crop&auto=format`}
+                                        alt={''}
+                                        loading="lazy"
                                     />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center "
-                                    src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center"
-                                    src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                                </div>
-                                <div className="grid gap-4">
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center"
-                                    src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center"
-                                    src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center "
-                                    src="https://docs.material-tailwind.com/img/team-3.jpg"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                                </div>
-                                <div className="grid gap-4">
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center"
-                                    src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center "
-                                    src="https://docs.material-tailwind.com/img/team-3.jpg"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center"
-                                    src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                                </div>
-                                <div className="grid gap-4">
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center"
-                                    src="https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                                <div>
-                                    <img
-                                    className="h-auto max-w-full rounded-lg object-cover object-center"
-                                    src="https://images.unsplash.com/photo-1629367494173-c78a56567877?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80"
-                                    alt="gallery-photo"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.photos}>
-                            <Image
-                                src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                                width={500}
-                                height={500}
-                                alt="Picture of the author"
-                            />
-                        </div>
+                                </ImageListItem>
+                                ))}
+                            </ImageList>
+                        </Box>
                     </div>
-                    <div className={cls(styles.content,styles.map)}>
-                        <SimpleHeadline
-                            color={headlineColorTypes.black}
-                            fontFamily={headlineFontFamilyTypes.caveatBrush}
-                            tag={headlineTagTypes.h3}                        
+                    <div className={cls(styles.content)}>
+                        <Headline
+                            color='black'
+                            type='section'                         
                         >
                             Map
-                        </SimpleHeadline>
+                        </Headline>
                         <div className={styles.map_block}>
                             {/* <Map/> */}
                         </div>
                     </div>
-                    <div className={cls(styles.content, styles.tours)}>
-                        <SimpleHeadline
-                            color={headlineColorTypes.black}
-                            fontFamily={headlineFontFamilyTypes.caveatBrush}
-                            tag={headlineTagTypes.h3}                     
-                        >
-                            Tours In this Destinations
-                        </SimpleHeadline>
+                    <BlockWithSkirt classname={cls(styles.content, styles.tours)} image="">
+                        <TourSlider
+                            list={slides}
+                            isCenteredMode={true}
+                            title="Tours In this Destinations"
+                        />
                         
-                    </div>
+                    </BlockWithSkirt>
                 </div>
 
                 <div className={styles.right_list}>
 
-                    <SimpleHeadline 
-                        color={headlineColorTypes.blue}
-                        fontFamily={headlineFontFamilyTypes.montserrat}
-                        tag={headlineTagTypes.h4}
+                    <Headline 
+                        color='blue'
+                        type='normal' 
                         classname={styles.title}
                     >
                         Categories
-                    </SimpleHeadline>
+                    </Headline>
 
                     <ul className={styles.list}>
                         <li> Adventure </li>

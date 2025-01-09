@@ -3,7 +3,7 @@ import styles from "./subheader.module.css";
 import {ISubheader} from "@/components/content";
 import cn from "classnames";
 import {motion, Variants} from "framer-motion";
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, NavbarItem, Paragraph, SimpleHeadline} from "@/ui";
+import { NavbarItem, Paragraph, Headline} from "@/ui";
 import OrnamentIcon from 'public/icons/listMarkers/ornament.svg';
 import Compass from "./svg/compass.svg";
 import CheckFlights from "./svg/checkFlights.svg";
@@ -102,14 +102,13 @@ export const SubHeaderContent = ({data, name, className, isMouseOver, bg_image, 
                                                     setOnHover(false);
                                                 }}
                                             >
-                                                <SimpleHeadline
-                                                    tag={headlineTagTypes.h2}
-                                                    fontFamily={headlineFontFamilyTypes.caveatBrush}
-                                                    color={headlineColorTypes.white}
+                                                <Headline
+                                                    type='section'
+                                                    color='white'
                                                 >
                                                 
                                                     {item.name}
-                                                </SimpleHeadline>
+                                                </Headline>
                                             </Link>:
                                             <Link href={"#"} className={styles.a}
                                                 onMouseOver={e=>{
@@ -169,14 +168,13 @@ export const SubHeaderContent = ({data, name, className, isMouseOver, bg_image, 
                                 }
                             </div>
                             <div className={styles.right}>
-                                <SimpleHeadline
-                                    tag={headlineTagTypes.h2}
-                                    color={headlineColorTypes.white}
-                                    fontFamily={headlineFontFamilyTypes.caveatBrush}
+                                <Headline
+                                    type='section'
+                                    color='white'
                                     classname={styles.title}
                                 >
                                     {name}
-                                </SimpleHeadline>
+                                </Headline>
                                 <Paragraph
                                     classname={styles.text}
                                 >

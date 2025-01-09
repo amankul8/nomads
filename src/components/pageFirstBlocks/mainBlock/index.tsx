@@ -1,11 +1,9 @@
 import { 
     CustomButton, 
     CustomIconButton, 
-    headlineColorTypes, 
-    headlineFontFamilyTypes, 
-    headlineTagTypes, 
+
     Paragraph, 
-    SimpleHeadline, 
+    Headline, 
 } from "@/ui";
 import React, {useRef, useState } from "react";
 import styles from "./MainBlock.module.css";
@@ -126,13 +124,12 @@ export const MainFirstBlock=({slides}:IDestinationBlock):JSX.Element=>{
                             transition={{ duration: 1.5 }}
                             className={styles.left_content}
                         >
-                            <SimpleHeadline
-                                color={headlineColorTypes.white}
-                                fontFamily={headlineFontFamilyTypes.caveatBrush}
-                                tag={headlineTagTypes.h1}
+                            <Headline
+                                color='white'
+                                type='main'
                             >
                                 {slides[currentIndex].title}
-                            </SimpleHeadline>
+                            </Headline>
                             <Paragraph
                                 classname={styles.text}
                             >

@@ -4,7 +4,7 @@ import {
     Paragraph,
     NavbarItem,
 } from "@/ui";
-import { SimpleHeadline, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes} from "@/ui";
+import { Headline} from "@/ui";
 import Logo from "public/icons/logo.svg";
 import Whatsapp from "public/icons/socialMediaIcons/whatsapp.svg";
 import Facebook from "public/icons/socialMediaIcons/facebook.svg";
@@ -24,24 +24,22 @@ export const Footer = ():JSX.Element=>{
                 <div className={styles.footer_icon_wrapper}>
                     <Logo/>
                     <div className={styles.footer_logo_text}>
-                        <SimpleHeadline 
-                            tag={headlineTagTypes.h3} 
-                            color={headlineColorTypes.white}
-                            fontFamily={headlineFontFamilyTypes.montserrat}
+                        <Headline 
+                            type='subsection'
+                            color='white'
                         >
                             Nomads Travel
-                        </SimpleHeadline>
+                        </Headline>
                         <p>Adventures in Central Asia</p>
                     </div>             
                 </div>
-                <SimpleHeadline 
-                    tag={headlineTagTypes.h4} 
-                    color={headlineColorTypes.white}
-                    fontFamily={headlineFontFamilyTypes.montserrat}
+                <Headline 
+                    type='normal'
+                    color='white'
                     classname={styles.title}
                 >
                     Privacy Policy
-                </SimpleHeadline>
+                </Headline>
                 <Paragraph>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque architecto voluptatum fugit doloremque cum soluta ullam officiis praesentium quasi sint quis sit delectus doloribus, perferendis natus labore reprehenderit dolorum!
                 </Paragraph>

@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, SimpleHeadline } from "@/ui";
+import { Headline } from "@/ui";
 import styles from "./tourContent.module.css";
 import Itinerary from "public/icons/headlines/Itinerary.svg";
 import MapIcon from "public/icons/headlines/Map.svg";
@@ -10,7 +10,7 @@ import { DayInfoBlock } from "@/components/blocks/tourDetail/dayInfoBlock";
 import { TourAdditionalBlock } from "@/components/blocks/tourDetail/additionalBlock";
 import { TourReviewBlock } from "@/components/blocks/tourDetail/reviewBlock";
 
-const Map = dynamic(() => import('@/components/blocks/map').then((m) => m.Map), { ssr: false });
+const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 
 export const TourContent = ():JSX.Element=>{
 
@@ -18,41 +18,38 @@ export const TourContent = ():JSX.Element=>{
     return(
         <section className={styles.content_wrapper}>
             <div className={styles.itinerary}>
-                <SimpleHeadline
-                    color={headlineColorTypes.black}
-                    fontFamily={headlineFontFamilyTypes.caveatBrush}
-                    tag={headlineTagTypes.h2}
+                <Headline
+                    color='black'
+                    type='section'
                     classname={styles.headline}
                 >
                     <Itinerary/>
                     Itinerary
-                </SimpleHeadline>
+                </Headline>
                 <DayInfoBlock/>
                 <DayInfoBlock/>
 
             </div>
             <div className={styles.map}>
-                <SimpleHeadline
-                    color={headlineColorTypes.black}
-                    fontFamily={headlineFontFamilyTypes.caveatBrush}
-                    tag={headlineTagTypes.h2}
+                <Headline
+                    color='black'
+                    type='section'
                     classname={styles.headline}
                 >
                     <MapIcon/>
                     Map
-                </SimpleHeadline>
+                </Headline>
                 <Map/>
             </div>
             <div className={styles.additional}>
-                <SimpleHeadline
-                    color={headlineColorTypes.black}
-                    fontFamily={headlineFontFamilyTypes.caveatBrush}
-                    tag={headlineTagTypes.h2}
+                <Headline
+                    color='black'
+                    type='section'
                     classname={styles.headline}
                 >
                     <Additional/>
                     Additional Info
-                </SimpleHeadline>
+                </Headline>
 
                 <TourAdditionalBlock
                     title="Visa"
@@ -77,27 +74,25 @@ export const TourContent = ():JSX.Element=>{
 
             </div>  
             <div className={styles.phots}>
-                <SimpleHeadline
-                    color={headlineColorTypes.black}
-                    fontFamily={headlineFontFamilyTypes.caveatBrush}
-                    tag={headlineTagTypes.h2}
+                <Headline
+                    color='black'
+                    type='section'
                     classname={styles.headline}
                 >
                     <Photos/>
                     Photos
-                </SimpleHeadline>
+                </Headline>
 
             </div>
             <div className={styles.reviews}>
-                <SimpleHeadline
-                    color={headlineColorTypes.black}
-                    fontFamily={headlineFontFamilyTypes.caveatBrush}
-                    tag={headlineTagTypes.h2}
+                <Headline
+                    color='black'
+                    type='section'
                     classname={styles.headline}
                 >
                     <Review/>
                     Reviews
-                </SimpleHeadline>
+                </Headline>
 
                 <TourReviewBlock
                     userName="Tony Dja"

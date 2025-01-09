@@ -1,13 +1,10 @@
 import React, { DetailedHTMLProps, HtmlHTMLAttributes, useState } from "react";
 
 import styles from "./tourSearch.module.scss";
-import { 
-    headlineColorTypes, 
-    headlineFontFamilyTypes, 
-    headlineTagTypes,
+import {
     InputSelectList, 
     SearchInput, 
-    SimpleHeadline, 
+    Headline, 
 } from "@/ui";
 
 
@@ -23,13 +20,12 @@ export const TourSearch:React.FC<ITourSearch> = () => {
     return (
         <section className={styles.block}>
             
-            <SimpleHeadline
-                color={headlineColorTypes.black}
-                fontFamily={headlineFontFamilyTypes.montserrat}
-                tag={headlineTagTypes.h2}
+            <Headline
+                type='section'
+                color='black'
             >
                 Search For Tour
-            </SimpleHeadline>
+            </Headline>
 
             <div className={styles.search_form}>
                 <InputSelectList

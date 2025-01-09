@@ -5,12 +5,9 @@ import cls from "classnames";
 import styles from "./tourInfoCard.module.scss";
 import { 
     CustomButton,
-    headlineColorTypes, 
-    headlineFontFamilyTypes, 
-    headlineTagTypes, 
     Paragraph, 
     Rating, 
-    SimpleHeadline, 
+    Headline, 
     TourActivity,
     TourActivityType,
 } from "@/ui";
@@ -122,13 +119,12 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                 </div>
 
                 <div className={styles.card_info}>
-                    <SimpleHeadline
-                        color={headlineColorTypes.black}
-                        fontFamily={headlineFontFamilyTypes.montserrat}
-                        tag={headlineTagTypes.h4}
+                    <Headline
+                        color='black'
+                        type='normal'
                     >
                         Card title
-                    </SimpleHeadline>
+                    </Headline>
 
                     <div className={styles.card_subtitle}>
                         <div className={styles.review}>

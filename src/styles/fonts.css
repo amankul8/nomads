@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap');
- 
+
 @font-face {
     font-family: 'Caveat Brush';
     src: url('/fonts/CaveatBrush-Regular.woff2') format('woff2'),
@@ -27,21 +27,21 @@ font-style: normal;
 }
 
 .main-title {
-     font-family: 'Caveat Brush';
-     font-size: 72px;
-     font-weight: bold;
-};
+    font-family: 'Caveat Brush';
+    font-size: 72px;
+    font-weight: bold;
+}
 
 .section-title {
     font-family: 'Caveat Brush';
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .subsection-title {
     font-family: 'Caveat Brush';
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .normal-title {

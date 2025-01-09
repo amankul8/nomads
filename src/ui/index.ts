@@ -1,7 +1,6 @@
 // export ui
 export { Input } from './inputs/auth/Input';
-export {SimpleHeadline} from "./headlines/simple/index";
-export {UnderlineHeadLine} from "./headlines/underline/index";
+export {Headline} from "./headlines/index";
 export {Paragraph} from "./texts/paragraph/index";
 export {Span} from "./texts/span/index";
 export {NavbarItem} from "./navbar/item/index";
@@ -15,10 +14,5 @@ export {SearchInput} from "./inputs/search/input";
 export {CustomButton} from "./buttons/customButtom/index";
 export {CustomIconButton} from "./buttons/customIconButton/index"
 
-
-
-// export headline types
-export {headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes} from "./headlines/customTypes";
-export type {IHeadline} from "./headlines/headlineInterfaces";
 
 export {TourActivityType} from "./properties/tour";

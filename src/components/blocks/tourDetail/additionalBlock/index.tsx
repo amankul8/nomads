@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline,} from "@/ui";
+import {Paragraph, Headline,} from "@/ui";
 import styles from "./TourAdditionalBlock.module.css";
 
 interface ITourAdditionalBlock{
@@ -11,14 +11,13 @@ export const TourAdditionalBlock = ({title, text}:ITourAdditionalBlock):JSX.Elem
     return(
         <div className={styles.wrapper}>
 
-            <SimpleHeadline
-                color={headlineColorTypes.blue}
-                fontFamily={headlineFontFamilyTypes.caveatBrush}
-                tag={headlineTagTypes.h3}
+            <Headline
+                type="subsection"
+                color='blue'
                 classname={styles.title}
             >
                 {title}
-            </SimpleHeadline>
+            </Headline>
 
             <Paragraph
                 classname={styles.text}

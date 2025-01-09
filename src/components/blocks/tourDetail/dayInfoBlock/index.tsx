@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline, Span } from "@/ui";
+import {Paragraph, Headline, Span } from "@/ui";
 import Image from "next/image";
 import styles from "./DayInfo.module.css";
 import Car from "public/icons/tour/Car.svg";
@@ -11,14 +11,13 @@ export const DayInfoBlock = ():JSX.Element=>{
     return(
         <div className={styles.block_wrapper}>
             <div className={styles.right}>
-                <SimpleHeadline
-                    color={headlineColorTypes.blue}
-                    fontFamily={headlineFontFamilyTypes.caveatBrush}
-                    tag={headlineTagTypes.h3}
+                <Headline
+                    type='subsection'
+                    color='blue'
                     classname={styles.headline}
                 >
                     Day 1-2: Airport – Bishkek – Chunkurchak
-                </SimpleHeadline>
+                </Headline>
                 <Paragraph
                     classname={styles.text}
                 >

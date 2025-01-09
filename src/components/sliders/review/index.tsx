@@ -2,7 +2,7 @@ import React from "react";
 import { ReviewCard } from "@/components/cards/reviewCard";
 import Slider from "react-slick";
 import styles from "./ReviewBlock.module.css";
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, SimpleHeadline, UnderlineHeadLine } from "@/ui";
+import { Headline } from "@/ui";
 
 interface IReviewBlock{
 
@@ -34,14 +34,14 @@ export const ReviewBlock = ({}:IReviewBlock):JSX.Element=>{
     }
     return(
         <section className={styles.wrapper}>
-            <UnderlineHeadLine
-                color={headlineColorTypes.black}
-                fontFamily={headlineFontFamilyTypes.caveatBrush}
-                tag={headlineTagTypes.h2}
+            <Headline
+                color='black'
+                type='section'
+                underline={true}
                 classname={styles.title}
             >
                 Review
-            </UnderlineHeadLine>
+            </Headline>
             <div className={styles.carousel_wrapper}>
                 <Slider {...settings}>
                     <ReviewCard/>

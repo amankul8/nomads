@@ -2,15 +2,16 @@ import Slider from "react-slick";
 import styles from "./tourSlider.module.scss";
 import { TourInfoCard } from "@/components/cards";
 import { useRef, useState } from "react";
-import { CustomIconButton, headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, SimpleHeadline } from "@/ui";
+import { CustomIconButton, Headline } from "@/ui";
 
 interface ITourSlider{
   isCenteredMode?: boolean,
-  list: any 
+  list: any,
+  title: string 
 }
 
 
-const TourSlider:React.FC<ITourSlider> = ({ isCenteredMode, list}):JSX.Element=>{
+const TourSlider:React.FC<ITourSlider> = ({ isCenteredMode, list, title}):JSX.Element=>{
 
     const sliderRef = useRef<Slider>(null);
     const [currentIndex, setCurrentIndex] = useState<number>(1);
@@ -78,14 +79,13 @@ const TourSlider:React.FC<ITourSlider> = ({ isCenteredMode, list}):JSX.Element=>
     return(
       <div className={styles.slider}>
 
-        <SimpleHeadline
-          color={headlineColorTypes.black}
-          fontFamily={headlineFontFamilyTypes.montserrat}
-          tag={headlineTagTypes.h2}
+        <Headline
+          color='black'
+          type='section'
           classname={styles.title}
         >
-          Find our popular tours
-        </SimpleHeadline>  
+          {title}
+        </Headline>  
           
         <Slider ref={sliderRef} {...settings}>
           {

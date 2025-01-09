@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline } from "@/ui";
+import { Paragraph, Headline } from "@/ui";
 import { Rating } from "@/ui";
 import Image from "next/image";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
@@ -27,13 +27,12 @@ export const ReviewCard = ({}:IReviewCardProps):JSX.Element=>{
                     <KyrgyzstanMapIcon/>
                 </div>
                 <div className={styles.right}>
-                    <SimpleHeadline
-                        color={headlineColorTypes.white}
-                        fontFamily={headlineFontFamilyTypes.caveatBrush}
-                        tag={headlineTagTypes.h3}
+                    <Headline
+                        color='white'
+                        type='subsection'
                     >
                         Askat Taalaibekov, Kyrgyzstan 23
-                    </SimpleHeadline>
+                    </Headline>
                     <Paragraph
                         classname={styles.review}
                     >
@@ -41,7 +40,7 @@ export const ReviewCard = ({}:IReviewCardProps):JSX.Element=>{
                     </Paragraph>
                     <Rating 
                         type="star"
-                        color="var(--white)"
+                        color='white'
                         rating={4}
                     />
                 </div>

@@ -4,11 +4,7 @@ import Image from "next/image";
 import cls from "classnames";
 
 import { 
-    SimpleHeadline, 
-    headlineColorTypes, 
-    headlineFontFamilyTypes, 
-    headlineTagTypes, 
-    UnderlineHeadLine,
+    Headline,
     Paragraph,
     CustomButton
 } from "@/ui";
@@ -39,14 +35,14 @@ export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBloc
                 </div>
                 <div className={styles.text_wrapper}>
                     <Icon1 className={styles.icon}/>
-                    <UnderlineHeadLine 
-                        color={headlineColorTypes.black}
-                        tag={headlineTagTypes.h2}
-                        fontFamily={headlineFontFamilyTypes.caveatBrush}
+                    <Headline 
+                        type="section"
+                        color='black'
+                        underline={true}
                         classname={styles.h}
                     >
                         We are featured in
-                    </UnderlineHeadLine>
+                    </Headline>
                     <Paragraph>
                         The Alps are the highest and most extensive mountain range system that lies entirely in Europe, separating Southern from Central and Western Europe and stretching approximately 1,200 kilometres across eight 
                         Alpine countries: France, Switzerland, Italy, Monaco, Liechtenstein, Austria, Germany, and Slovenia.
@@ -67,14 +63,14 @@ export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBloc
             <div className={styles.wrapper}>
                 <div className={styles.text_wrapper}>
                     <Icon1 className={styles.icon}/>
-                    <UnderlineHeadLine 
-                        color={headlineColorTypes.black}
-                        tag={headlineTagTypes.h2}
-                        fontFamily={headlineFontFamilyTypes.caveatBrush}
+                    <Headline 
+                        type="section"
+                        color='black'
+                        underline={true}
                         classname={styles.h}
                     >
                         We are featured in
-                    </UnderlineHeadLine>
+                    </Headline>
                         
                     <Paragraph>
                         The Alps are the highest and most extensive mountain range system that lies entirely in Europe, separating Southern from Central and Western Europe and stretching approximately 1,200 kilometres across eight Alpine countries: France, Switzerland, Italy, Monaco, Liechtenstein, Austria, Germany, and Slovenia.

@@ -1,4 +1,4 @@
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, SimpleHeadline } from "@/ui";
+import { Headline } from "@/ui";
 import Image from "next/image";
 import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 import styles from "./DestinationCard.module.css";
@@ -20,13 +20,12 @@ export const DestinationCard:React.FC<IDescriptionCard> = ({name, image, ...rest
                 className={styles.bg}
             />
             <div className={styles.content}>
-                <SimpleHeadline
-                    color={headlineColorTypes.white}
-                    fontFamily={headlineFontFamilyTypes.montserrat}
-                    tag={headlineTagTypes.h3}
+                <Headline
+                    color='white'
+                    type="normal"
                 >
                     {name}
-                </SimpleHeadline>
+                </Headline>
             </div>
         </div>
     )

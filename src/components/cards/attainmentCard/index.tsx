@@ -1,5 +1,5 @@
 import { SubHeaderContent } from "@/components/content";
-import { headlineColorTypes, headlineFontFamilyTypes, headlineTagTypes, Paragraph, SimpleHeadline } from "@/ui";
+import { Paragraph, Headline } from "@/ui";
 import React, { ReactElement } from "react";
 import styles from './AttainmentCard.module.css';
 
@@ -14,14 +14,13 @@ export const AttainmentCard=({Icon, description, title}:IAttainmentBlock):JSX.El
     return (
         <section className={styles.card_wrapper}>
             {Icon}
-            <SimpleHeadline
-                color={headlineColorTypes.black}
-                fontFamily={headlineFontFamilyTypes.montserrat}
-                tag={headlineTagTypes.h3}
+            <Headline
+                type='normal'
+                color='black'
                 classname={styles.title}
             >
                 {title}
-            </SimpleHeadline>
+            </Headline>
             <Paragraph
                 classname={styles.destination}
             >

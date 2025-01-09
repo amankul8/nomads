@@ -8,11 +8,7 @@ import styles from "./tourSimpleCard.module.scss";
 
 import { 
     Paragraph,
-    SimpleHeadline,
-    headlineColorTypes,
-    headlineFontFamilyTypes,
-    headlineTagTypes,
-
+    Headline,
     Rating
 } from "@/ui";
 
@@ -51,13 +47,12 @@ export const TourSimpleCard: React.FC<ITTourSimpleCard> = ({ name, description, 
                 <Paragraph>
                     {description}
                 </Paragraph>
-                <SimpleHeadline
-                    color={headlineColorTypes.white}
-                    fontFamily={headlineFontFamilyTypes.caveatBrush}
-                    tag={headlineTagTypes.h2}
+                <Headline
+                    color='white'
+                    type='subsection'
                 >
                     {name}
-                </SimpleHeadline>
+                </Headline>
 
                 <Rating 
                     type = "human"
