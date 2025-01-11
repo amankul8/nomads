@@ -1,12 +1,11 @@
-import { ToursFirstBlock } from "@/components/pageFirstBlocks";
 import {Layout} from "@/layouts"
 
-export default function Main() {
+export default function Accomodations() {
 
   return (
     
     <Layout>
-        <ToursFirstBlock/>
+      Accomodations
     </Layout>
   );
 };

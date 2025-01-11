@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./subheader.module.css";
 import {ISubheader} from "@/components/content";
 import cn from "classnames";
-import {motion, Variants} from "framer-motion";
+import {motion, Variants} from "motion/react";
 import { NavbarItem, Paragraph, Headline} from "@/ui";
 import OrnamentIcon from 'public/icons/listMarkers/ornament.svg';
 import Compass from "./svg/compass.svg";

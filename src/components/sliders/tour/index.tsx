@@ -1,17 +1,17 @@
 import Slider from "react-slick";
 import styles from "./tourSlider.module.scss";
 import { TourInfoCard } from "@/components/cards";
-import { useRef, useState } from "react";
+import { DetailedHTMLProps, HTMLAttributes, useRef, useState } from "react";
 import { CustomIconButton, Headline } from "@/ui";
 
-interface ITourSlider{
+interface ITourSlider extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
   isCenteredMode?: boolean,
   list: any,
   title: string 
 }
 
 
-const TourSlider:React.FC<ITourSlider> = ({ isCenteredMode, list, title}):JSX.Element=>{
+function TourSlider({ isCenteredMode, list, title}: ITourSlider) {
 
     const sliderRef = useRef<Slider>(null);
     const [currentIndex, setCurrentIndex] = useState<number>(1);
@@ -87,31 +87,25 @@ const TourSlider:React.FC<ITourSlider> = ({ isCenteredMode, list, title}):JSX.El
           {title}
         </Headline>  
           
-        <Slider ref={sliderRef} {...settings}>
-          {
-            list.map((item:any) => {
-              return (
-                <>
-                  <div className={styles.slider}>
-                  <TourInfoCard
-                    name="Title"
-                    description="Ipsum text"
-                    link=""
-                    image="https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"
-                    days={5}
-                    price={1000}
-                    promotion={30}
-                    countries={['Kyrgyzstan', 'Kazakstan']}
-                    complexity={3}
-                    rating={3}
-                    reviewsCount={73}
-                    isList={false}
-                  />
-                </div>
-                </>
-              )
-            })
-          }
+        <Slider ref={sliderRef} {...settings} key={title}>
+          {list.map((item: any, index: number) => (
+            <div className={styles.slider} key={item.id || index}>
+              <TourInfoCard
+                name={item.name || "Title"}
+                description={item.description || "Ipsum text"}
+                link={item.link || ""}
+                image={item.image || "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
+                days={item.days || 5}
+                price={item.price || 1000}
+                promotion={item.promotion || 30}
+                countries={item.countries || ["Kyrgyzstan", "Kazakstan"]}
+                complexity={item.complexity || 3}
+                rating={item.rating || 3}
+                reviewsCount={item.reviewsCount || 73}
+                isList={item.isList || false}
+              />
+            </div>
+          ))}
         </Slider>
 
         <div className={styles.controller}>

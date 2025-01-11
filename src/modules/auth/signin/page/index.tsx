@@ -2,7 +2,7 @@ import Link from "next/link";
 import {useForm, SubmitHandler} from "react-hook-form";
 import  FormData from 'form-data';
 import myAxios from '@/helpers/ApiHelper';
-import { Input, Button, btnViewType, btnBorderSizeType, btnColorType } from "@/ui";
+import { Input, CustomButton} from "@/ui";
 import { AuthLayout } from "@/layouts/authLayout/AuthLayout";
 import styles from "./signin.module.css";
 import FIcon from "public/icons/authIcons/withFacebookIcon.svg";
@@ -103,13 +103,12 @@ export function SignIn() {
                         <Link href={"/auth/forgot-password"}>Forgot password?</Link>
                     </div>
 
-                    <Button 
-                      btnColor={btnColorType.red}
-                      btnSize={btnBorderSizeType.xl}
-                      btnView={btnViewType.button}
-                      enabled={isValid}
+                    <CustomButton 
+                      color="red"
+                      handler={()=>{}}
+                      active={isValid}
                       classname={styles.button}
-                    > Sign in  </Button>
+                    > Sign in  </CustomButton>
                 </form>
             </div>
           </div>

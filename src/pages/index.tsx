@@ -1,5 +1,5 @@
 import {Layout, FirstBlockLayout, UniversalBlock} from "@/layouts"
-import {MainFirstBlock} from '@/components/pageFirstBlocks';
+import {MainFirstBlock} from '@/components/blocks/index';
 import { InfoBlock } from '@/components/blocks/info';
 import AttainmentIcon1 from "public/icons/cardIcons/attainmentIcons/icon_1.svg";
 import AttainmentIcon2 from "public/icons/cardIcons/attainmentIcons/icon_2.svg";
@@ -11,7 +11,7 @@ import { ReviewBlock } from "@/components/sliders/review";
 
 import styles from "@/styles/home.module.scss";
 import { TourSearch,  } from "@/components/blocks";
-import { CustomButton, CustomIconButton, Headline} from "@/ui";
+import {Headline} from "@/ui";
 
 import logo1 from "public/icons/partnersLogos/img1.png"
 import logo2 from "public/icons/partnersLogos/img2.png"
@@ -21,7 +21,6 @@ import logo5 from "public/icons/partnersLogos/img5.png"
 import Image from "next/image";
 import TourSlider from "@/components/sliders/tour";
 import { BlockWithSkirt } from "@/layouts/index";
-import { TourInfoCard } from "@/components/cards";
 
 export interface ISlides{
   id: number,
@@ -138,7 +137,9 @@ export default function Main() {
     
     <Layout>
 
-      <FirstBlockLayout>
+      <FirstBlockLayout
+        isFullSize={true}
+      >
         <MainFirstBlock slides={slides}/>
       </FirstBlockLayout>
 
@@ -186,6 +187,14 @@ export default function Main() {
           title="Find our popular tours"
         />
       </BlockWithSkirt>
+
+      <BlockWithSkirt image="">
+        <TourSlider
+            list={[1,2,3,4,5,6,7,8]}
+            isCenteredMode={true}
+            title="Tours In this Destinations"
+        /> 
+     </BlockWithSkirt>
       
       <UniversalBlock
         title='Our experience in quantitative terms'

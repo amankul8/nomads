@@ -13,7 +13,6 @@ export const InfoSticker = ({Icon, children}:IInfoSticker):JSX.Element=>{
         <div className={styles.wrapper}>
             <Icon/>
             <Span 
-              fontFamily="montserrat"
               classname={styles.text}
             >
                 {children}

@@ -11,7 +11,7 @@ interface IHeadline extends DetailedHTMLProps<HTMLAttributes<HTMLHeadElement>, H
     classname?: string
 }
 
-export const Headline:React.FC<IHeadline> = ({type, color, children, underline, classname}) => {
+export function Headline ({type, color, children, underline, classname}: IHeadline) {
 
     return (
         <h1

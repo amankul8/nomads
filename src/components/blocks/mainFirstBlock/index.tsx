@@ -1,18 +1,15 @@
 import { 
     CustomButton, 
     CustomIconButton, 
-
     Paragraph, 
     Headline, 
 } from "@/ui";
 import React, {useRef, useState } from "react";
 import styles from "./MainBlock.module.css";
 import { ISlides } from "@/pages";
-import {animate, motion} from 'framer-motion';
+import { motion } from "motion/react"
 import cn from "classnames";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
 import { TourSimpleCard } from "@/components/cards";
 
 interface IDestinationBlock{

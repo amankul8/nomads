@@ -4,8 +4,8 @@
     max-width: 300px;
     min-height: 440px;
     max-height: 500px;
-    height: 460px;
-    width: 280px;
+    height: 480px;
+    width: 300px;
     overflow: hidden;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -81,7 +81,6 @@
         position: relative;
         height: calc(100% - 240px);
         width: 100%;
-        background: var(--white);
         display: flex;
         flex-wrap: wrap;
         align-items: flex-end;

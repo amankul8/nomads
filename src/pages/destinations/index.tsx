@@ -1,10 +1,10 @@
-import { DestinationsFirstBlock } from "@/components/pageFirstBlocks";
 import { UniversalBlock } from "@/layouts/block/universal";
 import { DestinationCard } from "@/components/cards/destinationCard";
 import { useRouter } from 'next/navigation'
-import {Layout } from "@/layouts";
+import {BlockWithSkirt, FirstBlockLayout, Layout } from "@/layouts";
 import React from "react";
 import { CustomButton } from "@/ui";
+import TourSlider from "@/components/sliders/tour";
 
 const regions = [
     {
@@ -64,17 +64,20 @@ export default function Destinations():JSX.Element{
 
     return(
         <Layout>
-            <DestinationsFirstBlock/>
+            <FirstBlockLayout
+                bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"
+            />
 
             <UniversalBlock
                 title="Destinations By Region"
             >
                 {
-                    regions.map((item)=>{
+                    regions.map((item, index)=>{
                         return(
                             <CustomButton
                                 color="blue"
                                 handler={()=>{}}
+                                key={index}
                             >
                                 {item.name}
                             </CustomButton>
@@ -99,13 +102,15 @@ export default function Destinations():JSX.Element{
                     onClick={ ()=>handleDescription(3) }
                 />
             </UniversalBlock>
+
+            <BlockWithSkirt image="">
+                <TourSlider
+                    list={[1,2,3,4,5]}
+                    isCenteredMode={true}
+                    title="Tours In this Destinations"
+                />
+                
+            </BlockWithSkirt>
         </Layout>
     )
-}
-
-export async function getStaticProps(){
-    return{
-        props: {},
-        revalidate: 60 * 30
-    }
 }

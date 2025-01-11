@@ -1,5 +1,4 @@
 import React, { DetailedHTMLProps, HTMLAttributes, useState } from "react";
-import {animate, motion} from 'framer-motion';
 import cls from "classnames";
 
 import styles from "./tourInfoCard.module.scss";

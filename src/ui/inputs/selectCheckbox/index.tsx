@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./SelectCheckbox.module.css";
-import {motion} from "framer-motion";
+import {motion} from "motion/react";
 
 interface ISelect{
     selectHandler?: React.Dispatch<React.SetStateAction<any>>,

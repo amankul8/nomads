@@ -1,6 +1,6 @@
 import styles from "./signup.module.css";
 import { AuthLayout } from '@/layouts/authLayout/AuthLayout';
-import {Input, Button, btnColorType, btnBorderSizeType, btnViewType} from '@/ui';
+import {Input, CustomButton} from '@/ui';
 import Link from "next/link";
 import {useForm} from "react-hook-form";
 import { SubmitHandler } from 'react-hook-form/dist/types';
@@ -120,13 +120,14 @@ export function SignUp() {
                     </label>
                 </div>
 
-                <Button 
-                    btnColor={btnColorType.red}
-                    btnSize={btnBorderSizeType.xl}
-                    btnView={btnViewType.button}
-                    enabled={isValid}
+                <CustomButton 
+                    color="red"
+                    handler={()=>{}}
+                    active={isValid}
                     classname={styles.button}
-                > Sign up </Button>
+                > 
+                    Sign up 
+                </CustomButton>
             </form>
         </div>
         </div>

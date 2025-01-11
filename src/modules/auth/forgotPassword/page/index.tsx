@@ -1,6 +1,6 @@
 import styles from "./forgotPassword.module.css";
 import { AuthLayout } from '@/layouts/authLayout/AuthLayout';
-import {Input, Button, btnColorType, btnBorderSizeType, btnViewType} from '@/ui';
+import {Input, CustomButton} from '@/ui';
 import {useForm} from "react-hook-form";
 import { SubmitHandler } from 'react-hook-form/dist/types';
 
@@ -41,13 +41,12 @@ export function ForgotPassword() {
 
                         />
 
-                        <Button 
-                            btnColor={btnColorType.red}
-                            btnSize={btnBorderSizeType.l}
-                            btnView={btnViewType.button}
-                            enabled={isValid}
+                        <CustomButton 
+                            color="red"
+                            active={isValid}
+                            handler={()=>{}}
                             classname={styles.button}
-                        > Send </Button>
+                        > Send </CustomButton>
                     </form>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-import { TourFirstBlock } from "@/components/pageFirstBlocks";
 import {FirstBlockLayout, Layout} from "@/layouts"
 import { GetStaticPropsContext } from "next";
 import { TourContent } from "@/components/content";
@@ -8,7 +7,7 @@ export default function Tour() {
   return (
     
     <Layout>
-      <TourFirstBlock/>
+      <FirstBlockLayout/>
       <TourContent/>
     </Layout>
   );

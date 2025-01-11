@@ -2,7 +2,6 @@ import React, { DetailedHTMLProps, HtmlHTMLAttributes, useState } from "react";
 
 import styles from "./tourSearch.module.scss";
 import {
-    InputSelectList, 
     SearchInput, 
     Headline, 
 } from "@/ui";
@@ -28,18 +27,6 @@ export const TourSearch:React.FC<ITourSearch> = () => {
             </Headline>
 
             <div className={styles.search_form}>
-                <InputSelectList
-                    label="Destination"
-                    list={[
-                        { id: 1, name: "Первый элемент" },
-                        { id: 2, name: "Второй элемент" },
-                        { id: 3, name: "Третий элемент" },
-                        { id: 4, name: "Четвёртый элемент" },
-                    ]}
-                    selectHandler={(item) => {
-                        console.log("Выбранный элемент:", item);
-                    }}
-                />
 
                 <SearchInput 
                     label="Duration"

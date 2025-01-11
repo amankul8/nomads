@@ -1,0 +1,61 @@
+.wrapper {
+    width: 100%;
+    transition: background-color 200ms linear, transform 200ms linear;
+
+    .header {
+        width: 100%;
+        padding: 16px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        transition: background-color 200ms linear;
+        cursor: pointer;
+        border-bottom: .5px solid rgb(228, 228, 228);
+
+        .title {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .icon {
+            stroke: var(--black);
+        }
+        .arrow {
+            fill: var(--black);
+        }
+        .icon,
+        .arrow {
+            transition: stroke 200ms linear, fill 200ms linear, transform 200ms linear;
+        }
+    }
+
+    .body {
+        height: 100px;
+        width: 100%;
+        background: red;
+        overflow: hidden;
+        display: none;
+    }
+
+    &.opened {
+        .header {
+            background-color: var(--blue);
+
+            .icon {
+                stroke: var(--white);
+            }
+
+            .arrow {
+                fill: var(--white);
+                transform: rotateZ(90deg);
+            }
+        }
+
+        .body {
+            display: block;
+        }
+    }
+}

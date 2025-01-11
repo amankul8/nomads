@@ -1,14 +1,14 @@
-import React, { ReactNode } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 
 import styles from "./skirt.module.scss";
 
-interface IBlockWithSkirt{
+interface IBlockWithSkirt extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
     image: string,
     classname?: string,
     children: ReactNode,
 }
 
-export const BlockWithSkirt:React.FC<IBlockWithSkirt> = ({image, children, classname})=>{
+export function BlockWithSkirt ({image, children, classname}: IBlockWithSkirt) {
 
     return(
         <section className={styles.wrapper+' '+classname}>

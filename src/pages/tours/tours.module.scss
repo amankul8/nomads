@@ -1,0 +1,50 @@
+.wrapper {
+    width: 100%;
+    padding: 40px 100px; 
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    background-image:  url('/images/toursBg.png');
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+
+    .sidebar {
+        overflow: hidden;
+        width: 280px;
+        height: min-content;
+        border-top-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        transition: 200ms linear;
+        background-color: var(--white);
+        -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+        box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .content_wrapper {
+        width: calc(100% - 330px);
+        position: relative;
+
+        .content_header {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            bottom: 100%;
+        }
+
+        .content {
+            width: 100%;
+            min-height: 100px;
+            background-color: var(--white);
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+    }
+}

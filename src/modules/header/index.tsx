@@ -6,7 +6,7 @@ import { IMenuItems } from "@/components/navbar";
 import cn from 'classnames';
 import {SubHeaderContent} from "@/components/content";
 import { IHeader } from "./header.interface";
-import {motion} from "framer-motion";
+import {motion} from "motion/react";
 
 
 export const Header = ({...props}:IHeader):JSX.Element=>{
@@ -208,10 +208,10 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
                             }}
                             className={cn(styles.sub_header)} 
                             key={index}
-                            onMouseOver={(e)=>{
+                            onMouseOver={(e:any)=>{
                                 mouseOverHandler(e, item.id, true);
                             }}
-                            onMouseOut={(e)=>{
+                            onMouseOut={(e:any)=>{
                                 mouseOverHandler(e, item.id, false);
                             }}
                         >
