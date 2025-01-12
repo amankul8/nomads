@@ -8,6 +8,7 @@
     background-position: center;
     background-repeat: repeat-y;
     background-size: cover;
+    position: relative;
 
     .sidebar {
         overflow: hidden;
@@ -22,29 +23,84 @@
         box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
         display: flex;
         flex-direction: column;
+        gap: 10px;
+
+        .range {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .range_values {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                border: 2px solid var(--blue);
+                border-top-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+
+                .value {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    padding: 5px 15px;
+                    align-items: flex-start;
+                    justify-content: center;
+                    width: 50%;
+                    color: var(--blue);
+
+                    .label {
+                        color: var(--grey);
+                    }
+
+                    &:first-child {
+                        border-right: 2px solid var(--blue);
+                    }
+                }
+            }
+        }
     }
     
     .content_wrapper {
         width: calc(100% - 330px);
         position: relative;
+        margin-top: 15px;
 
         .content_header {
             position: absolute;
             left: 0;
             width: 100%;
             bottom: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+
+            .left {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 30px;
+
+                .sort_select {
+                    border: none;
+                    
+                    & fieldset {
+                        border: none;
+                    }
+                }
+            }
         }
 
         .content {
             width: 100%;
-            min-height: 100px;
             background-color: var(--white);
             border-radius: 5px;
+            gap: 20px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
-            gap: 10px;
+            justify-content: space-around;
         }
     }
 }

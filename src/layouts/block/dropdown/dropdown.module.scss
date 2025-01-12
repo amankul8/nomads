@@ -35,15 +35,15 @@
     .body {
         height: 100px;
         width: 100%;
-        background: red;
         overflow: hidden;
         display: none;
+        padding: 16px;
     }
 
     &.opened {
         .header {
             background-color: var(--blue);
-
+            
             .icon {
                 stroke: var(--white);
             }

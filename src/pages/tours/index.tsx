@@ -2,21 +2,63 @@ import {Layout, FirstBlockLayout} from "@/layouts"
 import styles from "./tours.module.scss";
 import { DropdownBlock } from "@/layouts/block/dropdown";
 import { TourInfoCard } from "@/components/cards";
+import cls from "classnames";
 
-import Box from "@mui/material/Box";
 import Slider from '@mui/material/Slider';
+import Checkbox from '@mui/material/Checkbox';
 import React from "react";
-
-function valueText(value: number) {
-  return `${value}°C`;
-}
+import { FormControlLabel, FormGroup, MenuItem, Select, SelectChangeEvent, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import ViewListIcon from '@mui/icons-material/ViewList';
+import ViewModuleIcon from '@mui/icons-material/ViewModule';
 
 export default function Main() {
 
   const [duration, setDuration] = React.useState<number[]>([20, 37]);
+  const [price, setPrice] = React.useState<number[]>([0, 15000]);
+  const [countries, setCountries] = React.useState<number[]>([]);
+  const [types, setTypes] = React.useState<number[]>([]);
+  const [destinations, setDestinations] = React.useState<number[]>([]);
+  const [activities, setActivities] = React.useState<number[]>([]);
+  const [levels, setLevels] = React.useState<number[]>([0, 10]);
 
-  const handleChange = (event: Event, newDuration: number | number[]) => {
+  const [view, setView] = React.useState('list');
+
+  const [sortValue, setSortValue] = React.useState('Ten');
+
+  const handleSortChange = (event: SelectChangeEvent) => {
+    setSortValue(event.target.value);
+  };
+
+  const handleViewChange = (event: React.MouseEvent<HTMLElement>, nextView: string) => {
+    setView(nextView);
+  };
+
+  const handleDurationChange = (event: Event, newDuration: number | number[]) => {
     setDuration(newDuration as number[]);
+  };
+
+  const handlePriceChange = (event: Event, newPrice: number | number[]) => {
+    setPrice(newPrice as number[]);
+  };
+
+  const handleCountriesChange = (event: Event, newPrice: number | number[]) => {
+    setPrice(newPrice as number[]);
+  };
+
+  const handleTypesChange = (event: Event, newPrice: number | number[]) => {
+    setPrice(newPrice as number[]);
+  };
+
+  const handleDestinationsChange = (event: Event, newPrice: number | number[]) => {
+    setPrice(newPrice as number[]);
+  };
+
+  const handleActivitiesChange = (event: Event, newPrice: number | number[]) => {
+    setPrice(newPrice as number[]);
+  };
+
+  const handleLevelsChange = (event: Event, newLevels: number | number[]) => {
+    setLevels(newLevels as number[]);
   };
 
   return (
@@ -32,16 +74,26 @@ export default function Main() {
               title="Duration"
               icon='duration'
             >
-              <div className={styles.duration}>
-              <Box sx={{ width: 300 }}>
+              <div className={styles.range}>
+
+                <div className={ cls('text',styles.range_values)}>
+                  <div className={styles.value}> 
+                    <span className={styles.label}> From </span>
+                    {duration[0]}
+                  </div>
+                  <div className={styles.value}> 
+                    <span className={styles.label}> To (days) </span>
+                    {duration[1]}  
+                  </div>
+                </div>
+
                 <Slider
-                  getAriaLabel={() => 'Temperature range'}
                   value={duration}
-                  onChange={handleChange}
-                  valueLabelDisplay="auto"
-                  getAriaValueText={()=>duration.join(',')}
+                  onChange={handleDurationChange}
+                  valueLabelDisplay="off"
+                  min={1}
+                  max={50}
                 />
-              </Box>
               </div>
             </DropdownBlock>
 
@@ -49,21 +101,51 @@ export default function Main() {
               title="Price"
               icon='duration'
             >
-              body
+            
+            <div className={styles.range}>
+
+              <div className={ cls('text',styles.range_values)}>
+                <div className={styles.value}> 
+                  <span className={styles.label}> From </span>
+                  USD {price[0]}
+                </div>
+                <div className={styles.value}> 
+                  <span className={styles.label}> To </span>
+                  USD {price[1]}  
+                </div>
+              </div>
+
+              <Slider
+                value={price}
+                onChange={handlePriceChange}
+                valueLabelDisplay="off"
+                min={0}
+                max={15000}
+              />
+            </div>
+
             </DropdownBlock>
 
             <DropdownBlock
               title="Country"
               icon='duration'
             >
-              body
+              <FormGroup>
+                <FormControlLabel control={<Checkbox defaultChecked />} label="Kyrgyzstan" />
+                <FormControlLabel control={<Checkbox/>} label="Uzbekistan" />
+                <FormControlLabel control={<Checkbox/>} label="Kazakhstan" />
+              </FormGroup>
             </DropdownBlock>
 
             <DropdownBlock
               title="Types"
               icon='duration'
             >
-              body
+              <FormGroup>
+                <FormControlLabel control={<Checkbox defaultChecked />} label="Type 1" />
+                <FormControlLabel control={<Checkbox/>} label="Type 2" />
+                <FormControlLabel control={<Checkbox/>} label="Type 3" />
+              </FormGroup>
             </DropdownBlock>
 
             <DropdownBlock
@@ -77,18 +159,75 @@ export default function Main() {
               title="Activities"
               icon='duration'
             >
-              body
+              <FormGroup>
+                <FormControlLabel control={<Checkbox defaultChecked />} label="Activity" />
+                <FormControlLabel control={<Checkbox/>} label="Activity" />
+                <FormControlLabel control={<Checkbox/>} label="Activity" />
+              </FormGroup>
             </DropdownBlock>
             <DropdownBlock
               title="Level"
               icon='duration'
             >
-              body
+              <div className={styles.range}>
+
+                <div className={ cls('text',styles.range_values)}>
+                  <div className={styles.value}> 
+                    <span className={styles.label}> Easy </span>
+                    {levels[0]}
+                  </div>
+                  <div className={styles.value}> 
+                    <span className={styles.label}> Dificult </span>
+                    {levels[1]}  
+                  </div>
+                </div>
+
+                <Slider
+                  value={levels}
+                  onChange={handleLevelsChange}
+                  valueLabelDisplay="off"
+                  min={0}
+                  max={10}
+                />
+              </div>
             </DropdownBlock>
           </div>
           <div className={styles.content_wrapper}>
-            <div className={styles.content_header}>
-              Sort block
+            <div className={cls('text', styles.content_header)}>
+              <div className={styles.left}>
+                <div> <strong>Found Tours:</strong> {165}</div>
+                <div > 
+                  <strong>Sort:</strong> 
+                  <Select
+                    labelId="demo-simple-select-standard-label"
+                    id="demo-simple-select-standard"
+                    value={sortValue}
+                    onChange={handleSortChange}
+                    className={styles.sort_select}
+                    renderValue={() => sortValue}
+                  >
+                    <MenuItem value={'Ten'}>Ten</MenuItem>
+                    <MenuItem value={'Twenty'}>Twenty</MenuItem>
+                    <MenuItem value={'Thirty'}>Thirty</MenuItem>
+                  </Select> 
+                </div>
+              </div>
+              
+              <ToggleButtonGroup
+                orientation="horizontal"
+                value={view}
+                exclusive
+                onChange={handleViewChange}
+                size="small"
+              >
+                <ToggleButton value="list" aria-label="list">
+                  <ViewListIcon />
+                </ToggleButton>
+                <ToggleButton value="module" aria-label="module">
+                  <ViewModuleIcon />
+                </ToggleButton>
+              </ToggleButtonGroup>
+
             </div>
             <div className={styles.content}>
                 {

@@ -1,5 +1,4 @@
 .card {
-    margin: 30px;
     min-width: 280px;
     max-width: 300px;
     min-height: 440px;
@@ -86,6 +85,7 @@
         align-items: flex-end;
         transition: 200ms all;
         box-sizing: border-box;
+        background-color: var(--white);
 
         .curcle {
             position: absolute;

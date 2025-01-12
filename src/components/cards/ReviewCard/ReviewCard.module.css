@@ -29,6 +29,7 @@
     transition: 500ms ease-in-out;
     display: flex;
     flex-direction: row;
+    color: var(--white);
 }
 .left{
     width: 40%;
