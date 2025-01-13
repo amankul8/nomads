@@ -1,10 +1,9 @@
 .card {
     min-width: 280px;
-    max-width: 300px;
+    max-width: 340px;
     min-height: 440px;
-    max-height: 500px;
     height: 480px;
-    width: 300px;
+    width: 100%;
     overflow: hidden;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -287,7 +286,7 @@
         .card_btn {
             height: 30px;
             color: var(--white);
-            
+            text-decoration: none;
         }
     }
 }

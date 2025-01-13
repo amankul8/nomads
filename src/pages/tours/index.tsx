@@ -7,9 +7,23 @@ import cls from "classnames";
 import Slider from '@mui/material/Slider';
 import Checkbox from '@mui/material/Checkbox';
 import React from "react";
-import { FormControlLabel, FormGroup, MenuItem, Select, SelectChangeEvent, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { Autocomplete, Container, FormControlLabel, FormGroup, MenuItem, Select, SelectChangeEvent, Skeleton, Stack, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import Grid from '@mui/material/Grid2';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
+import { Headline } from "@/ui";
+
+
+const top100Films = [
+  { title: 'The Shawshank Redemption', year: 1994 },
+  { title: 'The Godfather', year: 1972 },
+  { title: 'The Godfather: Part II', year: 1974 },
+  { title: 'The Dark Knight', year: 2008 },
+  { title: '12 Angry Men', year: 1957 },
+  { title: "Schindler's List", year: 1993 },
+  { title: 'Pulp Fiction', year: 1994 }, 
+];
+
 
 export default function Main() {
 
@@ -17,7 +31,7 @@ export default function Main() {
   const [price, setPrice] = React.useState<number[]>([0, 15000]);
   const [countries, setCountries] = React.useState<number[]>([]);
   const [types, setTypes] = React.useState<number[]>([]);
-  const [destinations, setDestinations] = React.useState<number[]>([]);
+  const [destinations, setDestinations] = React.useState<typeof top100Films>([]);
   const [activities, setActivities] = React.useState<number[]>([]);
   const [levels, setLevels] = React.useState<number[]>([0, 10]);
 
@@ -49,8 +63,8 @@ export default function Main() {
     setPrice(newPrice as number[]);
   };
 
-  const handleDestinationsChange = (event: Event, newPrice: number | number[]) => {
-    setPrice(newPrice as number[]);
+  const handleDestinationsChange = (newDescriptions: typeof top100Films) => {
+    setDestinations(newDescriptions);
   };
 
   const handleActivitiesChange = (event: Event, newPrice: number | number[]) => {
@@ -66,10 +80,51 @@ export default function Main() {
     <Layout>
       <FirstBlockLayout
         bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"
-      />
+        classname={styles.first_block}
+      >
+        <Headline color='white' type="main"> Choose your dream adventure   </Headline>
+      </FirstBlockLayout>
 
-      <section className={styles.wrapper}>
-          <div className={styles.sidebar}>
+      <div className={styles.content_wrapper}>
+        <div className={styles.topbar}>
+          <div className={styles.left_side}>
+            <div> <strong>Found Tours:</strong> {165}</div>
+            <div > 
+              <strong>Sort:</strong> 
+              <Select
+                labelId="demo-simple-select-standard-label"
+                id="demo-simple-select-standard"
+                value={sortValue}
+                onChange={handleSortChange}
+                className={styles.sort_select}
+                renderValue={() => sortValue}
+              >
+                <MenuItem value={'Ten'}>Ten</MenuItem>
+                <MenuItem value={'Twenty'}>Twenty</MenuItem>
+                <MenuItem value={'Thirty'}>Thirty</MenuItem>
+              </Select> 
+            </div>
+          </div>
+          
+          <ToggleButtonGroup
+            orientation="horizontal"
+            value={view}
+            exclusive
+            onChange={handleViewChange}
+            size="small"
+            className={styles.right_side}
+          >
+            <ToggleButton value="list" aria-label="list">
+              <ViewListIcon />
+            </ToggleButton>
+            <ToggleButton value="module" aria-label="module">
+              <ViewModuleIcon />
+            </ToggleButton>
+          </ToggleButtonGroup>
+        </div>
+        
+        <div className={styles.sidebar}>
+          <div className={styles.bar}>
             <DropdownBlock
               title="Duration"
               icon='duration'
@@ -152,7 +207,18 @@ export default function Main() {
               title="Destinations"
               icon='duration'
             >
-              body
+              <Autocomplete
+                multiple
+                id="size-small-outlined-multi"
+                size="small"
+                options={top100Films}
+                getOptionLabel={(option) => option.title}
+                value={destinations}
+                onChange={(event, neValue) => handleDestinationsChange(neValue)}
+                renderInput={(params) => (
+                  <TextField {...params} placeholder="Enter" />
+                )}
+              />
             </DropdownBlock>
 
             <DropdownBlock
@@ -192,67 +258,29 @@ export default function Main() {
               </div>
             </DropdownBlock>
           </div>
-          <div className={styles.content_wrapper}>
-            <div className={cls('text', styles.content_header)}>
-              <div className={styles.left}>
-                <div> <strong>Found Tours:</strong> {165}</div>
-                <div > 
-                  <strong>Sort:</strong> 
-                  <Select
-                    labelId="demo-simple-select-standard-label"
-                    id="demo-simple-select-standard"
-                    value={sortValue}
-                    onChange={handleSortChange}
-                    className={styles.sort_select}
-                    renderValue={() => sortValue}
-                  >
-                    <MenuItem value={'Ten'}>Ten</MenuItem>
-                    <MenuItem value={'Twenty'}>Twenty</MenuItem>
-                    <MenuItem value={'Thirty'}>Thirty</MenuItem>
-                  </Select> 
-                </div>
-              </div>
-              
-              <ToggleButtonGroup
-                orientation="horizontal"
-                value={view}
-                exclusive
-                onChange={handleViewChange}
-                size="small"
-              >
-                <ToggleButton value="list" aria-label="list">
-                  <ViewListIcon />
-                </ToggleButton>
-                <ToggleButton value="module" aria-label="module">
-                  <ViewModuleIcon />
-                </ToggleButton>
-              </ToggleButtonGroup>
+        </div> 
 
-            </div>
-            <div className={styles.content}>
-                {
-                  [1,2,3,4,56,32,7,8,6,5,44,3,3].map((item, index) => {
-                    return (
-                      <TourInfoCard
-                        name={"Title"}
-                        description={ "Ipsum text"}
-                        link={""}
-                        image={"https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
-                        days={ 5}
-                        price={ 1000}
-                        promotion={30}
-                        countries={ ["Kyrgyzstan", "Kazakstan"]}
-                        complexity={ 3}
-                        rating={3}
-                        reviewsCount={73}
-                        isList={false}
-                      />
-                    )
-                  })
-                }
-            </div>
-          </div>
-      </section>
+        <div className={styles.content}>
+          {  
+            [...Array(6)].map((_, index) => (
+              <TourInfoCard
+                name={"Title"}
+                description={"Ipsum text"}
+                link={""}
+                image={"https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
+                days={5}
+                price={1000}
+                promotion={30}
+                countries={["Kyrgyzstan", "Kazakstan"]}
+                complexity={3}
+                rating={3}
+                reviewsCount={73}
+                isList={false}
+              />
+            ))
+          }
+        </div>
+      </div>
 
     </Layout>
   );

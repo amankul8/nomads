@@ -187,14 +187,6 @@ export default function Main() {
           title="Find our popular tours"
         />
       </BlockWithSkirt>
-
-      <BlockWithSkirt image="">
-        <TourSlider
-            list={[1,2,3,4,5,6,7,8]}
-            isCenteredMode={true}
-            title="Tours In this Destinations"
-        /> 
-     </BlockWithSkirt>
       
       <UniversalBlock
         title='Our experience in quantitative terms'

@@ -9,13 +9,16 @@ interface IFirstBlockLayout extends DetailedHTMLProps<HTMLAttributes<HTMLDivElem
     withCloud?: boolean,
     bg_image?: string
     children?: ReactNode,
+    classname?: String
 }
 
-export const FirstBlockLayout:React.FC<IFirstBlockLayout> = ({children, bg_image, isFullSize=false, withCloud=true}) => {
+export const FirstBlockLayout:React.FC<IFirstBlockLayout> = ({children, bg_image, classname, isFullSize=false, withCloud=true}) => {
   return (
     <section className={cn(styles.wrapper, {
-        [styles.helf]: !isFullSize
-      })}
+          [styles.helf]: !isFullSize
+        },
+        classname
+      )}
       style={bg_image?{backgroundImage: `url(${bg_image})`}:{}}
     >
         {children}

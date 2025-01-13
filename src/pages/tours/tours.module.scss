@@ -1,106 +1,204 @@
-.wrapper {
-    width: 100%;
-    padding: 40px 100px; 
+
+// Карта брейкпоинтов
+$breakpoints: (
+  'sm': 620px,   // Small
+  'md': 900px,   // Medium
+  'lg': 1024px,  // Large  // Extra Large
+  'xl': 1250px,
+  'xxl': 1680px, // Double Extra Large
+  'uw': 2000px,  // Ultra Wide
+  '2k': 2300px,
+  '4k': 3840px,   // 4K
+);
+
+// Миксин для медиа-запросов
+@mixin respond-to($breakpoint) {
+  @media only screen and (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+.first_block {
     display: flex;
-    gap: 30px;
-    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.content_wrapper {
+    position: relative;
+    width: 100%;
     background-image:  url('/images/toursBg.png');
     background-position: center;
     background-repeat: repeat-y;
     background-size: cover;
-    position: relative;
+    display: grid;
+    grid-template-areas:
+        "auto topbar"
+        "sidebar content";
+    grid-template-columns: 2.5fr 9.5fr;
+    grid-template-rows: auto 1fr;
+    padding: 0 60px;
+    gap: 16px;
 
-    .sidebar {
-        overflow: hidden;
-        width: 280px;
-        height: min-content;
-        border-top-left-radius: 25px;
-        border-bottom-right-radius: 25px;
-        transition: 200ms linear;
-        background-color: var(--white);
-        -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-        -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
-        box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    @include respond-to("xl") {
+        grid-template-columns: 3fr 9fr;
+    }
+
+    @include respond-to("lg") {
+        grid-template-areas:
+        "topbar"
+        "content";
+        grid-template-columns: 12fr;
+        padding: 0 40px;
+    }
+    @include respond-to("sm") {
+        padding: 0 20px;
+    }
+
+
+    .topbar {
+        grid-area: topbar;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
 
-        .range {
+        @include respond-to("sm") {
+            padding: 0;
+        }
+
+        .left_side {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            align-items: center;
+
+            @include respond-to("sm") {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .sort_select {
+                border: none;
+
+                & fieldset {
+                    border: none;
+                }
+
+            }
+        }
+        .right_side {
+            @include respond-to("sm") {
+                display: none;
+            }
+        }
+
+    }
+
+
+    .sidebar{
+        grid-area: sidebar;
+        position: relative;
+
+        @include respond-to("lg") {
+            display: none;
+            position: absolute;
+            z-index: 5;
+        }
+
+        .bar {
+            overflow: hidden;
+            height: min-content;
+            border-top-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            transition: 200ms linear;
+            background-color: var(--white);
+            -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+            -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+            box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
             display: flex;
             flex-direction: column;
             gap: 10px;
 
-            .range_values {
-                width: 100%;
+            .range {
                 display: flex;
-                flex-direction: row;
-                border: 2px solid var(--blue);
-                border-top-left-radius: 15px;
-                border-bottom-right-radius: 15px;
+                flex-direction: column;
+                gap: 10px;
 
-                .value {
+                .range_values {
+                    width: 100%;
                     display: flex;
-                    flex-direction: column;
-                    gap: 5px;
-                    padding: 5px 15px;
-                    align-items: flex-start;
-                    justify-content: center;
-                    width: 50%;
-                    color: var(--blue);
+                    flex-direction: row;
+                    border: 2px solid var(--blue);
+                    border-top-left-radius: 15px;
+                    border-bottom-right-radius: 15px;
 
-                    .label {
-                        color: var(--grey);
-                    }
+                    .value {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        padding: 5px 15px;
+                        align-items: flex-start;
+                        justify-content: center;
+                        width: 50%;
+                        color: var(--blue);
 
-                    &:first-child {
-                        border-right: 2px solid var(--blue);
+                        .label {
+                            color: var(--grey);
+                        }
+
+                        &:first-child {
+                            border-right: 2px solid var(--blue);
+                        }
                     }
                 }
             }
         }
-    }
+    }    
     
-    .content_wrapper {
-        width: calc(100% - 330px);
-        position: relative;
-        margin-top: 15px;
+    .content {
+        grid-area: content;
+        width: 100%;
+        border-radius: 5px;
+        display: grid;
+        grid-template-rows: auto;
+        gap: 20px;
+        padding: 0 30px;
+        justify-content: center;
+        margin-bottom: 40px;
 
-        .content_header {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            bottom: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 30px;
-
-            .left {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 30px;
-
-                .sort_select {
-                    border: none;
-                    
-                    & fieldset {
-                        border: none;
-                    }
-                }
-            }
+        @include respond-to("4k") {
+            grid-template-columns: auto auto auto auto auto auto;   
         }
 
-        .content {
-            width: 100%;
-            background-color: var(--white);
-            border-radius: 5px;
-            gap: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-around;
+        @include respond-to("2k") {
+            grid-template-columns: auto auto auto auto auto;   
+        }
+
+        @include respond-to("uw") {
+            grid-template-columns: auto auto auto auto;   
+        }
+
+        @include respond-to("xxl") {
+            grid-template-columns: auto auto auto;
+            padding: 0 10px;   
+        }
+
+        @include respond-to("xl") {
+            grid-template-columns: auto auto; 
+            padding: 0;   
+        }
+
+        @include respond-to("lg") {
+            grid-template-columns: auto auto auto;   
+        }
+
+        @include respond-to("md") {
+            grid-template-columns: auto auto;   
+        }
+
+        @include respond-to("sm") {
+            grid-template-columns: auto;   
         }
     }
 }

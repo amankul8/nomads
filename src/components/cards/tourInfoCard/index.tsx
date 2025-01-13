@@ -13,6 +13,7 @@ import {
 import Trekking from "public/icons/tour/properties/trekking.svg";
 import Ticket from "public/icons/tour/properties/ticket.svg";
 import Star from "public/icons/ratingIcons/star.svg";
+import { Link } from "@mui/material";
 
 interface ITourInfoCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     name: string,
@@ -25,7 +26,8 @@ interface ITourInfoCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>
     countries: String[],
     complexity: number,
     rating: number,
-    reviewsCount: number
+    reviewsCount: number,
+    classname?: string,
 
     isList?: boolean,
     isTrekking?: boolean,
@@ -59,6 +61,7 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
     complexity,
     rating,
     reviewsCount,
+    classname,
 
     isList,
     isTrekking,
@@ -85,9 +88,11 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
     return (
         <div 
             className={ cls(styles.card, {
-                [styles.hovered]: !isList && hovered,
-                [styles.list_card]: isList
-            }) }
+                    [styles.hovered]: !isList && hovered,
+                    [styles.list_card]: isList
+                }, 
+                classname
+            )}
             
             {...rest}
             
@@ -239,9 +244,9 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                     </CustomButton>
                 </div>
 
-                <div className={cls('btn', styles.card_btn)}>
-                    Discover This Trip
-                </div>
+                <Link href="/tours/tour/1" className={cls('btn', styles.card_btn)}>
+                        Discover This Trip
+                </Link>
             </div>
         </div>
     )
