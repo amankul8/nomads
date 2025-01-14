@@ -2,8 +2,8 @@ import React, { DetailedHTMLProps, HTMLAttributes, ReactNode, useState } from "r
 import cls from "classnames";
 
 import styles from "./customButton.module.scss";
-import RightBorder from "public/icons/buttons/btnTextRightBorder.svg";
-import LeftBorder from "public/icons/buttons/btnTextLeftBorder.svg";  
+import RightBorder from "@/components/icons/button/btnTextRightBorder.svg";
+import LeftBorder from "@/components/icons/button/btnTextLeftBorder.svg";  
 
 type BtnColorType = 'white' | 'red' | 'blue'
 

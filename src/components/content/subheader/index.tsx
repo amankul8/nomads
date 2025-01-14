@@ -4,7 +4,7 @@ import {ISubheader} from "@/components/content";
 import cn from "classnames";
 import {motion, Variants} from "motion/react";
 import { NavbarItem, Paragraph, Headline} from "@/ui";
-import OrnamentIcon from 'public/icons/listMarkers/ornament.svg';
+import OrnamentIcon from '@/components/icons/general/ornament.svg';
 import Compass from "./svg/compass.svg";
 import CheckFlights from "./svg/checkFlights.svg";
 import Link from "next/link";

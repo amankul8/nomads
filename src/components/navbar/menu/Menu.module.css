@@ -83,19 +83,26 @@
 }
 .languages{
     position: absolute;
-    width: 94%;
+    width: min-content;
     background: var(--white);
-    z-index: 6;
-    padding: 10px;
+    z-index: 5;
+    padding: 8px;
     border-radius: 5px;
     margin-left: 3%;
     transition: 300ms;
     transform-origin: top;
     transform: scaleY(0);
     opacity: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 .lang_item{
-    margin-bottom: 10px;
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 35px;
+    font-size: 14px;
 }
 .lang_item:last-child{
     margin-bottom: 0;

@@ -117,14 +117,14 @@ function TourSlider({ isCenteredMode, list, title}: ITourSlider) {
               <CustomIconButton
                 color="white"
                 shape="square"
-                type="arrowLeft"
+                type="back"
                 handler={goToPrev}
               />
               
               <CustomIconButton
                 color="white"
                 shape="square"
-                type="arrowRight"
+                type="forward"
                 handler={goToNext}
               />
           </div>

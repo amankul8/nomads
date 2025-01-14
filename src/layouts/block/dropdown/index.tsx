@@ -3,7 +3,7 @@ import styles from './dropdown.module.scss';
 import cls from 'classnames';
 import { Headline } from "@/ui";
 
-import DropArrow from 'public/icons/general/dropdownArrow.svg';
+import ArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Duration from 'public/icons/tour/duration.svg';
 import { AnimatePresence, motion } from 'framer-motion'; // исправлено на корректный импорт
 
@@ -40,7 +40,7 @@ export const DropdownBlock: React.FC<IDropdownBlock> = ({ title, icon, children,
                     {icon && React.createElement(iconMap[icon] || "div", { className: styles.icon })}
                     <Headline color={opened ? 'white' : 'black'} type='normal'>{title}</Headline>
                 </div>
-                <DropArrow className={cls(styles.arrow, { [styles.openedArrow]: opened })} />
+                <ArrowRightIcon className={cls(styles.arrow, { [styles.openedArrow]: opened })} />
             </div>
 
             <AnimatePresence>

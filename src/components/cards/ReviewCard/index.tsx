@@ -3,7 +3,7 @@ import { Rating } from "@/ui";
 import Image from "next/image";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 import styles from "./ReviewCard.module.css";
-import KyrgyzstanMapIcon from "public/icons/cardIcons/mapIcons/kyrgyzstanMap.svg";
+import KGMapIcon from "@/components/icons/general/miniKgMap.svg";
 
 interface IReviewCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
 
@@ -24,7 +24,7 @@ export const ReviewCard = ({}:IReviewCardProps):JSX.Element=>{
             />
             <div className={styles.content}>
                 <div className={styles.left}>
-                    <KyrgyzstanMapIcon/>
+                    <KGMapIcon/>
                 </div>
                 <div className={styles.right}>
                     <Headline

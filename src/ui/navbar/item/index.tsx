@@ -10,7 +10,7 @@ interface INavbarItem extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, 
     children: ReactNode
 }
 
-export const NavbarItem:React.FC<INavbarItem> = ({color,  item, children, classname, active, ...props}) => {
+export const NavbarItem:React.FC<INavbarItem> = ({color,  item, children, classname, active, ...rest}) => {
 
 
     return(
@@ -24,7 +24,7 @@ export const NavbarItem:React.FC<INavbarItem> = ({color,  item, children, classn
                 },
                 classname
             )}
-            {...props}
+            {...rest}
         >
             {children}
         </div>

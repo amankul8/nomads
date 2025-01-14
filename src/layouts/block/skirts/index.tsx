@@ -12,9 +12,9 @@ export function BlockWithSkirt ({image, children, classname}: IBlockWithSkirt) {
 
     return(
         <section className={styles.wrapper+' '+classname}>
-            <img src='/icons/blockSkirts/blockSkirt.svg' className={styles.upSkirt} alt="" />
+            <img src='/images/blockSkirts/blockSkirt.svg' className={styles.upSkirt} alt="" />
             {children}
-            <img src='/icons/blockSkirts/blockSkirt.svg' className={styles.downSkirt} alt="" />
+            <img src='/images/blockSkirts/blockSkirt.svg' className={styles.downSkirt} alt="" />
         </section>
     )
 }

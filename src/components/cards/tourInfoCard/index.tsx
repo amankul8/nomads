@@ -12,7 +12,7 @@ import {
 } from "@/ui";
 import Trekking from "public/icons/tour/properties/trekking.svg";
 import Ticket from "public/icons/tour/properties/ticket.svg";
-import Star from "public/icons/ratingIcons/star.svg";
+import Star from "@/components/icons/rating/star.svg";
 import { Link } from "@mui/material";
 
 interface ITourInfoCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {

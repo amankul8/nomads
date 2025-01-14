@@ -172,13 +172,13 @@ export const MainFirstBlock=({slides}:IDestinationBlock):JSX.Element=>{
                                 <CustomIconButton
                                     color="white"
                                     shape="square"
-                                    type="arrowLeft"
+                                    type="back"
                                     handler={prevSlide}
                                 />
                                 <CustomIconButton
                                     color="white"
                                     shape="square"
-                                    type="arrowRight"
+                                    type="forward"
                                     handler={nextSlide}
                                 />
                             </div>

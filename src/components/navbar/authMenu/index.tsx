@@ -1,5 +1,5 @@
 import styles from "./Menu.module.css";
-import Logo from "public/icons/logo.svg";
+import Logo from "@/components/icons/general/logo.svg";
 import {useRouter} from "next/router";
 import Link from "next/link";
 

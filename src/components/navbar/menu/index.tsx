@@ -1,34 +1,27 @@
-import styles from "./Menu.module.css";
-import Logo from "public/icons/logo.svg";
+import styles from "./menu.module.css";
+import Logo from "@/components/icons/general/logo.svg";
 import { useContext, useEffect, useState } from "react";
 import { TokenContext } from "@/context";
-import Phone from "public/icons/socialMediaIcons/phone.svg";
-import Email from "public/icons/socialMediaIcons/email.svg";
-import Facebook from "public/icons/socialMediaIcons/facebook.svg";
-import Instagram from "public/icons/socialMediaIcons/instagram.svg";
-import Twitter from "public/icons/socialMediaIcons/twitter.svg";
+import {Instagram, Facebook, Twitter, Email, Phone} from '@mui/icons-material';
 import {
     CustomButton,
     NavbarItem,
     SandwichIcon
 } from "@/ui";
 import { useScrollLock } from "@/hooks";
-import EnglandFlag from "public/icons/countryFlags/england.svg";
-import FranceFlag from "public/icons/countryFlags/france.svg";
-import GermanyFlag from "public/icons/countryFlags/germany.svg";
-import TurkeyFlag from "public/icons/countryFlags/turkey.svg";
-import OrnamentIcon from 'public/icons/listMarkers/ornament.svg';
+import OrnamentIcon from '@/components/icons/general/ornament.svg';
 import cn from "classnames";
 import { IMenu } from "./menuInterface";
 
 export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu):JSX.Element=>{
 
-    const [languages, setLanguages] = useState<{lang: string, icon: JSX.Element, code: string}[]>([
-        {lang: 'English', icon: <EnglandFlag/>, code: 'eng'},
-        {lang: 'Français', icon: <FranceFlag/>, code: 'fre'},
-        {lang: 'Deutsche', icon: <GermanyFlag/>, code: 'ger'},
-        {lang: 'Türkçe', icon: <TurkeyFlag/>, code: 'tur'}
+    const [languages, setLanguages] = useState<{lang: string, code: string}[]>([
+        {lang: 'English', code: 'eng'},
+        {lang: 'Français', code: 'fre'},
+        {lang: 'Deutsche', code: 'ger'},
+        {lang: 'Türkçe', code: 'tur'}
     ]);
+
     const [currentLanguageCode, setCurrentLanguageCode] = useState<string>('eng');
     const [isLangsOpen, setIsLangsOpen] = useState<boolean>(false);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
@@ -250,8 +243,8 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
                                                 setCurrentLanguageCode(item.code);
                                                 setIsLangsOpen(false);
                                             }}
+                                            style={{backgroundImage: `url(/images/flags/${item.code}.png)`}}
                                         >
-                                            {item.icon}
                                             {item.lang}
                                         </NavbarItem>
                                     )

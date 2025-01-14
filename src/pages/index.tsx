@@ -1,10 +1,6 @@
 import {Layout, FirstBlockLayout, UniversalBlock} from "@/layouts"
 import {MainFirstBlock} from '@/components/blocks/index';
 import { InfoBlock } from '@/components/blocks/info';
-import AttainmentIcon1 from "public/icons/cardIcons/attainmentIcons/icon_1.svg";
-import AttainmentIcon2 from "public/icons/cardIcons/attainmentIcons/icon_2.svg";
-import AttainmentIcon3 from "public/icons/cardIcons/attainmentIcons/icon_3.svg";
-import AttainmentIcon4 from "public/icons/cardIcons/attainmentIcons/icon_4.svg";
 import { AttainmentCard } from "@/components/cards/attainmentCard";
 import { NumberAttainmentCard } from "@/components/cards/numberAttainmentCard";
 import { ReviewBlock } from "@/components/sliders/review";
@@ -12,12 +8,6 @@ import { ReviewBlock } from "@/components/sliders/review";
 import styles from "@/styles/home.module.scss";
 import { TourSearch,  } from "@/components/blocks";
 import {Headline} from "@/ui";
-
-import logo1 from "public/icons/partnersLogos/img1.png"
-import logo2 from "public/icons/partnersLogos/img2.png"
-import logo3 from "public/icons/partnersLogos/img3.png"
-import logo4 from "public/icons/partnersLogos/img4.png"
-import logo5 from "public/icons/partnersLogos/img5.png"
 import Image from "next/image";
 import TourSlider from "@/components/sliders/tour";
 import { BlockWithSkirt } from "@/layouts/index";
@@ -86,25 +76,21 @@ const attainments = [
     id: 1,
     title: "20 Years Experiences",
     description: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated.",
-    icon: <AttainmentIcon1/>,
   },
   {
     id: 2,
     title: "Lots of gears",
     description: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated.",
-    icon: <AttainmentIcon2/>,
   },
   {
     id: 3,
     title: "Most completed map",
     description: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated.",
-    icon: <AttainmentIcon3/>,
   },
   {
     id: 4,
     title: "Packing Advise",
     description: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated.",
-    icon: <AttainmentIcon4/>,
   },
 ]
 
@@ -160,9 +146,9 @@ export default function Main() {
           attainments.map(item=>{
             return(
               <AttainmentCard
+                id={item.id}
                 title={item.title}
                 description={item.description}
-                Icon={item.icon}
                 key={item.id}
             />
             )
@@ -220,27 +206,37 @@ export default function Main() {
             <div className={styles.content}>
                 <Image
                     className={styles.logo}
-                    src={logo1}
+                    src='/images/partners/img1.png'
+                    width={400}
+                    height={400}
                     alt=""
                 />
                 <Image
                     className={styles.logo}
-                    src={logo2}
+                    src='/images/partners/img2.png'
+                    width={400}
+                    height={400}
                     alt=""
                 />
                 <Image
                     className={styles.logo}
-                    src={logo3}
+                    src='/images/partners/img3.png'
+                    width={400}
+                    height={400}
                     alt=""
                 />
                 <Image
                     className={styles.logo}
-                    src={logo4}
+                    src='/images/partners/img4.png'
+                    width={400}
+                    height={400}
                     alt=""
                 />
                 <Image
                     className={styles.logo}
-                    src={logo5}
+                    src='/images/partners/img5.png'
+                    width={400}
+                    height={400}
                     alt=""
                 />
             </div>
@@ -252,7 +248,7 @@ export default function Main() {
         <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/57/40/lzjXFh.jpg' alt={''} key={'3'}/>
         <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/0/89/LjaVd1.jpg' alt={''} key={'4'} />
         <img className={styles.image} src='https://www.marketplace.org/wp-content/uploads/2022/05/LastTourist_cropped_nl.jpg?w=1200' alt={''} key={'5'}/>
-        <img className={styles.skirt} src={'/icons/blockSkirts/blueBlockSkirt.svg'} alt="" />
+        <img className={styles.skirt} src={'/images/blockSkirts/blueBlockSkirt.svg'} alt="" />
       </section>
 
     </Layout>

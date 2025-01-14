@@ -3,13 +3,13 @@ import styles from "./InfoBlock.module.css";
 import Image from "next/image";
 import cls from "classnames";
 
+import TerrainIcon from '@mui/icons-material/Terrain';
+
 import { 
     Headline,
     Paragraph,
     CustomButton
 } from "@/ui";
-import Icon1 from "public/icons/infoBlockIcons/Icon1.svg";
-import Icon2 from "public/icons/infoBlockIcons/Icon2.svg"
 
 interface IInfoBlockProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
     title: string,
@@ -34,7 +34,7 @@ export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBloc
                     />
                 </div>
                 <div className={styles.text_wrapper}>
-                    <Icon1 className={styles.icon}/>
+                    <TerrainIcon className={styles.icon}/>
                     <Headline 
                         type="section"
                         color='black'
@@ -62,7 +62,7 @@ export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBloc
         return(
             <div className={styles.wrapper}>
                 <div className={styles.text_wrapper}>
-                    <Icon1 className={styles.icon}/>
+                    <TerrainIcon className={styles.icon}/>
                     <Headline 
                         type="section"
                         color='black'

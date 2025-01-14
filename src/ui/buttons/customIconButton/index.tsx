@@ -2,13 +2,13 @@ import React from "react";
 import cls from "classnames";
 
 import styles from "./customIconButton.module.scss";
-import Phone from "public/icons/buttons/btnPhone.svg";
-import Play from "public/icons/buttons/play.svg";
-import Left from "public/icons/buttons/arrowLeft.svg";
-import Right from "public/icons/buttons/arrowRight.svg";
+import Background from "@/components/icons/button/bg.svg";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 
-type BtnType = 'play' | 'arrowRight' | 'arrowLeft';
+type BtnType = 'play' | 'forward' | 'back';
 type BtnShape = 'square' | 'curled';
 type BtnColorType = 'white' | 'blue' | 'red';
 
@@ -31,14 +31,14 @@ export const CustomIconButton:React.FC<ICustomIconButton> = ({type, shape, color
         })}
             onClick={handler}
         >
-            <Phone className={styles.phone}/>
+            <Background className={styles.phone}/>
             {
                 type == 'play'
-                ? <Play className={styles.icon}/>
-                : type == 'arrowRight'
-                ? <Right className={styles.icon}/>
-                : type == 'arrowLeft'
-                ? <Left className={styles.icon}/>
+                ? <PlayArrowIcon className={styles.icon}/>
+                : type == 'forward'
+                ? <ArrowForwardIcon className={styles.icon}/>
+                : type == 'back'
+                ? <ArrowBackIcon className={styles.icon}/>
                 : <></>
             }
         </div>

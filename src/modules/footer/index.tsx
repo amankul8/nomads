@@ -5,15 +5,11 @@ import {
     NavbarItem,
 } from "@/ui";
 import { Headline} from "@/ui";
-import Logo from "public/icons/logo.svg";
-import Whatsapp from "public/icons/socialMediaIcons/whatsapp.svg";
-import Facebook from "public/icons/socialMediaIcons/facebook.svg";
-import Instagram from "public/icons/socialMediaIcons/instagram.svg";
-import Youtube from "public/icons/socialMediaIcons/youtube.svg";
-import Twitter from "public/icons/socialMediaIcons/twitter.svg";
-import Email from "public/icons/socialMediaIcons/email.svg";
-import Phone from "public/icons/socialMediaIcons/phone.svg";
-import Location from "public/icons/socialMediaIcons/location.svg";
+import Logo from "@/components/icons/general/logo.svg";
+import {Facebook, Instagram, Twitter, Email, Phone} from '@mui/icons-material';
+import YouTube from '@mui/icons-material/YouTube';
+import WhatsApp from '@mui/icons-material/WhatsApp';
+import Location from '@mui/icons-material/LocationOn';
 
 
 export const Footer = ():JSX.Element=>{
@@ -115,10 +111,10 @@ export const Footer = ():JSX.Element=>{
                     </Paragraph>
                 </div>
                 <div className={styles.row}>
-                    <span><Whatsapp/></span>
+                    <span><WhatsApp/></span>
                     <span><Facebook/></span>
                     <span><Instagram/></span>
-                    <span><Youtube/></span>
+                    <span><YouTube/></span>
                     <span><Twitter/></span>
                 </div>
             </div>

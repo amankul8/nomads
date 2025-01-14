@@ -5,8 +5,7 @@ import myAxios from '@/helpers/ApiHelper';
 import { Input, CustomButton} from "@/ui";
 import { AuthLayout } from "@/layouts/authLayout/AuthLayout";
 import styles from "./signin.module.css";
-import FIcon from "public/icons/authIcons/withFacebookIcon.svg";
-import GIcon from "public/icons/authIcons/withGoogleIcon.svg";
+import { Google, Facebook } from "@mui/icons-material";
 
 interface ISigninState{
   email: string,
@@ -46,12 +45,12 @@ export function SignIn() {
                 <span className={styles.title}>Sign in with</span>
                 <div className={styles.signin_with}>
                     <div className={styles.icons}>
-                        <FIcon/>
+                        <Facebook/>
                         <span>Login with Facebook</span>
                     </div>
                     
                     <div className={styles.icons}>
-                        <GIcon/>
+                        <Google/>
                         <span>Login with Google</span>
                     </div>
                 </div>
