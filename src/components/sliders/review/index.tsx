@@ -1,5 +1,5 @@
 import React from "react";
-import { ReviewCard } from "@/components/cards/reviewCard";
+import { ReviewCard } from "@/components/cards";
 import Slider from "react-slick";
 import styles from "./ReviewBlock.module.css";
 import { Headline } from "@/ui";

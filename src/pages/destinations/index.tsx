@@ -1,5 +1,5 @@
 import { UniversalBlock } from "@/layouts/block/universal";
-import { DestinationCard } from "@/components/cards/destinationCard";
+import { DestinationCard } from "@/components/cards/index";
 import { useRouter } from 'next/navigation'
 import {BlockWithSkirt, FirstBlockLayout, Layout } from "@/layouts";
 import React from "react";

@@ -1,6 +1,7 @@
 import {Paragraph, Headline, Span } from "@/ui";
 import Image from "next/image";
-import styles from "./DayInfo.module.css";
+
+import styles from "./dayInfo.module.css";
 import Car from "public/icons/tour/Car.svg";
 import Mountain from "public/icons/tour/Mountain.svg";
 import Man from "public/icons/tour/Man.svg";

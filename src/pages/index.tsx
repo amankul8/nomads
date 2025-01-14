@@ -1,8 +1,8 @@
 import {Layout, FirstBlockLayout, UniversalBlock} from "@/layouts"
 import {MainFirstBlock} from '@/components/blocks/index';
 import { InfoBlock } from '@/components/blocks/info';
-import { AttainmentCard } from "@/components/cards/attainmentCard";
-import { NumberAttainmentCard } from "@/components/cards/numberAttainmentCard";
+import { AttainmentCard } from "@/components/cards";
+import { NumberAttainmentCard } from "@/components/cards";
 import { ReviewBlock } from "@/components/sliders/review";
 
 import styles from "@/styles/home.module.scss";
