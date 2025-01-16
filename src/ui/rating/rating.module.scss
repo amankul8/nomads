@@ -1,11 +1,12 @@
 .rating {
     display: inline-block;
     width: min-content;
+    height: min-content;
     position: relative;
     
     svg {
         width: 1em;
-        margin-left: 3px;
+        margin-left: 5px;
     }
     svg:first-child {
         margin-left: 0;

@@ -4,7 +4,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-clip: border-box;
     position: relative;
     display: flex;
     align-items: flex-end;

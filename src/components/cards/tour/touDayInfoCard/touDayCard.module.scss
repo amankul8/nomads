@@ -1,0 +1,113 @@
+$breakpoints: (
+  'sm': 620px, 
+  'md': 900px,  
+  'lg': 1100px,  
+  'xl': 1400px,
+  'xxl': 1680px, 
+  'uw': 2100px, 
+);
+
+@mixin respond-to($breakpoint) {
+    @media only screen and (max-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+.card {
+    width: 100%;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding: 30px;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+    display: grid;
+    grid-template-columns: 8.5fr 3.5fr;
+    gap: 40px;
+
+    @include respond-to("lg") {
+        gap: 20px;
+    }
+
+    .left_side {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+        border-bottom: 3px solid var(--blue);
+        padding: 10px 0;
+
+        .info {
+            stroke-width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+    
+        .more {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            span {
+                color: var(--blue);
+                font-weight: bold;
+            }
+        }
+    }
+    .right_side {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        img {
+            width: 100%;
+            height: 380px;
+            border: 8px solid var(--blue);
+            border-top-left-radius: 15%;
+            border-bottom-right-radius: 15%;
+            object-fit: cover;
+
+            @include respond-to("uw") {
+                height: 320px;
+            }
+            @include respond-to("xxl") {
+                border: 7px solid var(--blue);
+                height: 280px;
+            }
+            @include respond-to("xl") {
+                height: 250px;
+            }
+            @include respond-to("lg") {
+                height: 200px;
+                width: 280px;
+            }
+        }
+
+        .details {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            
+            .detail {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 6px;
+                color: var(--blue);
+
+                span {
+                    color: var(--black);
+                    white-space: nowrap;
+
+                    @include respond-to("xl") {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        
+    }
+}

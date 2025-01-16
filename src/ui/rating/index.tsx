@@ -22,12 +22,6 @@ export const Rating:React.FC<IRating> = ({rating, type, size = 18, color = 'whit
     }
 
     let percentageRating = rating * 100 / 5;
-
-    let ratingStyle = {
-        width: size+'px',
-        fill: color
-    }
-
     return (
         <div className={styles.rating} {...rest}>
             <div 
@@ -38,11 +32,11 @@ export const Rating:React.FC<IRating> = ({rating, type, size = 18, color = 'whit
                 })}
                 style={{width: percentageRating+'%'}}
             >
-                <Icon/>
-                <Icon/>
-                <Icon/>
-                <Icon/>
-                <Icon/>
+                <Icon style={{width: size}}/>
+                <Icon style={{width: size}}/>
+                <Icon style={{width: size}}/>
+                <Icon style={{width: size}}/>
+                <Icon style={{width: size}}/>
             </div>
 
             <div className={cls(styles.shadows, {
@@ -50,11 +44,11 @@ export const Rating:React.FC<IRating> = ({rating, type, size = 18, color = 'whit
                 [styles.white]: color == 'white',
                 [styles.red]: color == 'red',
             })}>
-                <Icon/>
-                <Icon/>
-                <Icon/>
-                <Icon/>
-                <Icon/>
+                <Icon style={{width: size}}/>
+                <Icon style={{width: size}}/>
+                <Icon style={{width: size}}/>
+                <Icon style={{width: size}}/>
+                <Icon style={{width: size}}/>
             </div>
         </div>
     )

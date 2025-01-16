@@ -9,3 +9,4 @@ export {ReviewInfoCard} from "./review/reviewInfoCard";
 
 export {TourSimpleCard} from "./tour/tourSimpleCard";
 export {TourInfoCard} from "./tour/tourInfoCard";
+export {TourDayInfoCard} from "./tour/touDayInfoCard";
