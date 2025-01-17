@@ -10,7 +10,7 @@ import styles from "./tour.module.scss";
 import AutoIcon from '@mui/icons-material/AutoAwesomeMotion';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import {IconSquareBorder} from "@/components/icons/tour/square";
-import { TourDayInfoCard } from "@/components/cards";
+import { TourDayAccommodationCard, TourDayInfoCard } from "@/components/cards";
 import { Box, ImageList, ImageListItem } from "@mui/material";
 
 
@@ -177,9 +177,11 @@ export default function Tour() {
           </Headline>
         </div>
         <div className={styles.body}>
-
+          <TourDayAccommodationCard/>
         </div>
+
       </section>
+
       <section className={cls(styles.section, styles.reviews)}>
         <div className={cls(styles.topbar, styles.destinations)}>
           <Headline
