@@ -4,7 +4,9 @@ import { useRouter } from 'next/navigation'
 import {BlockWithSkirt, FirstBlockLayout, Layout } from "@/layouts";
 import React from "react";
 import { CustomButton } from "@/ui";
-import TourSlider from "@/components/sliders/tour";
+import TourInfoCardSlider from "@/components/sliders/tour/tourInfoCardSlider";
+
+import styles from './destination.module.scss';
 
 const regions = [
     {
@@ -85,7 +87,7 @@ export default function Destinations():JSX.Element{
                 }
             </UniversalBlock>
             
-            <UniversalBlock>
+            <UniversalBlock classname={styles.destinations}>
                 <DestinationCard 
                     name="Bishkek"
                     image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
@@ -101,10 +103,25 @@ export default function Destinations():JSX.Element{
                     image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
                     onClick={ ()=>handleDescription(3) }
                 />
+                <DestinationCard
+                    name="Bishkek"
+                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
+                    onClick={ ()=>handleDescription(3) }
+                />
+                <DestinationCard
+                    name="Bishkek"
+                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
+                    onClick={ ()=>handleDescription(3) }
+                />
+                <DestinationCard
+                    name="Bishkek"
+                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
+                    onClick={ ()=>handleDescription(3) }
+                />
             </UniversalBlock>
 
             <BlockWithSkirt image="">
-                <TourSlider
+                <TourInfoCardSlider
                     list={[1,2,3,4,5]}
                     isCenteredMode={true}
                     title="Tours In this Destinations"

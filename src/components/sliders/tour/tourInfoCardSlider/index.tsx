@@ -1,17 +1,17 @@
 import Slider from "react-slick";
-import styles from "./tourSlider.module.scss";
+import styles from "../sliderStyles.module.scss";
 import { TourInfoCard } from "@/components/cards";
 import { DetailedHTMLProps, HTMLAttributes, useRef, useState } from "react";
 import { CustomIconButton, Headline } from "@/ui";
 
-interface ITourSlider extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
+interface ITourInfoCardSlider extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
   isCenteredMode?: boolean,
   list: any,
   title: string 
 }
 
 
-function TourSlider({ isCenteredMode, list, title}: ITourSlider) {
+function TourInfoCardSlider({ isCenteredMode, list, title}: ITourInfoCardSlider) {
 
     const sliderRef = useRef<Slider>(null);
     const [currentIndex, setCurrentIndex] = useState<number>(1);
@@ -135,4 +135,4 @@ function TourSlider({ isCenteredMode, list, title}: ITourSlider) {
 }
 
 
-export default TourSlider;
+export default TourInfoCardSlider;

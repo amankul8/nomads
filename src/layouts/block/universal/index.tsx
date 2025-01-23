@@ -6,17 +6,20 @@ import cn from "classnames";
 interface IAttainment{
     children: ReactNode,
     title?: string,
-    isBg?: boolean
+    isBg?: boolean,
+    classname?: string
 }
 
-    export const UniversalBlock=({children, isBg, title}: IAttainment):JSX.Element=>{
+    export const UniversalBlock=({children, isBg, title, classname}: IAttainment):JSX.Element=>{
 
     return (
 
         <section 
             className={cn(styles.wrapper, {
-                [styles.bg]:isBg
-            })}
+                    [styles.bg]:isBg
+                },
+                classname
+            )}
         >
             {
                 title?

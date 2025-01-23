@@ -1,0 +1,40 @@
+.section {
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .headline{
+            display: flex;
+            align-items: center;
+
+            svg{
+                margin-right: 15px;
+                color: var(--blue);
+            }
+        }
+
+        .btn {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--blue);
+            font-family: 'Open Sans';
+            cursor: pointer;
+        }
+    }
+
+    .body{
+        width: 100%;
+        transform-origin: top;
+    }
+
+}

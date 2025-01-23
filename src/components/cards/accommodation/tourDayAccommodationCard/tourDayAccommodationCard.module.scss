@@ -8,31 +8,6 @@
     padding: 30px;
     border-top-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    width: 1080px;
-
-    .subcard {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        
-        .bread_crumbs {
-            font-size: 14px;
-            font-weight: bold;
-        }
-        .includes {
-            display: flex;
-            gap: 12px;
-
-            .include {
-                display: flex;
-                align-items: center;
-                gap: 3px;
-                font-size: 14px;
-
-                svg {
-                    fill: var(--blue);
-                }
-            }
-        }
-    }
+    max-width: 1080px;
+    width: 100%;
 }

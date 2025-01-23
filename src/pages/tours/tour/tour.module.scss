@@ -48,50 +48,110 @@
     }
 }
 
-.section {
-    padding: 30px 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+.itinerary {
+    width: 100%;
 
-    .topbar {
-        .headline{
-            display: flex;
-            align-items: center;
-        }
-        
-        .headline svg{
-            margin-right: 15px;
-        }
-        
-        .headline svg path{
-            fill: var(--blue);
-        }
-    }
-
-    .body{
-        width: 100%;
+    .body {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 15px;
     }
-
-}
-
-.itinerary {
-    
 }
 
 .map {
-
-}
-
-.photo {
+    width: 100%;
     
+    .body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
-.reviews{
-    padding-top: 40px;
+.accommodations {
+    width: 1200px;
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.destinations {
+    width: 100%;
+
+    .body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+.prices {
+    .price {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .includes {
+        display: flex;
+        gap: 60px;
+        color: var(--blue);
+        padding: 30px 0;
+        align-items: flex-start;
+
+        .included {
+            display: flex;
+            gap: 10px;
+
+            svg {
+                margin-right: 5px;
+            }
+        }
+
+        .excluded {
+            display: flex;
+            gap: 10px;
+
+            svg {
+                margin-right: 5px;
+                color: var(--red);
+            }
+        }
+    }
+}
+
+.activities {
+    width: 100%;
+    
+    .body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+.reviews {
+    width: 1200px;
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+.additional {
+    width: 1200px;
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
 }
 
 @media only screen and (max-width: 720px){

@@ -4,14 +4,35 @@ import dynamic from "next/dynamic";
 import cls from "classnames";
 
 import {FirstBlockLayout, Layout} from "@/layouts"
-import { Headline, Paragraph, Rating } from "@/ui";
+import { CustomButton, Headline, Paragraph, Rating } from "@/ui";
 import styles from "./tour.module.scss";
 
 import AutoIcon from '@mui/icons-material/AutoAwesomeMotion';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import {IconSquareBorder} from "@/components/icons/tour/square";
-import { TourDayAccommodationCard, TourDayInfoCard } from "@/components/cards";
-import { Box, ImageList, ImageListItem } from "@mui/material";
+import { DestinationCard, ReviewInfoCard, TourAdditionalCard, TourDayAccommodationCard, TourDayInfoCard } from "@/components/cards";
+import { Box, ImageList, ImageListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import CloseIcon from '@mui/icons-material/Close';
+import CheckIcon from '@mui/icons-material/Check';
+
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import CardActionArea from '@mui/material/CardActionArea';
+import { TourDetailSection } from "./section";
+import Slider from "react-slick";
+import TourSimpleCardSlider from "@/components/sliders/tour/tourSimpleCardSlider";
 
 
 const images = [
@@ -26,6 +47,32 @@ const images = [
   "https://mcdn.wallpapersafari.com/medium/64/7/qrZYhn.jpg",
 ];
 
+function createData(
+  name: string,
+  calories: number,
+  fat: number,
+  carbs: number,
+  protein: number,
+) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData('1 Person', 3090, 3090, 3090, 3090),
+  createData('2 Person', 3090, 3090.0, 3090, 3090.3),
+  createData('3 Person', 3090, 3090.0, 3090, 6.0),
+  createData('4 Person', 3090, 3090, 3090, 3090),
+  createData('Single bed', 3090, 3090, 3090, 3090),
+];
+
+
+function generate(element: React.ReactElement<unknown>) {
+  return [0, 1, 2, 3, 4, 5, 6, 7].map((value) =>
+    React.cloneElement(element, {
+      key: value,
+    }),
+  );
+}
 
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 
@@ -33,7 +80,6 @@ const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 export default function Tour() {
 
   return (
-    
     <Layout>
       <FirstBlockLayout 
         bg_image="https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg?cs=srgb&dl=pexels-pixabay-247600.jpg&fm=jpg"
@@ -97,182 +143,222 @@ export default function Tour() {
             
         </div>
       </FirstBlockLayout>
-      
-      <section className={cls(styles.section, styles.itinerary)}>
-        <div className={styles.topbar}>
-          <Headline
-              color='black'
-              type='section'
-              classname={styles.headline}
-          >
-              <AutoIcon/>
-              Itinerary
-          </Headline>
-        </div>
-        
+
+      <TourDetailSection title="Itinerary" Icon={AutoIcon} classname={styles.itinerary}>
         <div className={styles.body}>
           <TourDayInfoCard/>
           <TourDayInfoCard/>
           <TourDayInfoCard/>
         </div>
-      </section>
+      </TourDetailSection>
 
-      <section className={cls(styles.section, styles.map)}>
-        <div className={styles.topbar}>
-          <Headline
-              color='black'
-              type='section'
-              classname={styles.headline}
-          >
-              <AutoIcon/>
-              Map
-          </Headline>
-        </div>
-
-        <div className={styles.body}> 
+      <TourDetailSection title="Map" Icon={AutoIcon} classname={styles.map}>
+        <div  className={styles.body}>
           <Map/>
         </div>
-      </section>
+      </TourDetailSection>
 
-      <section className={cls(styles.section, styles.phots)}>
+      <TourDetailSection title="Photos" Icon={AutoIcon} classname={styles.photos}>
+        <Box>
+          <ImageList variant="masonry" cols={3} gap={3}>
+            {images.map((item, index) => (
+              <ImageListItem key={index}>
+                <img
+                  srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                  src={`${item}?w=248&fit=crop&auto=format`}
+                  alt=""
+                  loading="lazy"
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        </Box>
+      </TourDetailSection>
 
-        <div className={styles.topbar}>
-          <Headline
-              color='black'
-              type='section'
-              classname={styles.headline}
-          >
-              <AutoIcon/>
-              Photos
-          </Headline>
-        </div>
-
-        <div className={styles.body}>
-          <Box className={styles.photos}>
-            <ImageList variant="masonry" cols={3} gap={3}>
-              {images.map((item, index) => (
-                <ImageListItem key={index}>
-                  <img
-                    srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    src={`${item}?w=248&fit=crop&auto=format`}
-                    alt=""
-                    loading="lazy"
-                  />
-                </ImageListItem>
-              ))}
-            </ImageList>
-          </Box>
-        </div>
-      </section>
-
-      <section className={cls(styles.section, styles.reviews)}>
-        <div className={cls(styles.topbar, styles.accommodations)}>
-          <Headline
-              color='black'
-              type='section'
-              classname={styles.headline}
-          >
-            <AutoIcon/>
-            Accommodation
-          </Headline>
-        </div>
+      <TourDetailSection title="Accommodation" Icon={AutoIcon} classname={styles.accommodations}>
         <div className={styles.body}>
           <TourDayAccommodationCard/>
+          <TourDayAccommodationCard/>
         </div>
+      </TourDetailSection>
 
-      </section>
-
-      <section className={cls(styles.section, styles.reviews)}>
-        <div className={cls(styles.topbar, styles.destinations)}>
-          <Headline
-              color='black'
-              type='section'
-              classname={styles.headline}
-          >
-              <AutoIcon/>
-              Destinations
-          </Headline>
-        </div>
+      <TourDetailSection title="Destinations" Icon={AutoIcon} classname={styles.destinations}>
 
         <div className={styles.body}>
-
+          <DestinationCard
+            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+            name="Name"
+          />
+          <DestinationCard
+            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+            name="Name"
+          />
+          <DestinationCard
+            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+            name="Name"
+          />
+          <DestinationCard
+            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+            name="Name"
+          />
+          <DestinationCard
+            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+            name="Name"
+          />
+          <DestinationCard
+            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+            name="Name"
+          />
+          <DestinationCard
+            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+            name="Name"
+          />
         </div>  
-      </section>
+      </TourDetailSection>
 
-      <section className={cls(styles.section, styles.reviews)}>
-        <div className={cls(styles.topbar, styles.prices)}>
-          <Headline
-              color='black'
-              type='section'
-              classname={styles.headline}
-          >
-              <AutoIcon/>
-              Prices
-          </Headline>
-        </div>
+      <TourDetailSection title="Prices" Icon={AutoIcon} classname={styles.prices}>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell align="center">Basic</TableCell>
+                <TableCell align="center">Standard</TableCell>
+                <TableCell align="center">Premium</TableCell>
+                <TableCell align="center"></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell className={styles.price} align="center">{row.calories} USD </TableCell>
+                  <TableCell className={styles.price} align="center">{row.fat} USD </TableCell>
+                  <TableCell className={styles.price} align="center">{row.carbs} USD </TableCell>
+                  <TableCell align="center"> <CustomButton color='blue' handler={()=>{}}> Bool now </CustomButton> </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
+        <div className={styles.includes}>
+          <div className={styles.included}>
+            <Headline color="blue" type="subsection"> Included: </Headline>
+            <List dense={true}>
+              {generate(
+                <ListItem>
+                  <CheckIcon />
+                  <ListItemText
+                    primary="Single-line item"
+                  />
+                </ListItem>,
+              )}
+            </List>
+          </div>
+          <div className={styles.excluded}>
+            <Headline color="blue" type="subsection"> Excluded: </Headline>
+            <List dense={true}>
+              {generate(
+                <ListItem>
+                  <CloseIcon />
+                  <ListItemText
+                    primary="Single-line item"
+                  />
+                </ListItem>,
+              )}
+            </List>
+          </div>
+          </div>
+      </TourDetailSection>
+
+      <TourDetailSection title="Activities" Icon={AutoIcon} classname={styles.activities}>
         <div className={styles.body}>
-
+          {
+            images.map((item, index) => {
+              return (
+                <Card sx={{ maxWidth: 500, minWidth: 280 }} key={index}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="200"
+                      image={item}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        Lizard
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              )
+            })
+          }
         </div>
-      </section>
+      </TourDetailSection>
 
-      <section className={cls(styles.section, styles.reviews)}>
-        <div className={cls(styles.topbar, styles.activities)}>
-          <Headline
-              color='black'
-              type='section'
-              classname={styles.headline}
-          >
-              <AutoIcon/>
-              Activities
-          </Headline>
-        </div>
-
+      <TourDetailSection title="Reviews" Icon={AutoIcon} classname={styles.reviews}>
         <div className={styles.body}>
-
+          <ReviewInfoCard/>
+          <ReviewInfoCard/>
         </div>
-      </section>
+      </TourDetailSection>
 
-      <section className={cls(styles.section, styles.reviews)}>
-          <div className={cls(styles.topbar, styles.reviews)}>
-            <Headline
-                color='black'
-                type='section'
-                classname={styles.headline}
-            >
-                <AutoIcon/>
-                Reviews
-            </Headline>
-          </div>
+      <TourDetailSection title="Additional Info" Icon={AutoIcon} classname={styles.additional}>
+        <div className={styles.body}>
+          <TourAdditionalCard 
+            title='Visa' 
+            text='Most of countries benefit 60 days visa for free to visit Kyrgyzstan as tourist. In spite of this, check the recommendations given by your Ministry of Foreign Affairs before coming. Also make sure that your passport is valid at least 6 months after your return date.'
+          />
 
-          <div className={styles.body}>
+          <TourAdditionalCard 
+            title='Weather' 
+            text='During the trip, we will do our best to follow the customs regarding body acclimatization in altitude in order to avoid altitude sickness. We will also adapt to your physical condition and rhythm. Despite all these measures, altitude sickness can happen. Travelers could feel headaches, insomnia, loss of appetite, general tiredness or even nausea.
+                Your trip has been also designed to avoid immediate exposition to local food and its preparation methods, because the hygiene standards are not always meeting western ones. In spite of this, as everyone’s body reacts differently, it’s possible to feel the effects of an exotic kitchen.
+                Therefore, it’s strongly recommended to see a doctor, as he (she) is the only one who can prescribe an appropriate travel pharmacy. Besides, a pharmacy will always be available in our vehicles.
+                We kindly ask you to communicate us any medical contraindication or food allergy, so that we will adapt to it,
+                Medical infrastructures out of Bishkek are limited, therefore we strongly recommend our travelers to take travel insurance with repatriation policy.
+              '
+          />
 
-          </div>
-      </section>
+          <TourAdditionalCard 
+            title='How to Book' 
+            text='Most of countries benefit 60 days visa for free to visit Kyrgyzstan as tourist. In spite of this, check the recommendations given by your Ministry of Foreign Affairs before coming. Also make sure that your passport is valid at least 6 months after your return date.'
+          />
 
-      <section className={cls(styles.section, styles.reviews)}>
-          <div className={cls(styles.topbar, styles.additional)}>
-            <Headline
-                color='black'
-                type='section'
-                classname={styles.headline}
-            >
-                <AutoIcon/>
-                Additional Info
-            </Headline>
-          </div>
+          <TourAdditionalCard 
+            title='Cancellation policy' 
+            text='Most of countries benefit 60 days visa for free to visit Kyrgyzstan as tourist. In spite of this, check the recommendations given by your Ministry of Foreign Affairs before coming. Also make sure that your passport is valid at least 6 months after your return date.'
+          />
 
-          <div className={styles.body}>
+          <TourAdditionalCard 
+            title='Notes' 
+            text='Most of countries benefit 60 days visa for free to visit Kyrgyzstan as tourist. In spite of this, check the recommendations given by your Ministry of Foreign Affairs before coming. Also make sure that your passport is valid at least 6 months after your return date.'
+          />
+        </div>
+      </TourDetailSection>
 
-          </div>
-      </section> 
+      <TourDetailSection title="Similar Tours" Icon={AutoIcon} classname={styles.similar_tours}>
+        <div className={styles.body}>
+          <TourSimpleCardSlider
+            list={[1,2,3,4,5, 6, 7, 8]}
+            title=""
+          />
+        </div>
+      </TourDetailSection>
 
     </Layout>
   );
 };
 
 export async function getStaticPaths(){
-  const ids = [1,2,3,4,5,6,7,8];
+  const ids = [1,2,3,4,5,6,7,8,9,10,11];
   const paths = ids.map((id) => ({
     params: { tourId: id.toString() },
   }));

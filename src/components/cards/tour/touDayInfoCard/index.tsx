@@ -29,12 +29,14 @@ export const TourDayInfoCard:React.FC<ITourDayInfoCard> = () => {
                 </div>
             </div>
             <div className={styles.right_side}>
-                <Image
-                    src={'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'}
-                    width={1920}
-                    height={1080}
-                    alt=""
-                />
+                <figure className={styles.image}>
+                    <Image
+                        src={'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'}
+                        width={1920}
+                        height={1080}
+                        alt=""
+                    />
+                </figure>
                 <div className={styles.details}>
                     <div className={styles.detail}> 
                         <AirportShuttleIcon/> 

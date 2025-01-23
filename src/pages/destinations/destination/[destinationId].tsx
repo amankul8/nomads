@@ -12,7 +12,7 @@ import { Paragraph, Headline } from "@/ui";
 
 // Динамический импорт компонентов
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
-const TourSlider = dynamic(() => import("@/components/sliders/tour"), { ssr: false });
+const TourInfoCardSlider = dynamic(() => import("@/components/sliders/tour/tourInfoCardSlider"), { ssr: false });
 
 const images = [
   "https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg",
@@ -112,7 +112,7 @@ export default function Destination(): JSX.Element {
 
           {/* Слайдер */}
           <BlockWithSkirt image="">
-            <TourSlider list={slides} isCenteredMode title="Find our popular tours" />
+            <TourInfoCardSlider list={slides} isCenteredMode title="Find our popular tours" />
           </BlockWithSkirt>
         </div>
 

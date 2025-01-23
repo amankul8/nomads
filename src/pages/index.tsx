@@ -9,7 +9,7 @@ import styles from "@/styles/home.module.scss";
 import { TourSearch,  } from "@/components/blocks";
 import {Headline} from "@/ui";
 import Image from "next/image";
-import TourSlider from "@/components/sliders/tour";
+import TourInfoCardSlider from "@/components/sliders/tour/tourInfoCardSlider";
 import { BlockWithSkirt } from "@/layouts/index";
 
 export interface ISlides{
@@ -167,7 +167,7 @@ export default function Main() {
       <BlockWithSkirt
         image=""
       >
-        <TourSlider
+        <TourInfoCardSlider
           list={slides}
           isCenteredMode
           title="Find our popular tours"
