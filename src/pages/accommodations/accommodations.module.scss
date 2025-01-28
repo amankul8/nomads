@@ -1,0 +1,59 @@
+@import 'breakpoints';
+
+.main_section {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    height: 100%;
+    width: 100%;
+
+    .content {
+        display: flex;
+        align-items: center;
+    }
+    .bread_crumbs {
+        display: flex;
+        align-items: center;
+        color: var(--white);
+    }
+}
+
+.accommodations_section {
+    position: relative;
+    padding: 60px 0;
+
+    .search_wr {
+        height: 60px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: -30px;
+
+        .search {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-columns: 3fr 3fr 3fr 1fr;
+            background-color: var(--white);
+            border-radius: 7px;
+            gap: 3px;
+            align-items: center;
+            justify-content: center;
+            -webkit-box-shadow: 0px -1px 8px 3px rgba(34, 60, 80, 0.2);
+            -moz-box-shadow: 0px -1px 8px 3px rgba(34, 60, 80, 0.2);
+            box-shadow: 0px -1px 8px 3px rgba(34, 60, 80, 0.2);
+            padding: 3px;
+    
+            .input {
+                height: 100%;
+                background-color: var(--white);
+            }
+    
+            .search_btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;        
+            }
+        }
+    }
+
+       
+}

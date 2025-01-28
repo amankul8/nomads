@@ -17,9 +17,9 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
 
     const [languages, setLanguages] = useState<{lang: string, code: string}[]>([
         {lang: 'English', code: 'eng'},
-        {lang: 'Français', code: 'fre'},
-        {lang: 'Deutsche', code: 'ger'},
-        {lang: 'Türkçe', code: 'tur'}
+        // {lang: 'Français', code: 'fre'},
+        // {lang: 'Deutsche', code: 'ger'},
+        // {lang: 'Türkçe', code: 'tur'}
     ]);
 
     const [currentLanguageCode, setCurrentLanguageCode] = useState<string>('eng');

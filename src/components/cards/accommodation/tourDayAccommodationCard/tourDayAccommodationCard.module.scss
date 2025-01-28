@@ -1,3 +1,5 @@
+@import 'breakpoints';
+
 .card {
     display: flex;
     flex-direction: column;
@@ -10,4 +12,8 @@
     border-bottom-right-radius: 15px;
     max-width: 1080px;
     width: 100%;
+
+    @include respond-to("tablet") {
+        padding: 10px;
+    }
 }

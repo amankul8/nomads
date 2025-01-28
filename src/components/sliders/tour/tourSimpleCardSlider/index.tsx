@@ -47,31 +47,25 @@ function TourSimpleCardSlider({ isCenteredMode, list, title}: ITourSimpleCardSli
           }
         },
         {
-          breakpoint: 1600,
-          settings: {
-            slidesToShow: 6,
-          }
-        },
-        {
-          breakpoint: 1350,
+          breakpoint: 1655,
           settings: {
             slidesToShow: 5,
           }
         },
         {
-          breakpoint: 1150,
+          breakpoint: 1350,
           settings: {
             slidesToShow: 4,
           }
         },
         {
-          breakpoint: 950,
+          breakpoint: 1070,
           settings: {
             slidesToShow: 3,
           }
         },
         {
-          breakpoint: 750,
+          breakpoint: 840,
           settings: {
             slidesToShow: 2,
           }

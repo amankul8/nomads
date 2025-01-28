@@ -1,8 +1,15 @@
+@import 'breakpoints';
+
 .section {
-    padding: 30px 60px;
     display: flex;
     flex-direction: column;
     gap: 40px;
+    padding: 30px 60px;
+
+    @include respond-to("tablet") {
+        padding: 20px;
+        gap: 20px;
+    }
 
     .topbar {
         display: flex;

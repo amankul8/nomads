@@ -1,4 +1,6 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+'use client';
+
+import React, { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from "react";
 
 import styles from "./accommodationRoomCard.module.scss";
 import { Headline, Paragraph } from "@/ui";
@@ -11,6 +13,20 @@ interface IAccommodationRoomCard extends DetailedHTMLProps<HTMLAttributes<HTMLDi
 
 
 export const AccommodationRoomCard:React.FC<IAccommodationRoomCard> = () => {
+
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {
+        const handleResize = () => {
+          setWindowWidth(window.innerWidth);
+        };
+    
+        window.addEventListener("resize", handleResize);
+    
+        return () => {
+          window.removeEventListener("resize", handleResize);
+        };
+      }, []);
 
     return (
         <div className={styles.card}>
@@ -35,41 +51,68 @@ export const AccommodationRoomCard:React.FC<IAccommodationRoomCard> = () => {
                 </div>
             </div> 
             <div className={styles.images}>
-                <figure className={styles.image}>
-                    <Image
-                        src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                        width={300}
-                        height={200}
-                        alt=""
-                    />
-                </figure>
-                <figure className={styles.image}>
-                    <Image
-                        src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                        width={300}
-                        height={200}
-                        alt=""
-                    />
-                </figure>
-                <figure className={styles.image}>
-                    <Image
-                        src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                        width={300}
-                        height={200}
-                        alt=""
-                    />
-                </figure>
-                <figure className={styles.image}>
-                    <Image
-                        src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                        width={300}
-                        height={200}
-                        alt=""
-                    />
-                    <div className={styles.text_layer}>
-                        + 32 more
-                    </div>
-                </figure>
+
+                {
+                    windowWidth < 768
+                    ?   <>
+                            <figure className={styles.image}>
+                                <Image
+                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+                                    width={300}
+                                    height={200}
+                                    alt=""
+                                />
+                            </figure>
+                            <figure className={styles.image}>
+                                <Image
+                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+                                    width={300}
+                                    height={200}
+                                    alt=""
+                                />
+                                <div className={styles.text_layer}>
+                                    + 32 more
+                                </div>
+                            </figure>
+                        </>
+                    :   <>
+                            <figure className={styles.image}>
+                                <Image
+                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+                                    width={300}
+                                    height={200}
+                                    alt=""
+                                />
+                            </figure>
+                            <figure className={styles.image}>
+                                <Image
+                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+                                    width={300}
+                                    height={200}
+                                    alt=""
+                                />
+                            </figure>
+                            <figure className={styles.image}>
+                                <Image
+                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+                                    width={300}
+                                    height={200}
+                                    alt=""
+                                />
+                            </figure>
+                            <figure className={styles.image}>
+                                <Image
+                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
+                                    width={300}
+                                    height={200}
+                                    alt=""
+                                />
+                                <div className={styles.text_layer}>
+                                    + 32 more
+                                </div>
+                            </figure>
+                        </>    
+                }
             </div>
         </div>
     )

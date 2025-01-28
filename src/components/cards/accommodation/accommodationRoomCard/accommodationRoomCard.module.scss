@@ -1,4 +1,7 @@
+@import 'breakpoints';
+
 .card {
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,6 +17,11 @@
     .includes {
         display: flex;
         gap: 12px;
+
+        @include respond-to("tablet") {
+            flex-wrap: wrap;
+            gap: 3px;
+        }
 
         .include {
             display: flex;
@@ -32,6 +40,10 @@
         grid-template-rows: 1fr;
         grid-template-columns: 3fr 3fr 3fr 3fr;
         gap: 5px;
+
+        @include respond-to("tablet") {
+            grid-template-columns: 1fr 1fr;
+        }
 
         .image {
             overflow: hidden;

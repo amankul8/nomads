@@ -5,9 +5,6 @@
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
 }
 .helf{
     height: 60vh;
