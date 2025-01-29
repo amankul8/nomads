@@ -1,4 +1,4 @@
-import styles from "./Footer.module.css";
+import styles from "./footer.module.css";
 import cn from "classnames";
 import {
     Paragraph,
@@ -11,8 +11,7 @@ import YouTube from '@mui/icons-material/YouTube';
 import WhatsApp from '@mui/icons-material/WhatsApp';
 import Location from '@mui/icons-material/LocationOn';
 
-
-export const Footer = ():JSX.Element=>{
+export const Footer = () => {
 
     return(
         <footer className={styles.footer_wrapper}>

@@ -39,6 +39,7 @@
 
 .col_2 .item{
     margin: 8px auto;
+    z-index: 0;    
 }
 
 .col_3 .row{

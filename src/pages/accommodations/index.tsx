@@ -1,13 +1,20 @@
+'use client';
+
 import {FirstBlockLayout, Layout} from "@/layouts"
 import styles from "./accommodations.module.scss";
 import cls from 'classnames';
 import { CustomButton, Headline, Paragraph } from "@/ui";
+import { useEffect, useState } from "react";
 
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import BedIcon from '@mui/icons-material/Bed';
-import Box from '@mui/material/Box';
 
+import { DateRange, Range} from 'react-date-range';
+import { addDays,format } from "date-fns";
+import { Box} from "@mui/material";
+
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import PersonIcon from '@mui/icons-material/Person';
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
@@ -138,8 +145,59 @@ const top100Films = [
 
 export default function Accommodations() {
 
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+  const [location, setLocation] = useState<string>('');
+  const [dateRange, setDateRange] = useState<{selection: Range}>({
+    selection: {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: 'selection',
+    }
+  });
+  const [datePickerOpen, setDatePickerOpen] = useState<boolean>(false);
+  const [tourists, setTourists] = useState<{
+    adults: number,
+    childrens: number,
+    rooms: number,
+    withAnimals: boolean
+  }>({
+    adults: 2,
+    childrens: 0,
+    rooms: 1,
+    withAnimals: false
+  });
+
+  const [touristsBlockOpen, setTouristsBlockOpen] = useState<boolean>();
+
+  const handleDateSelection = (range: Range) => {
+    setDateRange(prev => range as  {selection: Range});
+    setDatePickerOpen(prev => false);
+  };
+
+  const handleDatePickerOpen = () => {
+    setDatePickerOpen(prev => true);
+    setTouristsBlockOpen(prev => false);
+  }
+
+  const handleTouristsOpen = () => {
+    setTouristsBlockOpen(prev => true);
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    
     <Layout>
 
       <FirstBlockLayout
@@ -160,28 +218,62 @@ export default function Accommodations() {
       </FirstBlockLayout>
 
       <section className={styles.accommodations_section}>
-        <div className={styles.search_wr}>
-          <div className={cls('container', styles.search)}>
-            <Autocomplete
-              disablePortal
-              options={top100Films}
-              renderInput={(params) => <TextField {...params} label="Where do you want to go?" />}
-              className={styles.input}
-            />
-            <Autocomplete
-              disablePortal
-              options={top100Films}
-              renderInput={(params) => <TextField {...params} label="Where do you want to go?" />}
-              className={styles.input}
-            />
-            <Autocomplete
-              disablePortal
-              options={top100Films}
-              renderInput={(params) => <TextField {...params} label="Where do you want to go?" />}
-              className={styles.input}
-            />
-            <div className={styles.search_btn}>
-              <CustomButton color="blue" active={true} handler={()=>{}}> Search </CustomButton>
+        <div className={styles.search_section}>
+          <div className={cls('container', styles.search_sw)}>
+            <div className={ styles.search}>
+              <Autocomplete
+                disablePortal
+                options={top100Films}
+                renderInput={(params) => <TextField {...params} label="Where do you want to go?" />}
+                className={styles.input}
+                onOpen={() => setDatePickerOpen(prev => false)}
+              />
+              
+              <Box className={cls(styles.dropdown)}>
+                <Box 
+                  onClick={handleDatePickerOpen}
+                  className={styles.input}
+                >
+                  <CalendarMonthIcon/>
+                  <Paragraph>
+                    {format(dateRange.selection.startDate!, 'yyyy/dd/MMM' )} ~ {format(dateRange.selection.endDate!, 'yyyy/dd/MMM')}
+                  </Paragraph>  
+                </Box>
+                <Box className={cls(styles.drop_block, {
+                  [styles.open]: datePickerOpen 
+                })}>
+                  <DateRange
+                    onChange={handleDateSelection}
+                    showDateDisplay={false}
+                    months={windowWidth > 768? 2: 1 }
+                    ranges={[dateRange.selection]}
+                    direction="horizontal"
+                    scroll={{ enabled: windowWidth <= 768 }}
+                  />
+                </Box>
+                  
+              </Box>
+
+              <Box className={cls(styles.dropdown)}>
+                <Box 
+                  onClick={handleTouristsOpen}
+                  className={styles.input}
+                >
+                  <PersonIcon/>
+                  <Paragraph>
+                    {format(dateRange.selection.startDate!, 'yyyy/dd/MMM' )} ~ {format(dateRange.selection.endDate!, 'yyyy/dd/MMM')}
+                  </Paragraph>  
+                </Box>
+                <Box className={cls(styles.drop_block, {
+                  [styles.open]: touristsBlockOpen 
+                })}>
+                  dsfsdfgsdfgsf
+                </Box>
+                  
+              </Box>
+              <div className={styles.search_btn}>
+                <CustomButton color="blue" active={true} handler={()=>{}}> Search </CustomButton>
+              </div>
             </div>
           </div>
         </div>
