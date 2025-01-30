@@ -84,6 +84,14 @@
                         box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
                         left: 0;
                         top: 100%;
+                        background-color: var(--white); 
+                    }
+
+                    .tourists_drop {
+                        left: auto;
+                        right: 0;
+                        padding: 16px;
+                        min-width: 100%;
                     }
 
                     .open {

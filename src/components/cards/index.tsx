@@ -1,5 +1,6 @@
 export {TourDayAccommodationCard} from "./accommodation/tourDayAccommodationCard"; 
 export {AccommodationRoomCard} from "./accommodation/accommodationRoomCard";
+export {AccommodationCard} from './accommodation/accommodation';
 
 export {TourAdditionalCard} from './tour/tourAdditionalCard';
 

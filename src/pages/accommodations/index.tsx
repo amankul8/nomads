@@ -6,15 +6,16 @@ import cls from 'classnames';
 import { CustomButton, Headline, Paragraph } from "@/ui";
 import { useEffect, useState } from "react";
 
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-
 import { DateRange, Range} from 'react-date-range';
 import { addDays,format } from "date-fns";
-import { Box} from "@mui/material";
+
+import {Autocomplete, Box, Button, Typography, TextField, Switch, FormControlLabel, IconButton } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove'
 
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import PersonIcon from '@mui/icons-material/Person';
+import { AccommodationCard } from "@/components/cards";
 
 const top100Films = [
   { label: 'The Shawshank Redemption', year: 1994 },
@@ -159,12 +160,12 @@ export default function Accommodations() {
     adults: number,
     childrens: number,
     rooms: number,
-    withAnimals: boolean
+    pets: boolean
   }>({
     adults: 2,
     childrens: 0,
     rooms: 1,
-    withAnimals: false
+    pets: false
   });
 
   const [touristsBlockOpen, setTouristsBlockOpen] = useState<boolean>();
@@ -180,8 +181,15 @@ export default function Accommodations() {
   }
 
   const handleTouristsOpen = () => {
+    setDatePickerOpen(prev => false);
     setTouristsBlockOpen(prev => true);
   }
+
+  const handleIncrement = (key: keyof typeof tourists) => () => 
+    setTourists(prev => ({ ...prev, [key]: typeof prev[key] === 'number' ? prev[key] + 1 : prev[key] }));
+  
+  const handleDecrement = (key: keyof typeof tourists) => () => 
+    setTourists(prev => ({ ...prev, [key]: typeof prev[key] === 'number' ? Math.max(0, prev[key] - 1) : prev[key] }));
 
   useEffect(() => {
     const handleResize = () => {
@@ -264,12 +272,57 @@ export default function Accommodations() {
                     {format(dateRange.selection.startDate!, 'yyyy/dd/MMM' )} ~ {format(dateRange.selection.endDate!, 'yyyy/dd/MMM')}
                   </Paragraph>  
                 </Box>
-                <Box className={cls(styles.drop_block, {
+                <Box className={cls(styles.drop_block, styles.tourists_drop, {
                   [styles.open]: touristsBlockOpen 
                 })}>
-                  dsfsdfgsdfgsf
-                </Box>
+
+                  <Box sx={{ minWidth: 200, width: '100%' }}>
+                    <Box display="flex" alignItems="center" justifyContent="space-between" mb={2}>
+                      <Typography>Adults</Typography>
+                      <Box display="flex" alignItems="center">
+                        <IconButton onClick={handleDecrement('adults')}><RemoveIcon /></IconButton>
+                        <TextField value={tourists.adults} size="small" sx={{ width: 40, textAlign: 'center' }} disabled />
+                        <IconButton onClick={handleIncrement('adults')}><AddIcon /></IconButton>
+                      </Box>
+                    </Box>
+                    
+                    <Box display="flex" alignItems="center" justifyContent="space-between" mb={2}>
+                      <Typography>Children</Typography>
+                      <Box display="flex" alignItems="center">
+                        <IconButton onClick={handleDecrement('childrens')}><RemoveIcon /></IconButton>
+                        <TextField value={tourists.childrens} size="small" sx={{ width: 40, textAlign: 'center' }} disabled />
+                        <IconButton onClick={handleIncrement('childrens')}><AddIcon /></IconButton>
+                      </Box>
+                    </Box>
+                    
+                    <Box display="flex" alignItems="center" justifyContent="space-between" mb={2}>
+                      <Typography>Rooms</Typography>
+                      <Box display="flex" alignItems="center">
+                        <IconButton onClick={handleDecrement('rooms')}><RemoveIcon /></IconButton>
+                        <TextField value={tourists.rooms} size="small" sx={{ width: 40, textAlign: 'center' }} disabled />
+                        <IconButton onClick={handleIncrement('rooms')}><AddIcon /></IconButton>
+                      </Box>
+                    </Box>
+                    
+                    <FormControlLabel
+                      control={<Switch checked={tourists.pets} onChange={() => setTourists(prev => ({ ...prev, pets: !prev.pets }))} />}
+                      label="Traveling with pets?"
+                    />
+
+                    <Typography variant="caption" gutterBottom sx={{ display: 'block' }}>
+                      Assistance animals aren’t considered pets.
+                    </Typography>
+                    
+                    <Button 
+                      variant="contained" 
+                      fullWidth sx={{ mt: 2 }}
+                      onClick={()=>setTouristsBlockOpen(prev => false)}
+                    > 
+                        Done 
+                    </Button>
+                  </Box>
                   
+                </Box>
               </Box>
               <div className={styles.search_btn}>
                 <CustomButton color="blue" active={true} handler={()=>{}}> Search </CustomButton>
@@ -279,7 +332,7 @@ export default function Accommodations() {
         </div>
 
         <div className={cls('container', styles.content)}>
-          dsf
+          <AccommodationCard/>
         </div>
 
       </section>
