@@ -1,3 +1,5 @@
+'use client';
+
 import styles from "./Header.module.css";
 import {Menu} from '@/components/navbar';
 import { useEffect, useRef, useState } from "react";
@@ -5,11 +7,13 @@ import Image from "next/image";
 import { IMenuItems } from "@/components/navbar";
 import cn from 'classnames';
 import {SubHeaderContent} from "@/components/content";
-import { IHeader } from "./header.interface";
 import {motion} from "motion/react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
+export interface IHeader extends DetailedHTMLProps<HTMLAttributes<HTMLHeadElement>,HTMLHeadElement>{
+}
 
-export const Header = ({...props}:IHeader):JSX.Element=>{
+export const Header:React.FC<IHeader> = ({...props}) => {
     
     const [menuItems, setMenuItems] = useState<IMenuItems[]>([
         {
@@ -73,32 +77,32 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
         //     image: 'https://a-static.besthdwallpaper.com/green-lake-mountain-wallpaper-3554x1999-105353_53.jpg',
         //     submenu: null
         // },
-        {
-            id: 4,
-            active: false,
-            isMouseOver: false,
-            name: 'Accommodations',
-            url: '/accommodations',
-            image: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-james-wheeler-417074.jpg&fm=jpg',
-            submenu: [
-                {id: 1, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 2, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 3, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 4, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 5, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 6, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 7, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 8, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 9, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 10, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 11, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 12, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 13, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 14, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 15, name: 'Accommodations', url: 'dsfs', image: ''},
-                {id: 16, name: 'Accommodations', url: 'dsfs', image: ''},
-            ]
-        },
+        // {
+        //     id: 4,
+        //     active: false,
+        //     isMouseOver: false,
+        //     name: 'Accommodations',
+        //     url: '/accommodations',
+        //     image: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-james-wheeler-417074.jpg&fm=jpg',
+        //     submenu: [
+        //         {id: 1, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 2, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 3, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 4, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 5, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 6, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 7, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 8, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 9, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 10, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 11, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 12, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 13, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 14, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 15, name: 'Accommodations', url: 'dsfs', image: ''},
+        //         {id: 16, name: 'Accommodations', url: 'dsfs', image: ''},
+        //     ]
+        // },
         // {
         //     id: 5,
         //     active: false,
@@ -108,17 +112,26 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
         //     image: 'https://free4kwallpapers.com/uploads/originals/2020/05/09/mountain-lake-wallpaper.png',
         //     submenu: null
         // },
-        // {
-        //     id: 6,
-        //     active: false,
-        //     isMouseOver: false,
-        //     name: 'Check flights',
-        //     url: '/check-flights',
-        //     image: 'https://wallpapercave.com/wp/wp7882026.jpg',
-        //     submenu: null
-        // },
+        {
+            id: 6,
+            active: false,
+            isMouseOver: false,
+            name: 'Check flights',
+            url: '/check-flights',
+            image: 'https://wallpapercave.com/wp/wp7882026.jpg',
+            submenu: null
+        },
         {
             id: 7,
+            active: false,
+            isMouseOver: false,
+            name: 'About us',
+            url: '/about-us/who-we-are',
+            image: 'https://wallpapercave.com/wp/wp7882026.jpg',
+            submenu: null       
+         },
+        {
+            id: 8,
             active: false,
             isMouseOver: false,
             name: 'Useful Info',
@@ -161,15 +174,22 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
     }
 
     useEffect(() => {
-        if (headerRef.current) {
-            const width = headerRef.current.getBoundingClientRect().width;
-            if(width < 1030){
+        const handleResize = () => {
+            if(window.innerWidth < 1030){
                 setIsMobile(true);
             }
-        }
-      }, []);
+        };
 
-        const mouseOverHandler = (e:React.MouseEvent, id:number, status:boolean):void=>{
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const mouseOverHandler = (e:React.MouseEvent, id:number, status:boolean):void=>{
         e.stopPropagation();
         setMenuItems(prev=>{
             return prev.map(item=>{
@@ -204,7 +224,7 @@ export const Header = ({...props}:IHeader):JSX.Element=>{
                             animate={item.isMouseOver?'visable':'hidden'}
                             transition={{
                                 ease: "linear",
-                                duration: .4
+                                duration: .3
                             }}
                             className={cn(styles.sub_header)} 
                             key={index}

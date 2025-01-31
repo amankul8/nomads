@@ -1,0 +1,47 @@
+@import 'breakpoints';
+
+.main_section {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        color: var(--white);
+    }
+}
+
+.content_section {
+    width: 100%;
+    background-image: url('/images/bg/section_bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 60px 0;
+
+    .content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+        justify-items: center;
+        
+        .card:nth-child(even) {
+            transform: translateY(50%);
+        }
+
+        @include respond-to('tablet') {
+            grid-template-columns: 1fr;
+
+            .card:nth-child(even) {
+                transform: translateY(0);
+            }
+    
+        }
+    }
+}

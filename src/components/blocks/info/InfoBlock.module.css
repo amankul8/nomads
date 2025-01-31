@@ -4,14 +4,14 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    background-image: url('/images/infoBlockBgLeft.png');
+    background-image: url('/images/bg/info_block_left_bg.png');
     background-repeat: no-repeat;
     background-size: 80%;
     background-position: left;
 }
 
 .right {
-    background-image: url('/images/infoBlockBgRight.png');
+    background-image: url('/images/bg/info_block_right_bg.png');
     background-position: right;
 }
 

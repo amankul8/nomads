@@ -147,6 +147,7 @@ const top100Films = [
 export default function Accommodations() {
 
   const [windowWidth, setWindowWidth] = useState<number>(0);
+  const [searchMode, setSearchMode] = useState<boolean>(true);
   const [location, setLocation] = useState<string>('');
   const [dateRange, setDateRange] = useState<{selection: Range}>({
     selection: {
@@ -331,9 +332,24 @@ export default function Accommodations() {
           </div>
         </div>
 
-        <div className={cls('container', styles.content)}>
-          <AccommodationCard/>
-        </div>
+        <Box className={cls('container', styles.search_content)}>
+          <Box
+            sx={{
+              display: searchMode? 'flex': 'none'
+            }} 
+            className={styles.sidebar}
+          >
+            Side bar
+          </Box>
+          <Box className={styles.products}>
+            <AccommodationCard/>
+            <AccommodationCard/>
+            <AccommodationCard/>
+            <AccommodationCard/>
+            <AccommodationCard/>
+            <AccommodationCard/>
+          </Box>
+        </Box>
 
       </section>
     </Layout>

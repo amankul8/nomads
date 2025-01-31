@@ -103,6 +103,22 @@
 
         
     }
+    
+    .search_content {
+        display: grid;
+        grid-template-columns: 2fr 7fr;
+        grid-template-rows: 1fr;
+        gap: 16px;
 
-       
+        .sidebar {
+            background-color: red;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            
+        }
+    }
 }

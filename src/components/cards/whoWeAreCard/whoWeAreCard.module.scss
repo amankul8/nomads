@@ -1,0 +1,50 @@
+.card {
+    width: 100%;
+    max-width: 550px;
+    min-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .up_text {
+        color: var(--blue);
+        font-weight: bold;
+    }
+
+    .figure {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        border-radius: 5px;
+
+        .image {
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .list {
+            list-style: none;
+            display: grid;
+            gap: 16px;
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                svg {
+                    width: 40px;    
+                }
+            }
+        }
+    }
+    
+}

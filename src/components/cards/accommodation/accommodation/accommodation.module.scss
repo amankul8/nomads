@@ -1,5 +1,13 @@
 @import 'breakpoints';
 
-.card {
-    min-width: 300px;
+.price {
+    white-space: nowrap;
 }
+
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
