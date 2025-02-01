@@ -29,7 +29,7 @@ export default function OurTeam() {
         </FirstBlockLayout>
 
         <section className={styles.content_section}>
-          <div className={styles.content}>
+          <div className={cls('container')}>
             <OurTeamCard />
           </div>
         </section>
