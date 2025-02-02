@@ -1,15 +1,96 @@
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
-import styles from './ourTeamCard.module.scss';
+"use client";
+
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import styles from "./ourTeamCard.module.scss";
 import cls from "classnames";
- 
-interface IOurTeamCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    classname?: string
+import Image from "next/image";
+import { Headline, Paragraph } from "@/ui";
+import { style } from "@mui/system";
+
+interface IOurTeamCard {
+  images: string[];
+  reverse?: boolean
 }
 
-export const OurTeamCard:React.FC<IOurTeamCard> = ({classname, ...props}) => {
-    return (
-        <div className={styles.card}>   
-            Our team
+const emptyPoints = [0, 1, 2, 3, 5, 6, 7, 8];
+
+export const OurTeamCard: React.FC<IOurTeamCard> = ({ images, reverse }) => {
+  const [teamGridHeight, setTeamGridHeight] = useState(0);
+  const teamGridElement = useRef<HTMLDivElement>(null);
+
+  // Функция для установки высоты контейнера
+  const handleResize = useCallback(() => {
+    if (teamGridElement.current) {
+      setTeamGridHeight(teamGridElement.current.clientHeight);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [handleResize]);
+
+  const joinedList = (points: number[], images: string[]) => {
+    let index = 0
+    let newList:Array<string | null> = [];
+
+    const count = points.length + images.length;
+
+    for(let i=0; i<count; i++) {
+        if(points.includes(i)) {
+            newList.push(null);
+        }
+        else {
+            newList.push(images[index]);
+            index++
+        }
+    }
+
+    return newList;
+  }
+
+  return (
+    <section className={cls("container", styles.team_section, {
+        [styles.reverse]: reverse
+    }
+    )} style={{ height: teamGridHeight }}>
+      <div className={styles.text_wrapper}>
+        <div className={styles.text_content}>
+          <Headline color="blue" type="normal">
+            The Team
+          </Headline>
+          <Headline color="black" type="section">
+            Encadrement
+          </Headline>
+          <Paragraph>
+            Passionnés par l'Arctique dont ils sont spécialistes, nos guides 66°Nord sont tous des professionnels de
+            l'encadrement, afin de vous permettre de profiter de votre séjour en toute sécurité dans cet univers
+            sauvage. Amoureux de la nature et respectueux de l'environnement, ils sauront vous transmettre leurs
+            connaissances du pays : sa faune, sa flore et son histoire. Enfilez vos chaussures de marche et laissez-vous
+            guider !
+          </Paragraph>
         </div>
-    )
-}
+      </div>
+
+      <div className={styles.team_grid} ref={teamGridElement}>
+        {joinedList(emptyPoints, images).map((item, index) =>
+          item === null ? (
+            <div key={index} className={styles.grid_item} />
+          ) : (
+            <div key={index} className={styles.grid_item}>
+              <a className={styles.link} href="javascript:void(0);">
+                <div className={styles.grid_item_inner}>
+                  <figure className={styles.figure}>
+                    <Image src={item} height={1080} width={1920} alt={`Team member ${index + 1}`} />
+                  </figure>
+                </div>
+              </a>
+            </div>
+          )
+        )}
+      </div>
+    </section>
+  );
+};

@@ -6,6 +6,19 @@ import cls from "classnames";
 import styles from "./ourTeam.module.scss";
 import { OurTeamCard } from "@/components/cards";
 
+const images = [
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+  '/images/bg/nature_bg.jpg',
+];
 
 export default function OurTeam() {
     
@@ -28,11 +41,9 @@ export default function OurTeam() {
           </div>
         </FirstBlockLayout>
 
-        <section className={styles.content_section}>
-          <div className={cls('container')}>
-            <OurTeamCard />
-          </div>
-        </section>
+        <OurTeamCard images={images} />
+        <OurTeamCard images={images} reverse={true} />
+      
       </Layout>
     )
 }
