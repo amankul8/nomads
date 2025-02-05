@@ -6,15 +6,18 @@ import cls from "classnames";
 import Image from "next/image";
 import { Headline, Paragraph } from "@/ui";
 import { style } from "@mui/system";
+import {ITeamMember} from "@/pages/about-us/our-team/member";
+import Link from "next/link";
 
 interface IOurTeamCard {
-  images: string[];
+  members: ITeamMember[],
+  hanldeMember: (member: ITeamMember)=>void,
   reverse?: boolean
 }
 
 const emptyPoints = [0, 1, 2, 3, 5, 6, 7, 8];
 
-export const OurTeamCard: React.FC<IOurTeamCard> = ({ images, reverse }) => {
+export const OurTeamCard: React.FC<IOurTeamCard> = ({ members, hanldeMember, reverse }) => {
   const [teamGridHeight, setTeamGridHeight] = useState(0);
   const teamGridElement = useRef<HTMLDivElement>(null);
 
@@ -27,23 +30,24 @@ export const OurTeamCard: React.FC<IOurTeamCard> = ({ images, reverse }) => {
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
+
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]);
+  }, []);
 
-  const joinedList = (points: number[], images: string[]) => {
+  const joinedList = (points: number[], members: ITeamMember[]) => {
     let index = 0
-    let newList:Array<string | null> = [];
+    let newList:Array<ITeamMember | null> = [];
 
-    const count = points.length + images.length;
+    const count = points.length + members.length;
 
     for(let i=0; i<count; i++) {
         if(points.includes(i)) {
             newList.push(null);
         }
         else {
-            newList.push(images[index]);
+            newList.push(members[index]);
             index++
         }
     }
@@ -75,18 +79,22 @@ export const OurTeamCard: React.FC<IOurTeamCard> = ({ images, reverse }) => {
       </div>
 
       <div className={styles.team_grid} ref={teamGridElement}>
-        {joinedList(emptyPoints, images).map((item, index) =>
+        {joinedList(emptyPoints, members).map((item, index) =>
           item === null ? (
             <div key={index} className={styles.grid_item} />
           ) : (
-            <div key={index} className={styles.grid_item}>
-              <a className={styles.link} href="javascript:void(0);">
-                <div className={styles.grid_item_inner}>
-                  <figure className={styles.figure}>
-                    <Image src={item} height={1080} width={1920} alt={`Team member ${index + 1}`} />
-                  </figure>
+            <div key={index} className={styles.grid_item} onClick={()=>hanldeMember(item)}>
+              <div className={styles.grid_item_inner}>
+
+                <div className={styles.text}>
+                  <Headline color="white" type="normal"> {item.name} </Headline>
                 </div>
-              </a>
+
+                <figure className={styles.figure}>
+                  <Image src={item.image} height={1080} width={1920} alt={`Team member ${index + 1}`} />
+                </figure>
+
+              </div>
             </div>
           )
         )}

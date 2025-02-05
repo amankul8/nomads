@@ -1,5 +1,6 @@
 .team_section { 
     position: relative;
+    min-height: 320px;
 
     .text_wrapper {
         position: relative;
@@ -34,24 +35,38 @@
             justify-items: center;
             overflow: hidden;
 
-            .link {
-                display: block;
-                width: 100%;
+            .grid_item_inner {
+                width: 100%;   
+                position: relative;
+                cursor: pointer;
 
-                .grid_item_inner {
+                .text {
                     width: 100%;
-                    .figure {
-                        aspect-ratio: 1 / 1;
+                    height: 98%;
+                    display: flex;
+                    position: absolute;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: rgba($color: #000000, $alpha: .5);
+                    opacity: 0;
+                    transition: 200ms linear;
 
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                            object-position: center;
-                        }
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+
+                .figure {
+                    aspect-ratio: 1 / 1;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
                     }
                 }
             }
+            
         }
     }
 }   
@@ -64,5 +79,9 @@
         .text_content {
             transform: scaleX(-1);
         }
+    }
+
+    .team_grid .grid_item .grid_item_inner .text {
+        transform: scaleX(-1);
     }
 }

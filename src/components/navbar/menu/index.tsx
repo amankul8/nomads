@@ -8,12 +8,12 @@ import {
     NavbarItem,
     SandwichIcon
 } from "@/ui";
-import { useScrollLock } from "@/hooks";
+import { lockScroll, unlockScroll } from "@/helpers";
 import OrnamentIcon from '@/components/icons/general/ornament.svg';
 import cn from "classnames";
 import { IMenu } from "./menuInterface";
 
-export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu):JSX.Element=>{
+export const Menu:React.FC<IMenu> = ({menuItems, setMenuItems, isMobile, mouseOverHandler}) => {
 
     const [languages, setLanguages] = useState<{lang: string, code: string}[]>([
         {lang: 'English', code: 'eng'},
@@ -25,7 +25,6 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
     const [currentLanguageCode, setCurrentLanguageCode] = useState<string>('eng');
     const [isLangsOpen, setIsLangsOpen] = useState<boolean>(false);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
-    const {lockScroll, unlockScroll} = useScrollLock();
 
     const {tokens} = useContext(TokenContext);
 
@@ -35,6 +34,10 @@ export const Menu = ({menuItems, setMenuItems, isMobile, mouseOverHandler}:IMenu
         }else{
             unlockScroll();
         }
+
+        return () => {
+            unlockScroll();
+        };
     }, []);
 
     const getCurrentLanguage=(curLangCode:string):string=>{

@@ -40,7 +40,7 @@ const initialUser = {
 export const TokenContext = createContext<IUserContext>({tokens:initialTokens, user: initialUser});
 
 
-export const TokenContextProvider = ({children}: IUserContextprops):JSX.Element=>{
+export const TokenContextProvider = ({children}: IUserContextprops) => {
 
     useEffect(()=>{
         if(getAccessToken()!=='' && getRefreshToken()!== ''){

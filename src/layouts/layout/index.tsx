@@ -3,11 +3,11 @@ import {DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import Head from 'next/head';
 import { TokenContextProvider } from "@/context";
 
-interface layoutProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
+interface ILayoutProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
     children: ReactNode,
 }
 
-export const Layout = ({children}:layoutProps):JSX.Element=>{
+export const Layout:React.FC<ILayoutProps> = ({children}) => {
 
     return(
         <>
