@@ -1,7 +1,6 @@
 import styles from "./menu.module.css";
 import Logo from "@/components/icons/general/logo.svg";
-import { useContext, useEffect, useState } from "react";
-import { TokenContext } from "@/context";
+import { useEffect, useState } from "react";
 import {Instagram, Facebook, Twitter, Email, Phone} from '@mui/icons-material';
 import {
     CustomButton,
@@ -25,8 +24,6 @@ export const Menu:React.FC<IMenu> = ({menuItems, setMenuItems, isMobile, mouseOv
     const [currentLanguageCode, setCurrentLanguageCode] = useState<string>('eng');
     const [isLangsOpen, setIsLangsOpen] = useState<boolean>(false);
     const [menuIsOpen, setMenuIsOpen] = useState(false);
-
-    const {tokens} = useContext(TokenContext);
 
     useEffect(()=>{
         if(menuIsOpen){

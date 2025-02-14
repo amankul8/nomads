@@ -1,8 +1,7 @@
 import { RegionMapContent } from "@/components/content/regionMapContent";
 import { Layout } from "@/layouts";
-import { GetStaticPropsContext } from "next";
 
-export default function RegionMap(props:any):JSX.Element{
+export default function RegionMap(props:any) {
 
     return(
         <Layout>
@@ -23,8 +22,7 @@ export async function getStaticPaths(){
   };
 }
 
-export async function getStaticProps(context:GetStaticPropsContext){
-    const { params } = context;
+export async function getStaticProps(){
     return{
         props:{
             

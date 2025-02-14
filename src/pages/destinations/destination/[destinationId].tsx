@@ -6,7 +6,6 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 
 import { BlockWithSkirt, FirstBlockLayout, Layout } from "@/layouts";
-import { GetStaticPropsContext } from "next";
 import styles from "./destination.module.scss";
 import { Paragraph, Headline } from "@/ui";
 
@@ -59,7 +58,7 @@ const slides = [
   },
 ];
 
-export default function Destination(): JSX.Element {
+export default function Destination() {
   return (
     <Layout>
       <FirstBlockLayout bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg" />
@@ -156,7 +155,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context: GetStaticPropsContext) {
+export async function getStaticProps() {
   return {
     props: {},
     revalidate: 60 * 30, // Перегенерация раз в 30 минут

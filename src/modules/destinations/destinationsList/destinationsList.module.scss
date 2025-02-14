@@ -1,0 +1,20 @@
+@use 'breakpoints' as *;
+
+.list {
+    width: 100%;    
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 20px;
+
+    @include respond-to('hd') {
+        grid-template-columns: auto auto auto;
+    }
+
+    @include respond-to('tablet') {
+        grid-template-columns: auto auto;
+    }
+
+    @include respond-to('phone') {
+        grid-template-columns: auto;
+    }
+} 

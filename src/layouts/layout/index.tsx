@@ -1,7 +1,6 @@
 import { Footer, Header} from "@/modules";
 import {DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import Head from 'next/head';
-import { TokenContextProvider } from "@/context";
 
 interface ILayoutProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
     children: ReactNode,

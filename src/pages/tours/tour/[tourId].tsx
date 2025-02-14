@@ -1,7 +1,5 @@
 import React from "react";
-import { GetStaticPropsContext } from "next";
 import dynamic from "next/dynamic";
-import cls from "classnames";
 
 import {FirstBlockLayout, Layout} from "@/layouts"
 import { CustomButton, Headline, Paragraph, Rating } from "@/ui";
@@ -10,8 +8,8 @@ import styles from "./tour.module.scss";
 import AutoIcon from '@mui/icons-material/AutoAwesomeMotion';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import {IconSquareBorder} from "@/components/icons/tour/square";
-import { DestinationCard, ReviewInfoCard, TourAdditionalCard, TourDayAccommodationCard, TourDayInfoCard } from "@/components/cards";
-import { Box, ImageList, ImageListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { ReviewInfoCard, TourAdditionalCard, TourDayAccommodationCard, TourDayInfoCard } from "@/components/cards";
+import { Box, ImageList, ImageListItem, ListItemText, Typography } from "@mui/material";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -23,16 +21,19 @@ import Paper from '@mui/material/Paper';
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import CloseIcon from '@mui/icons-material/Close';
-import CheckIcon from '@mui/icons-material/Check';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
 import { TourDetailSection } from "./section";
-import Slider from "react-slick";
 import TourSimpleCardSlider from "@/components/sliders/tour/tourSimpleCardSlider";
+import { DestinationsList } from "@/modules/destinations/destinationsList";
+
+const CheckIcon = dynamic(() => import('@mui/icons-material/Check'), { ssr: false });
+const CloseIcon = dynamic(() => import('@mui/icons-material/Close'), { ssr: false });
+
+const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 
 
 const images = [
@@ -64,17 +65,6 @@ const rows = [
   createData('4 Person', 3090, 3090, 3090, 3090),
   createData('Single bed', 3090, 3090, 3090, 3090),
 ];
-
-
-function generate(element: React.ReactElement<unknown>) {
-  return [0, 1, 2, 3, 4, 5, 6, 7].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
-
-const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 
 
 export default function Tour() {
@@ -185,34 +175,7 @@ export default function Tour() {
       <TourDetailSection title="Destinations" Icon={AutoIcon} classname={styles.destinations}>
 
         <div className={styles.body}>
-          <DestinationCard
-            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-            name="Name"
-          />
-          <DestinationCard
-            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-            name="Name"
-          />
-          <DestinationCard
-            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-            name="Name"
-          />
-          <DestinationCard
-            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-            name="Name"
-          />
-          <DestinationCard
-            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-            name="Name"
-          />
-          <DestinationCard
-            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-            name="Name"
-          />
-          <DestinationCard
-            image="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-            name="Name"
-          />
+          <DestinationsList/>
         </div>  
       </TourDetailSection>
 
@@ -250,31 +213,33 @@ export default function Tour() {
         <div className={styles.includes}>
           <div className={styles.included}>
             <Headline color="blue" type="subsection"> Included: </Headline>
-            <List dense={true}>
-              {generate(
-                <ListItem>
+            {/* <List dense={true}>
+              {[1,2,3,4,5,6,7,8].map((item) =>
+                <ListItem key={item}>
                   <CheckIcon />
                   <ListItemText
                     primary="Single-line item"
                   />
-                </ListItem>,
-              )}
-            </List>
+                </ListItem>
+              )
+                
+              }
+            </List> */}
           </div>
           <div className={styles.excluded}>
             <Headline color="blue" type="subsection"> Excluded: </Headline>
-            <List dense={true}>
-              {generate(
-                <ListItem>
+            {/* <List dense={true}>
+              {[1,2,3,4,5,6,7,8].map((item) => 
+                <ListItem key={item}>
                   <CloseIcon />
                   <ListItemText
                     primary="Single-line item"
                   />
-                </ListItem>,
-              )}
-            </List>
+                </ListItem>
+            )}
+            </List> */}
           </div>
-          </div>
+        </div>
       </TourDetailSection>
 
       <TourDetailSection title="Activities" Icon={AutoIcon} classname={styles.activities}>
@@ -369,8 +334,7 @@ export async function getStaticPaths(){
   };
 }
 
-export async function getStaticProps(context:GetStaticPropsContext){
-  const { params } = context;
+export async function getStaticProps(){
   return{
       props:{
           

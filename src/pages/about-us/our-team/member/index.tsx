@@ -30,7 +30,6 @@ interface ITeamMemberProps {
 const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) => {
 
     const sliderContainerRef = useRef<HTMLDivElement>(null);
-    const [containerWidth, setContainerWidth] = useState(0);
 
     var settings = {
         dots: true,
@@ -39,20 +38,7 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-    };  
-
-    useEffect(() => {
-        const updateWidth = () => {
-          if (sliderContainerRef.current) {
-            setContainerWidth(sliderContainerRef.current.clientWidth);
-          }
-        };
-    
-        updateWidth(); 
-        window.addEventListener("resize", updateWidth);
-    
-        return () => window.removeEventListener("resize", updateWidth);
-    }, []);
+    };
 
     return (
         <section className={styles.section} {...props}>
@@ -207,7 +193,6 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
                         list = {[1,2,3,4,5,6,5,6,]}
                         title='Favorite Tours:'
                         isCenteredMode={true}
-                        slidesToShow={containerWidth>1100? undefined: containerWidth>840? 3: containerWidth>540? 2: 1}
                     />
                 </div>
 

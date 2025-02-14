@@ -1,4 +1,4 @@
-@import 'breakpoints';
+@use 'breakpoints' as *;
 
 .price {
     white-space: nowrap;

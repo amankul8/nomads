@@ -1,93 +1,92 @@
+'use client'
+
 import Slider from "react-slick";
 import styles from "../sliderStyles.module.scss";
+import cn from "classnames";
 import { TourInfoCard } from "@/components/cards";
-import { DetailedHTMLProps, HTMLAttributes, useRef, useState } from "react";
+import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState, useMemo } from "react";
 import { CustomIconButton, Headline } from "@/ui";
 
-interface ITourInfoCardSlider extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
-  isCenteredMode?: boolean,
-  list: any,
-  title: string 
+interface ITourInfoItem {
+  id?: string | number;
+  name?: string;
+  description?: string;
+  link?: string;
+  image?: string;
+  days?: number;
+  price?: number;
+  promotion?: number;
+  countries?: string[];
+  complexity?: number;
+  rating?: number;
+  reviewsCount?: number;
+  isList?: boolean;
 }
 
+interface ITourInfoCardSlider extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  isCenteredMode?: boolean;
+  list: any;
+  title: string;
+}
 
-function TourInfoCardSlider({ isCenteredMode, list, title}: ITourInfoCardSlider) {
+function TourInfoCardSlider({ isCenteredMode, list, title }: ITourInfoCardSlider) {
+  const sliderRef = useRef<Slider>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    const sliderRef = useRef<Slider>(null);
-    const [currentIndex, setCurrentIndex] = useState<number>(1);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [containerWidth, setContainerWidth] = useState<number>(0);
 
-    const progress_width = (currentIndex / list.length * 100) ;
- 
-    const settings = {
-      infinite: list.length > 7? true: false,
-      className: "center",
-      centerMode: list.length > 7? true: false,
-      speed: 500,
-      slidesToShow: 7,
-      slidesToScroll: 1,
-      arrows: false,
-      lazyload: "ondemand",
-      beforeChange: (current:number, next:number) => setCurrentIndex(() => next+1),
-      responsive: [
-        {
-          breakpoint: 2300,
-          settings: {
-            slidesToShow: 6,
-          }
-        },
-        {
-          breakpoint: 1950,
-          settings: {
-            slidesToShow: 5,
-          }
-        },
-        {
-          breakpoint: 1750,
-          settings: {
-            slidesToShow: 4,
-          }
-        },
-        {
-          breakpoint: 1450,
-          settings: {
-            slidesToShow: 3,
-          }
-        },
-        {
-          breakpoint: 1150,
-          settings: {
-            slidesToShow: 2,
-          }
-        },
-        {
-          breakpoint: 800,
-          settings: {
-            slidesToShow: 1,
-          }
-        },
-      ]
-    }
+  const progressWidth = useMemo(() => (currentIndex / list.length) * 100, [currentIndex, list.length]);
 
-    const goToNext = () => {
-      sliderRef.current!.slickNext();
-    };
-  
-    const goToPrev = () => {
-      sliderRef.current!.slickPrev();
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
+      }
     };
 
-    return(
-      <div className={styles.slider}>
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
-        <Headline
-          color='black'
-          type='section'
-          classname={styles.title}
-        >
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const goToNext = () => {
+    sliderRef.current?.slickNext();
+  };
+
+  const goToPrev = () => {
+    sliderRef.current?.slickPrev();
+  };
+
+  const sliderResponsive = (width: number): number => {
+    if (width < 850) return 1;
+    if (width < 1200) return 2;
+    if (width <= 1440) return 3;
+    return 4;
+  };
+
+  const settings = {
+    infinite: list.length > 4,
+    centerMode: isCenteredMode || list.length > 4,
+    speed: 500,
+    slidesToShow: sliderResponsive(containerWidth),
+    slidesToScroll: 1,
+    arrows: false,
+    lazyLoad: "ondemand" as "ondemand" | "progressive" | undefined,
+    beforeChange: (_: number, next: number) => setCurrentIndex(next),
+  };
+
+  return (
+    <div className={styles.wrapper}>
+      <div ref={containerRef} className={cn('container', styles.slider)}>
+        <Headline color="black" type="section" className={styles.title}>
           {title}
-        </Headline>  
-          
-        <Slider ref={sliderRef} {...settings} key={title}>
+        </Headline>
+
+        <Slider ref={sliderRef} {...settings}>
           {list.map((item: any, index: number) => (
             <div className={styles.slider} key={item.id || index}>
               <TourInfoCard
@@ -98,7 +97,7 @@ function TourInfoCardSlider({ isCenteredMode, list, title}: ITourInfoCardSlider)
                 days={item.days || 5}
                 price={item.price || 1000}
                 promotion={item.promotion || 30}
-                countries={item.countries || ["Kyrgyzstan", "Kazakstan"]}
+                countries={item.countries || ["Kyrgyzstan", "Kazakhstan"]}
                 complexity={item.complexity || 3}
                 rating={item.rating || 3}
                 reviewsCount={item.reviewsCount || 73}
@@ -110,29 +109,17 @@ function TourInfoCardSlider({ isCenteredMode, list, title}: ITourInfoCardSlider)
 
         <div className={styles.controller}>
           <div className={styles.progress_wrapper}>
-            <div className={styles.progress} style={{width: `${progress_width}%`}}/>
-          </div>  
+            <div className={styles.progress} style={{ width: `${progressWidth}%` }} />
+          </div>
 
           <div className={styles.arrows}>
-              <CustomIconButton
-                color="white"
-                shape="square"
-                type="back"
-                handler={goToPrev}
-              />
-              
-              <CustomIconButton
-                color="white"
-                shape="square"
-                type="forward"
-                handler={goToNext}
-              />
+            <CustomIconButton color="white" shape="square" type="back" handler={goToPrev} />
+            <CustomIconButton color="white" shape="square" type="forward" handler={goToNext} />
           </div>
         </div>
-        
       </div>
-    )
+    </div>
+  );
 }
-
 
 export default TourInfoCardSlider;

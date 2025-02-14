@@ -10,7 +10,7 @@ interface IAttainment{
     classname?: string
 }
 
-    export const UniversalBlock=({children, isBg, title, classname}: IAttainment):JSX.Element=>{
+    export const UniversalBlock:React.FC<IAttainment> = ({children, isBg, title, classname}) => {
 
     return (
 
@@ -21,20 +21,22 @@ interface IAttainment{
                 classname
             )}
         >
-            {
-                title?
-                <Headline
-                    color='black'
-                    type='section'
-                    underline={true}
-                    classname={styles.title}
-                >
-                    {title}
-                </Headline>:
-                <></>
-            }
-            <div className={styles.content}>
+            <div className={cn('container')}>
+                {
+                    title?
+                    <Headline
+                        color='black'
+                        type='section'
+                        underline={true}
+                        classname={styles.title}
+                    >
+                        {title}
+                    </Headline>:
+                    <></>
+                }
+                
                 {children}
+                
             </div>
         </section>
     )

@@ -1,12 +1,11 @@
 import { UniversalBlock } from "@/layouts/block/universal";
-import { DestinationCard } from "@/components/cards/index";
-import { useRouter } from 'next/navigation'
 import {BlockWithSkirt, FirstBlockLayout, Layout } from "@/layouts";
 import React from "react";
 import { CustomButton } from "@/ui";
 import TourInfoCardSlider from "@/components/sliders/tour/tourInfoCardSlider";
 
-import styles from './destination.module.scss';
+import styles from './destinations.module.scss';
+import { DestinationsList } from "@/modules/destinations/destinationsList";
 
 const regions = [
     {
@@ -56,13 +55,7 @@ const regions = [
     },
 ]
 
-export default function Destinations():JSX.Element{
-
-    const router = useRouter();
-
-    const handleDescription = (id: number) => {
-        router.push('/destinations/destination/1')
-    }
+export default function Destinations() {
 
     return(
         <Layout>
@@ -72,57 +65,34 @@ export default function Destinations():JSX.Element{
 
             <UniversalBlock
                 title="Destinations By Region"
+                isBg={true}
             >
-                {
-                    regions.map((item, index)=>{
-                        return(
-                            <CustomButton
-                                color="blue"
-                                handler={()=>{}}
-                                key={index}
-                            >
-                                {item.name}
-                            </CustomButton>
-                    )})
-                }
-            </UniversalBlock>
-            
-            <UniversalBlock classname={styles.destinations}>
-                <DestinationCard 
-                    name="Bishkek"
-                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
-                    onClick={ ()=>handleDescription(1) }
-                />
-                <DestinationCard
-                    name="Bishkek"
-                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
-                    onClick={ ()=>handleDescription(2) }
-                />
-                <DestinationCard
-                    name="Bishkek"
-                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
-                    onClick={ ()=>handleDescription(3) }
-                />
-                <DestinationCard
-                    name="Bishkek"
-                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
-                    onClick={ ()=>handleDescription(3) }
-                />
-                <DestinationCard
-                    name="Bishkek"
-                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
-                    onClick={ ()=>handleDescription(3) }
-                />
-                <DestinationCard
-                    name="Bishkek"
-                    image="https://mcdn.wallpapersafari.com/medium/41/66/2pefBJ.jpg"
-                    onClick={ ()=>handleDescription(3) }
-                />
+                <div className={styles.content}>
+                    <div className={styles.filter}>
+                        {
+                            regions.map((item, index)=>{
+                                return(
+                                    <CustomButton
+                                        color="blue"
+                                        handler={()=>{}}
+                                        key={index}
+                                    >
+                                        {item.name}
+                                    </CustomButton>
+                            )})
+                        }
+                    </div>
+                    
+                    <div className={styles.list}>
+                        <DestinationsList/>
+                    </div>
+                </div>
+                
             </UniversalBlock>
 
             <BlockWithSkirt image="">
                 <TourInfoCardSlider
-                    list={[1,2,3,4,5]}
+                    list={[1,2,3,4,5,6,7,8,9,8,]}
                     isCenteredMode={true}
                     title="Tours In this Destinations"
                 />
