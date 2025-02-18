@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
-import styles from "./InfoBlock.module.css";
+import styles from "./InfoBlock.module.scss";
 import Image from "next/image";
-import cls from "classnames";
+import cn from "classnames";
 
 import TerrainIcon from '@mui/icons-material/Terrain';
 
@@ -19,20 +19,13 @@ interface IInfoBlockProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElemen
     def?: boolean | undefined
 }
 
-export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBlockProps):JSX.Element=>{
+export const InfoBlock: React.FC<IInfoBlockProps> = ({title, text, imageUrl, href, def, ...props}) => {
 
-    if(def == null || def == false){
-        return(
-            <div className={cls(styles.wrapper, styles.right)}>
-                <div className={cls(styles.image_wrapper)}>
-                    <Image
-                        src={'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'}
-                        alt={''}
-                        width={1920}
-                        height={1080}
-                        className={cls(styles.image)}
-                    />
-                </div>
+    return(
+        <section className={cn(styles.wrapper, {
+            [styles.reverse]: def
+        })}>
+            <div className={cn('container', styles.container)}>
                 <div className={styles.text_wrapper}>
                     <TerrainIcon className={styles.icon}/>
                     <Headline 
@@ -56,34 +49,7 @@ export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBloc
                         Discover
                     </CustomButton>
                 </div>
-            </div>
-        )
-    }else{
-        return(
-            <div className={styles.wrapper}>
-                <div className={styles.text_wrapper}>
-                    <TerrainIcon className={styles.icon}/>
-                    <Headline 
-                        type="section"
-                        color='black'
-                        underline={true}
-                        classname={styles.h}
-                    >
-                        We are featured in
-                    </Headline>
-                        
-                    <Paragraph>
-                        The Alps are the highest and most extensive mountain range system that lies entirely in Europe, separating Southern from Central and Western Europe and stretching approximately 1,200 kilometres across eight Alpine countries: France, Switzerland, Italy, Monaco, Liechtenstein, Austria, Germany, and Slovenia.
-                    </Paragraph>
-                    
-                    <CustomButton
-                        color="blue"
-                        handler={()=>{}}
-                    >
-                        Discover
-                    </CustomButton>
-                </div>
-                <div className={styles.image_wrapper}>
+                <div className={cn(styles.image_wrapper)}>
                     <Image
                         src={'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'}
                         alt={''}
@@ -93,6 +59,6 @@ export const InfoBlock = ({title, text, imageUrl, href, def, ...props}:IInfoBloc
                     />
                 </div>
             </div>
-        )
-    }
+        </section>
+    )
 }

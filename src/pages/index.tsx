@@ -6,6 +6,7 @@ import { NumberAttainmentCard } from "@/components/cards";
 import { ReviewBlock } from "@/components/sliders/review";
 
 import styles from "@/styles/home.module.scss";
+import cn from "classnames";
 import { TourSearch,  } from "@/components/blocks";
 import {Headline} from "@/ui";
 import Image from "next/image";
@@ -142,18 +143,20 @@ export default function Main() {
         title="Our experience"
         isBg={true}
       >
-        {
-          attainments.map(item=>{
-            return(
-              <AttainmentCard
-                id={item.id}
-                title={item.title}
-                description={item.description}
-                key={item.id}
-            />
-            )
-          })
-        }
+        <div className={styles.attainments_content}>
+          {
+            attainments.map(item=>{
+              return(
+                <AttainmentCard
+                  id={item.id}
+                  title={item.title}
+                  description={item.description}
+                  key={item.id}
+              />
+              )
+            })
+          }
+        </div>
       </UniversalBlock>  
 
       <InfoBlock 
@@ -177,17 +180,20 @@ export default function Main() {
       <UniversalBlock
         title='Our experience in quantitative terms'
       >
-        {
-          attainmentInQuantities.map(item=>{
-            return(
-              <NumberAttainmentCard
-                name={item.name}
-                quantity={item.quantity}
-                key={item.id}
-            />
-            )
-          })
-        }
+        <div className={styles.attainments_content}>
+          {
+            attainmentInQuantities.map(item=>{
+              return(
+                <NumberAttainmentCard
+                  name={item.name}
+                  quantity={item.quantity}
+                  key={item.id}
+              />
+              )
+            })
+          }  
+        </div>
+          
       </UniversalBlock> 
 
       <BlockWithSkirt
@@ -197,57 +203,70 @@ export default function Main() {
       </BlockWithSkirt>
 
       <section className={styles.partners}>
-            <Headline
-                color='black'
-                type='section'
-            >
-                We are featured in
-            </Headline>
-            <div className={styles.content}>
-                <Image
-                    className={styles.logo}
-                    src='/images/partners/img1.png'
-                    width={400}
-                    height={400}
-                    alt=""
-                />
-                <Image
-                    className={styles.logo}
-                    src='/images/partners/img2.png'
-                    width={400}
-                    height={400}
-                    alt=""
-                />
-                <Image
-                    className={styles.logo}
-                    src='/images/partners/img3.png'
-                    width={400}
-                    height={400}
-                    alt=""
-                />
-                <Image
-                    className={styles.logo}
-                    src='/images/partners/img4.png'
-                    width={400}
-                    height={400}
-                    alt=""
-                />
-                <Image
-                    className={styles.logo}
-                    src='/images/partners/img5.png'
-                    width={400}
-                    height={400}
-                    alt=""
-                />
-            </div>
-        </section>
+        <div className={cn('container', styles.container)}>
+          <Headline
+              color='black'
+              type='section'
+          >
+              We are featured in
+          </Headline>
+          <div className={styles.content}>
+              <Image
+                  className={styles.logo}
+                  src='/images/partners/img1.png'
+                  width={400}
+                  height={400}
+                  alt=""
+              />
+              <Image
+                  className={styles.logo}
+                  src='/images/partners/img2.png'
+                  width={400}
+                  height={400}
+                  alt=""
+              />
+              <Image
+                  className={styles.logo}
+                  src='/images/partners/img3.png'
+                  width={400}
+                  height={400}
+                  alt=""
+              />
+              <Image
+                  className={styles.logo}
+                  src='/images/partners/img4.png'
+                  width={400}
+                  height={400}
+                  alt=""
+              />
+              <Image
+                  className={styles.logo}
+                  src='/images/partners/img5.png'
+                  width={400}
+                  height={400}
+                  alt=""
+              />
+          </div>
+        </div>
+      </section>
 
       <section className={styles.images}>
-        <img className={styles.image} src='https://alizila.oss-us-west-1.aliyuncs.com/uploads/2018/02/chinese-tourists_featured.jpg' alt={''} key={'1'}/>
-        <img className={styles.image} src='https://static.euronews.com/articles/stories/07/20/09/70/1440x810_cmsv2_9fd3e55d-8994-5043-a421-db603f303be9-7200970.jpg' alt={''} key={'2'}/>
-        <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/57/40/lzjXFh.jpg' alt={''} key={'3'}/>
-        <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/0/89/LjaVd1.jpg' alt={''} key={'4'} />
-        <img className={styles.image} src='https://www.marketplace.org/wp-content/uploads/2022/05/LastTourist_cropped_nl.jpg?w=1200' alt={''} key={'5'}/>
+        <figure className={styles.frame}>
+          <img className={styles.image} src='https://alizila.oss-us-west-1.aliyuncs.com/uploads/2018/02/chinese-tourists_featured.jpg' alt={''} key={'1'}/>
+        </figure>
+        <figure className={styles.frame}>
+          <img className={styles.image} src='https://static.euronews.com/articles/stories/07/20/09/70/1440x810_cmsv2_9fd3e55d-8994-5043-a421-db603f303be9-7200970.jpg' alt={''} key={'2'}/>
+        </figure>
+        <figure className={styles.frame}>
+          <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/57/40/lzjXFh.jpg' alt={''} key={'3'}/>
+        </figure>
+        <figure className={styles.frame}>
+          <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/0/89/LjaVd1.jpg' alt={''} key={'4'} />
+        </figure>
+        <figure className={styles.frame}>
+          <img className={styles.image} src='https://www.marketplace.org/wp-content/uploads/2022/05/LastTourist_cropped_nl.jpg?w=1200' alt={''} key={'5'}/>
+        </figure>
+
         <img className={styles.skirt} src={'/images/blockSkirts/blueBlockSkirt.svg'} alt="" />
       </section>
 

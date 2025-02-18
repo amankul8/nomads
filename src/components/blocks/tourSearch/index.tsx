@@ -1,4 +1,5 @@
 import React, { DetailedHTMLProps, HtmlHTMLAttributes, useState } from "react";
+import cn from "classnames";
 
 import styles from "./tourSearch.module.scss";
 import {
@@ -17,33 +18,36 @@ export const TourSearch:React.FC<ITourSearch> = () => {
     const [value, setValue] = useState<string | number | Date>();
 
     return (
-        <section className={styles.block}>
+        <section className={styles.wrapper}>
             
-            <Headline
-                type='section'
-                color='black'
-            >
-                Search For Tour
-            </Headline>
+            <div className={cn('container', styles.container)}>
+                <Headline
+                    type='section'
+                    color='black'
+                >
+                    Search For Tour
+                </Headline>
 
-            <div className={styles.search_form}>
+                <div className={styles.search_form}>
 
-                <SearchInput 
-                    label="Duration"
-                    type="text"
-                />
+                    <SearchInput 
+                        label="Duration"
+                        type="text"
+                    />
 
-                <SearchInput 
-                    label="Duration"
-                    type="number"
-                />
+                    <SearchInput 
+                        label="Duration"
+                        type="number"
+                    />
 
-                <SearchInput 
-                    label="Duration"
-                    type="date"
-                />
-                
+                    <SearchInput 
+                        label="Duration"
+                        type="date"
+                    />
+                    
+                </div>
             </div>
+
         </section>
     )
 }

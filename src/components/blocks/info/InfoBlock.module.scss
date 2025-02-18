@@ -1,0 +1,68 @@
+@use 'breakpoints' as *;
+
+.wrapper{
+    width: 100%;
+    background-image: url('/images/bg/info_block_left_bg.png');
+    background-repeat: no-repeat;
+    background-position: left;
+
+    .container {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 40px;
+
+        @include respond-to('tablet') {
+            gap: 0;
+            display: block;
+        }
+
+        .text_wrapper{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 60px 0;
+
+            .icon{
+                width: 45px;
+                height: 45px;
+                display: block;
+            }
+
+            @include respond-to('tablet') {
+                width: 100%;
+
+            }
+        }
+
+        .image_wrapper{
+
+            .image{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+                mask-image: url('/images/masks/image.png');
+                mask-repeat: no-repeat;
+                mask-position: left;
+                mask-size: cover;
+            }
+
+            @include respond-to('tablet') {
+                display: none;
+            }
+        }
+    }
+}
+
+.reverse {
+    transform: scale(-1) scaleY(-1); 
+    .container {
+        .text_wrapper {
+            transform: scaleX(-1); 
+        }
+    }
+    
+}

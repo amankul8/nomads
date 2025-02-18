@@ -1,8 +1,11 @@
 
 .footer_wrapper{
     width: 100%;
-    padding: 50px 60px;
+    padding: 50px 0;
     background: var(--blue);
+}
+
+.container {
     display: grid;  
     grid-template-columns: 5fr 3fr 5fr;    
     grid-template-rows: 1fr;
@@ -77,7 +80,7 @@
 }
 
 @media screen and (max-width: 1000px){
-    .footer_wrapper{
+    .container{
         grid-template-columns: 1fr 1fr;   
     }
     .col_2{
@@ -86,7 +89,7 @@
 }
 
 @media screen and (max-width: 750px){
-    .footer_wrapper{
+    .container{
         grid-template-columns: 1fr;   
         grid-template-rows: 1fr 1fr;
     }

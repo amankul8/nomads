@@ -16,7 +16,7 @@ interface IDestinationBlock{
     slides: ISlides[],
 }
 
-export const MainFirstBlock=({slides}:IDestinationBlock):JSX.Element=>{
+export const MainFirstBlock=({slides}:IDestinationBlock) => {
     const sliderRef = useRef<Slider>(null);
     const [content, setContent] = useState('Initial Content');
     const [currentIndex, setCurrentIndex] = useState<number>(0);
