@@ -8,7 +8,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 
-type BtnType = 'play' | 'forward' | 'back';
+type BtnType = 'play' | 'forward' | 'back' | 'flag';
 type BtnShape = 'square' | 'curled';
 type BtnColorType = 'white' | 'blue' | 'red';
 

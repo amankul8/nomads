@@ -1,250 +1,65 @@
 'use client';
 
-import styles from "./Header.module.css";
-import {Menu} from '@/components/navbar';
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { IMenuItems } from "@/components/navbar";
+import styles from "./header.module.scss";
+import { useEffect, useState } from "react";
 import cn from 'classnames';
-import {SubHeaderContent} from "@/components/content";
-import {motion} from "motion/react";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface IHeader extends DetailedHTMLProps<HTMLAttributes<HTMLHeadElement>,HTMLHeadElement>{
-}
+import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import Logo from "@/components/icons/general/logo.svg";
 
-export const Header:React.FC<IHeader> = ({...props}) => {
-    
-    const [menuItems, setMenuItems] = useState<IMenuItems[]>([
-        {
-            id: 1,
-            active: false, //for mobile 
-            isMouseOver: false, //for desktop
-            name: 'Destinations',
-            url: '/destinations',
-            image: 'https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg?cs=srgb&dl=pexels-pixabay-147411.jpg&fm=jpg',
-            submenu: [
-                {id: 1, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 2, name: 'Kel-Suu', url: 'dsfs', image: 'https://wallpaperaccess.com/full/138728.jpg'},
-                {id: 3, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 4, name: 'Kel-Suu', url: 'dsfs', image: 'https://wallpaperaccess.com/full/138728.jpg'},
-                {id: 5, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 6, name: 'Kel-Suu', url: 'dsfs', image: 'https://wallpaperaccess.com/full/138728.jpg'},
-                {id: 7, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 8, name: 'Kel-Suu', url: 'dsfs', image: 'https://wallpaperaccess.com/full/138728.jpg'},
-                {id: 9, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 10, name: 'Kel-Suu', url: 'dsfs', image: 'https://wallpaperaccess.com/full/138728.jpg'},
-                {id: 11, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 12, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 13, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 14, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 15, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-                {id: 16, name: 'Kel-Suu', url: 'dsfs', image: 'https://ic.pics.livejournal.com/azzzik/8959473/359864/359864_800.jpg'},
-            ]
-        },
-        {
-            id: 2,
-            active: false, // for mobile 
-            isMouseOver: false, // for desktop 
-            name: 'Activities & Tours',
-            url: '/tours',
-            image: 'https://www.wallpaperflare.com/static/90/294/365/mountains-lake-mountain-river-wallpaper.jpg',
-            submenu: [
-                {id: 1, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 2, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 3, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 4, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 5, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 6, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 7, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 8, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 9, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 10, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 11, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 12, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 13, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 14, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 15, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-                {id: 16, name: 'Lorem Ipsum', url: 'dsfs', image: ''},
-            ]
-        },
-        // {
-        //     id: 3,
-        //     active: false,
-        //     isMouseOver: false,
-        //     name: 'Trip planner',
-        //     url: '/trip-planner',
-        //     image: 'https://a-static.besthdwallpaper.com/green-lake-mountain-wallpaper-3554x1999-105353_53.jpg',
-        //     submenu: null
-        // },
-        // {
-        //     id: 4,
-        //     active: false,
-        //     isMouseOver: false,
-        //     name: 'Accommodations',
-        //     url: '/accommodations',
-        //     image: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-james-wheeler-417074.jpg&fm=jpg',
-        //     submenu: [
-        //         {id: 1, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 2, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 3, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 4, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 5, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 6, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 7, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 8, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 9, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 10, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 11, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 12, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 13, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 14, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 15, name: 'Accommodations', url: 'dsfs', image: ''},
-        //         {id: 16, name: 'Accommodations', url: 'dsfs', image: ''},
-        //     ]
-        // },
-        // {
-        //     id: 5,
-        //     active: false,
-        //     isMouseOver: false,
-        //     name: 'Our map',
-        //     url: '/our-map',
-        //     image: 'https://free4kwallpapers.com/uploads/originals/2020/05/09/mountain-lake-wallpaper.png',
-        //     submenu: null
-        // },
-        {
-            id: 6,
-            active: false,
-            isMouseOver: false,
-            name: 'Check flights',
-            url: '/check-flights',
-            image: 'https://wallpapercave.com/wp/wp7882026.jpg',
-            submenu: null
-        },
-        {
-            id: 7,
-            active: false,
-            isMouseOver: false,
-            name: 'About us',
-            url: '/about-us/who-we-are',
-            image: 'https://wallpapercave.com/wp/wp7882026.jpg',
-            submenu: null       
-         },
-        {
-            id: 8,
-            active: false,
-            isMouseOver: false,
-            name: 'Useful Info',
-            url: '/useful-info',
-            image: 'https://wallpaperaccess.com/full/1993211.jpg',
-            submenu: [
-                {id: 1, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 2, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 3, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 4, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 5, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 6, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 7, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 8, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 9, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 10, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 11, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 12, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 13, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 14, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 15, name: 'Useful info', url: 'dsfs', image: ''},
-                {id: 16, name: 'Useful info', url: 'dsfs', image: ''},
-            ]
-        },
-    ]);
-    const [isMobile, setIsMobile] = useState(false);
-    const headerRef = useRef<HTMLDivElement>(null);
+import {
+    Email,
+    Phone,
+    Facebook,
+    Twitter,
+    Google,
+    Instagram,
+    WhatsApp
+} from '@mui/icons-material';
+import { Avatar } from "@mui/material";
+import { deepOrange } from "@mui/material/colors";
+import { Languages, Navbar } from "@/modules";
 
-    const variants = {
-        visable: {
-            display: 'block',
-            opacity: 1,
-        },
-        hidden: {
-            opacity: 0,
-            transitionEnd: {
-                display: "none",
-            }
-        }
-    }
 
-    useEffect(() => {
-        const handleResize = () => {
-            if(window.innerWidth < 1030){
-                setIsMobile(true);
-            }
-        };
-
-        handleResize();
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    const mouseOverHandler = (e:React.MouseEvent, id:number, status:boolean):void=>{
-        e.stopPropagation();
-        setMenuItems(prev=>{
-            return prev.map(item=>{
-                if(item.id == id){
-                    if(status && item.isMouseOver){
-                        return{
-                            ...item
-                        }
-                    }else{
-                        return{
-                            ...item,
-                            isMouseOver: item.isMouseOver=status
-                        }
-                    }
-                }else{
-                    return item;
-                }
-            })
-        });
-    } 
+export const Header = ({...props}) => {
 
     return(
-        <header className={styles.header} {...props} ref={headerRef}>
-            <Menu menuItems={menuItems} setMenuItems={setMenuItems} isMobile={isMobile} mouseOverHandler={mouseOverHandler}/>
-            {
-                menuItems.map((item, index)=>{
-                    return(
-                        <motion.div
-                            layout 
-                            variants={variants}
-                            initial={'hidden'}
-                            animate={item.isMouseOver?'visable':'hidden'}
-                            transition={{
-                                ease: "linear",
-                                duration: .3
-                            }}
-                            className={cn(styles.sub_header)} 
-                            key={index}
-                            onMouseOver={(e:any)=>{
-                                mouseOverHandler(e, item.id, true);
-                            }}
-                            onMouseOut={(e:any)=>{
-                                mouseOverHandler(e, item.id, false);
-                            }}
-                        >
-                            <SubHeaderContent
-                                data={item.submenu}
-                                name={item.name}
-                                bg_image = {item.image}
-                                isMouseOver = {item.isMouseOver}
+        <header className={styles.header} {...props}>
+
+            <div className={cn('container', styles.container)}>
+                    <div className={styles.up_side}>
+                        <menu className={styles.menu}>
+                            <Link href={''} className={styles.item}> <Phone className={styles.icon} />  +996 701 88 00 16 </Link>
+                            <Link href={''} className={styles.item}> <Email className={styles.icon}/> nomadstravelCA@gmail.com </Link>
+                        </menu>
+                        <menu className={styles.menu}>
+                            <Link href={''} className={styles.item}> <Facebook className={styles.icon}/> </Link>
+                            <Link href={''} className={styles.item}> <Google className={styles.icon}/> </Link>
+                            <Link href={''} className={styles.item}> <Instagram className={styles.icon}/> </Link>
+                            <Link href={''} className={styles.item}> <WhatsApp className={styles.icon}/> </Link>
+                            <Link href={''} className={styles.item}> <Twitter className={styles.icon}/> </Link>
+
+                            <Avatar
+                                sx={{marginLeft: 3, bgcolor: deepOrange[500] }}
+                                alt="Remy Sharp"
+                                src="/broken-image.jpg"
                             />
-                        </motion.div>
-                    )
-                })
-            }
+                        </menu>
+                    </div>
+                    <div className={styles.low_side}>
+                        <Link href={'/'} about="main">
+                            <figure className={styles.logo}>
+                                <Logo/>
+                            </figure>
+                        </Link>
+
+                        <Navbar/>
+
+                        <Languages/>
+                    </div>
+            </div>            
         </header>
     )
 }

@@ -4,12 +4,9 @@
     position: relative;
 }
 
-.block{
+.content{
     width: 100%;
-    height: calc(100% - 120px);
-    background: rgba(0,0,0, .5);
-    margin-top: 120px;
-    padding: 0 40px;
+    height: 100%;
     display: flex;
 }
 

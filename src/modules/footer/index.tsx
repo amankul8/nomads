@@ -2,7 +2,6 @@ import styles from "./footer.module.css";
 import cn from "classnames";
 import {
     Paragraph,
-    NavbarItem,
 } from "@/ui";
 import { Headline} from "@/ui";
 import Logo from "@/components/icons/general/logo.svg";
@@ -41,55 +40,7 @@ export const Footer = () => {
                     </Paragraph>
                 </div>
                 <div className={styles.col_2}>
-                    <NavbarItem
-                        color='white'
-                        item={false}
-                        classname={styles.item}
-                    >
-                        Destinations
-                    </NavbarItem><br/>
-                    <NavbarItem
-                        color='white'
-                        item={false}
-                        classname={styles.item}
-                    >
-                        Tours
-                    </NavbarItem><br/>
-                    <NavbarItem
-                        color='white'
-                        item={false}
-                        classname={styles.item}
-                    >
-                        Map
-                    </NavbarItem><br/>
-                    <NavbarItem
-                        color='white'
-                        item={false}
-                        classname={styles.item}
-                    >
-                        Hotels & Lodges
-                    </NavbarItem><br/>
-                    <NavbarItem
-                        color='white'
-                        item={false}
-                        classname={styles.item}
-                    >
-                        Check flights
-                    </NavbarItem><br/>
-                    <NavbarItem
-                        color='white'
-                        item={false}
-                        classname={styles.item}
-                    >
-                        Useful information
-                    </NavbarItem><br/>
-                    <NavbarItem
-                        color='white'
-                        item={false}
-                        classname={styles.item}
-                    >
-                        About us
-                    </NavbarItem><br/>
+                    
                 </div>
                 <div className={styles.col_3}>
                     <div className={cn(styles.row, styles.row_1)}>

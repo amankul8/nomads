@@ -6,3 +6,6 @@ export {ConfirmAccount} from "./auth/confirmAccount/page/index";
 
 export {Header} from "./header/index";
 export {Footer} from "./footer/index";
+
+export {Navbar} from "./navbar";
+export {Languages} from "./languages";

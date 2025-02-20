@@ -2,27 +2,16 @@ import React, { useEffect, useState } from "react";
 import styles from "./subheader.module.css";
 import {ISubheader} from "@/components/content";
 import cn from "classnames";
-import {motion, Variants} from "motion/react";
-import { NavbarItem, Paragraph, Headline} from "@/ui";
+import {AnimatePresence, motion, Variants} from "motion/react";
+import { Paragraph, Headline} from "@/ui";
 import OrnamentIcon from '@/components/icons/general/ornament.svg';
 import Compass from "./svg/compass.svg";
 import CheckFlights from "./svg/checkFlights.svg";
 import Link from "next/link";
 
-export const SubHeaderContent = ({data, name, className, isMouseOver, bg_image, ...props}:ISubheader):JSX.Element=>{
+export const SubHeaderContent = ({data, name, className, isMouseOver, bg_image, ...props}:ISubheader) => {
 
-    const [bg, setBg] = useState('');
-    const [onHover, setOnHover] = useState(false);
-
-    const bgVariants: Variants = {
-        visible: {
-            opacity: 1,
-        },
-
-        hidden: {
-            opacity: 0,
-        }
-    }
+    const [currentBg, setCurrentBg] = useState<string>(bg_image);
 
     const listVariants: Variants = {
         visible: {
@@ -45,6 +34,16 @@ export const SubHeaderContent = ({data, name, className, isMouseOver, bg_image, 
         },
     };
 
+    const handleMouseOver = (newBg: string = bg_image) => {
+        console.log(newBg);
+        if(newBg != null && newBg != '') setCurrentBg(prev => newBg);
+        else setCurrentBg(prev => bg_image);
+    }
+
+    const handleMouseOut = () => {
+        setCurrentBg(prev => bg_image);
+    }
+
     switch(name){
         case 'Destinations':
         case 'Activities & Tours':
@@ -56,21 +55,21 @@ export const SubHeaderContent = ({data, name, className, isMouseOver, bg_image, 
                         styles.subheader_content_wrapper,
                         styles.classnames,
                     )}
-                    style={{backgroundImage:`url(${bg_image})`}}
                     {...props}
                 >
-                    <motion.img
-                        layout
-                        animate={onHover?'visible':'hidden'}
-                        transition={{
-                            ease: "linear",
-                            duration: .3
-                        }}
-                        variants={bgVariants}
-                        className={styles.bg}
-                        src={bg===''?`${bg_image}`:`${bg}`}
-                        alt={''}
-                    />
+                    <AnimatePresence>
+                        <motion.img
+                            key={currentBg}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className={styles.bg}
+                            src={currentBg}
+                            alt=""
+                        />
+                    </AnimatePresence>
+
                     <motion.ul
                         layout
                         initial={"hidden"}
@@ -93,15 +92,7 @@ export const SubHeaderContent = ({data, name, className, isMouseOver, bg_image, 
                                     >
                                         {
                                             name==='Destinations'?
-                                            <Link href={"#"} 
-                                                onMouseOver={e=>{
-                                                    setBg(item.image);
-                                                    setOnHover(true);
-                                                }}
-                                                onMouseOut={()=>{
-                                                    setOnHover(false);
-                                                }}
-                                            >
+                                            <Link href={"#"} >
                                                 <Headline
                                                     type='section'
                                                     color='white'
@@ -111,22 +102,13 @@ export const SubHeaderContent = ({data, name, className, isMouseOver, bg_image, 
                                                 </Headline>
                                             </Link>:
                                             <Link href={"#"} className={styles.a}
-                                                onMouseOver={e=>{
-                                                    setBg(item.image);
-                                                    setOnHover(true);
-                                                }}
-                                                onMouseOut={()=>{
-                                                    setOnHover(false);
-                                                }}
+                                                onMouseOver={e => handleMouseOver(item.image)} 
+                                                onMouseOut={() => handleMouseOut()}
                                             >
-                                                <NavbarItem
-                                                    item={true}
-                                                    color='white'
-                                                    classname={styles.item_text}
-                                                >
+                                                <div>
                                                     <OrnamentIcon/>
                                                     {item.name}
-                                                </NavbarItem>
+                                                </div>
                                             </Link>
                                         }
                                     </motion.li>

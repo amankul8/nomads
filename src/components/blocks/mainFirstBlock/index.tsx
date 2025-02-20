@@ -24,7 +24,7 @@ export const MainFirstBlock=({slides}:IDestinationBlock) => {
     const settings = {
         dots: false,
         infinite: true,
-        slidesToShow: 5,
+        slidesToShow: 3,
         slidesToScroll: 1,
         initialSlide: 0,
         autoplay: true,
@@ -33,24 +33,8 @@ export const MainFirstBlock=({slides}:IDestinationBlock) => {
         arrows: false,
         beforeChange: handleBeforeChange,
         responsive: [
-              {
-                breakpoint: 2000,
-                settings: {
-                  slidesToShow: 4,
-                  slidesToScroll: 1,
-                  infinite: true,
-                }
-              },
             {
-              breakpoint: 1700,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                infinite: true,
-              }
-            },
-            {
-              breakpoint: 1300,
+              breakpoint: 1280,
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
@@ -87,61 +71,61 @@ export const MainFirstBlock=({slides}:IDestinationBlock) => {
                 initial={{ opacity: 0}}
                 animate={{ opacity: 1}}
                 exit={{ opacity: 0}}
-                transition={{ duration: 2 }}
+                transition={{ duration: 1 }}
                 src={slides[currentIndex].image}
                 alt="Image"
                 className={styles.bg}
             />
 
-            <div className={styles.block}>
-                    <div className={styles.progress_block}>
-                        <div className={styles.progress}>
-                            {
-                                slides.map((item, index)=>{
-                                    return(
-                                        <span
-                                            className={cn(styles.points, {
-                                                [styles.acitve_point]: index === currentIndex
-                                            })}
-                                            key={index}
-                                        >
-                                            {index+1}
-                                        </span>
-                                    )
-                                })
-                            }
-                        </div>
+            <div className={cn('container', styles.content)}>
+                <div className={styles.progress_block}>
+                    <div className={styles.progress}>
+                        {
+                            slides.map((item, index)=>{
+                                return(
+                                    <span
+                                        className={cn(styles.points, {
+                                            [styles.acitve_point]: index === currentIndex
+                                        })}
+                                        key={index}
+                                    >
+                                        {index+1}
+                                    </span>
+                                )
+                            })
+                        }
                     </div>
-                    <div className={styles.left_block}>
-                        <motion.div 
-                            key={content}
-                            initial={{ opacity: 0, y: +20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 20 }}
-                            transition={{ duration: 1.5 }}
-                            className={styles.left_content}
+                </div>
+                <div className={styles.left_block}>
+                    <motion.div 
+                        key={content}
+                        initial={{ opacity: 0, y: +20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 20 }}
+                        transition={{ duration: 1.5 }}
+                        className={styles.left_content}
+                    >
+                        <Headline
+                            color='white'
+                            type='main'
                         >
-                            <Headline
-                                color='white'
-                                type='main'
-                            >
-                                {slides[currentIndex].title}
-                            </Headline>
-                            <Paragraph
-                                classname={styles.text}
-                            >
-                                {slides[currentIndex].description}
-                            </Paragraph>
-                            <CustomButton
-                                color="white"
-                                active={true}
-                                handler={()=>{}}
-                                classname={styles.discover_btn}
-                            >
-                                Discover
-                            </CustomButton>
-                        </motion.div>
-                    </div>
+                            {slides[currentIndex].title}
+                        </Headline>
+                        <Paragraph
+                            classname={styles.text}
+                        >
+                            {slides[currentIndex].description}
+                        </Paragraph>
+                        <CustomButton
+                            color="white"
+                            active={true}
+                            handler={()=>{}}
+                            classname={styles.discover_btn}
+                        >
+                            Discover
+                        </CustomButton>
+                    </motion.div>
+                </div>
                 <div className={styles.right_block}>
                     <div className={styles.carousel_wrapper}>
                         <Slider
