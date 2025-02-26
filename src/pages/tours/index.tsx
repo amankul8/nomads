@@ -2,7 +2,7 @@ import {Layout, FirstBlockLayout} from "@/layouts"
 import styles from "./tours.module.scss";
 import { DropdownBlock } from "@/layouts/block/dropdown";
 import { TourInfoCard } from "@/components/cards";
-import cls from "classnames";
+import cn from "classnames";
 
 import Slider from '@mui/material/Slider';
 import Checkbox from '@mui/material/Checkbox';
@@ -85,202 +85,206 @@ export default function Main() {
         <Headline color='white' type="main"> Choose your dream adventure   </Headline>
       </FirstBlockLayout>
 
-      <div className={styles.content_wrapper}>
-        <div className={styles.topbar}>
-          <div className={styles.left_side}>
-            <div> <strong>Found Tours:</strong> {165}</div>
-            <div > 
-              <strong>Sort:</strong> 
-              <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
-                value={sortValue}
-                onChange={handleSortChange}
-                className={styles.sort_select}
-                renderValue={() => sortValue}
-              >
-                <MenuItem value={'Ten'}>Ten</MenuItem>
-                <MenuItem value={'Twenty'}>Twenty</MenuItem>
-                <MenuItem value={'Thirty'}>Thirty</MenuItem>
-              </Select> 
+      <section className={styles.content_wrapper}>
+        <div className={cn('container', styles.container)}>
+
+          <div className={styles.topbar}>
+            <div className={styles.left_side}>
+              <div> <strong>Found Tours:</strong> {165}</div>
+              <div > 
+                <strong>Sort:</strong> 
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={sortValue}
+                  onChange={handleSortChange}
+                  className={styles.sort_select}
+                  renderValue={() => sortValue}
+                >
+                  <MenuItem value={'Ten'}>Ten</MenuItem>
+                  <MenuItem value={'Twenty'}>Twenty</MenuItem>
+                  <MenuItem value={'Thirty'}>Thirty</MenuItem>
+                </Select> 
+              </div>
             </div>
+            
+            <ToggleButtonGroup
+              orientation="horizontal"
+              value={view}
+              exclusive
+              onChange={handleViewChange}
+              size="small"
+              className={styles.right_side}
+            >
+              <ToggleButton value="list" aria-label="list">
+                <ViewListIcon />
+              </ToggleButton>
+              <ToggleButton value="module" aria-label="module">
+                <ViewModuleIcon />
+              </ToggleButton>
+            </ToggleButtonGroup>
           </div>
           
-          <ToggleButtonGroup
-            orientation="horizontal"
-            value={view}
-            exclusive
-            onChange={handleViewChange}
-            size="small"
-            className={styles.right_side}
-          >
-            <ToggleButton value="list" aria-label="list">
-              <ViewListIcon />
-            </ToggleButton>
-            <ToggleButton value="module" aria-label="module">
-              <ViewModuleIcon />
-            </ToggleButton>
-          </ToggleButtonGroup>
-        </div>
-        
-        <div className={styles.sidebar}>
-          <div className={styles.bar}>
-            <DropdownBlock
-              title="Duration"
-              icon='duration'
-            >
+          <div className={styles.sidebar}>
+            <div className={styles.bar}>
+              <DropdownBlock
+                title="Duration"
+                icon='duration'
+              >
+                <div className={styles.range}>
+
+                  <div className={ cn('text',styles.range_values)}>
+                    <div className={styles.value}> 
+                      <span className={styles.label}> From </span>
+                      {duration[0]}
+                    </div>
+                    <div className={styles.value}> 
+                      <span className={styles.label}> To (days) </span>
+                      {duration[1]}  
+                    </div>
+                  </div>
+
+                  <Slider
+                    value={duration}
+                    onChange={handleDurationChange}
+                    valueLabelDisplay="off"
+                    min={1}
+                    max={50}
+                  />
+                </div>
+              </DropdownBlock>
+
+              <DropdownBlock
+                title="Price"
+                icon='duration'
+              >
+              
               <div className={styles.range}>
 
-                <div className={ cls('text',styles.range_values)}>
+                <div className={ cn('text',styles.range_values)}>
                   <div className={styles.value}> 
                     <span className={styles.label}> From </span>
-                    {duration[0]}
+                    USD {price[0]}
                   </div>
                   <div className={styles.value}> 
-                    <span className={styles.label}> To (days) </span>
-                    {duration[1]}  
+                    <span className={styles.label}> To </span>
+                    USD {price[1]}  
                   </div>
                 </div>
 
                 <Slider
-                  value={duration}
-                  onChange={handleDurationChange}
-                  valueLabelDisplay="off"
-                  min={1}
-                  max={50}
-                />
-              </div>
-            </DropdownBlock>
-
-            <DropdownBlock
-              title="Price"
-              icon='duration'
-            >
-            
-            <div className={styles.range}>
-
-              <div className={ cls('text',styles.range_values)}>
-                <div className={styles.value}> 
-                  <span className={styles.label}> From </span>
-                  USD {price[0]}
-                </div>
-                <div className={styles.value}> 
-                  <span className={styles.label}> To </span>
-                  USD {price[1]}  
-                </div>
-              </div>
-
-              <Slider
-                value={price}
-                onChange={handlePriceChange}
-                valueLabelDisplay="off"
-                min={0}
-                max={15000}
-              />
-            </div>
-
-            </DropdownBlock>
-
-            <DropdownBlock
-              title="Country"
-              icon='duration'
-            >
-              <FormGroup>
-                <FormControlLabel control={<Checkbox defaultChecked />} label="Kyrgyzstan" />
-                <FormControlLabel control={<Checkbox/>} label="Uzbekistan" />
-                <FormControlLabel control={<Checkbox/>} label="Kazakhstan" />
-              </FormGroup>
-            </DropdownBlock>
-
-            <DropdownBlock
-              title="Types"
-              icon='duration'
-            >
-              <FormGroup>
-                <FormControlLabel control={<Checkbox defaultChecked />} label="Type 1" />
-                <FormControlLabel control={<Checkbox/>} label="Type 2" />
-                <FormControlLabel control={<Checkbox/>} label="Type 3" />
-              </FormGroup>
-            </DropdownBlock>
-
-            <DropdownBlock
-              title="Destinations"
-              icon='duration'
-            >
-              <Autocomplete
-                multiple
-                id="size-small-outlined-multi"
-                size="small"
-                options={top100Films}
-                getOptionLabel={(option) => option.title}
-                value={destinations}
-                onChange={(event, neValue) => handleDestinationsChange(neValue)}
-                renderInput={(params) => (
-                  <TextField {...params} placeholder="Enter" />
-                )}
-              />
-            </DropdownBlock>
-
-            <DropdownBlock
-              title="Activities"
-              icon='duration'
-            >
-              <FormGroup>
-                <FormControlLabel control={<Checkbox defaultChecked />} label="Activity" />
-                <FormControlLabel control={<Checkbox/>} label="Activity" />
-                <FormControlLabel control={<Checkbox/>} label="Activity" />
-              </FormGroup>
-            </DropdownBlock>
-            <DropdownBlock
-              title="Level"
-              icon='duration'
-            >
-              <div className={styles.range}>
-
-                <div className={ cls('text',styles.range_values)}>
-                  <div className={styles.value}> 
-                    <span className={styles.label}> Easy </span>
-                    {levels[0]}
-                  </div>
-                  <div className={styles.value}> 
-                    <span className={styles.label}> Dificult </span>
-                    {levels[1]}  
-                  </div>
-                </div>
-
-                <Slider
-                  value={levels}
-                  onChange={handleLevelsChange}
+                  value={price}
+                  onChange={handlePriceChange}
                   valueLabelDisplay="off"
                   min={0}
-                  max={10}
+                  max={15000}
                 />
               </div>
-            </DropdownBlock>
-          </div>
-        </div> 
 
-        <div className={styles.content}>
-          {  
-            [...Array(6)].map((_, index) => (
-              <TourInfoCard
-                name={"Title"}
-                description={"Ipsum text"}
-                link={""}
-                image={"https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
-                days={5}
-                price={1000}
-                promotion={30}
-                countries={["Kyrgyzstan", "Kazakstan"]}
-                complexity={3}
-                rating={3}
-                reviewsCount={73}
-                isList={false}
-              />
-            ))
-          }
+              </DropdownBlock>
+
+              <DropdownBlock
+                title="Country"
+                icon='duration'
+              >
+                <FormGroup>
+                  <FormControlLabel control={<Checkbox defaultChecked />} label="Kyrgyzstan" />
+                  <FormControlLabel control={<Checkbox/>} label="Uzbekistan" />
+                  <FormControlLabel control={<Checkbox/>} label="Kazakhstan" />
+                </FormGroup>
+              </DropdownBlock>
+
+              <DropdownBlock
+                title="Types"
+                icon='duration'
+              >
+                <FormGroup>
+                  <FormControlLabel control={<Checkbox defaultChecked />} label="Type 1" />
+                  <FormControlLabel control={<Checkbox/>} label="Type 2" />
+                  <FormControlLabel control={<Checkbox/>} label="Type 3" />
+                </FormGroup>
+              </DropdownBlock>
+
+              <DropdownBlock
+                title="Destinations"
+                icon='duration'
+              >
+                <Autocomplete
+                  multiple
+                  id="size-small-outlined-multi"
+                  size="small"
+                  options={top100Films}
+                  getOptionLabel={(option) => option.title}
+                  value={destinations}
+                  onChange={(event, neValue) => handleDestinationsChange(neValue)}
+                  renderInput={(params) => (
+                    <TextField {...params} placeholder="Enter" />
+                  )}
+                />
+              </DropdownBlock>
+
+              <DropdownBlock
+                title="Activities"
+                icon='duration'
+              >
+                <FormGroup>
+                  <FormControlLabel control={<Checkbox defaultChecked />} label="Activity" />
+                  <FormControlLabel control={<Checkbox/>} label="Activity" />
+                  <FormControlLabel control={<Checkbox/>} label="Activity" />
+                </FormGroup>
+              </DropdownBlock>
+              <DropdownBlock
+                title="Level"
+                icon='duration'
+              >
+                <div className={styles.range}>
+
+                  <div className={ cn('text',styles.range_values)}>
+                    <div className={styles.value}> 
+                      <span className={styles.label}> Easy </span>
+                      {levels[0]}
+                    </div>
+                    <div className={styles.value}> 
+                      <span className={styles.label}> Dificult </span>
+                      {levels[1]}  
+                    </div>
+                  </div>
+
+                  <Slider
+                    value={levels}
+                    onChange={handleLevelsChange}
+                    valueLabelDisplay="off"
+                    min={0}
+                    max={10}
+                  />
+                </div>
+              </DropdownBlock>
+            </div>
+          </div> 
+
+          <div className={styles.content}>
+            {  
+              [...Array(6)].map((_, index) => (
+                <TourInfoCard
+                  name={"Title"}
+                  description={"Ipsum text"}
+                  link={""}
+                  image={"https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
+                  days={5}
+                  price={1000}
+                  promotion={30}
+                  countries={["Kyrgyzstan", "Kazakstan"]}
+                  complexity={3}
+                  rating={3}
+                  reviewsCount={73}
+                  isList={false}
+                />
+              ))
+            }
+          </div>
+
         </div>
-      </div>
+      </section>
 
     </Layout>
   );

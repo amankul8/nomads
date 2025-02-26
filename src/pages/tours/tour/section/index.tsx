@@ -42,31 +42,33 @@ export const TourDetailSection: React.FC<ITourDetailSection> = ({ Icon, title, c
 
     return (
         <motion.section className={cls(styles.section, classname)} {...rest}>
-            <motion.div className={styles.topbar}>
-                <Headline color="black" type="section" classname={styles.headline}>
-                    <Icon />
-                    {title}
-                </Headline>
-                <div className={styles.btn} onClick={handleCloseSection}>
-                    <span>{isVisible ? "Hide all" : "Expand all"}</span>
-                    <KeyboardArrowDownIcon />
-                </div>
-            </motion.div>
-            <AnimatePresence mode="wait">
-                {isVisible && (
-                    <motion.div
-                        className={styles.body}
-                        variants={sectionVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                        transition={{ duration: 0.3 }}
-                        key="body"
-                    >
-                        {children}
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            <div className={cls('container', styles.container)}>
+                <motion.div className={styles.topbar}>
+                    <Headline color="black" type="section" classname={styles.headline}>
+                        <Icon />
+                        {title}
+                    </Headline>
+                    <div className={styles.btn} onClick={handleCloseSection}>
+                        <span>{isVisible ? "Hide all" : "Expand all"}</span>
+                        <KeyboardArrowDownIcon />
+                    </div>
+                </motion.div>
+                <AnimatePresence mode="wait">
+                    {isVisible && (
+                        <motion.div
+                            className={styles.body}
+                            variants={sectionVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            transition={{ duration: 0.3 }}
+                            key="body"
+                        >
+                            {children}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
         </motion.section>
     );
 };

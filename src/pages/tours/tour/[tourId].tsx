@@ -4,12 +4,13 @@ import dynamic from "next/dynamic";
 import {FirstBlockLayout, Layout} from "@/layouts"
 import { CustomButton, Headline, Paragraph, Rating } from "@/ui";
 import styles from "./tour.module.scss";
+import cn from 'classnames';
 
 import AutoIcon from '@mui/icons-material/AutoAwesomeMotion';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import {IconSquareBorder} from "@/components/icons/tour/square";
 import { ReviewInfoCard, TourAdditionalCard, TourDayAccommodationCard, TourDayInfoCard } from "@/components/cards";
-import { Box, ImageList, ImageListItem, ListItemText, Typography } from "@mui/material";
+import { Box, ImageList, ImageListItem, Typography } from "@mui/material";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -18,9 +19,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -76,7 +74,7 @@ export default function Tour() {
         isFullSize={true}
         withCloud={false}
       >
-        <div className={styles.main_block}>
+        <div className={cn('container', styles.main_block)}>
 
             <div className={styles.content}>
               <Headline color="white" type="main"> Kel-Suu </Headline>

@@ -1,0 +1,14 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+
+    .block {
+        width: 400px;
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+}

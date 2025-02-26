@@ -1,6 +1,6 @@
 import styles from "./RegionMapContent.module.css";
 
-export const RegionMapContent = ():JSX.Element=>{
+export const RegionMapContent = () => {
     return(
         <section className={styles.wrapper}>
             <div className={styles.first_block}/>

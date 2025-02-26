@@ -1,47 +1,46 @@
 @use 'breakpoints' as *;
 
 .section {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding: 30px 60px;
+    width: 100%;
+    padding: 30px 0; 
 
-    @include respond-to("tablet") {
-        padding: 20px;
-        gap: 20px;
-    }
-
-    .topbar {
+    .container {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        gap: 40px;
 
-        .headline{
+        .topbar {
             display: flex;
             align-items: center;
-
-            svg{
-                margin-right: 15px;
+            justify-content: space-between;
+    
+            .headline{
+                display: flex;
+                align-items: center;
+    
+                svg{
+                    margin-right: 15px;
+                    color: var(--blue);
+                }
+            }
+    
+            .btn {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 5px;
+                font-size: 16px;
+                font-weight: bold;
                 color: var(--blue);
+                font-family: 'Open Sans';
+                cursor: pointer;
             }
         }
-
-        .btn {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            color: var(--blue);
-            font-family: 'Open Sans';
-            cursor: pointer;
+    
+        .body{
+            width: 100%;
+            transform-origin: top;
         }
-    }
-
-    .body{
-        width: 100%;
-        transform-origin: top;
     }
 
 }

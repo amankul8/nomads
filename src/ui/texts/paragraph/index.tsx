@@ -8,7 +8,7 @@ export interface IParagraph extends DetailedHTMLProps<HTMLAttributes<HTMLParagra
     classname?: string
 }
 
-export const Paragraph = ({children, classname}:IParagraph):JSX.Element=>{
+export const Paragraph = ({children, classname}:IParagraph) => {
 
     return(
         <p 

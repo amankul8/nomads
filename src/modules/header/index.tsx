@@ -42,7 +42,7 @@ export const Header = ({...props}) => {
                             <Link href={''} className={styles.item}> <Twitter className={styles.icon}/> </Link>
 
                             <Avatar
-                                sx={{marginLeft: 3, bgcolor: deepOrange[500] }}
+                                sx={{width: 40, height: 40, marginLeft: 3, bgcolor: deepOrange[500] }}
                                 alt="Remy Sharp"
                                 src="/broken-image.jpg"
                             />
