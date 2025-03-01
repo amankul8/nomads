@@ -1,5 +1,6 @@
 import React, { memo, useMemo } from "react";
 import styles from "./subbar.module.scss";
+import cn from 'classnames';
 import { AnimatePresence, motion } from "framer-motion";
 import {
     DestinationsContent,
@@ -9,8 +10,8 @@ import {
 } from "./contents";
 
 interface SubbarProps {
-    pageId?: string;
-    image?: string;
+    pageId: string;
+    classname?: string
 }
 
 const fadeVariants = {
@@ -19,15 +20,26 @@ const fadeVariants = {
     exit: { opacity: 0 },
 };
 
-const contentMap: Record<string, React.ReactNode> = {
-    destinations: <DestinationsContent />,
-    activities_tours: <ActivitiesContent />,
-    about_us: <AboutUsContent />,
-    useful_info: <UsefulContent />,
+const contentMap: Record<string, {content: React.ReactNode, bg: string}> = {
+    destinations: {
+        content: <DestinationsContent />,
+        bg: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'
+    },
+    activities_tours: {
+        content: <ActivitiesContent />,
+        bg: 'https://www.wallpaperflare.com/static/90/294/365/mountains-lake-mountain-river-wallpaper.jpg'
+    },
+    about_us: {
+        content: <AboutUsContent />,
+        bg: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'
+    },
+    useful_info: {
+        content: <UsefulContent />,
+        bg: 'https://www.wallpaperflare.com/static/90/294/365/mountains-lake-mountain-river-wallpaper.jpg'
+    },
 };
 
-export const Subbar: React.FC<SubbarProps> = memo(({ pageId = "", image }) => {
-    const bgImage = useMemo(() => image || "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg", [image]);
+export const Subbar: React.FC<SubbarProps> = memo(({ pageId, classname }) => {
     const content = useMemo(() => contentMap[pageId], [pageId]);
 
     if (!pageId.trim()) return null;
@@ -35,7 +47,7 @@ export const Subbar: React.FC<SubbarProps> = memo(({ pageId = "", image }) => {
     return (
         <AnimatePresence>
             <motion.div
-                className={styles.subbar}
+                className={cn(styles.subbar, classname)}
                 variants={fadeVariants}
                 initial="initial"
                 animate="animate"
@@ -44,16 +56,16 @@ export const Subbar: React.FC<SubbarProps> = memo(({ pageId = "", image }) => {
                 key="subbar"
             >
                 <motion.img
-                    src={bgImage}
+                    src={content.bg}
                     variants={fadeVariants}
                     initial="initial"
                     animate="animate"
                     exit="exit"
                     className={styles.bg}
                     transition={{ duration: 1 }}
-                    key={bgImage} 
+                    key={content.bg} 
                 />
-                <div className={styles.content}>{content}</div>
+                <div className={styles.content}>{content.content}</div>
             </motion.div>
         </AnimatePresence>
     );

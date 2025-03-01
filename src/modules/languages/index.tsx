@@ -30,7 +30,12 @@ const languages: Languages = {
         code: 'DEU'
     },
 }
-export const Languages = () => {
+
+type LanguagesType = {
+    classname?: string
+}
+
+export const Languages: React.FC<LanguagesType> = ({classname}) => {
 
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef<HTMLButtonElement>(null);
@@ -78,7 +83,7 @@ export const Languages = () => {
 
     
     return (
-        <div className={styles.languages}>
+        <div className={cn(styles.languages, classname)}>
             <Button
                 ref={anchorRef}
                 id="composition-button"

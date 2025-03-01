@@ -11,7 +11,7 @@ $breakpoints: (
 );
 
 @mixin respond-to($breakpoint) {
-  $width: map.get($breakpoints, $breakpoint); // Исправлено
+  $width: map.get($breakpoints, $breakpoint);
 
   @if $width {
     @media (max-width: $width) {

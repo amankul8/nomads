@@ -6,7 +6,6 @@ export {Span} from "./texts/span/index";
 export {SelectCheckbox} from "./inputs/selectCheckbox";
 export {Rating} from './rating/index';
 export {TourActivity} from "./properties/tour";
-export {SearchInput} from "./inputs/search/input";
 
 export {CustomButton} from "./buttons/customButtom/index";
 export {CustomIconButton} from "./buttons/customIconButton/index";
