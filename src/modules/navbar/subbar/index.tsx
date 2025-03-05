@@ -1,4 +1,4 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useState, useEffect } from "react";
 import styles from "./subbar.module.scss";
 import cn from 'classnames';
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,7 +11,7 @@ import {
 
 interface SubbarProps {
     pageId: string;
-    classname?: string
+    classname?: string;
 }
 
 const fadeVariants = {
@@ -20,27 +20,60 @@ const fadeVariants = {
     exit: { opacity: 0 },
 };
 
-const contentMap: Record<string, {content: React.ReactNode, bg: string}> = {
+type ContentType = {
+    content: (
+        handleMouseEnter?: (bg: string) => void,
+        handleMouseLeave?: () => void
+    ) => React.ReactNode;
+    bg: string;
+}
+
+const contentMap: Record<string, ContentType> = {
     destinations: {
-        content: <DestinationsContent />,
+        content: (handleMouseEnter, handleMouseLeave) => (
+            <DestinationsContent 
+                handleMouseEnter={handleMouseEnter!} 
+                handleMouseLeave={handleMouseLeave!} 
+            />
+        ),
         bg: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'
     },
     activities_tours: {
-        content: <ActivitiesContent />,
+        content: (handleMouseEnter, handleMouseLeave) => (
+            <ActivitiesContent 
+                handleMouseEnter={handleMouseEnter!} 
+                handleMouseLeave={handleMouseLeave!} 
+            />
+        ),
         bg: 'https://www.wallpaperflare.com/static/90/294/365/mountains-lake-mountain-river-wallpaper.jpg'
     },
     about_us: {
-        content: <AboutUsContent />,
+        content: () => <AboutUsContent />,
         bg: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'
     },
     useful_info: {
-        content: <UsefulContent />,
+        content: () => <UsefulContent />,
         bg: 'https://www.wallpaperflare.com/static/90/294/365/mountains-lake-mountain-river-wallpaper.jpg'
     },
 };
 
 export const Subbar: React.FC<SubbarProps> = memo(({ pageId, classname }) => {
     const content = useMemo(() => contentMap[pageId], [pageId]);
+    const [bg, setBg] = useState<string>(content ? content.bg : '');
+
+    useEffect(() => {
+        if (content) {
+            setBg(content.bg);
+        }
+    }, [content]);
+
+    const handleMouseEnter = (bg: string) => {
+        setBg(bg);
+    };
+
+    const handleMouseLeave = () => {
+        setBg(content.bg);
+    };
 
     if (!pageId.trim()) return null;
 
@@ -52,20 +85,22 @@ export const Subbar: React.FC<SubbarProps> = memo(({ pageId, classname }) => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
-                transition={{ duration: 1 }}
+                transition={{ duration: 1.5 }}
                 key="subbar"
             >
                 <motion.img
-                    src={content.bg}
+                    src={bg}
                     variants={fadeVariants}
                     initial="initial"
                     animate="animate"
                     exit="exit"
                     className={styles.bg}
-                    transition={{ duration: 1 }}
-                    key={content.bg} 
+                    transition={{ duration: 1.5 }}
+                    key={bg}
                 />
-                <div className={styles.content}>{content.content}</div>
+                <div className={styles.content}>
+                    {content.content(handleMouseEnter, handleMouseLeave)}
+                </div>
             </motion.div>
         </AnimatePresence>
     );

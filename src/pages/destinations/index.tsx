@@ -1,63 +1,25 @@
-import { UniversalBlock } from "@/layouts/block/universal";
-import {BlockWithSkirt, FirstBlockLayout, Layout } from "@/layouts";
 import React from "react";
+import { UniversalBlock } from "@/layouts/block/universal";
+import { FirstBlockLayout, Layout } from "@/layouts";
 import { CustomButton } from "@/ui";
-import TourInfoCardSlider from "@/components/sliders/tour/tourInfoCardSlider";
-
 import styles from './destinations.module.scss';
 import { DestinationsList } from "@/modules/destinations/destinationsList";
-
-const regions = [
-    {
-        id: 1,
-        name: 'All',
-        isActive: true
-    },
-    {
-        id: 2,
-        name: 'Bishkek',
-        isActive: false
-    },
-    {
-        id: 3,
-        name: 'Chui',
-        isActive: false
-    },
-    {
-        id: 4,
-        name: 'Issyk Kul',
-        isActive: false
-    },
-    {
-        id: 5,
-        name: 'Jalal Abad',
-        isActive: false
-    },
-    {
-        id: 6,
-        name: 'Naryn',
-        isActive: false
-    },
-    {
-        id: 7,
-        name: 'Osh',
-        isActive: false
-    },
-    {
-        id: 8,
-        name: 'Talas',
-        isActive: false
-    },
-    {
-        id: 9,
-        name: 'Batken',
-        isActive: false
-    },
-]
+import { Alert, CircularProgress } from "@mui/material";
+import { useAppSelector } from "@/store/store";
+import { selectRegions, selectRegionsLoadingStatus } from "@/store/slices/regions.slice";
+import { selectDestinationsByRegion, selectDestinationsLoadingStatus, selectDestinationsSuccessedStatus } from "@/store/slices/destinations.slice";
 
 export default function Destinations() {
 
-    return(
+    const [region, setRegion] = React.useState<string>('');
+
+    const regions = useAppSelector(selectRegions);
+    const isLoadingRegions = useAppSelector(selectRegionsLoadingStatus);
+
+    const destinations = useAppSelector(state => selectDestinationsByRegion(state, region));
+    const isLoadingDestinations = useAppSelector(selectDestinationsLoadingStatus);
+
+    return (
         <Layout>
             <FirstBlockLayout
                 bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"
@@ -68,36 +30,43 @@ export default function Destinations() {
                 isBg={true}
             >
                 <div className={styles.content}>
-                    <div className={styles.filter}>
-                        {
-                            regions.map((item, index)=>{
-                                return(
+                    {
+                        isLoadingRegions || isLoadingDestinations
+                        ?  <CircularProgress sx={{margin: 'auto'}}/>
+                        :   <>
+                                <div className={styles.filter}>
                                     <CustomButton
                                         color="blue"
-                                        handler={()=>{}}
-                                        key={index}
+                                        active={region === ''}
+                                        handler={() => setRegion('')}
+                                        key={'all'}
                                     >
-                                        {item.name}
+                                        All
                                     </CustomButton>
-                            )})
-                        }
-                    </div>
-                    
-                    <div className={styles.list}>
-                        <DestinationsList/>
-                    </div>
-                </div>
-                
-            </UniversalBlock>
+                                    {regions.map((item) => (
+                                        <CustomButton
+                                            color="blue"
+                                            active={region === item!.name}
+                                            handler={() => setRegion(item!.name)}
+                                            key={item?.id}
+                                        >
+                                            {item?.name}
+                                        </CustomButton>
+                                    ))}
+                                </div>
 
-            <BlockWithSkirt image="">
-                <TourInfoCardSlider
-                    list={[1,2,3,4,5,6,7,8,9,8,]}
-                    isCenteredMode={true}
-                    title="Tours In this Destinations"
-                />
-                
-            </BlockWithSkirt>
+                                <div className={styles.list}>
+                                    {
+                                        destinations.length > 0
+                                        ?   <DestinationsList list={destinations} />
+                                        :   <Alert severity="info"> No destinations </Alert>
+                                    }
+                                    
+                                </div>
+                            </>
+                    }
+                </div>
+            </UniversalBlock>
         </Layout>
-    )
+    );
 }

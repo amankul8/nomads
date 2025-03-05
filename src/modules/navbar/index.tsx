@@ -9,8 +9,9 @@ import cn from "classnames";
 import { Subbar } from "./subbar";
 import { MobListItem } from "./mobListItem";
 import { fetchDestinations } from "@/store/models/destinations";
-import { useAppDispath, useAppSelector } from "@/store/store";
-import { selectDestinations, selectDestinationsLoadingStatus } from "@/store/slices/destinations.slice";
+import { useAppDispath } from "@/store/store";
+import { fetchActivities } from "@/store/models/activities";
+import { fetchRegions } from "@/store/models/regions";
 
 export type MenuItem = {
     name: string;
@@ -62,24 +63,19 @@ export const Navbar: React.FC<Navbar> = ({mob_nav_open}) => {
     const pathname = usePathname();
     const dispatch = useAppDispath();
     
-    // Состояния
     const [currentPageId, setCurrentPageId] = useState<string>('');
     const [hoveredPageId, setHoveredPageId] = useState<string>('');
 
-    const destinations = useAppSelector(selectDestinations);
-
-    console.log(destinations);
-
-    // Проверка текущего пути и установка текущей страницы
     useEffect(() => {
         const foundKey = Object.entries(menuItems).find(([key, item]) => item.link === pathname)?.[0];
         if (foundKey) setCurrentPageId(foundKey);
 
         dispatch(fetchDestinations());
+        dispatch(fetchActivities());
+        dispatch(fetchRegions());
 
     }, [pathname]);
 
-    // Обработчик наведения на элемент
     const handleMouseEnter = useCallback(
         (event:  React.MouseEvent<HTMLLIElement>, id: string) => {
             if (id !== hoveredPageId) {
@@ -96,7 +92,6 @@ export const Navbar: React.FC<Navbar> = ({mob_nav_open}) => {
         [hoveredPageId]
     );
 
-    // Оптимизация классов для <li>
     const getListItemClass = useCallback(
         (key: string) => cn(styles.item, { [styles.active_item]: key === currentPageId || key === hoveredPageId }),
         [currentPageId, hoveredPageId]

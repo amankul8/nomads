@@ -1,49 +1,66 @@
-import { createAction, createReducer, PayloadAction } from "@reduxjs/toolkit";
+import { createAction, createReducer, createSelector, PayloadAction } from "@reduxjs/toolkit";
 import { AppState } from "../store";
-
-// Типы
-interface Region {
-    id: string;
-    name: string;
-    countryId: string;
-}
+import { RegionType } from "../models/regions";
 
 interface RegionsState {
-    entities: Record<string, Region | undefined>;
-    ids: string[];
+  entities: Record<number, RegionType | undefined>;
+  ids: number[];
+  status: 'idle' | 'loading' | 'successed' | 'failed';
+  error: string;
 }
-
-// Actions
-export const storeRegions = createAction<Region[]>("regions/store");
-export const updateRegions = createAction<Region[]>("regions/update");
 
 // Начальное состояние
 const initialState: RegionsState = {
-    entities: {},
-    ids: []
-};
+  entities: {},
+  ids: [],
+  status: 'idle',
+  error: ''
+}
 
-// Редюсер
-export const regionsReducer = createReducer(initialState, (builder) => {
-    builder
-        .addCase(storeRegions, (state, action: PayloadAction<Region[]>) => {
-            state.entities = action.payload.reduce((acc, region) => {
-                acc[region.id] = region;
-                return acc;
-            }, {} as Record<string, Region>);
+// Actions
+export const fetchRegionsIdle = createAction('regions/fetch/idle');
+export const fetchRegionsLoading = createAction('regions/fetch/loading');
+export const fetchRegionsSuccessed = createAction<RegionType[]>('regions/fetch/successed');
+export const fetchRegionsFailed = createAction<string>('regions/fetch/failed');
 
-            state.ids = action.payload.map(region => region.id);
-        })
-        .addCase(updateRegions, (state, action: PayloadAction<Region[]>) => {
-            action.payload.forEach(region => {
-                state.entities[region.id] = region;
-                if (!state.ids.includes(region.id)) {
-                    state.ids.push(region.id);
-                }
-            });
-        });
-});
+
+export const regionsReducer = createReducer(
+    initialState,
+    (builder) => {
+        builder
+            .addCase(fetchRegionsIdle, (state) => {
+                state.status = 'idle';
+                state.error = '';
+            })
+            .addCase(fetchRegionsLoading, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchRegionsSuccessed, (state, action: PayloadAction<RegionType[]>) => {
+                state.status = 'successed',
+
+                state.entities = action.payload.reduce((acc, region) => {
+                    acc[region.id] = region;
+                    return acc;
+                }, {} as Record<string, RegionType>);
+                
+                state.ids = action.payload.map(region => region.id);
+            })
+            .addCase(fetchRegionsFailed, (state, action: PayloadAction<string>) => {
+                state.status = 'failed';
+                state.error = action.payload   
+            })
+    }
+)
+
 
 // Селекторы
-export const selectRegions = (state: AppState) => state.regions.entities;
-export const selectRegion = (state: AppState, regionId: string) => state.regions.entities[regionId];
+export const selectRegions = createSelector(
+    (state: AppState) => state.regions.entities,
+    (entities) => Object.values(entities)
+)
+export const selectRegionsIds = (state: AppState) => state.regions.ids;
+
+export const selectRegionsIdleStatus = (state: AppState) => state.regions.status === 'idle';
+export const selectRegionsLoadingStatus = (state: AppState) => state.regions.status === 'loading';
+export const selectRegionsSuccessedStatus = (state: AppState) => state.regions.status === 'successed';
+export const selectRegionsFailedStatus = (state: AppState) => state.regions.status === 'failed';

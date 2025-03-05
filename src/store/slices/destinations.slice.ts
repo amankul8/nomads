@@ -1,12 +1,12 @@
-import { createAction, createReducer, PayloadAction } from "@reduxjs/toolkit";
+import { createAction, createReducer, createSelector, PayloadAction } from "@reduxjs/toolkit";
 import { AppState } from "../store";
 import { DestinationType } from "../models/destinations";
 
 type StatusType = 'idle' | 'loading' | 'successed' | 'failed';
 
 interface DestinationsState {
-    entities: Record<string, DestinationType | undefined>;
-    ids: string[];
+    entities: Record<number, DestinationType | undefined>;
+    ids: number[];
     status: StatusType,
     error: string
 }
@@ -38,11 +38,11 @@ export const destinationsReducer = createReducer(initialState, (builder) => {
             state.error = '';
 
             state.entities = action.payload.reduce((acc, destination) => {
-                acc[destination.title] = destination;
+                acc[destination.id] = destination;
                 return acc;
-            }, {} as Record<string, DestinationType>);
+            }, {} as Record<number, DestinationType>);
             
-            state.ids = action.payload.map(destination => destination.title);
+            state.ids = action.payload.map(destination => destination.id);
         })
         .addCase(fetchDestinationsLoading, (state) => {
             state.status = 'loading';
@@ -54,9 +54,22 @@ export const destinationsReducer = createReducer(initialState, (builder) => {
 });
 
 // Селекторы
-export const selectDestinations = (state: AppState) => state.destinations.entities;
-export const selectDestination = (state: AppState, destinationId: string) => state.destinations.entities[destinationId];
+export const selectDestinations = createSelector(
+    (state: AppState) => state.destinations.entities,
+    (entities) => Object.values(entities)
+);
+export const selectDestinationsByRegion = createSelector(
+    (state: AppState, region: string) => selectDestinations(state),
+    (state: AppState, region: string) => region,
+    (entities, region) => {
+        if(region === '') return entities;
+        return entities.filter(destination => destination!.region === region);
+    }
+)
+export const selectDestinationsIds = (state: AppState) => state.destinations.ids;
+export const selectDestination = (state: AppState, destinationId: number) => state.destinations.entities[destinationId];
+
 export const selectDestinationsIdleStatus = (state: AppState) => state.destinations.status === 'idle';
 export const selectDestinationsLoadingStatus = (state: AppState) => state.destinations.status === 'loading';
-export const selectDestinationsSuccessedStatus = (state: AppState) => state.destinations.status === 'loading'; 
+export const selectDestinationsSuccessedStatus = (state: AppState) => state.destinations.status === 'successed'; 
 export const selectDestinationsFailedStatus = (state: AppState) => state.destinations.status === 'failed';

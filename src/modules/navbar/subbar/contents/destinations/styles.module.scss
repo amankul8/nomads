@@ -1,3 +1,5 @@
+@use 'breakpoints' as *;
+
 .content {
     width: 100%;
     height: 100%;
@@ -9,7 +11,11 @@
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: auto auto auto auto;
-        gap: 60px;
         list-style: none;
+        gap: 60px;
+
+        @include respond-to('hd') {
+            grid-template-columns: auto auto auto;
+        }
     }
 }

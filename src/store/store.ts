@@ -5,6 +5,9 @@ import { activitiesReducer } from "./slices/activities.slice";
 import { regionsReducer } from "./slices/regions.slice";
 import { api } from "@/config/axiosInstance";
 
+export type ExtraArgument = {
+  api: typeof api
+}
 
 const extraArgument = {
   api

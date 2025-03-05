@@ -1,13 +1,13 @@
 import styles from "./Menu.module.css";
 import Logo from "@/components/icons/general/logo.svg";
-import {useRouter} from "next/router";
+import { usePathname } from 'next/navigation';
 import Link from "next/link";
 
-export function AuthMenu():JSX.Element {
+export function AuthMenu() {
 
-    const router = useRouter();
+    const pathname = usePathname();
 
-    switch(router.pathname){
+    switch(pathname){
         case "/auth/sign-in":
             return(
                 <div className={styles.wrapper}>

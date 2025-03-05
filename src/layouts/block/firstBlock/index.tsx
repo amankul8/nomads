@@ -30,6 +30,7 @@ export const FirstBlockLayout:React.FC<IFirstBlockLayout> = ({children, bg_image
             width={1920}
             src={cloudImage}
             alt={''}
+            priority
         />
     </section>
   )

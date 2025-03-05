@@ -40,6 +40,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.wallpapersafari.com'
+      },
+      {
+        protocol: 'http',
+        hostname: '206.189.58.109'
       }
     ],
     

@@ -2,7 +2,8 @@ import { fetchDestinationsFailed, fetchDestinationsLoading, fetchDestinationsSuc
 import { AppThunk } from "@/store/store";
 import { z } from "zod";
 
-const DestinationSchema = z.object({
+export const DestinationSchema = z.object({
+    id: z.number(),
     active: z.boolean(),
     main_image: z.string(),
     map_coordinate: z.array(z.number()),

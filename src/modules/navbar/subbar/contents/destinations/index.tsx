@@ -4,10 +4,16 @@ import cn from "classnames";
 import {AnimatePresence, motion} from "framer-motion";
 import Link from "next/link";
 import { SubbarBtn } from "@/ui";
+import { useAppSelector } from "@/store/store";
+import { selectDestinations, selectDestinationsFailedStatus, selectDestinationsIds, selectDestinationsLoadingStatus, selectDestinationsSuccessedStatus } from "@/store/slices/destinations.slice";
+import { baseImageUrl } from "@/config";
 
-type DestinationsSubbar = {}
+type DestinationsSubbar = {
+    handleMouseEnter: (bg: string) => void, 
+    handleMouseLeave: () => void
+}
 
-export const DestinationsContent:React.FC<DestinationsSubbar> = () => {
+export const DestinationsContent:React.FC<DestinationsSubbar> = ({handleMouseEnter, handleMouseLeave}) => {
 
     const listVariants = {
         visible: {
@@ -24,66 +30,54 @@ export const DestinationsContent:React.FC<DestinationsSubbar> = () => {
         visible: { opacity: 1, },
     };
 
-    return (
-        <div className={cn('container', styles.content)}>
-            <motion.ul
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={listVariants}
-                transition={{ duration: 2 }}
-                className={styles.list}
-            >
-                <motion.li variants={itemVariants}>
-                    <Link href={''}>
-                        <SubbarBtn
-                            name="Destination name"
-                        />
-                    </Link>
-                </motion.li>
-                <motion.li variants={itemVariants}>
-                    <Link href={''}>
-                        <SubbarBtn
-                            name="Destination name"
-                        />
-                    </Link>
-                </motion.li>
-                <motion.li variants={itemVariants}>
-                    <Link href={''}>
-                        <SubbarBtn
-                            name="Destination name"
-                        />
-                    </Link>
-                </motion.li>
-                <motion.li variants={itemVariants}>
-                    <Link href={''}>
-                        <SubbarBtn
-                            name="Destination name"
-                        />
-                    </Link>
-                </motion.li>
-                <motion.li variants={itemVariants}>
-                    <Link href={''}>
-                        <SubbarBtn
-                            name="Destination name"
-                        />
-                    </Link>
-                </motion.li>
-                <motion.li variants={itemVariants}>
-                    <Link href={''}>
-                        <SubbarBtn
-                            name="Destination name"
-                        />
-                    </Link>
-                </motion.li>
-                <motion.li variants={itemVariants}>
-                    <Link href={''}>
-                        <SubbarBtn
-                            name="Destination name"
-                        />
-                    </Link>
-                </motion.li>
-            </motion.ul>
-        </div>    
-    )
+    const destinations = useAppSelector(selectDestinations);
+
+    const isLoading = useAppSelector(selectDestinationsLoadingStatus);
+    const isSuccessed = useAppSelector(selectDestinationsSuccessedStatus);
+
+    if(isLoading) {
+        return (
+            <div>
+                Loading...
+            </div>
+        )
+    }
+
+    if(isSuccessed) {
+
+        return (
+            <div className={cn('container', styles.content)}>
+                <motion.ul
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={listVariants}
+                    transition={{ duration: 2 }}
+                    className={styles.list}
+                >
+                    {
+                        destinations && destinations.map( item => {
+                            return (
+                                <motion.li 
+                                    onMouseEnter={() => {
+                                        const image = baseImageUrl + item!.main_image
+                                        handleMouseEnter(image);
+                                    }}
+                                    // onMouseLeave={handleMouseLeave}
+                                    variants={itemVariants} 
+                                    key={item!.id}
+                                >
+                                    <Link href={`/destinations/destination/${item!.id}`}>
+                                        <SubbarBtn
+                                            name={item!.title}
+                                        />
+                                    </Link>
+                                </motion.li>
+                            )
+                        })
+                    }
+                </motion.ul>
+            </div>
+        )
+    }
 }
