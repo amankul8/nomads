@@ -244,7 +244,7 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                     </CustomButton>
                 </div>
 
-                <Link href="/tours/tour/1" className={cls('btn', styles.card_btn)}>
+                <Link href="/tours/1" className={cls('btn', styles.card_btn)}>
                         Discover This Trip
                 </Link>
             </div>

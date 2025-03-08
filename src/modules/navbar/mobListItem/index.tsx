@@ -16,7 +16,7 @@ type MobListItem = {
 const lists = ['destinations', 'activities_tours', 'about_us'];
 
 const routeMapping: Record<string, string> = {
-    'destinations': '/destinations/destination/',
+    'destinations': '/destinations',
     'activities_tours': '/tours/trour/',
     'about_us': '/about_us/',
     'useful_info': '/useful-info'

@@ -12,7 +12,7 @@ interface IDescriptionCard extends Omit<HTMLAttributes<HTMLDivElement>, "id"> {
 
 export const DestinationCard: React.FC<IDescriptionCard> = ({ id, name, image, ...rest }) => {
     return (
-        <Link className={styles.card} href={`/destinations/destination/${id}`} passHref>
+        <Link className={styles.card} href={`/destinations/${id}`} passHref>
             <figure className={styles.figure} {...rest}>
                 <Image
                     src={image}

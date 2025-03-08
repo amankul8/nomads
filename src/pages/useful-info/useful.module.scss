@@ -1,0 +1,30 @@
+
+.main_section {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section {
+    width: 100%;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    gap: 30px;
+
+    .sidebar {
+        height: min-content;
+        position: sticky;
+        top: 10px;
+    }
+
+    .content {
+        height: 2000px;
+        background: grey;
+    }
+}

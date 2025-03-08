@@ -19,7 +19,7 @@ export const AboutUsContent = () => {
         >
             <div className={styles.block}>
                 <Headline color="white" type="section">
-                    Untouched Nature
+                    Who we are?
                 </Headline>
                 <Paragraph>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eligendi explicabo ut saepe repudiandae reiciendis eaque quae corporis et quaerat!Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, explicabo blanditiis necessitatibus dolores ad quibusdam eius voluptate culpa eos non vitae optio consequatur commodi hic.
@@ -30,12 +30,12 @@ export const AboutUsContent = () => {
             </div>
             <div className={styles.block}>
                 <Headline color="white" type="section">
-                    Untouched Nature
+                    Our team
                 </Headline>
                 <Paragraph>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eligendi explicabo ut saepe repudiandae reiciendis eaque quae corporis et quaerat!Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, explicabo blanditiis necessitatibus dolores ad quibusdam eius voluptate culpa eos non vitae optio consequatur commodi hic.
                 </Paragraph>
-                <CustomButton color="white" handler={() => router.push('/about-us/who-we-are')}>
+                <CustomButton color="white" handler={() => router.push('/about-us/our-team')}>
                     Discover
                 </CustomButton>
             </div>

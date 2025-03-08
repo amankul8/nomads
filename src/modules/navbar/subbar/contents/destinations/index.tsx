@@ -67,7 +67,7 @@ export const DestinationsContent:React.FC<DestinationsSubbar> = ({handleMouseEnt
                                     variants={itemVariants} 
                                     key={item!.id}
                                 >
-                                    <Link href={`/destinations/destination/${item!.id}`}>
+                                    <Link href={`/destinations/${item!.id}`}>
                                         <SubbarBtn
                                             name={item!.title}
                                         />

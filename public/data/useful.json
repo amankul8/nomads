@@ -1,0 +1,258 @@
+[
+    {
+      "id": "1",
+      "title": "Destination Guides",
+      "description": "Useful information about different destinations to help users plan their trips.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "1.1",
+          "title": "Best time to visit",
+          "description": "Information on the ideal months or seasons to visit the destination."
+        },
+        {
+          "id": "1.2",
+          "title": "Must-see attractions and landmarks",
+          "description": "Top attractions, landmarks, and points of interest to explore."
+        },
+        {
+          "id": "1.3",
+          "title": "Local culture and customs",
+          "description": "Insights into the cultural norms, etiquette, and traditions of the destination."
+        },
+        {
+          "id": "1.4",
+          "title": "Safety tips and travel advisories",
+          "description": "Important safety guidelines and any travel warnings."
+        },
+        {
+          "id": "1.5",
+          "title": "Currency and exchange rates",
+          "description": "Information on local currency, exchange rates, and how to handle money abroad."
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Travel Itineraries",
+      "description": "Pre-planned itineraries for different travel preferences and durations.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "2.1",
+          "title": "Suggested itineraries for different trip lengths",
+          "description": "Sample itineraries for 3-day, 7-day, etc. trips."
+        },
+        {
+          "id": "2.2",
+          "title": "Family-friendly, budget, luxury, and adventure itineraries",
+          "description": "Custom itineraries tailored to specific travel styles and budgets."
+        },
+        {
+          "id": "2.3",
+          "title": "City and country-specific itineraries",
+          "description": "Detailed itineraries focused on specific cities or countries."
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Transportation Information",
+      "description": "Information on transportation options during your travels.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "3.1",
+          "title": "Flight booking and airline deals",
+          "description": "Tips for booking flights and finding the best airline deals."
+        },
+        {
+          "id": "3.2",
+          "title": "Local transport options",
+          "description": "Information about buses, trains, taxis, and car rentals."
+        },
+        {
+          "id": "3.3",
+          "title": "Public transportation maps and fare details",
+          "description": "Maps and information on public transit routes and fares."
+        },
+        {
+          "id": "3.4",
+          "title": "Ride-sharing and bike rental services",
+          "description": "Details on ride-sharing apps (like Uber) and bike rental services."
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Accommodation Options",
+      "description": "Details on the best places to stay during your travels.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "4.1",
+          "title": "Best hotels, hostels, resorts, and Airbnb recommendations",
+          "description": "Suggestions for different types of accommodation."
+        },
+        {
+          "id": "4.2",
+          "title": "Budget vs. luxury accommodations",
+          "description": "Guides on choosing between affordable and luxurious stays."
+        },
+        {
+          "id": "4.3",
+          "title": "Neighborhood guides for staying in popular destinations",
+          "description": "Recommendations for safe and convenient neighborhoods."
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Travel Tips & Hacks",
+      "description": "Helpful tips for making your travels smoother and more cost-effective.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "5.1",
+          "title": "Packing lists and luggage tips",
+          "description": "Essential packing advice to make your trip easier."
+        },
+        {
+          "id": "5.2",
+          "title": "How to find cheap flights and accommodation deals",
+          "description": "Best practices for saving money on travel."
+        },
+        {
+          "id": "5.3",
+          "title": "Visa requirements and travel documents",
+          "description": "Info on required visas, passports, and travel documents."
+        },
+        {
+          "id": "5.4",
+          "title": "Budget travel tips",
+          "description": "Advice for traveling on a budget without compromising experiences."
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Food & Dining",
+      "description": "Where and what to eat when traveling.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "6.1",
+          "title": "Best local restaurants and street food spots",
+          "description": "Top places to eat, including local favorites and street food."
+        },
+        {
+          "id": "6.2",
+          "title": "Must-try traditional dishes",
+          "description": "Iconic dishes and meals to try in various regions."
+        },
+        {
+          "id": "6.3",
+          "title": "Food safety tips for different regions",
+          "description": "Important food safety guidelines when traveling."
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Activities & Experiences",
+      "description": "Suggestions for unique experiences and activities.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "7.1",
+          "title": "Adventure and outdoor activities",
+          "description": "Guides to activities like hiking, diving, and safaris."
+        },
+        {
+          "id": "7.2",
+          "title": "Cultural experiences",
+          "description": "Suggestions for engaging with local festivals, museums, and historical sites."
+        },
+        {
+          "id": "7.3",
+          "title": "Shopping tips and best local markets",
+          "description": "Recommendations for local shopping spots and markets."
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Travel News & Updates",
+      "description": "Current news and important travel updates.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "8.1",
+          "title": "Current travel restrictions and entry requirements",
+          "description": "Latest travel regulations, including entry requirements and restrictions."
+        },
+        {
+          "id": "8.2",
+          "title": "Weather forecasts and seasonal travel tips",
+          "description": "Weather information to plan your trip accordingly."
+        },
+        {
+          "id": "8.3",
+          "title": "Latest airline deals and promotions",
+          "description": "Up-to-date offers and discounts from airlines."
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Reviews & User Experiences",
+      "description": "Traveler feedback and real-life experiences.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "9.1",
+          "title": "Real traveler reviews and testimonials",
+          "description": "Reviews and feedback from fellow travelers."
+        },
+        {
+          "id": "9.2",
+          "title": "Photo and video galleries from past travelers",
+          "description": "Gallery of traveler photos and videos."
+        },
+        {
+          "id": "9.3",
+          "title": "Interactive travel forums for discussion",
+          "description": "Platforms for sharing experiences and asking questions."
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Travel Tools & Resources",
+      "description": "Useful tools and resources to assist with travel planning.",
+      "isParent": true,
+      "childs": [
+        {
+          "id": "10.1",
+          "title": "Currency converter",
+          "description": "A tool to convert currency for your destination."
+        },
+        {
+          "id": "10.2",
+          "title": "Language translation guides",
+          "description": "Guides for basic phrases in various languages."
+        },
+        {
+          "id": "10.3",
+          "title": "Travel insurance recommendations",
+          "description": "Suggestions for travel insurance options."
+        },
+        {
+          "id": "10.4",
+          "title": "Emergency contact numbers",
+          "description": "Important phone numbers for emergencies while traveling."
+        }
+      ]
+    }
+  ]
+  

@@ -47,7 +47,7 @@ const menuItems: MenuItems = {
     // },
     about_us: {
         name: "About Us",
-        link: "/about-us",
+        link: "/about-us/who-we-are",
     },
     useful_info: {
         name: "Useful Info",

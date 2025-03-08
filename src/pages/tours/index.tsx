@@ -12,6 +12,8 @@ import Grid from '@mui/material/Grid2';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { Headline } from "@/ui";
+import { z } from 'zod';
+import api from "@/config/axiosInstance";
 
 
 const top100Films = [
@@ -24,6 +26,48 @@ const top100Films = [
   { title: 'Pulp Fiction', year: 1994 }, 
 ];
 
+const TourSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  destination: z.string(),
+  price: z.number(),
+  promotion: z.number(),
+  duration: z.string(),
+  difficulty: z.string(),
+  countries: z.array(z.string()),
+  types: z.array(z.string()),
+  reviews: z.object({
+    count: z.number(),
+    rating: z.string()
+  })
+});
+
+type Tour = z.infer<typeof TourSchema>;
+
+const fetchTours = async (props?: Record<string, string>): Promise<Tour[]> => {
+  try {
+    const response = await api.get('/tour');
+
+    if (response.status === 200) {
+      const result = TourSchema.array().safeParse(response.data);
+
+      if (!result.success) {
+        throw new Error('Validation error!');
+      }
+
+      return result.data; 
+    } else {
+      throw new Error('Fetch data error!');
+    }
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error('Ошибка при получении данных:', err.message);
+    } else {
+      console.error('Произошла неизвестная ошибка');
+    }
+    return [];
+  }
+}
 
 export default function Main() {
 
@@ -74,6 +118,10 @@ export default function Main() {
   const handleLevelsChange = (event: Event, newLevels: number | number[]) => {
     setLevels(newLevels as number[]);
   };
+
+  React.useEffect(() => {
+    fetchTours();
+  }, []);
 
   return (
     

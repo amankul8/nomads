@@ -1,0 +1,43 @@
+
+.main_block_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.wrapper{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-image: url('/images/bg/section_bg.png');
+    background-position:center;
+    background-repeat: repeat-y;
+    background-size: contain;
+
+    .content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .block {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+            padding: 0 60px;
+        }
+
+        .photos {
+            width: 100%;
+        }
+
+        .tours {
+            width: 100%;
+            padding: 0;
+        }
+    }
+}
+
+
