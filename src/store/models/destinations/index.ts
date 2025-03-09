@@ -2,11 +2,28 @@ import { fetchDestinationsFailed, fetchDestinationsLoading, fetchDestinationsSuc
 import { AppThunk } from "@/store/store";
 import { z } from "zod";
 
+export const DestinationDetailSchema = z.object({
+    id: z.number(),
+    title: z.string(),
+    description: z.string(), 
+    coordinates: z.array(z.number()),  
+    images: z.array(z.object({
+        alt: z.string(),
+        url: z.string()
+    })) 
+    // active: z.boolean(),
+    // main_image: z.string(),
+    // ratings: z.string(),
+    // region: z.string(),
+});
+
+export type DestinationDetailType = z.infer<typeof DestinationDetailSchema>;
+
 export const DestinationSchema = z.object({
     id: z.number(),
     active: z.boolean(),
     main_image: z.string(),
-    map_coordinate: z.array(z.number()),
+    coordinates: z.array(z.number()),
     ratings: z.string(),
     region: z.string(),
     title: z.string()

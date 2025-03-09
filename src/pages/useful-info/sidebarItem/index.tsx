@@ -1,0 +1,56 @@
+import React from 'react';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import { UsefulDataItemType } from '../model';
+import { List } from '@mui/material';
+
+type SidebarItemType = {
+    item: UsefulDataItemType,
+    id: string | undefined
+}
+
+export const SidebarItem = ({item, id}: SidebarItemType) => {
+
+    return (
+        <React.Fragment key={item.id}>
+            <ListItemButton href={`#${item.id}`}>
+            <ListItemText
+                primary={item.id + '. ' + item.title}
+                slotProps={{
+                    primary: {
+                        style: { 
+                            fontWeight: "bold",
+                            color: id && id == item.id ?'var(--blue)': 'var(--black)'
+                        },
+                    },
+                }}
+            />
+            {item.isParent ? <ExpandMore /> : null}
+            </ListItemButton>
+
+            {item.isParent && (
+                <List component="div" disablePadding>
+                    {item.childs.map((child_item) => (
+                    <ListItemButton
+                        key={child_item.id}
+                        sx={{ pl: 4 }}
+                        href={`#${child_item.id}`}
+                    >
+                        <ListItemText 
+                            primary={child_item.id + '. ' + child_item.title} 
+                            slotProps={{
+                                primary: {
+                                    style: {
+                                        color: id && id == child_item.id ?'var(--blue)': 'var(--black)'
+                                    },
+                                },
+                            }}
+                        />
+                    </ListItemButton>
+                    ))}
+                </List>
+            )}
+        </React.Fragment>
+    )
+}

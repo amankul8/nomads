@@ -1,3 +1,4 @@
+@use 'breakpoints' as *;
 
 .main_section {
     height: 100%;
@@ -8,23 +9,67 @@
 
 .section {
     width: 100%;
-}
 
-.container {
-    position: relative;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 3fr 9fr;
-    gap: 30px;
+    .container {
+        position: relative;
+        min-height: min-content;
+        display: grid;
+        grid-template-columns: 3fr 9fr;
+        
+        @include respond-to('tablet') {
+            display: block;
+            width: 100%;
+        }
 
-    .sidebar {
-        height: min-content;
-        position: sticky;
-        top: 10px;
-    }
+        .left_side {
+            @include respond-to('tablet') {
+                display: none;
+                width: 100%;
+            }
+            
+            .sidebar {
+                position: relative;
+                height: min-content;
+            }
+        
+            .sidebar_fixed {
+                position: sticky;
+                height: 100vh; 
+                overflow-y: auto;
+                scrollbar-width: thin;  
+                top: 0;
+            }
+        }
+    
+        
+    
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            justify-content: flex-start;
+            padding-left: 30px;
+            border-left: 1px solid var(--lightGrey);
 
-    .content {
-        height: 2000px;
-        background: grey;
+            @include respond-to('tablet') {
+                padding: 0;
+                border: none;
+            }
+    
+            .block {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .sub_block {
+                width: calc(100% - 24px);
+                align-self: flex-end;
+                &:last-child {
+                    margin-bottom: 40px;
+                }
+            }
+        }
     }
 }

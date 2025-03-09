@@ -12,6 +12,7 @@ import { fetchDestinations } from "@/store/models/destinations";
 import { useAppDispath } from "@/store/store";
 import { fetchActivities } from "@/store/models/activities";
 import { fetchRegions } from "@/store/models/regions";
+import { fetchTourTypes } from "@/store/models/tour_types";
 
 export type MenuItem = {
     name: string;
@@ -71,6 +72,7 @@ export const Navbar: React.FC<Navbar> = ({mob_nav_open}) => {
         if (foundKey) setCurrentPageId(foundKey);
 
         dispatch(fetchDestinations());
+        // dispatch(fetchTourTypes());
         dispatch(fetchActivities());
         dispatch(fetchRegions());
 

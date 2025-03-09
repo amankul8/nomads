@@ -8,6 +8,10 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { BlockWithSkirt, FirstBlockLayout, Layout } from "@/layouts";
 import styles from "./destination.module.scss";
 import { Paragraph, Headline } from "@/ui";
+import api from "@/config/axiosInstance";
+import { DestinationDetailSchema, DestinationDetailType, DestinationSchema } from "@/store/models/destinations";
+import { baseImageUrl } from "@/config";
+import { red } from "@mui/material/colors";
 
 // Динамический импорт компонентов
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
@@ -58,33 +62,96 @@ const slides = [
   },
 ];
 
-export default function Destination() {
+export async function getStaticPaths() {
+  let destinationsId: number[] = [];
+  
+  try {
+    const res = await api.get('destinations');
+    const data = res.data;
+
+    const result = DestinationSchema.array().safeParse(data);
+
+    if (result.success) {
+      destinationsId = result.data.map(item => item.id);
+    }
+  } catch (error: any) {
+    destinationsId = [];
+  }
+
+  const paths = destinationsId.map((id) => ({
+    params: { destinationId: id.toString() },
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking',
+  };
+}
+
+
+export async function getStaticProps({ params }: { params: { destinationId: string } }) {
+  const destinationId = parseInt(params.destinationId, 10);
+
+  try {
+    const res = await api.get(`destination?id=${destinationId}`)
+
+    if (res.status != 200 || !res.data) {
+      if (Array.isArray(res.data) && res.data.length === 0) {
+        return { notFound: true };
+      }
+    }
+
+    const result = DestinationDetailSchema.array().safeParse(res.data);
+
+    if (!result.success) {
+      return { notFound: true };
+    }
+    
+    if(Array.isArray(result.data) && result.data.length == 0) {
+      return { notFound: true };
+    }
+
+    return {
+      props: {
+        destinationData: result.data[0],  
+      },
+      revalidate: 10,
+    };
+  } catch (error) {
+    return { notFound: true };
+  }
+}
+
+type Destination = {
+  destinationData?: DestinationDetailType;
+};
+
+
+export default function Destination({ destinationData }: Destination) {
+  if (!destinationData) {
+    return <div>Loading...</div>; // Покажем сообщение, если данные еще не загружены
+  }
+
+  const { title, description, images } = destinationData;
+
   return (
     <Layout>
       <FirstBlockLayout bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg">
         <div className={cls('container', styles.main_block_content)}>
-          <Headline
-            color="white"
-            type="main"
-          >
-            Kel Suu
+          <Headline color="white" type="main">
+            {title}
           </Headline>
         </div>
       </FirstBlockLayout>
 
       <section className={styles.wrapper}>
-        {/* Левая часть */}
         <div className={cls('container', styles.content)}>
           {/* Информация */}
           <div className={cls(styles.block, styles.info)}>
             <Headline color="black" type="section">
-              Kel-Suu
+              {title}
             </Headline>
-            <Paragraph>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-              invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-              accusam et justo duo dolores et ea rebum.
-            </Paragraph>
+            <Paragraph>{description}</Paragraph>
           </div>
 
           {/* Фотографии */}
@@ -94,12 +161,12 @@ export default function Destination() {
             </Headline>
             <Box className={styles.photos}>
               <ImageList variant="masonry" cols={3} gap={3}>
-                {images.map((item, index) => (
-                  <ImageListItem key={index}>
+                {images?.map((item: {url: string, alt: string}) => (
+                  <ImageListItem key={item.url}>
                     <img
-                      srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                      src={`${item}?w=248&fit=crop&auto=format`}
-                      alt=""
+                      srcSet={baseImageUrl + item.url}
+                      src={baseImageUrl + item.url}
+                      alt={item.alt}
                       loading="lazy"
                     />
                   </ImageListItem>
@@ -126,23 +193,4 @@ export default function Destination() {
       </section>
     </Layout>
   );
-}
-
-export async function getStaticPaths() {
-  const ids = [1, 2, 3, 4, 5, 6, 7, 8];
-  const paths = ids.map((id) => ({
-    params: { destinationId: id.toString() },
-  }));
-
-  return {
-    paths,
-    fallback: "blocking", // Динамическая генерация страниц при необходимости
-  };
-}
-
-export async function getStaticProps() {
-  return {
-    props: {},
-    revalidate: 60 * 30, // Перегенерация раз в 30 минут
-  };
 }

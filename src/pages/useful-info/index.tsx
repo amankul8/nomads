@@ -1,82 +1,143 @@
+'use client';
+
 import { FirstBlockLayout, Layout } from "@/layouts";
 import { Headline, Paragraph } from "@/ui";
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import cn from "classnames";
-
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
-
 
 import styles from "./useful.module.scss";
+import { fetchUsefulData, UsefulDataItemType } from "./model";
+import { SidebarItem } from "./sidebarItem";
 
-export default function UsefulInfo() {
-
-  const [open, setOpen] = React.useState(true);
-
-  const handleClick = () => {
-    setOpen(!open);
+export async function getStaticProps() {
+  const data = await fetchUsefulData();
+  return {
+    props: {
+      data,
+    },
+    revalidate: 60,
   };
+}
+
+type UsefulInfoType = {
+  data: Array<UsefulDataItemType>;
+};
+
+export default function UsefulInfo({ data }: UsefulInfoType) {
+
+  const sidebarRef = useRef<HTMLElement | null>(null);
+  const [isSidebarFixed, setIsSidebarFixed] = React.useState<boolean>(false);
+  const [sidebarTop, setSidebarTop] = React.useState<number>(0);
+  const [id, setId] = React.useState<string>();
+
+  const handleDocumentScroll = React.useCallback(() => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop >= sidebarTop && !isSidebarFixed) {
+      setIsSidebarFixed(true);
+    } 
     
+    if (scrollTop < sidebarTop && isSidebarFixed) {
+      setIsSidebarFixed(false);
+    }
+  }, [sidebarTop, isSidebarFixed]);
+
+  const updateIdFromHash = () => {
+    const hash = window.location.hash;
+    if (hash) {
+        setId(hash.substring(1));
+    }
+};
+
+  useEffect(() => {
+
+    if(sidebarRef.current && sidebarTop == 0) {
+      const rect = sidebarRef.current.getBoundingClientRect();
+      setSidebarTop(rect.top);
+    }
+
+    updateIdFromHash();
+
+    document.addEventListener('scroll', handleDocumentScroll);
+    window.addEventListener('hashchange', updateIdFromHash);
+
+    return () => {
+      document.removeEventListener('scroll', handleDocumentScroll);
+      window.removeEventListener('hashchange', updateIdFromHash);
+    };
+  }, [sidebarTop, isSidebarFixed]);
+
   return (
     <Layout>
-
       <FirstBlockLayout
         bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"
       >
-        <div className={cn('container', styles.main_section)}>
+        <div className={cn("container", styles.main_section)}>
           <div className={styles.content}>
-            <Headline color="white" type="main"> Useful Info </Headline>
+            <Headline color="white" type="main">
+              Useful Info
+            </Headline>
           </div>
         </div>
       </FirstBlockLayout>
-      
+
       <section className={styles.section}>
-        <div className={cn('container', styles.container)}>
-
-          <List
-            sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-            component="nav"
-            aria-labelledby="nested-list-subheader"
-            className={styles.sidebar}
-            subheader={
-              <ListSubheader component="div" id="nested-list-subheader">
-                    Nested List Items
-              </ListSubheader>
-            }
-          >
-            <ListItemButton>
-              <ListItemText primary="Sent mail" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemText primary="Drafts" />
-            </ListItemButton>
-            <ListItemButton onClick={handleClick}>
-              <ListItemText primary="Inbox" />
-              {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemText primary="Starred" />
-                </ListItemButton>
-              </List>
-            </Collapse>
-          </List>
-
-          <div className={styles.content}>
-            Content
+        <div className={cn("container", styles.container)}>
+          <div className={styles.left_side}>
+            <List
+              ref={sidebarRef}
+              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+              component="nav"
+              aria-labelledby="nested-list-subheader"
+              className={cn(styles.sidebar, {
+                [styles.sidebar_fixed]: isSidebarFixed
+              })}
+              subheader={
+                <ListSubheader component="div" id="nested-list-subheader">
+                  Summary
+                </ListSubheader>
+              }
+            >
+              {data.length > 0
+                ? data.map((item) => (
+                    <SidebarItem item = {item} id={id}/>
+                  ))
+                : null}
+            </List>
           </div>
 
+          <div className={styles.content}>
+            {data.length > 0
+              ? data.map((item) => (
+                  <React.Fragment key={item.id}>
+                    <div id={item.id} className={styles.block}>
+                      <Headline color="black" type="section">
+                        {item.id + '. ' + item.title}
+                      </Headline>
+                      <Paragraph color="black">{item.description}</Paragraph>
+                    </div>
+
+                    {item.isParent &&
+                      item.childs.map((child_item) => (
+                        <div
+                          id={child_item.id}
+                          className={cn(styles.block, styles.sub_block)}
+                          key={child_item.id}
+                        >
+                          <Headline color="black" type="subsection">
+                            {child_item.id + '. ' + child_item.title}
+                          </Headline>
+                          <Paragraph color="black">{child_item.description}</Paragraph>
+                        </div>
+                      ))}
+                  </React.Fragment>
+                ))
+              : null}
+          </div>
         </div>
       </section>
-
     </Layout>
-  )
+  );
 }
-

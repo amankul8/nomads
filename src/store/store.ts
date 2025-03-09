@@ -4,6 +4,7 @@ import { destinationsReducer } from "./slices/destinations.slice";
 import { activitiesReducer } from "./slices/activities.slice";
 import { regionsReducer } from "./slices/regions.slice";
 import { api } from "@/config/axiosInstance";
+import { tourTypesReducer } from "./slices/tourTypes.slice";
 
 export type ExtraArgument = {
   api: typeof api
@@ -15,6 +16,7 @@ const extraArgument = {
 
 export const store = configureStore({
   reducer: {
+    tour_types: tourTypesReducer,
     activities: activitiesReducer,
     destinations: destinationsReducer,
     regions: regionsReducer,
