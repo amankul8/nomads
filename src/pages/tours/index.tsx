@@ -7,7 +7,7 @@ import cn from "classnames";
 import Slider from '@mui/material/Slider';
 import Checkbox from '@mui/material/Checkbox';
 import React from "react";
-import { Autocomplete, Container, FormControlLabel, FormGroup, MenuItem, Select, SelectChangeEvent, Skeleton, Stack, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { Autocomplete, CircularProgress, Container, FormControlLabel, FormGroup, MenuItem, Select, SelectChangeEvent, Skeleton, Stack, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
@@ -29,18 +29,29 @@ const top100Films = [
 const TourSchema = z.object({
   id: z.number(),
   name: z.string(),
-  destination: z.string(),
+  description: z.string(),
   price: z.number(),
   promotion: z.number(),
   duration: z.string(),
   difficulty: z.string(),
   countries: z.array(z.string()),
-  types: z.array(z.string()),
+  tour_types: z.array(z.string()),
   reviews: z.object({
     count: z.number(),
-    rating: z.string()
+    rating: z.union([z.number(), z.null()])
   })
 });
+
+type sortIdType = 'popular' | 'name' | 'low_to_high' | 'high_to_low';
+
+type sortType = Record<sortIdType, string>;
+
+const sortList: sortType = {
+  'popular': 'Popular',
+  'name': 'Name',
+  'low_to_high': 'Price Low to High',
+  'high_to_low': 'Price High to Low',
+};
 
 type Tour = z.infer<typeof TourSchema>;
 
@@ -49,6 +60,7 @@ const fetchTours = async (props?: Record<string, string>): Promise<Tour[]> => {
     const response = await api.get('/tour');
 
     if (response.status === 200) {
+
       const result = TourSchema.array().safeParse(response.data);
 
       if (!result.success) {
@@ -79,15 +91,17 @@ export default function Main() {
   const [activities, setActivities] = React.useState<number[]>([]);
   const [levels, setLevels] = React.useState<number[]>([0, 10]);
 
-  const [view, setView] = React.useState('list');
+  const [view, setView] = React.useState<'list'|'module'>('module');
 
-  const [sortValue, setSortValue] = React.useState('Ten');
+  const [tours, setTours] = React.useState<Tour[]>([]);
+  const [status, setStatus] = React.useState<'idle'|'sussecced'|'loading'>('idle');
+  const [sortId, setSortId] = React.useState<sortIdType>('popular');
 
   const handleSortChange = (event: SelectChangeEvent) => {
-    setSortValue(event.target.value);
+    setSortId(event.target.value as sortIdType);
   };
 
-  const handleViewChange = (event: React.MouseEvent<HTMLElement>, nextView: string) => {
+  const handleViewChange = (event: React.MouseEvent<HTMLElement>, nextView: 'list'|'module') => {
     setView(nextView);
   };
 
@@ -119,8 +133,38 @@ export default function Main() {
     setLevels(newLevels as number[]);
   };
 
+  const fetchData = async () => {
+    setStatus('loading');
+    const data = await fetchTours();
+    setTours(data);
+    setStatus('sussecced');
+  }
+
+  const toSort = (tours: Tour[], id: sortIdType) => {
+    switch (id) {
+      case 'popular':
+        return [...tours].sort((a, b) => a.name.localeCompare(b.name));
+      
+      case 'name':
+        return [...tours].sort((a, b) => a.name.localeCompare(b.name));
+  
+      case 'high_to_low':
+        return [...tours].sort((a, b) => b.price - a.price);
+  
+      case 'low_to_high':
+        return [...tours].sort((a, b) => a.price - b.price);
+  
+      default:
+        return tours;
+    }
+  }
+
   React.useEffect(() => {
-    fetchTours();
+     
+    if(status === 'idle') {
+      fetchData();
+    }
+
   }, []);
 
   return (
@@ -138,20 +182,25 @@ export default function Main() {
 
           <div className={styles.topbar}>
             <div className={styles.left_side}>
-              <div> <strong>Found Tours:</strong> {165}</div>
-              <div > 
+              <div> <strong>Found Tours:</strong> { tours.length } </div>
+              <div> 
                 <strong>Sort:</strong> 
                 <Select
                   labelId="demo-simple-select-standard-label"
                   id="demo-simple-select-standard"
-                  value={sortValue}
+                  value={sortId}
                   onChange={handleSortChange}
                   className={styles.sort_select}
-                  renderValue={() => sortValue}
+                  renderValue={() => sortList[sortId]}
                 >
-                  <MenuItem value={'Ten'}>Ten</MenuItem>
-                  <MenuItem value={'Twenty'}>Twenty</MenuItem>
-                  <MenuItem value={'Thirty'}>Thirty</MenuItem>
+                  
+                  {
+                    Object.keys(sortList).map((key: string) => (
+                      <MenuItem value={key} key={key}> 
+                        {sortList[key as sortIdType]} 
+                      </MenuItem>
+                    ))
+                  }
                 </Select> 
               </div>
             </div>
@@ -310,24 +359,31 @@ export default function Main() {
             </div>
           </div> 
 
-          <div className={styles.content}>
+          <div className={cn(styles.content, {
+            [styles.list]: view === 'list'
+          })}>
             {  
-              [...Array(6)].map((_, index) => (
-                <TourInfoCard
-                  name={"Title"}
-                  description={"Ipsum text"}
-                  link={""}
-                  image={"https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
-                  days={5}
-                  price={1000}
-                  promotion={30}
-                  countries={["Kyrgyzstan", "Kazakstan"]}
-                  complexity={3}
-                  rating={3}
-                  reviewsCount={73}
-                  isList={false}
-                />
-              ))
+              status === 'loading'
+              ? <CircularProgress sx={{margin: 'auto'}}/>
+              : status === 'sussecced'
+              ? toSort(tours, sortId).map((item, index) => (
+                  <TourInfoCard
+                    tourId ={item.id}
+                    name={item.name}
+                    description={item.description}
+                    image={"https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
+                    days={5}
+                    price={item.price}
+                    promotion={item.promotion}
+                    countries={item.countries}
+                    complexity={parseInt(item.difficulty)}
+                    rating={item.reviews.rating}
+                    reviewsCount={item.reviews.count}
+                    isList={view === 'list'}
+                    key={item?.id}
+                  />
+                ))
+              : null
             }
           </div>
 

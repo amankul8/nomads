@@ -16,17 +16,17 @@ import Star from "@/components/icons/rating/star.svg";
 import { Link } from "@mui/material";
 
 interface ITourInfoCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
+    tourId: number,
     name: string,
     description: string,
     image: string,
-    days: number,
-    price: number,
-    promotion: number,
-    link: string,
+    days: number | undefined,
+    price: number | null,
+    promotion: number | null,
     countries: String[],
-    complexity: number,
-    rating: number,
-    reviewsCount: number,
+    complexity: number | null,
+    rating: number | null,
+    reviewsCount: number | null,
     classname?: string,
 
     isList?: boolean,
@@ -50,13 +50,13 @@ interface ITourInfoCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>
 
 
 export const TourInfoCard:React.FC<ITourInfoCard> = ({
+    tourId,
     name,
     description,
     image,
     days,
     price,
     promotion,
-    link,
     countries,
     complexity,
     rating,
@@ -127,13 +127,13 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                         color='black'
                         type='normal'
                     >
-                        Card title
+                        {name}
                     </Headline>
 
                     <div className={styles.card_subtitle}>
                         <div className={styles.review}>
                             <Star/> <span> {rating} </span>
-                            {'(' + reviewsCount + 'reviews' + ')'}
+                            {'(' + rating + ' reviews' + ')'}
                         </div>
                         <div className={styles.countries}>
                             {countries.join(', ')}
@@ -141,7 +141,7 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                     </div>
 
                     <Paragraph classname={styles.text}>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        {description}
                     </Paragraph>
 
                     <div className={styles.card_proporties}>
@@ -184,12 +184,12 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
                             <TourActivity
                                 type={TourActivityType.day}
                                 color="blue"
-                                days={12}
+                                days={days}
                             />
                             <TourActivity
                                 type={TourActivityType.night}
                                 color="blue"
-                                days={11}
+                                days={days! - 1}
                             />
                         </div>
                         <Rating

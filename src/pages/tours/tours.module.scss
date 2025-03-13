@@ -70,6 +70,7 @@
         .sidebar{
             grid-area: sidebar;
             position: relative;
+            margin-bottom: 40px;
 
             .bar {
                 overflow: hidden;
@@ -130,6 +131,11 @@
             gap: 20px;
             justify-content: center;
             margin-bottom: 40px;
+            transition: 300ms linear;
+        }
+
+        .list {
+            grid-template-columns: auto;
         }
     }
 }
