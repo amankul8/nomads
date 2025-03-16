@@ -26,12 +26,12 @@ export const SidebarItem = ({item, id}: SidebarItemType) => {
                     },
                 }}
             />
-            {item.isParent ? <ExpandMore /> : null}
+            {item.list && <ExpandMore />}
             </ListItemButton>
 
-            {item.isParent && (
+            {item.list && (
                 <List component="div" disablePadding>
-                    {item.childs.map((child_item) => (
+                    {item.list.map((child_item) => (
                     <ListItemButton
                         key={child_item.id}
                         sx={{ pl: 4 }}

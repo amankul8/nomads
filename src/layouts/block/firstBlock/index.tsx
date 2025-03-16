@@ -12,7 +12,7 @@ interface IFirstBlockLayout extends DetailedHTMLProps<HTMLAttributes<HTMLDivElem
     classname?: String
 }
 
-export const FirstBlockLayout:React.FC<IFirstBlockLayout> = ({children, bg_image, classname, isFullSize=false, withCloud=true}) => {
+export const FirstBlockLayout:React.FC<IFirstBlockLayout> = ({children, bg_image, classname, isFullSize=true, withCloud=true}) => {
   return (
     <section className={cn(styles.wrapper, {
           [styles.helf]: !isFullSize

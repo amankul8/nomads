@@ -10,6 +10,7 @@ import List from '@mui/material/List';
 import styles from "./useful.module.scss";
 import { fetchUsefulData, UsefulDataItemType } from "./model";
 import { SidebarItem } from "./sidebarItem";
+import Image from "next/image";
 
 export async function getStaticProps() {
   const data = await fetchUsefulData();
@@ -72,7 +73,7 @@ export default function UsefulInfo({ data }: UsefulInfoType) {
   return (
     <Layout>
       <FirstBlockLayout
-        bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"
+        bg_image="/images/bg/destinations/image10.jpg"
       >
         <div className={cn("container", styles.main_section)}>
           <div className={styles.content}>
@@ -116,11 +117,16 @@ export default function UsefulInfo({ data }: UsefulInfoType) {
                       <Headline color="black" type="section">
                         {item.id + '. ' + item.title}
                       </Headline>
-                      <Paragraph color="black">{item.description}</Paragraph>
+                      <Paragraph color="black">{item.text}</Paragraph>
+                      {/* <figure>
+                        <Image
+                          src={}
+                        />
+                      </figure> */}
                     </div>
 
-                    {item.isParent &&
-                      item.childs.map((child_item) => (
+                    {item.list &&
+                      item.list.map((child_item) => (
                         <div
                           id={child_item.id}
                           className={cn(styles.block, styles.sub_block)}
@@ -129,7 +135,7 @@ export default function UsefulInfo({ data }: UsefulInfoType) {
                           <Headline color="black" type="subsection">
                             {child_item.id + '. ' + child_item.title}
                           </Headline>
-                          <Paragraph color="black">{child_item.description}</Paragraph>
+                          <Paragraph color="black">{child_item.text}</Paragraph>
                         </div>
                       ))}
                   </React.Fragment>

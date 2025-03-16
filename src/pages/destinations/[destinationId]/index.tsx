@@ -13,7 +13,7 @@ import { DestinationDetailSchema, DestinationDetailType, DestinationSchema } fro
 import { baseImageUrl } from "@/config";
 import { red } from "@mui/material/colors";
 
-// Динамический импорт компонентов
+// Динамический импорт компонентовz
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 const TourInfoCardSlider = dynamic(() => import("@/components/sliders/tour/tourInfoCardSlider"), { ssr: false });
 

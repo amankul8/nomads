@@ -1,6 +1,5 @@
 import React, { DetailedHTMLProps, HTMLAttributes, useState } from "react";
 import cls from "classnames";
-
 import styles from "./tourInfoCard.module.scss";
 import { 
     CustomButton,
@@ -14,6 +13,7 @@ import Trekking from "public/icons/tour/properties/trekking.svg";
 import Ticket from "public/icons/tour/properties/ticket.svg";
 import Star from "@/components/icons/rating/star.svg";
 import { Link } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 interface ITourInfoCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     tourId: number,
@@ -83,6 +83,7 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
     ...rest
 }) => {
 
+    const router = useRouter();
     const [hovered, setHovered] = useState<boolean>(false);
 
     return (
@@ -237,14 +238,14 @@ export const TourInfoCard:React.FC<ITourInfoCard> = ({
 
                     <CustomButton 
                         color="blue"
-                        handler={()=>{}}
+                        handler={() => router.push(`/tours/${tourId}`)}
                         classname={styles.btn}
                     >
                         Discover
                     </CustomButton>
                 </div>
 
-                <Link href="/tours/1" className={cls('btn', styles.card_btn)}>
+                <Link href={`/tours/${tourId}`} className={cls('btn', styles.card_btn)}>
                         Discover This Trip
                 </Link>
             </div>

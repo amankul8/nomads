@@ -27,12 +27,11 @@ import CardActionArea from '@mui/material/CardActionArea';
 import { TourDetailSection } from "./section";
 import TourSimpleCardSlider from "@/components/sliders/tour/tourSimpleCardSlider";
 import { DestinationsList } from "@/modules/destinations/destinationsList";
-
-const CheckIcon = dynamic(() => import('@mui/icons-material/Check'), { ssr: false });
-const CloseIcon = dynamic(() => import('@mui/icons-material/Close'), { ssr: false });
+import api from "@/config/axiosInstance";
+import { TourSchema } from "..";
+import { z } from 'zod';
 
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
-
 
 const images = [
   "https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg",
@@ -64,35 +63,75 @@ const rows = [
   createData('Single bed', 3090, 3090, 3090, 3090),
 ];
 
+const TourDetailSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  description: z.string(),
+  price: z.number(),
+  promotion: z.number(),
+  duration: z.string(),
+  difficulty: z.string(),
+  countries: z.array(z.string()),
+  tour_types: z.array(z.unknown()),
+  reviews: z.object({
+    count: z.number(),
+    rating: z.number().nullable(),
+  }),
+  days: z.array(
+    z.object({
+      id: z.number(),
+      accommodation: z.any(),
+      day_number: z.number(),
+      description: z.string(),
+      main_image: z.string(),
+      car_range: z.number(),
+      tracking_range: z.number(),
+      height_difference: z.string(),
+      weather: z.string(),
+      weather_date: z.string(),
+      meals: z.string(),
+      details: z.string(),
+      tour: z.any(),
+      destination: z.any(),
+      entertainment: z.any(),
+    })
+  ),
+});
 
-export default function Tour() {
+
+type TourDetailType = z.infer<typeof TourDetailSchema>;
+
+type TourType = {
+  data: TourDetailType
+};
+
+export default function Tour({data}: TourType) {
 
   return (
     <Layout>
       <FirstBlockLayout 
         bg_image="https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg?cs=srgb&dl=pexels-pixabay-247600.jpg&fm=jpg"
-        isFullSize={true}
         withCloud={false}
       >
         <div className={cn('container', styles.main_block)}>
 
             <div className={styles.content}>
-              <Headline color="white" type="main"> Kel-Suu </Headline>
+              <Headline color="white" type="main"> {data.name} </Headline>
               <div className={styles.rating_info}>
                 <span>
                   <Paragraph> Travelers reviews </Paragraph>
-                  <Rating rating={3} type="star" size={20}/>
+                  <Rating rating={data.reviews.rating} type="star" size={20}/>
                 </span>
                 <span>
-                  <Paragraph> 59 voter </Paragraph>
-                  <Paragraph> 4,6 / 5 </Paragraph>
+                  <Paragraph> {data.reviews.count} voter </Paragraph>
+                  <Paragraph> {data.reviews.rating} / 5 </Paragraph>
                 </span>
               </div>
               <div className={styles.mini_info}>
                 <IconSquareBorder>
                   <LocalOfferIcon/>
                 </IconSquareBorder>
-                <Paragraph> Duration N days </Paragraph>
+                <Paragraph> From {data.price} € </Paragraph>
               </div>
             </div>
 
@@ -101,7 +140,7 @@ export default function Tour() {
                 <IconSquareBorder>
                   <LocalOfferIcon/>
                 </IconSquareBorder>
-                <Paragraph> Duration N days </Paragraph>
+                <Paragraph> Duration {data.duration} days </Paragraph>
               </div>
               <div className={styles.mini_info}>
                 <IconSquareBorder>
@@ -121,16 +160,18 @@ export default function Tour() {
                 </IconSquareBorder>
                 <Paragraph> Duration N days </Paragraph>
               </div>
-              <div className={styles.mini_info}>
-                <IconSquareBorder>
-                  <LocalOfferIcon/>
-                </IconSquareBorder>
-                <Paragraph> Duration N days </Paragraph>
-              </div>
             </div>
             
         </div>
       </FirstBlockLayout>
+
+      <TourDetailSection title="Description" Icon={AutoIcon} classname={styles.itinerary}>
+        <div className={styles.body}>
+          <Paragraph>
+            {data.description}
+          </Paragraph>
+        </div>
+      </TourDetailSection>
 
       <TourDetailSection title="Itinerary" Icon={AutoIcon} classname={styles.itinerary}>
         <div className={styles.body}>
@@ -323,22 +364,61 @@ export default function Tour() {
 };
 
 export async function getStaticPaths(){
-  const ids = [1,2,3,4,5,6,7,8,9,10,11];
+  let ids: number[] = [];
+
+  try {
+    const res = await api.get('tour');
+    const data = res.data;
+
+    const result = TourSchema.array().safeParse(data);
+
+    if (result.success) {
+      ids = result.data.map(item => item.id);
+    }
+  } catch (error: any) {
+    ids = [];
+  }
+
   const paths = ids.map((id) => ({
     params: { tourId: id.toString() },
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
-export async function getStaticProps(){
-  return{
-      props:{
-          
+export async function getStaticProps({ params }: { params: { tourId: string } }){
+
+  const tourId = parseInt(params.tourId, 10);
+
+  try {
+    const res = await api.get(`tour/detail/${tourId}`);
+
+    if (res.status != 200 || !res.data) {
+      if (Array.isArray(res.data) && res.data.length === 0) {
+        return { notFound: true };
+      }
+    }
+
+    const result = TourDetailSchema.array().safeParse(res.data);
+
+    if (!result.success) {
+      return { notFound: true };
+    }
+    
+    if(Array.isArray(result.data) && result.data.length == 0) {
+      return { notFound: true };
+    }
+
+    return {
+      props: {
+        data: result.data[0],  
       },
-      revalidate: 60 * 30
+      revalidate: 60 * 30,
+    };
+  } catch (error) {
+    return { notFound: true };
   }
 }

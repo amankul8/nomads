@@ -124,9 +124,7 @@ export default function Main() {
     
     <Layout>
 
-      <FirstBlockLayout
-        isFullSize={true}
-      >
+      <FirstBlockLayout>
         <MainFirstBlock slides={slides}/>
       </FirstBlockLayout>
 

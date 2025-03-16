@@ -8,7 +8,7 @@ type RatingType = 'star' | 'human';
 
 interface IRating extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
     type: RatingType
-    rating: number,
+    rating: number | null,
     size?: number,
     color?: 'white' | 'blue' | 'red'
 }
@@ -21,7 +21,7 @@ export const Rating:React.FC<IRating> = ({rating, type, size = 18, color = 'whit
         Icon = StarIcon;
     }
 
-    let percentageRating = rating * 100 / 5;
+    let percentageRating = rating! * 100 / 5;
     return (
         <div className={styles.rating} {...rest}>
             <div 

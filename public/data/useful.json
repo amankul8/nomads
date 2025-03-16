@@ -1,159 +1,747 @@
 [
   {
     "id": "1",
-    "title": "Destination Guides",
-    "description": "Comprehensive guides that provide essential details about various travel destinations around the world. These guides aim to help travelers make informed decisions by offering vital information on when to visit, what to see, how to immerse in local culture, and the practicalities of traveling in specific regions.",
-    "isParent": true,
-    "childs": [
+    "title": "Visa and Entry Requirements",
+    "text": "When planning your trip, it's crucial to understand the visa and entry requirements for your destination. Start by checking if your nationality requires a visa for entry. Some countries offer visa-free travel for short stays, while others may require an e-visa or visa-on-arrival. Ensure your passport is valid for at least six months beyond your travel dates, as many countries enforce this rule strictly. If you need a visa, gather all required documents, such as proof of accommodation, return flight tickets, and financial stability. Apply well in advance to avoid last-minute delays. For visa-on-arrival, confirm the process and prepare necessary fees in the local currency. Always double-check entry requirements on the official government website or consult the nearest embassy to avoid any surprises at immigration.",
+    "image": "",
+    "list": [
       {
         "id": "1.1",
-        "title": "Best time to visit",
-        "description": "Detailed insights into the best times of the year to visit different destinations based on weather conditions, local festivals, and peak tourist seasons. This section helps travelers decide when to travel for optimal experiences, whether seeking pleasant weather, lower crowds, or specific events."
+        "title": "Visa Requirementsa",
+        "text": "Check if you need a visa to visit the country.Check if you need a visa to visit the country.Check if you need a visa to visit the country.Check if you need a visa to visit the country.Check if you need a visa to visit the country.Check if you need a visa to visit the country.Check if you need a visa to visit the country.",
+        "image": "visa_info.png"
       },
       {
         "id": "1.2",
-        "title": "Must-see attractions and landmarks",
-        "description": "A curated list of the most iconic and renowned landmarks, monuments, and natural wonders of each destination. From UNESCO World Heritage Sites to hidden gems, this section highlights top spots that define a region's cultural, historical, and natural identity."
+        "title": "Passport Validity",
+        "text": "Ensure your passport is valid for at least 6 months.",
+        "image": "passport_icon.png"
       },
       {
         "id": "1.3",
-        "title": "Local culture and customs",
-        "description": "A deep dive into the cultural norms, values, social etiquette, and traditions that travelers should be aware of to avoid misunderstandings. This includes unique local customs, greetings, dress codes, and other aspects of life that make each destination distinctive."
-      },
-      {
-        "id": "1.4",
-        "title": "Safety tips and travel advisories",
-        "description": "Vital information about the safety situation in different countries, including potential risks, travel warnings, and how to stay safe. This section provides up-to-date advisories on security, health, and common scams, helping travelers stay informed and prepared for their journeys."
-      },
-      {
-        "id": "1.5",
-        "title": "Currency and exchange rates",
-        "description": "Comprehensive details on the local currency, how to exchange money, typical exchange rates, and tips on budgeting for your trip. This includes advice on where to exchange currency, whether to use ATMs or exchange services, and the most cost-effective ways to handle money abroad."
+        "title": "Visa on Arrival",
+        "text": "Find information about visa-on-arrival or e-visa options.",
+        "image": "visa_arrival.png"
       }
     ]
   },
+
   {
     "id": "2",
-    "title": "Travel Itineraries",
-    "description": "Expertly designed travel itineraries for every type of traveler and trip duration. These itineraries offer flexible, pre-planned routes and schedules for various preferences, whether you're on a short weekend getaway, a family vacation, or an extended cultural exploration, ensuring that each trip is memorable and efficiently planned.",
-    "isParent": true,
-    "childs": [
+    "title": "Currency and Payments",
+    "text": "Managing your finances effectively is a crucial part of any trip, and understanding the local currency and payment options in Kyrgyzstan, Kazakhstan and Uzbekistan will help you navigate your travels with ease. Whether you’re exploring bustling cities, remote villages, or scenic landscapes, knowing how to handle money will ensure a smooth and stress-free experience. From exchanging currency to using ATMs and credit cards, each aspect of financial planning requires careful consideration. In Kyrgyzstan, Kazakhstan and Uzbekistan the payment landscape can vary significantly between urban and rural areas, so it’s essential to be prepared for different scenarios. This guide will walk you through everything you need to know about the local currency, where and how to exchange money, the availability of ATMs, and the acceptance of credit cards. By planning ahead and staying informed, you can avoid common pitfalls and make the most of your travel budget.",
+    "image": "currency.jpg",
+    "list": [
       {
         "id": "2.1",
-        "title": "Suggested itineraries for different trip lengths",
-        "description": "A collection of itineraries tailored to different trip durations, such as 3-day, 7-day, and even month-long adventures. Each itinerary is carefully planned to ensure travelers make the most of their time, providing a balanced mix of sightseeing, relaxation, and local experiences."
+        "title": "Local Currency in Kyrgyzstan",
+        "text": "The official currency of Kyrgyzstan is the Kyrgyz Som (KGS). Exchange rates fluctuate daily, so it’s a good idea to check the current rate before your trip. You can exchange money at various locations, including airports, banks, and authorized currency exchange offices. While exchanging money at Manas International Airport in Bishkek is convenient, the rates may not be as favorable as those in the city. In larger cities like Bishkek and Osh, you’ll find exchange offices with competitive rates, but always ensure they are licensed and reputable. It’s also helpful to carry small denominations (e.g., 100, 200, or 500 KGS notes) for easier transactions, especially when paying for taxis, street food, or small purchases. If you’re traveling to neighboring countries like Kazakhstan or Uzbekistan, be aware that each country has its own currency, and exchanging money at borders can sometimes be tricky.",
+        "image": "Soms.jpg",
+        "exchange_rate": {
+          "updated_at": null,
+          "type": null,
+          "buy_usd": "87.32",
+          "buy_eur": "94.60",
+          "buy_rub": "0.989",
+          "buy_kzt": "0.1201"
+        }
       },
       {
         "id": "2.2",
-        "title": "Family-friendly, budget, luxury, and adventure itineraries",
-        "description": "Custom itineraries designed for specific travel styles, catering to families with children, budget-conscious travelers, those seeking luxury, and thrill-seekers. This section ensures there’s an itinerary for every type of traveler, from affordable sightseeing tours to high-end, adventure-filled journeys."
+        "title": "ATMs and Cash in Kyrgyzstan",
+        "text": "ATMs are widely available in major cities like Bishkek, Osh, and Karakol, making it easy to withdraw local currency using international debit or credit cards (Visa, MasterCard, etc.). However, in rural or remote areas, such as mountain villages or small towns, ATMs may be scarce or non-existent. In these areas, it’s wise to carry enough cash to cover your expenses. Before traveling, notify your bank about your trip to avoid any issues with card transactions. Some ATMs may charge a small fee for withdrawals, so check with your bank about international withdrawal fees. ATMs are generally reliable. Always keep some emergency cash in a safe place, as not all establishments, especially in rural areas, accept cards.",
+        "image": "atm_icon.png"
       },
       {
         "id": "2.3",
-        "title": "City and country-specific itineraries",
-        "description": "In-depth itineraries that focus on specific cities or countries. These itineraries highlight the most important activities and destinations within a particular location, offering travelers an expertly curated experience that showcases the best the region has to offer."
+        "title": "Credit Cards in Kyrgyzstan",
+        "text": "Credit cards are widely accepted in most hotels, upscale restaurants, and large stores in urban areas like Bishkek, Osh and smaller towns. However, rural areas, and local markets, cash is often the only accepted form of payment. Before relying on your card, check with the establishment to confirm they accept credit cards. It’s also a good idea to carry a mix of cards (Visa, MasterCard, etc.) in case one is not accepted. Inform your bank or credit card company about your travel plans to avoid unexpected blocks on your card due to suspicious international activity. Some cards offer travel-friendly perks, such as no foreign transaction fees or travel insurance, so check with your provider before your trip. For added security, consider using a digital wallet (e.g., Apple Pay, Google Pay) where accepted, as it reduces the need to carry physical cards.",
+        "image": "credit_card.png"
+      },
+      {
+        "id": "2.5",
+        "title": "Additional Tips for Managing Finances",
+        "text": "",
+        "image": "credit_card.png",
+        "list": [
+          {
+            "id": "2.5.1",
+            "title": "Currency Exchange",
+            "text": "Avoid exchanging money on the street or with unauthorized vendors, as counterfeit currency can be an issue. Stick to banks or reputable exchange offices. In Almaty, exchange offices on Dostyk Avenue and near Green Bazaar are known for good rates.",
+            "image": "exchange_icon.png"
+          },
+          {
+            "id": "2.5.2",
+            "title": "Budgeting",
+            "text": "Plan your daily budget in advance, accounting for meals, transportation, and activities. Kyrgyzstan is generally an affordable destination, but costs can vary depending on your travel style. Keep track of your spending to avoid running out of cash.",
+            "image": "exchange_icon.png"
+          },
+          {
+            "id": "2.5.3",
+            "title": "Emergency Funds",
+            "text": "Carry a small amount of USD or EUR as a backup, as these currencies are widely accepted for exchange in case of emergencies. USD is particularly useful for larger transactions or if you need to exchange money in remote areas.",
+            "image": "exchange_icon.png"
+          },
+          {
+            "id": "2.5.4",
+            "title": "Digital Payments",
+            "text": "In cities like Bishkek, digital payment apps (e.g., local equivalents of PayPal) are becoming popular, but cash remains the dominant form of payment. Check if your accommodation or tour operators accept digital payments, but always have cash as a backup.",
+            "image": "exchange_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "2.6",
+        "title": "Practical Examples",
+        "text": "",
+        "image": "credit_card.png",
+        "list": [
+          {
+            "id": "2.6.1",
+            "title": "Exchanging Money",
+            "text": "If you arrive at Manas International Airport, exchange a small amount of money to cover immediate expenses like transportation to your hotel. Then, exchange the rest in the city for better rates.",
+            "image": "exchange_icon.png"
+          },
+          {
+            "id": "2.6.2",
+            "title": "Using ATMs",
+            "text": "In Bishkek, look for ATMs inside banks like Demir Bank or Optima Bank, which are reliable and accept international cards.",
+            "image": "exchange_icon.png"
+          },
+          {
+            "id": "2.6.3",
+            "title": "Cash for Rural Travel",
+            "text": "If you’re heading to places like Song-Kul Lake or the Alay Valley, withdraw enough cash in Bishkek or Osh, as ATMs are rare in these areas.",
+            "image": "exchange_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "2.7",
+        "title": "Currency and Payments in Kazakhstan",
+        "text": "Navigating the financial landscape in Kazakhstan is an essential part of planning your trip. Whether you’re strolling through the bustling streets of Almaty, marveling at the futuristic architecture of Nur-Sultan, or venturing into the vast Kazakh steppe, understanding how to handle money will make your journey smoother. Kazakhstan’s payment systems are modern in cities but can be more traditional in rural areas, so being prepared is key. This guide will help you master the local currency, find the best places to exchange money, locate ATMs, and understand where credit cards are accepted. With these tips, you’ll be ready to handle your finances like a pro, no matter where your adventures take you.",
+        "image": "Tenge.jpg"
+      },
+      {
+        "id": "2.8",
+        "title": "Local Currency in Kazakhstan",
+        "text": "The official currency of Kazakhstan is the Kazakhstani Tenge (KZT). Exchange rates fluctuate daily, so it’s a good idea to check the current rate before your trip. You can exchange money at various locations, including airports, banks, and authorized currency exchange offices. While exchanging money at Almaty International Airport or Nursultan Nazarbayev International Airport is convenient, the rates may not be as favorable as those in the city. In larger cities like Almaty and Nur-Sultan, you’ll find exchange offices with competitive rates, but always ensure they are licensed and reputable. It’s also helpful to carry small denominations (e.g., 500, 1000, or 2000 KZT notes) for easier transactions, especially when paying for taxis, street food, or small purchases. If you’re traveling to neighboring countries like Kyrgyzstan or Uzbekistan, be aware that each country has its own currency, and exchanging money at borders can sometimes be tricky.",
+        "image": "Tenge.jpg",
+        "exchange_rate": {
+          "updated_at": null,
+          "type": null,
+          "buy_usd": "",
+          "buy_eur": "",
+          "buy_rub": "",
+          "buy_kzt": ""
+        }
+      },
+      {
+        "id": "2.9",
+        "title": "Credit Cards in Kazakhstan",
+        "text": "In Kazakhstan’s major cities, ATMs are plentiful and accept international cards like Visa and MasterCard. You’ll find them in shopping malls, near banks, and in busy areas. However, if you’re heading to remote regions like the Altai Mountains or the Kazakh countryside, ATMs may be scarce or non-existent. In these areas, cash is king, so plan ahead and withdraw enough money before you leave the city. Before your trip, notify your bank to avoid any issues with international transactions. Some ATMs charge withdrawal fees, so check with your bank to understand the costs. For safety, use ATMs located inside banks or well-lit, secure areas. Always carry some emergency cash, as rural businesses and markets rarely accept cards.",
+        "image": "Tenge.jpg"
+      },
+      {
+        "id": "2.10",
+        "title": "Additional Tips for Managing Finances in the Kazakhstan",
+        "text": "",
+        "image": "finance_tips_icon.png",
+        "list": [
+          {
+            "id": "2.10.1",
+            "title": "Currency Exchange",
+            "text": "Stick to banks or licensed exchange offices to avoid counterfeit money. Street exchanges are risky and best avoided. In Almaty, exchange offices near Green Bazaar often offer competitive rates.",
+            "image": "exchange_icon.png"
+          },
+          {
+            "id": "2.10.2",
+            "title": "Budgeting",
+            "text": "Kazakhstan is generally affordable, but costs can vary. Plan a daily budget for meals, transport, and activities. Keep track of your spending to avoid running out of cash, especially in rural areas.",
+            "image": "budget_icon.png"
+          },
+          {
+            "id": "2.11.3",
+            "title": "Emergency Funds",
+            "text": "Carry a small amount of USD or EUR as a backup. These currencies are widely accepted for exchange and can be a lifesaver in emergencies.",
+            "image": "emergency_cash_icon.png"
+          },
+          {
+            "id": "2.12.4",
+            "title": "Digital Payments",
+            "text": "In cities, apps like Kaspi.kz and Halyk Bank’s mobile services are popular for digital payments. However, cash is still essential for rural travel, so don’t rely solely on digital options.",
+            "image": "digital_payments_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "2.11",
+        "title": "Practical Examples",
+        "text": "",
+        "image": "practical_examples_icon.png",
+        "list": [
+          {
+            "id": "2.11.1",
+            "title": "Exchanging Money",
+            "text": "Exchange a small amount at the airport for immediate needs, then get better rates at city exchange offices. In Almaty, try exchange offices on Dostyk Avenue.",
+            "image": "money_exchange_icon.png"
+          },
+          {
+            "id": "2.11.2",
+            "title": "Using ATMs",
+            "text": "In Nur-Sultan, ATMs inside Halyk Bank or Kaspi Bank branches are reliable and secure.",
+            "image": "atm_icon.png"
+          },
+          {
+            "id": "2.11.3",
+            "title": "Cash for Rural Travel",
+            "text": "If you’re visiting places like Charyn Canyon or Lake Kaindy, withdraw cash in Almaty or Nur-Sultan before you go. Rural areas have limited banking services.",
+            "image": "cash_icon.png"
+          }
+        ]
       }
     ]
   },
+
   {
     "id": "3",
-    "title": "Transportation Information",
-    "description": "Essential transportation details that help travelers navigate through different modes of transport during their trip. This includes tips for booking flights, local public transport, and ground transportation, ensuring a smooth and hassle-free journey from point A to point B.",
-    "isParent": true,
-    "childs": [
+    "title": "Weather and Best Time to Visit Central Asia",
+    "text": "Central Asia, comprising countries like Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan, and Turkmenistan, is known for its diverse climates and stunning landscapes. From the snow-capped mountains of Kyrgyzstan to the arid deserts of Uzbekistan, the weather varies significantly across the region. Planning your trip according to the weather will help you make the most of your visit. Here’s what you need to know:",
+    "image": "weather_icon.png",
+    "list": [
       {
         "id": "3.1",
-        "title": "Flight booking and airline deals",
-        "description": "Practical advice for booking flights, finding the best deals, and navigating airline promotions. This section also includes tips on how to get the best value for your airfare by utilizing flight comparison tools, booking strategies, and understanding airline policies."
+        "title": "Climate in Kyrgyzstan",
+        "text": "Kyrgyzstan has a **continental climate**, characterized by hot summers and cold winters. However, the weather can vary greatly depending on the region. In the lowland areas, such as Bishkek and Osh, summers (June to August) are warm, with temperatures ranging from 25°C to 35°C (77°F to 95°F). Winters (December to February) are cold, with temperatures often dropping below freezing, especially at night. In mountainous regions like the Tian Shan and Pamir ranges, the climate is much cooler, even in summer, with temperatures ranging from 10°C to 20°C (50°F to 68°F) during the day. At higher altitudes, snow can persist year-round, making it ideal for winter sports. Spring (March to May) and autumn (September to October) are transitional seasons, with mild temperatures and occasional rainfall.",
+        "image": "climate_icon.png"
       },
       {
         "id": "3.2",
-        "title": "Local transport options",
-        "description": "A comprehensive guide to the various local transportation options available in most destinations, including buses, trains, subways, taxis, and car rentals. It also offers practical tips for getting around a city or region easily and affordably."
+        "title": "Best Time to Visit Kyrgyzstan",
+        "text": "The best time to visit Kyrgyzstan depends on your interests and the activities you plan to do. For **trekking, hiking, and outdoor adventures**, the ideal time is during the **summer months (June to September)**. During this period, the weather is warm and stable, with clear skies and minimal rainfall. The mountain passes are accessible, and the alpine meadows are in full bloom, creating breathtaking landscapes. For **winter sports like skiing and snowboarding**, visit between **December and February**, when the mountain resorts, such as Karakol and Jyrgalan, are covered in snow. If you prefer milder weather and fewer crowds, consider visiting in **late spring (May) or early autumn (September)**. These seasons offer pleasant temperatures and vibrant scenery, with golden autumn leaves or spring flowers. Avoid the **rainy season (April and October)**, as heavy rains can make roads and trails muddy and difficult to navigate.",
+        "image": "calendar_icon.png"
       },
       {
         "id": "3.3",
-        "title": "Public transportation maps and fare details",
-        "description": "Information on public transit routes, timetables, and fare structures in different regions, ensuring that travelers can easily plan their movements within cities and countries. This section also includes digital map resources and apps that help navigate local public transport systems."
+        "title": "Regional Variations in Kyrgyzstan",
+        "text": "Kyrgyzstan’s diverse geography means that weather conditions can vary significantly by region. In the **Fergana Valley (Osh region)**, summers are hot and dry, while winters are milder compared to the rest of the country. In the **Issyk-Kul region**, the lake moderates the climate, creating cooler summers and warmer winters. The **Tian Shan Mountains** experience cooler temperatures year-round, with snow covering the peaks even in summer. When planning your trip, check the weather forecast for your specific destinations to pack appropriately.",
+        "image": "region_icon.png"
       },
       {
         "id": "3.4",
-        "title": "Ride-sharing and bike rental services",
-        "description": "Details on modern transportation alternatives like ride-sharing services (Uber, Lyft) and bike rentals. This section provides helpful insights into how to use these services in various destinations, including pricing, convenience, and availability."
+        "title": "Packing Tips for Kyrgyzstan",
+        "text": "Packing for Kyrgyzstan requires preparation for varying weather conditions. In summer, bring lightweight clothing for the daytime, but pack warm layers for cooler evenings in the mountains. Sturdy hiking boots, a waterproof jacket, and a hat are essential for outdoor activities. In winter, pack heavy winter clothing, including thermal layers, a down jacket, gloves, and a beanie. Don’t forget sunscreen and sunglasses, as the sun can be intense at high altitudes. A reusable water bottle and a power bank are also useful, especially for long hikes or remote areas.",
+        "image": "packing_icon.png"
+      },
+
+      {
+        "id": "3.5",
+        "title": "Climate in Kazakhstan",
+        "text": "Kazakhstan has a **continental climate**, with hot summers and cold winters. In the southern regions, such as Almaty and Shymkent, summers (June to August) are warm, with temperatures ranging from 25°C to 35°C (77°F to 95°F). Winters (December to February) are cold, with temperatures often dropping below -10°C (14°F). In the northern regions, like Nur-Sultan (Astana), winters are even harsher, with temperatures reaching -30°C (-22°F) or lower. The central steppe regions experience extreme temperature fluctuations, with hot, dry summers and freezing winters. Spring (March to May) and autumn (September to October) are milder, with occasional rainfall and pleasant temperatures.",
+        "image": "climate_icon.png"
+      },
+      {
+        "id": "3.6",
+        "title": "Best Time to Visit Kazakhstan",
+        "text": "The best time to visit Kazakhstan depends on your interests and the regions you plan to explore. For **city tours and cultural experiences**, visit during **late spring (May) or early autumn (September)**, when the weather is mild and comfortable. For **outdoor activities like hiking and exploring national parks**, the **summer months (June to August)** are ideal, especially in the mountainous regions near Almaty, such as the Tian Shan Mountains. For **winter sports like skiing**, visit between **December and February**, when resorts like Shymbulak are covered in snow. Avoid the **peak summer heat (July and August)** in southern regions like Shymkent, as temperatures can soar above 40°C (104°F).",
+        "image": "calendar_icon.png"
+      },
+      {
+        "id": "3.7",
+        "title": "Regional Variations in Kazakhstan",
+        "text": "Kazakhstan’s weather varies significantly by region. In **Almaty**, the climate is milder due to its proximity to the mountains, with cool summers and snowy winters. In **Nur-Sultan (Astana)**, the winters are extremely cold, while summers are warm and dry. The **steppe regions** experience strong winds and temperature extremes, while the **Caspian Sea region** has a more moderate climate. When planning your trip, check the weather forecast for your specific destinations to pack appropriately.",
+        "image": "region_icon.png"
+      },
+      {
+        "id": "3.8",
+        "title": "Packing Tips for Kazakhstan",
+        "text": "Packing for Kazakhstan requires preparation for varying weather conditions. In summer, bring lightweight clothing for the daytime, but pack warm layers for cooler evenings in the mountains. Sturdy hiking boots, a waterproof jacket, and a hat are essential for outdoor activities. In winter, pack heavy winter clothing, including thermal layers, a down jacket, gloves, and a beanie. Don’t forget sunscreen and sunglasses, as the sun can be intense, especially in the steppe regions. A reusable water bottle and a power bank are also useful, especially for long trips or remote areas.",
+        "image": "packing_icon.png"
+      },
+      {
+        "id": "3.9",
+        "title": "Climate in Uzbekistan",
+        "text": "Uzbekistan has a **continental climate**, with hot, dry summers and cool winters. Summers (June to August) are extremely hot, especially in the desert regions, with temperatures often exceeding 40°C (104°F). In cities like Tashkent and Samarkand, summer temperatures range from 30°C to 38°C (86°F to 100°F). Winters (December to February) are cooler, with temperatures ranging from 0°C to 10°C (32°F to 50°F). Spring (March to May) and autumn (September to October) are the most pleasant seasons, with mild temperatures and occasional rainfall. The desert regions, such as the Kyzylkum Desert, experience extreme temperature fluctuations between day and night.",
+        "image": "climate_icon.png"
+      },
+      {
+        "id": "3.10",
+        "title": "Best Time to Visit Uzbekistan",
+        "text": "The best time to visit Uzbekistan is during **spring (April to May) and autumn (September to October)**, when the weather is mild and ideal for exploring cities like Samarkand, Bukhara, and Khiva. During these seasons, temperatures range from 15°C to 25°C (59°F to 77°F), making it comfortable for sightseeing and outdoor activities. Avoid the **peak summer months (June to August)**, as the heat can be overwhelming, especially in desert areas. Winter (December to February) is also a good time to visit if you prefer cooler weather and fewer tourists, but be prepared for colder temperatures, especially at night.",
+        "image": "calendar_icon.png"
+      },
+      {
+        "id": "3.10",
+        "title": "Regional Variations in Uzbekistan",
+        "text": "Uzbekistan’s weather varies slightly by region. In **Tashkent**, the climate is milder, with cooler summers and colder winters compared to the southern regions. In **Samarkand and Bukhara**, summers are hot and dry, while winters are cool and occasionally rainy. The **desert regions**, such as the Kyzylkum Desert, experience extreme heat in summer and cold nights in winter. When planning your trip, check the weather forecast for your specific destinations to pack appropriately.",
+        "image": "region_icon.png"
+      },
+      {
+        "id": "3.11",
+        "title": "Packing Tips for Uzbekistan",
+        "text": "Packing for Uzbekistan requires preparation for hot, dry weather and cooler evenings. In spring and autumn, bring lightweight clothing for the daytime, but pack a jacket or sweater for cooler evenings. In summer, pack light, breathable clothing, a wide-brimmed hat, and sunscreen to protect against the intense sun. In winter, bring warm layers, including a coat, gloves, and a scarf. Comfortable walking shoes are essential for exploring historical sites, and a reusable water bottle is a must to stay hydrated in the dry climate.",
+        "image": "packing_icon.png"
       }
     ]
   },
+
   {
     "id": "4",
-    "title": "Accommodation Options",
-    "description": "Detailed information on the best types of accommodation for travelers, from luxurious resorts to affordable hostels. This section helps visitors choose the right place to stay based on budget, comfort, and proximity to local attractions, ensuring a restful and enjoyable stay.",
-    "isParent": true,
-    "childs": [
+    "title": "Transportation in Central Asia",
+    "text": "Getting around Central Asia is an adventure, with a mix of modern and traditional transportation options. Whether you’re exploring bustling cities or remote mountain villages, here’s what you need to know about transportation in Kyrgyzstan, Kazakhstan, and Uzbekistan. **Our company provides reliable car rental services to make your travels seamless and convenient. [Click here to rent a car](#).**",
+    "image": "transport_icon.png",
+    "list": [
       {
         "id": "4.1",
-        "title": "Best hotels, hostels, resorts, and Airbnb recommendations",
-        "description": "Curated suggestions for top-rated hotels, hostels, resorts, and private Airbnb rentals. This section provides detailed reviews and recommendations based on various preferences, including family-friendly accommodations, romantic getaways, and budget-friendly options."
+        "title": "Transportation in Kyrgyzstan",
+        "text": "Kyrgyzstan offers a mix of affordable public transport and adventurous travel options, especially in rural areas. Here’s how to get around:",
+        "image": "bus_icon.png",
+        "list": [
+          {
+            "id": "4.1.1",
+            "title": "Public Transport",
+            "text": "Public transport in Kyrgyzstan is widely available in cities like Bishkek and Osh. **Marshrutkas** (minibuses) are the most common form of transport, operating on fixed routes and offering affordable fares. In Bishkek, you’ll also find **trolleybuses** and **buses**, which are slower but eco-friendly. For intercity travel, **shared taxis** and **buses** connect major towns and cities, such as Bishkek to Osh or Karakol.",
+            "image": "marshrutka_icon.png"
+          },
+          {
+            "id": "4.1.2",
+            "title": "Taxis and Ride-Sharing",
+            "text": "Taxis are widely available in cities and can be hailed on the street or booked through apps like **Namba Taxi** or **Yandex.Taxi**. Always agree on the fare beforehand, as meters are rarely used. In rural areas, shared taxis are the primary mode of transport, but they may not follow fixed schedules.",
+            "image": "taxi_icon.png"
+          },
+          {
+            "id": "4.1.3",
+            "title": "Car Rentals",
+            "text": "Renting a car is a great option for exploring Kyrgyzstan’s stunning landscapes. **Our company provides reliable car rental services**, offering a range of vehicles, including 4x4s for mountain roads. You’ll need an **international driver’s license** and a valid credit card. Be prepared for challenging road conditions in rural areas and carry essentials like a spare tire and extra fuel.",
+            "link": "ссылка на страницу где можно арендовать машины Сделаем чуть чуть позже",
+            "image": "car_icon.png"
+          }
+        ]
       },
       {
         "id": "4.2",
-        "title": "Budget vs. luxury accommodations",
-        "description": "A guide to understanding the differences between budget and luxury accommodations. This section compares options, helping travelers choose between affordable stays that provide basic amenities and high-end experiences that offer unparalleled comfort and exclusivity."
+        "title": "Transportation in Kazakhstan",
+        "text": "Kazakhstan’s vast size and modern infrastructure make it relatively easy to travel around. Here’s how to navigate the country:",
+        "image": "bus_icon.png",
+        "list": [
+          {
+            "id": "4.2.1",
+            "title": "Public Transport",
+            "text": "Public transport is well-developed in cities like Almaty and Nur-Sultan. In Almaty, you can use **buses, trams, and the metro**, which is known for its stunning Soviet-era architecture. For intercity travel, **trains** and **buses** connect major cities. The **Talgo Express** high-speed train is a popular option for traveling between Almaty and Nur-Sultan.",
+            "image": "metro_icon.png"
+          },
+          {
+            "id": "4.2.2",
+            "title": "Taxis and Ride-Sharing",
+            "text": "Taxis are widely available in cities and can be booked through apps like **Yandex.Taxi** or **inDriver**. Always confirm the fare before starting your journey. Ride-sharing services are popular in Almaty and Nur-Sultan, offering a convenient and affordable way to get around.",
+            "image": "ride_sharing_icon.png"
+          },
+          {
+            "id": "4.2.3",
+            "title": "Car Rentals",
+            "text": "Renting a car is ideal for exploring Kazakhstan’s vast landscapes. **Our company provides car rental services**, offering a range of vehicles, including 4x4s for off-road adventures. You’ll need an **international driver’s license** and a valid credit card. Be prepared for long distances and varying road conditions.",
+            "link": "ссылка на страницу где можно арендовать машины Сделаем чуть чуть позже",
+            "image": "car_icon.png"
+          }
+        ]
       },
       {
         "id": "4.3",
-        "title": "Neighborhood guides for staying in popular destinations",
-        "description": "Recommendations on the best neighborhoods to stay in popular travel destinations. This section provides insights into safety, proximity to key attractions, and the overall vibe of different areas, helping travelers select a place that suits their needs and travel style."
+        "title": "Transportation in Uzbekistan",
+        "text": "Uzbekistan’s transportation system is well-developed, making it easy to travel between its historic cities. Here’s how to get around:",
+        "image": "bus_icon.png",
+        "list": [
+          {
+            "id": "4.3.1",
+            "title": "Public Transport",
+            "text": "Public transport is widely available in cities like Tashkent, Samarkand, and Bukhara. In Tashkent, you can use **buses, trams, and the metro**, which is known for its beautiful architecture. For intercity travel, **high-speed trains** like the **Afrosiyob** connect major cities, offering a comfortable and fast way to travel.",
+            "image": "train_icon.png"
+          },
+          {
+            "id": "4.3.2",
+            "title": "Taxis and Ride-Sharing",
+            "text": "Taxis are widely available in cities and can be booked through apps like **Yandex.Taxi**. Always agree on the fare beforehand. In rural areas, shared taxis are the primary mode of transport, but they may not follow fixed schedules.",
+            "image": "taxi_icon.png"
+          },
+          {
+            "id": "4.3.3",
+            "title": "Car Rentals",
+            "text": "Renting a car is a great option for exploring Uzbekistan’s historic cities and scenic countryside. **Our company provides car rental services**, offering a range of vehicles to suit your needs. You’ll need an **international driver’s license** and a valid credit card.",
+            "link": "ссылка на страницу где можно арендовать машины Сделаем чуть чуть позже",
+            "image": "car_icon.png"
+          }
+        ]
       }
     ]
   },
+
   {
     "id": "5",
-    "title": "Travel Tips & Hacks",
-    "description": "A comprehensive collection of travel tips, hacks, and insider secrets designed to make your journey smoother, more enjoyable, and cost-effective. From essential packing advice to finding deals and navigating visa requirements, these tips help you travel smarter.",
-    "isParent": true,
-    "childs": [
+    "title": "Language and Communication",
+    "text": "Tips for communicating during your trip.",
+    "image": "language_icon.png",
+    "list": [
       {
         "id": "5.1",
-        "title": "Packing lists and luggage tips",
-        "description": "Guidelines on what to pack for various types of trips, including must-have items and space-saving tips for efficient packing. It also includes advice on how to choose the right luggage and handle different travel scenarios, from long-haul flights to weekend getaways."
+        "title": "Official Language",
+        "text": "Official language: [Language].",
+        "image": "language_info.png"
       },
       {
         "id": "5.2",
-        "title": "How to find cheap flights and accommodation deals",
-        "description": "Actionable strategies for finding budget-friendly flights and accommodations, including how to leverage deals, use discount platforms, and book at the best times to secure the lowest prices."
+        "title": "English Usage",
+        "text": "English is widely spoken in tourist areas.",
+        "image": "english_icon.png"
       },
       {
         "id": "5.3",
-        "title": "Visa requirements and travel documents",
-        "description": "A detailed overview of visa requirements and travel documents needed for international travel. This section provides helpful tips on how to apply for visas, gather necessary documents, and prepare for border control procedures."
-      },
-      {
-        "id": "5.4",
-        "title": "Budget travel tips",
-        "description": "Practical tips for saving money on your travels without sacrificing the quality of your experience. This includes advice on budget accommodations, affordable dining, and low-cost activities to help you stretch your travel budget further."
+        "title": "Basic Phrases",
+        "text": "Learn a few basic phrases: [List common phrases].",
+        "image": "phrases_icon.png"
       }
     ]
   },
+
   {
     "id": "6",
-    "title": "Food & Dining",
-    "description": "An essential guide to where and what to eat while traveling, showcasing local food culture and must-try dishes. This section includes tips on food safety, finding authentic dining experiences, and discovering street food that captures the essence of a destination.",
-    "isParent": true,
-    "childs": [
+    "title": "Health and Safety",
+    "text": "Staying safe and healthy during your trip is essential for a smooth and enjoyable experience. Central Asia is generally a safe region, but it’s important to take precautions and be aware of local health and safety guidelines. Here’s what you need to know:",
+    "image": "health_icon.png",
+    "list": [
       {
         "id": "6.1",
-        "title": "Best local restaurants and street food spots",
-        "description": "A selection of top-rated local restaurants and street food vendors that serve authentic, traditional dishes. This section highlights the best places to experience regional flavors and culinary traditions."
+        "title": "Vaccinations",
+        "text": "Before traveling to Central Asia, check if any vaccinations are required or recommended. Common vaccines include **Hepatitis A, Typhoid, and Tetanus**. If you plan to visit rural areas or spend time outdoors, consider getting vaccinated for **Rabies** and **Tick-borne Encephalitis**. It’s also a good idea to ensure your routine vaccinations (e.g., MMR, Diphtheria) are up to date. Consult your doctor or a travel health clinic at least 4-6 weeks before your trip to discuss your specific needs.",
+        "image": "vaccine_icon.png"
       },
       {
         "id": "6.2",
-        "title": "Must-try traditional dishes",
-        "description": "A curated list of iconic traditional dishes that every traveler should try. Whether it’s sushi in Japan, pasta in Italy, or curry in India, this section ensures you don’t miss out on the culinary highlights of your destination."
+        "title": "Tap Water",
+        "text": "Tap water safety varies across Central Asia. While it is generally safe in major cities, it’s recommended to take precautions, especially in rural areas. Here’s a breakdown by country:",
+        "image": "water_icon.png",
+        "list": [
+          {
+            "id": "6.2.1",
+            "title": "Tap Water in Kyrgyzstan",
+            "text": "Tap water in Kyrgyzstan is **safe to drink** in major cities like Bishkek, as it is treated and meets local safety standards. However, in rural areas, it’s recommended to drink **bottled water** or use a water purifier for added safety. Bottled water is widely available and affordable. Avoid ice in drinks unless you’re certain it’s made from purified water.",
+            "image": "water_icon.png"
+          },
+          {
+            "id": "6.2.2",
+            "title": "Tap Water in Kazakhstan",
+            "text": "Tap water in Kazakhstan is **safe to drink** in major cities like Almaty and Nur-Sultan, as it is treated and meets local safety standards. However, in rural areas, it’s recommended to drink **bottled water** or use a water purifier for added safety. Bottled water is widely available and affordable.",
+            "image": "water_icon.png"
+          },
+          {
+            "id": "6.2.3",
+            "title": "Tap Water in Uzbekistan",
+            "text": "Tap water in Uzbekistan is **not safe to drink**, even in cities like Tashkent and Samarkand. It’s recommended to drink **bottled water**, which is widely available and affordable. You can also use a water purifier or boil water before drinking. Avoid ice in drinks unless you’re certain it’s made from purified water.",
+            "image": "water_icon.png"
+          }
+        ]
       },
       {
         "id": "6.3",
-        "title": "Food safety tips for different regions",
-        "description": "Important guidelines to ensure safe dining while traveling. This section offers advice on avoiding foodborne illnesses, including how to choose safe street food, what to watch out for when eating at restaurants, and how to stay healthy while exploring new cuisines."
+        "title": "Emergency Numbers",
+        "text": "In case of emergencies, save these important numbers for quick access:",
+        "image": "emergency_icon.png",
+        "list": [
+          {
+            "id": "6.3.1",
+            "title": "Police",
+            "text": "For emergencies requiring police assistance, dial **102** in Kyrgyzstan, Kazakhstan, and Uzbekistan.",
+            "image": "police_icon.png"
+          },
+          {
+            "id": "6.3.2",
+            "title": "Ambulance",
+            "text": "For medical emergencies, dial **103** in Kyrgyzstan, Kazakhstan, and Uzbekistan.",
+            "image": "ambulance_icon.png"
+          },
+          {
+            "id": "6.3.3",
+            "title": "Fire",
+            "text": "For fire emergencies, dial **101** in Kyrgyzstan, Kazakhstan, and Uzbekistan.",
+            "image": "fire_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "6.4",
+        "title": "Travel Insurance",
+        "text": "Travel insurance is highly recommended for trips to Central Asia. Ensure your policy covers **medical emergencies, evacuation, and trip cancellations**. If you plan to engage in adventure activities like trekking, horse riding, skiing etc. Check that your insurance includes coverage for these activities. Carry a copy of your insurance policy and emergency contact numbers with you at all times.",
+        "image": "insurance_icon.png"
+      },
+      {
+        "id": "6.5",
+        "title": "Altitude Sickness",
+        "text": "If you’re traveling to high-altitude regions like the Tian Shan or Pamir Mountains, be aware of the risks of **altitude sickness**. Symptoms include headaches, nausea, and dizziness. To prevent altitude sickness, ascend slowly, stay hydrated, and avoid strenuous activity for the first few days. If symptoms worsen, descend to a lower altitude immediately and seek medical help.",
+        "image": "altitude_icon.png"
+      },
+      {
+        "id": "6.6",
+        "title": "Food Safety",
+        "text": "Central Asian cuisine is delicious, but it’s important to practice food safety. Eat at reputable restaurants and avoid street food if you have a sensitive stomach. Ensure that meat is thoroughly cooked and fruits and vegetables are washed or peeled. Carry hand sanitizer or wet wipes to maintain hygiene, especially when eating with your hands.",
+        "image": "food_safety_icon.png"
+      },
+      {
+        "id": "6.7",
+        "title": "Personal Safety",
+        "text": "Central Asia is generally safe for travelers, but it’s important to take basic precautions. Avoid displaying valuables in public, especially in crowded areas. Keep your belongings secure and be cautious when using ATMs. In rural areas, respect local customs and traditions, and avoid traveling alone at night. Always inform someone of your travel plans, especially if you’re heading to remote regions.",
+        "image": "safety_icon.png"
+      }
+    ]
+  },
+
+  {
+    "id": "7",
+    "title": "Local Customs and Etiquette",
+    "text": "Understanding and respecting local customs and etiquette is key to having a meaningful and respectful travel experience in Central Asia. Each country has its own traditions, and being mindful of these will help you connect with locals and avoid cultural misunderstandings. Here’s a guide to help you navigate social norms in Kyrgyzstan, Kazakhstan, and Uzbekistan:",
+    "image": "customs_icon.png",
+    "list": [
+      {
+        "id": "7.1",
+        "title": "Dress Code",
+        "text": "Dressing appropriately is a sign of respect, especially in religious or rural settings. Here’s what to keep in mind:",
+        "image": "dress_icon.png",
+        "list": [
+          {
+            "id": "7.1.1",
+            "title": "Kyrgyzstan",
+            "text": "In Kyrgyzstan, modest clothing is appreciated, particularly in rural areas and religious sites. Women should cover their shoulders and knees, and men should avoid wearing shorts in mosques. In urban areas like Bishkek, casual Western attire is acceptable, but modest clothing is still recommended.",
+            "image": "kyrgyzstan_icon.png"
+          },
+          {
+            "id": "7.1.2",
+            "title": "Kazakhstan",
+            "text": "In Kazakhstan, dressing modestly is important when visiting mosques or traditional settings. In cities like Almaty and Nur-Sultan, modern clothing is common, but avoid overly revealing outfits. In rural areas, conservative attire is preferred to show respect for local customs.",
+            "image": "kazakhstan_icon.png"
+          },
+          {
+            "id": "7.1.3",
+            "title": "Uzbekistan",
+            "text": "In Uzbekistan, modest dress is essential, especially when visiting religious sites like mosques and madrasas. Women should cover their shoulders and knees, and men should avoid shorts. In cities like Tashkent and Samarkand, stylish yet modest clothing is the norm.",
+            "image": "uzbekistan_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "7.2",
+        "title": "Tipping Practices",
+        "text": "TTipping culture in Central Asia varies by country, but overall, it is not as deeply ingrained as in Western countries. However, tips are becoming more common in major cities and tourist areas. Most restaurants and cafes charge 10-20% for service",
+        "image": "tip_icon.png",
+        "list": [
+          {
+            "id": "7.2.1",
+            "title": "Kyrgyzstan",
+            "text": "Tipping is not obligatory but is appreciated. In restaurants, leaving **5-10%** of the bill is customary if no service charge is included. For taxi rides, rounding up the fare is a common practice. In hotels, small tips for porters or housekeeping staff are a nice gesture.",
+            "image": "kyrgyzstan_icon.png"
+          },
+          {
+            "id": "7.2.2",
+            "title": "Kazakhstan",
+            "text": "Tipping is becoming more common, especially in urban areas. In restaurants, a **10% tip** is standard if no service charge is added. For taxis, rounding up the fare is typical. In hotels, tipping staff for their service is appreciated but not mandatory.",
+            "image": "kazakhstan_icon.png"
+          },
+          {
+            "id": "7.2.3",
+            "title": "Uzbekistan",
+            "text": "Tipping is appreciated, particularly in tourist areas. In restaurants, leaving **5-10%** of the bill is customary. For taxi drivers, rounding up the fare is common. In hotels, small tips for porters or housekeeping staff are a kind way to show gratitude.",
+            "image": "uzbekistan_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "7.3",
+        "title": "Greetings and Social Etiquette",
+        "text": "Greetings are an important part of social interactions in Central Asia. Here’s how to greet locals respectfully:",
+        "image": "greeting_icon.png",
+        "list": [
+          {
+            "id": "7.3.1",
+            "title": "Kyrgyzstan",
+            "text": "In Kyrgyzstan, a handshake is a common greeting, especially among men. Women may greet each other with a handshake or a nod. When meeting someone, saying **'Salam'** (Hello) or **'Kandaisyz?'** (How are you?) is polite and appreciated.",
+            "image": "kyrgyzstan_icon.png"
+          },
+          {
+            "id": "7.3.2",
+            "title": "Kazakhstan",
+            "text": "In Kazakhstan, a handshake is a standard greeting, particularly between men. Women may greet each other with a handshake or a nod. Using phrases like **'Salam'** (Hello) or **'Kaliniz kalai?'** (How are you?) is a respectful way to start a conversation.",
+            "image": "kazakhstan_icon.png"
+          },
+          {
+            "id": "7.3.3",
+            "title": "Uzbekistan",
+            "text": "In Uzbekistan, a handshake is a common greeting, especially among men. Women may greet each other with a handshake or a nod. Saying **'Assalomu alaykum'** (Hello) or **'Kalaysiz?'** (How are you?) is a polite way to greet someone.",
+            "image": "uzbekistan_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "7.4",
+        "title": "Respect for Elders",
+        "text": "Respect for elders is a cornerstone of Central Asian culture. Always greet elders first, offer them your seat, and listen attentively when they speak. In rural areas, showing extra respect to elders is especially important.",
+        "image": "elders_icon.png"
+      },
+      {
+        "id": "7.5",
+        "title": "Hospitality and Gift-Giving",
+        "text": "Central Asians are known for their warm hospitality. If invited to a local’s home, bring a small gift, such as sweets or pastries, as a token of appreciation. Always remove your shoes before entering, and accept tea or food when offered, as declining may be seen as impolite.",
+        "image": "hospitality_icon.png"
+      }
+    ]
+  },
+
+  {
+    "id": "8",
+    "title": "Power Sockets and Adapters",
+    "text": "Staying connected during your trip is essential, and understanding the power sockets and voltage in Central Asia will help you keep your devices charged and ready to use. Here’s what you need to know about power sockets, voltage, and adapters in Kyrgyzstan, Kazakhstan, and Uzbekistan:",
+    "image": "power_icon.png",
+    "list": [
+      {
+        "id": "8.1",
+        "title": "Voltage",
+        "text": "The standard voltage in Central Asia is **220V**, with a frequency of **50Hz**. This is compatible with most devices from Europe, Asia, and Africa. However, if you’re traveling from a country with a different voltage (e.g., the USA, Canada, or Japan, where the standard is 110V), you’ll need a **voltage converter** for devices that don’t support dual voltage. Most modern electronics like laptops, phones, and cameras are dual voltage, so check the label on your device before traveling.",
+        "image": "voltage_icon.png"
+      },
+      {
+        "id": "8.2",
+        "title": "Socket Type",
+        "text": "Central Asia primarily uses two types of power sockets:",
+        "image": "socket_icon.png",
+        "list": [
+          {
+            "id": "8.2.1",
+            "title": "Type C",
+            "text": "The **Type C** socket (Europlug) is common in Kyrgyzstan, Kazakhstan, and Uzbekistan. It has two round pins and is compatible with devices from most European countries.",
+            "image": "type_c_icon.png"
+          },
+          {
+            "id": "8.2.2",
+            "title": "Type F",
+            "text": "The **Type F** socket (Schuko) is also widely used in the region. It has two round pins with side grounding clips and is compatible with Type C plugs. This socket is common in hotels and modern buildings.",
+            "image": "type_f_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "8.3",
+        "title": "Adapters",
+        "text": "If your devices use a different plug type (e.g., Type A, B, or G), you’ll need a **universal travel adapter** to connect them to Central Asian sockets. Universal adapters are widely available online or at travel stores and are a convenient solution for charging multiple devices. If you’re traveling with multiple gadgets, consider bringing a **portable power strip** with surge protection to charge all your devices at once.",
+        "image": "adapter_icon.png"
+      },
+      {
+        "id": "8.4",
+        "title": "Practical Tips",
+        "text": "Here are some additional tips to stay connected during your trip:",
+        "image": "tips_icon.png",
+        "list": [
+          {
+            "id": "8.4.1",
+            "title": "Check Device Compatibility",
+            "text": "Before traveling, check if your devices support **220V**. Most modern electronics like smartphones, laptops, and cameras are dual voltage, but appliances like hair dryers or electric shavers may require a voltage converter.",
+            "image": "device_icon.png"
+          },
+          {
+            "id": "8.4.2",
+            "title": "Bring a Power Bank",
+            "text": "A **power bank** is a lifesaver for long days of exploring, especially if you’re using your phone for navigation or photography. Ensure it’s fully charged before heading out.",
+            "image": "power_bank_icon.png"
+          },
+          {
+            "id": "8.4.3",
+            "title": "Use Surge Protectors",
+            "text": "Power surges can occur in some areas, so using a **surge protector** is a good idea to protect your devices. This is especially important for expensive electronics like laptops.",
+            "image": "surge_protector_icon.png"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": "9",
+    "title": "Internet and SIM Cards",
+    "text": "Staying connected during your trip is essential for navigation, communication, and sharing your adventures. Central Asia offers a range of options for internet access, from free Wi-Fi hotspots to affordable local SIM cards. Here’s what you need to know to stay connected in Kyrgyzstan, Kazakhstan, and Uzbekistan:",
+    "image": "internet_icon.png",
+    "list": [
+      {
+        "id": "9.1",
+        "title": "Free Wi-Fi",
+        "text": "Free Wi-Fi is widely available in major cities and tourist areas, but the quality and reliability can vary. Here’s where you can find free Wi-Fi:",
+        "image": "wifi_icon.png",
+        "list": [
+          {
+            "id": "9.1.1",
+            "title": "Airports",
+            "text": "Most international airports in Central Asia, such as Manas International Airport (Bishkek), Almaty International Airport, and Tashkent International Airport, offer free Wi-Fi for travelers. However, the connection may require registration or a local phone number.",
+            "image": "airport_icon.png"
+          },
+          {
+            "id": "9.1.2",
+            "title": "Cafes and Restaurants",
+            "text": "Many cafes and restaurants in cities like Bishkek, Almaty, and Tashkent provide free Wi-Fi for customers. Popular chains and coffee shops often have reliable connections.",
+            "image": "cafe_icon.png"
+          },
+          {
+            "id": "9.1.3",
+            "title": "Hotels and Hostels",
+            "text": "Most hotels and hostels in Central Asia offer free Wi-Fi for guests. However, the speed and reliability may vary, especially in rural areas or budget accommodations.",
+            "image": "hotel_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "9.2",
+        "title": "Local SIM Cards",
+        "text": "Purchasing a local SIM card is the most convenient and affordable way to stay connected during your trip. Here’s what you need to know about getting a SIM card in each country:",
+        "image": "sim_icon.png",
+        "list": [
+          {
+            "id": "9.2.1",
+            "title": "Kyrgyzstan",
+            "text": "In Kyrgyzstan, popular mobile carriers include **Beeline**, **MegaCom**, and **O!**. SIM cards are affordable and easy to purchase at airports, kiosks, or official stores. You’ll need your passport for registration. Data plans are inexpensive, with options for daily or monthly use.",
+            "image": "kyrgyzstan_icon.png"
+          },
+          {
+            "id": "9.2.2",
+            "title": "Kazakhstan",
+            "text": "In Kazakhstan, major providers include **Beeline**, **Kcell**, and **Tele2**. SIM cards can be bought at airports, kiosks, or carrier stores. Passport registration is required. Data plans are affordable, with options for high-speed internet and unlimited social media access.",
+            "image": "kazakhstan_icon.png"
+          },
+          {
+            "id": "9.2.3",
+            "title": "Uzbekistan",
+            "text": "In Uzbekistan, popular carriers are **Beeline**, **Ucell**, and **Mobiuz**. SIM cards are available at airports, kiosks, or official stores. Passport registration is mandatory. Data plans are reasonably priced, with options for tourists that include generous data allowances.",
+            "image": "uzbekistan_icon.png"
+          }
+        ]
+      },
+      {
+        "id": "9.3",
+        "title": "Practical Tips",
+        "text": "Here are some additional tips to ensure you stay connected during your trip:",
+        "image": "tips_icon.png",
+        "list": [
+          {
+            "id": "9.3.1",
+            "title": "Unlock Your Phone",
+            "text": "Ensure your phone is unlocked before traveling so you can use a local SIM card. Contact your mobile provider to confirm your phone’s compatibility with local networks.",
+            "image": "phone_icon.png"
+          },
+          {
+            "id": "9.3.2",
+            "title": "Carry a Power Bank",
+            "text": "A **power bank** is essential for keeping your devices charged while exploring, especially if you’re using your phone for navigation or taking photos.",
+            "image": "power_bank_icon.png"
+          },
+          {
+            "id": "9.3.3",
+            "title": "Use a VPN",
+            "text": "Public Wi-Fi networks can be insecure, so using a **VPN (Virtual Private Network)** is recommended to protect your data and privacy while browsing.",
+            "image": "vpn_icon.png"
+          }
+        ]
       }
     ]
   }

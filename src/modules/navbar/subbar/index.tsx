@@ -8,6 +8,7 @@ import {
     ActivitiesContent,
     UsefulContent
 } from "./contents";
+import Image from "next/image";
 
 interface SubbarProps {
     pageId: string;

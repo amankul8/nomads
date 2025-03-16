@@ -19,23 +19,13 @@ import {
     Paragraph, 
 } from "@/ui";
 import { Slider } from "@mui/material";
+import { useAppSelector } from "@/store/store";
+import { selectDestinations } from "@/store/slices/destinations.slice";
+import { DestinationType } from "@/store/models/destinations";
+import { useRouter } from "next/navigation";
 
 interface ITourSearch extends React.HTMLProps<HTMLDivElement> {}
 
-type FilmOptionType = {
-    title: string;
-    year: number;
-}
-
-const top100Films = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
-    { title: 'The Godfather: Part II', year: 1974 },
-    { title: 'The Dark Knight', year: 2008 },
-    { title: '12 Angry Men', year: 1957 },
-    { title: "Schindler's List", year: 1993 },
-    { title: 'Pulp Fiction', year: 1994 },
-];
 
 const marks = [
     {
@@ -48,13 +38,35 @@ const marks = [
     },
 ];
 
+type DurationType = {
+    title: string,
+    value: number
+}
+
+const durations: DurationType[] = [
+    {title: '1 day', value: 1},
+    {title: '2 days', value: 2},
+    {title: '3 days', value: 3},
+    {title: '4 days', value: 4},
+    {title: '5 days', value: 5},
+    {title: '6 days', value: 6},
+    {title: '1 week - 2 week', value: 7},
+    {title: '2 week - 3 week', value: 7},
+    {title: '1 month', value: 30},
+]
+
 export const TourSearch: React.FC<ITourSearch> = () => {
+
+    const router = useRouter();
 
     const [dateRange, setDateRange] = useState<Range>({
         startDate: new Date(),
         endDate: addDays(new Date(), 7),
         key: 'selection',
     });
+
+    const destinations = useAppSelector(selectDestinations);
+
     const [datePickerOpen, setDatePickerOpen] = useState<boolean>(false);
 
     const handleDateSelection = useCallback((range: Range) => {
@@ -78,8 +90,8 @@ export const TourSearch: React.FC<ITourSearch> = () => {
 
                 <div className={styles.search_form}>
                     <Autocomplete
-                        options={top100Films}
-                        getOptionLabel={(option: FilmOptionType) => option.title}
+                        options={destinations}
+                        getOptionLabel={(option: DestinationType | undefined) => option!.title}
                         id="disable-close-on-select"
                         disableCloseOnSelect
                         renderInput={(params) => (
@@ -93,8 +105,8 @@ export const TourSearch: React.FC<ITourSearch> = () => {
                     />
 
                     <Autocomplete
-                        options={top100Films}
-                        getOptionLabel={(option: FilmOptionType) => option.title}
+                        options={durations}
+                        getOptionLabel={(option: DurationType) => option.title}
                         id="disable-close-on-select"
                         disableCloseOnSelect
                         renderInput={(params) => (
@@ -114,7 +126,7 @@ export const TourSearch: React.FC<ITourSearch> = () => {
                             defaultValue={[10, 70]}
                             marks={marks}
                             sx={{ color: 'var(--blue)'}}
-                            onChange={(e, newValue) => console.log(newValue)}
+                            onChange={(e, newValue) => {}}
                         />
                     </Box>
 
@@ -136,7 +148,7 @@ export const TourSearch: React.FC<ITourSearch> = () => {
                                     exit={{ opacity: 0 }}
                                 >
                                     <DateRange
-                                        onChange={handleDateSelection}
+                                        onChange={(range) => handleDateSelection(range.selection)}
                                         showDateDisplay={false}
                                         months={1}
                                         ranges={[dateRange]}
@@ -150,7 +162,7 @@ export const TourSearch: React.FC<ITourSearch> = () => {
                     <CustomButton
                         color="blue"
                         active={true}
-                        handler={() => {}}
+                        handler={() => router.push('/tours')}
                     >
                         Discover
                     </CustomButton>

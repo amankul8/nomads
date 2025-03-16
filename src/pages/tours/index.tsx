@@ -26,7 +26,7 @@ const top100Films = [
   { title: 'Pulp Fiction', year: 1994 }, 
 ];
 
-const TourSchema = z.object({
+export const TourSchema = z.object({
   id: z.number(),
   name: z.string(),
   description: z.string(),
@@ -53,7 +53,7 @@ const sortList: sortType = {
   'high_to_low': 'Price High to Low',
 };
 
-type Tour = z.infer<typeof TourSchema>;
+export type Tour = z.infer<typeof TourSchema>;
 
 const fetchTours = async (props?: Record<string, string>): Promise<Tour[]> => {
   try {
@@ -171,7 +171,7 @@ export default function Main() {
     
     <Layout>
       <FirstBlockLayout
-        bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"
+        bg_image="/images/bg/destinations/image7.jpg"
         classname={styles.first_block}
       >
         <Headline color='white' type="main"> Choose your dream adventure   </Headline>

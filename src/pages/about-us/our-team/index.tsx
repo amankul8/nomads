@@ -157,8 +157,7 @@ export default function OurTeam() {
     >
 
       <FirstBlockLayout
-        bg_image="/images/bg/nature_bg.jpg"
-        isFullSize={true}
+        bg_image="/images/bg/destinations/image6.jpg"
       >
         <div className={cls('container', styles.main_section)}>
 

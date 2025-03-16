@@ -1,8 +1,9 @@
 import React from "react";
 import { UniversalBlock } from "@/layouts/block/universal";
 import { FirstBlockLayout, Layout } from "@/layouts";
-import { CustomButton } from "@/ui";
+import { CustomButton, Headline, Paragraph } from "@/ui";
 import styles from './destinations.module.scss';
+import cn from 'classnames';
 import { DestinationsList } from "@/modules/destinations/destinationsList";
 import { Alert, CircularProgress } from "@mui/material";
 import { useAppSelector } from "@/store/store";
@@ -22,8 +23,17 @@ export default function Destinations() {
     return (
         <Layout>
             <FirstBlockLayout
-                bg_image="https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"
-            />
+                bg_image="/images/bg/destinations/image1.webp"
+            >
+                <div className={cn('container', styles.head_content)}>
+                    <Headline color="white" type="main">
+                        Central Asia, Kyrgyzstan
+                    </Headline>
+                    <Paragraph>
+                        Средняя Азия — это земля, где древние традиции и магия природы встречаются в едином великолепии. Огромные песчаные пустыни, величественные горы и оазисы, скрытые в сердце степей, создают уникальный ландшафт, который завораживает. Исторические города, такие как Самарканд и Бухара, хранят тайны тысячелетий, а пустынные пейзажи и лазурные озера дарят умиротворение. Средняя Азия — это путешествие по самым красивым и загадочным уголкам мира, наполненное не только историей, но и гармонией природы.
+                    </Paragraph>
+                </div>
+            </FirstBlockLayout>
 
             <UniversalBlock
                 title="Destinations By Region"

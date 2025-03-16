@@ -3,13 +3,17 @@ import {z} from 'zod';
 const UsefulDataItemSchema = z.object({
     id: z.string(),
     title: z.string(),
-    description: z.string(),
-    isParent: z.boolean(),
-    childs: z.array(z.object({
-        id: z.string(),
-        title: z.string(),
-        description: z.string(),
-    }))
+    text: z.string(),
+    image: z.union([z.string(), z.undefined()]),
+    list: z.union([
+        z.array(z.object({
+            id: z.string(),
+            title: z.string(),
+            text: z.string(),
+            image: z.union([z.string(), z.undefined()]),
+        })), 
+        z.undefined()
+    ])
 });
 
 export type UsefulDataItemType = z.infer<typeof UsefulDataItemSchema>;
