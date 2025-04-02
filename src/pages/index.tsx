@@ -1,3 +1,4 @@
+import React from "react";
 import {Layout, FirstBlockLayout, UniversalBlock} from "@/layouts"
 import {MainFirstBlock} from '@/components/blocks/index';
 import { InfoBlock } from '@/components/blocks/info';
@@ -12,127 +13,35 @@ import {Headline} from "@/ui";
 import Image from "next/image";
 import TourInfoCardSlider from "@/components/sliders/tour/tourInfoCardSlider";
 import { BlockWithSkirt } from "@/layouts/index";
-
-export interface ISlides{
-  id: number,
-  title: string,
-  description: string,
-  image: string
-}
-
-
-const slides: ISlides[] = [
-  {
-    id: 1,
-    title: 'The Virgin Nature 1',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 1.',
-    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
-  },
-  {
-    id: 2,
-    title: 'The Virgin Nature 2',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 2 .',
-    image: 'https://mcdn.wallpapersafari.com/medium/17/17/5f7pHi.jpg',
-  },
-  {
-    id: 3,
-    title: 'The Virgin Nature 3',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 3.',
-    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
-  },
-  {
-    id:4,
-    title: 'The Virgin Nature 4',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 4.',
-    image: 'https://mcdn.wallpapersafari.com/medium/17/17/5f7pHi.jpg',
-  },
-  {
-    id: 5,
-    title: 'The Virgin Nature 5',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
-    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
-  },
-  {
-    id: 6,
-    title: 'The Virgin Nature 6',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
-    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
-  },
-  {
-    id: 6,
-    title: 'The Virgin Nature 6',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
-    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
-  },
-  {
-    id: 6,
-    title: 'The Virgin Nature 6',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit 5.',
-    image: 'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg',
-  },
-]
-
-const attainments = [
-  {
-    id: 1,
-    title: "20 Years Experiences",
-    description: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated.",
-  },
-  {
-    id: 2,
-    title: "Lots of gears",
-    description: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated.",
-  },
-  {
-    id: 3,
-    title: "Most completed map",
-    description: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated.",
-  },
-  {
-    id: 4,
-    title: "Packing Advise",
-    description: "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated.",
-  },
-]
-
-const attainmentInQuantities = [
-  {
-    id: 1,
-    name: 'Awesome hikers',
-    quantity: '2000+'
-  },
-  {
-    id: 2,
-    name: 'Stunning places',
-    quantity: '30+'
-  },
-  {
-    id: 3,
-    name: 'Miles to hike',
-    quantity: '1000+'
-  },
-  {
-    id: 4,
-    name: 'Days in service',
-    quantity: '2500'
-  },
-]
+import { useAppDispath, useAppSelector } from "@/store/store";
+import { selectStaticData } from "@/store/slices/static_data.slice";
+import { fetchTours } from "@/store/models/tours.ts";
+import { selectPopularTours } from "@/store/slices/tours.slice";
 
 export default function Main() {
+
+  const dispatch = useAppDispath();
+
+  const popularTours = useAppSelector(selectPopularTours);
+  const staticData: Record<string, string> = useAppSelector(selectStaticData);
+  
+  React.useEffect(()=>{
+    dispatch(fetchTours());
+  }, [])
 
   return (
     
     <Layout>
 
       <FirstBlockLayout>
-        <MainFirstBlock slides={slides}/>
+        <MainFirstBlock slides={popularTours}/>
       </FirstBlockLayout>
 
       <TourSearch/>
       
       <InfoBlock 
-        title='' 
-        text=''
+        title='We are featured in' 
+        text={staticData['we_are_featured_in'] ?? '...'}
         imageUrl=''
         href=''
       />
@@ -142,34 +51,34 @@ export default function Main() {
         isBg={true}
       >
         <div className={styles.attainments_content}>
-          {
-            attainments.map(item=>{
-              return(
-                <AttainmentCard
-                  id={item.id}
-                  title={item.title}
-                  description={item.description}
-                  key={item.id}
-              />
-              )
-            })
-          }
+          <AttainmentCard
+            id={1}
+            title={'8 years Experiences'}
+            description={staticData['experiences'] ?? '...'}
+          />
+          <AttainmentCard
+            id={2}
+            title={'Lots of Gears'}
+            description={staticData['lots_of_gears'] ?? '...'}
+          />
+          <AttainmentCard
+            id={3}
+            title={'Most Completed Map'}
+            description={staticData['most_completed_map'] ?? '...'}
+          />
+          <AttainmentCard
+            id={4}
+            title={'Customized Itineraries'}
+            description={staticData['customized_itineraries'] ?? '...'}
+          />
         </div>
       </UniversalBlock>  
-
-      <InfoBlock 
-        title='' 
-        text=''
-        imageUrl=''
-        href=''
-        def={true}
-      />
       
       <BlockWithSkirt
         image=""
       >
         <TourInfoCardSlider
-          list={slides}
+          list={popularTours}
           isCenteredMode
           title="Find our popular tours"
         />
@@ -179,17 +88,22 @@ export default function Main() {
         title='Our experience in quantitative terms'
       >
         <div className={styles.attainments_content}>
-          {
-            attainmentInQuantities.map(item=>{
-              return(
-                <NumberAttainmentCard
-                  name={item.name}
-                  quantity={item.quantity}
-                  key={item.id}
-              />
-              )
-            })
-          }  
+          <NumberAttainmentCard
+            name={'Awesome hikers'}
+            quantity={staticData['awesome_hikers'] ?? '...'}
+          />  
+          <NumberAttainmentCard
+            name={'Stunning places'}
+            quantity={staticData['stunning_places'] ?? '...'}
+          />
+          <NumberAttainmentCard
+            name={'Miles to hike'}
+            quantity={staticData['km_to_trek'] ?? '...'}
+          />
+          <NumberAttainmentCard
+            name={'Days in service'}
+            quantity={staticData['days_in_service'] ?? '...'}
+          />
         </div>
           
       </UniversalBlock> 

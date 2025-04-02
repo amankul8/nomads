@@ -21,7 +21,9 @@ export const FirstBlockLayout:React.FC<IFirstBlockLayout> = ({children, bg_image
       )}
       style={bg_image?{backgroundImage: `url(${bg_image})`}:{}}
     >
-        {children}
+        <div className={styles.content_layout}>
+          {children}
+        </div>
         <Image
             className={cn(styles.skirt, {
               [styles.hidden_skirt]: !withCloud

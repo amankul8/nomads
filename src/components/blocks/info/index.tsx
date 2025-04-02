@@ -34,12 +34,10 @@ export const InfoBlock: React.FC<IInfoBlockProps> = ({title, text, imageUrl, hre
                         underline={true}
                         classname={styles.h}
                     >
-                        We are featured in
+                        {title}
                     </Headline>
                     <Paragraph>
-                        The Alps are the highest and most extensive mountain range system that lies entirely in Europe, separating Southern from Central and Western Europe and stretching approximately 1,200 kilometres across eight 
-                        Alpine countries: France, Switzerland, Italy, Monaco, Liechtenstein, Austria, Germany, and Slovenia.
-                        
+                        {text}
                     </Paragraph>
                     
                     <CustomButton
@@ -51,7 +49,7 @@ export const InfoBlock: React.FC<IInfoBlockProps> = ({title, text, imageUrl, hre
                 </div>
                 <div className={cn(styles.image_wrapper)}>
                     <Image
-                        src={'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'}
+                        src={'/images/bg/mountains.jpg'}
                         alt={''}
                         width={1920}
                         height={1080}

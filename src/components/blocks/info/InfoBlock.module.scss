@@ -31,6 +31,10 @@
                 display: block;
             }
 
+            p {
+                line-height: 1.7;
+            }
+
             @include respond-to('tablet') {
                 width: 100%;
 

@@ -28,7 +28,7 @@ import { TourDetailSection } from "./section";
 import TourSimpleCardSlider from "@/components/sliders/tour/tourSimpleCardSlider";
 import { DestinationsList } from "@/modules/destinations/destinationsList";
 import api from "@/config/axiosInstance";
-import { TourSchema } from "..";
+import {TourSchema} from "@/store/models/tours.ts/";
 import { z } from 'zod';
 
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });

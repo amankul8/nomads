@@ -9,8 +9,13 @@ import {Facebook, Instagram, Twitter, Email, Phone} from '@mui/icons-material';
 import YouTube from '@mui/icons-material/YouTube';
 import WhatsApp from '@mui/icons-material/WhatsApp';
 import Location from '@mui/icons-material/LocationOn';
+import { useAppSelector } from "@/store/store";
+import { selectStaticData } from "@/store/slices/static_data.slice";
+import Link from "next/link";
 
 export const Footer = () => {
+
+    const staticData: Record<string, string> = useAppSelector(selectStaticData);
 
     return(
         <footer className={styles.footer_wrapper}>
@@ -33,10 +38,10 @@ export const Footer = () => {
                         color='white'
                         classname={styles.title}
                     >
-                        Privacy Policy
+                        {staticData['footer_info_title'] ?? 'Nomad travel'}
                     </Headline>
                     <Paragraph>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque architecto voluptatum fugit doloremque cum soluta ullam officiis praesentium quasi sint quis sit delectus doloribus, perferendis natus labore reprehenderit dolorum!
+                        {staticData['footer_info_text'] ?? ''}
                     </Paragraph>
                 </div>
                 <div className={styles.col_2}>
@@ -46,7 +51,7 @@ export const Footer = () => {
                     <div className={cn(styles.row, styles.row_1)}>
                         <Phone/>
                         <Paragraph>
-                            +996 701 880 016
+                            {staticData['phone'] ?? '+996 701 880 016'}
                         </Paragraph>
                     </div>
                     <div className={cn(styles.row, styles.row_2)}>
@@ -58,15 +63,15 @@ export const Footer = () => {
                     <div className={cn(styles.row, styles.row_3)}>
                         <Email/>
                         <Paragraph>
-                            askat.taalaibekov@gmail.com
+                            {staticData['gmail'] ?? 'askat.taalaibekov@gmail.com'}
                         </Paragraph>
                     </div>
                     <div className={styles.row}>
-                        <span><WhatsApp/></span>
-                        <span><Facebook/></span>
-                        <span><Instagram/></span>
-                        <span><YouTube/></span>
-                        <span><Twitter/></span>
+                        <Link href={staticData['whatsapp'] ?? '#'}> <span><WhatsApp/></span> </Link>
+                        <Link href={staticData['facebook'] ?? '#'}> <span><Facebook/></span> </Link>
+                        <Link href={staticData['instagram'] ?? '#'}> <span><Instagram/></span> </Link>
+                        <Link href={staticData['youtube'] ?? '#'}> <span><YouTube/></span> </Link>
+                        <Link href={staticData['twitter'] ?? '#'}> <span><Twitter/></span> </Link>
                     </div>
                 </div>
             </div>

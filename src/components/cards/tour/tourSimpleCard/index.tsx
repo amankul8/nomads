@@ -1,6 +1,4 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
-import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import React, { HTMLProps } from "react";
 import cls from "classnames";
 import { useState } from "react";
 
@@ -11,9 +9,11 @@ import {
     Headline,
     Rating
 } from "@/ui";
+import Link from "next/link";
 
 
-interface ITTourSimpleCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement>{
+interface ITTourSimpleCard extends Omit<HTMLProps<HTMLDivElement>, 'id'> {
+    id: number,
     name: string,
     description: string,
     link: string,
@@ -22,44 +22,38 @@ interface ITTourSimpleCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
     classnames?: string 
 }
 
-export const TourSimpleCard: React.FC<ITTourSimpleCard> = ({ name, description, link, complexity, classnames, image, ...rest}) => {
-
-    const [isHovered, setIsHovered] = useState<boolean>(false);
-    
-    const handleMousOver = () =>{
-        setIsHovered(true);
-    }
-
-    const handleMouseOut = () => {
-        setIsHovered(false);
-    }
+export const TourSimpleCard: React.FC<ITTourSimpleCard> = ({id, name, description, link, complexity, classnames, image, ...rest}) => {
 
     return (
-        <div 
-            style = {{ backgroundImage: 'url('+ image +')' }}
-            className={cls(
-                styles.card, 
-                classnames,
-                { [styles.hovered]: isHovered }
-            )} {...rest}
-        >
-            <div className={styles.content}>
-                <Paragraph>
-                    {description}
-                </Paragraph>
-                <Headline
-                    color='white'
-                    type='subsection'
-                >
-                    {name}
-                </Headline>
+        <Link href={`/tours/${id}`}>
+            <div 
+                style = {{ backgroundImage: 'url('+ image +')' }}
+                className={cls(
+                    styles.card, 
+                    classnames,
+                )} {...rest}
+            >
+                <div className={styles.content_layout}>
+                    <div className={styles.content}>
+                        <Paragraph classname={styles.text}>
+                            {description}
+                        </Paragraph>
+                        <Headline
+                            color='white'
+                            type='subsection'
+                            classname={styles.title}
+                        >
+                            {name}
+                        </Headline>
 
-                <Rating 
-                    type = "human"
-                    rating = {complexity}
-                    size = {16}
-                /> 
-            </div>            
-        </div>
+                        <Rating 
+                            type = "human"
+                            rating = {complexity}
+                            size = {16}
+                        /> 
+                    </div> 
+                </div>           
+            </div>
+        </Link>
     );
 };

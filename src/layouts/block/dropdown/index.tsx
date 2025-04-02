@@ -51,7 +51,7 @@ export const DropdownBlock: React.FC<IDropdownBlock> = ({ title, icon, children,
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{
-                            duration: 0.3,
+                            duration: 0.2,
                             ease: "easeInOut",
                         }}
                         style={{ overflow: "hidden" }}

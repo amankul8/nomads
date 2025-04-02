@@ -1,17 +1,5 @@
 @use 'breakpoints' as *;
 
-// Карта брейкпоинтов
-// $breakpoints: (
-//   'sm': 620px,   // Small
-//   'md': 900px,   // Medium
-//   'lg': 1024px,  // Large  // Extra Large
-//   'xl': 1250px,
-//   'xxl': 1680px, // Double Extra Large
-//   'uw': 2000px,  // Ultra Wide
-//   '2k': 2300px,
-//   '4k': 3840px,   // 4K
-// );
-
 .first_block {
     display: flex;
     align-items: center;
@@ -32,9 +20,20 @@
         grid-template-areas:
             "auto topbar"
             "sidebar content";
-        grid-template-columns: 2.5fr 9.5fr;
+        grid-template-columns: 330px 1fr;
         grid-template-rows: auto 1fr;
         gap: 16px;
+
+        @include respond-to('hd') {
+            grid-template-columns: 280px 1fr;
+        }
+
+        @include respond-to('tablet') {
+            grid-template-areas:
+                "topbar"
+                "content";
+            grid-template-columns: auto;
+        }
 
         .topbar {
             grid-area: topbar;
@@ -71,6 +70,10 @@
             grid-area: sidebar;
             position: relative;
             margin-bottom: 40px;
+
+            @include respond-to('tablet') {
+                display: none;
+            }
 
             .bar {
                 overflow: hidden;
@@ -125,13 +128,22 @@
         .content {
             grid-area: content;
             width: 100%;
+            height: min-content;
             border-radius: 5px;
             display: grid;
             grid-template-columns: auto auto auto;
-            gap: 30px;
+            gap: 20px;
             margin-bottom: 40px;
             transition: 300ms linear;
             justify-content: center;
+
+            @include respond-to('hd') {
+                grid-template-columns: auto auto;
+            };
+
+            @include respond-to('phone') {
+                grid-template-columns: auto;
+            };
         }
 
         .list {

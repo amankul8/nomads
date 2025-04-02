@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import styles from "../sliderStyles.module.scss";
 import { TourSimpleCard } from "@/components/cards";
 import { DetailedHTMLProps, HTMLAttributes, useRef, useState, useMemo, useEffect, useCallback } from "react";
-import { CustomIconButton } from "@/ui";
+import { CustomIconButton, Headline } from "@/ui";
 import cn from "classnames";
 
 // Определяем тип тура
@@ -19,9 +19,10 @@ interface ITourSimpleCardSlider
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   isCenteredMode?: boolean;
   list: any;
+  title?: string;
 }
 
-const TourSimpleCardSlider: React.FC<ITourSimpleCardSlider> = ({ isCenteredMode = false, list }) => {
+const TourSimpleCardSlider: React.FC<ITourSimpleCardSlider> = ({ isCenteredMode = false, list, title }) => {
   const sliderRef = useRef<Slider>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -70,10 +71,12 @@ const TourSimpleCardSlider: React.FC<ITourSimpleCardSlider> = ({ isCenteredMode 
   return (
     <div className={styles.wrapper}>
       <div ref={containerRef} className={cn("container", styles.slider)}>
+        <Headline type="section" color="black" classname={styles.title}> {title} </Headline>
         <Slider ref={sliderRef} {...settings}>
           {list.map((item:any, index:number) => (
             <div className={styles.slider_item} key={item.id ?? index}>
               <TourSimpleCard
+                id={item.id}
                 name={item.name ?? "Title"}
                 description={item.description ?? "Ipsum text"}
                 link={item.link ?? ""}

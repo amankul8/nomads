@@ -13,13 +13,39 @@
     align-items: flex-end;
     justify-content: center;
     
-    .content {
+    .content_layout {
         width: 100%;
-        padding: 1.5em .8em;
+        height: 100%;
         display: flex;
-        flex-direction: column;
-        gap: .8em;
-        color: var(--white);
-    }
+        align-items: flex-end;
+        justify-content: center;
+        background-color: rgba($color: #000000, $alpha: .15);
 
+        .content {
+            width: 100%;
+            padding: 1.5em .8em;
+            display: flex;
+            flex-direction: column;
+            gap: .8em;
+            color: var(--white);
+    
+            .title {
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 3;
+                line-clamp: 3;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+    
+            .text {
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 3;
+                line-clamp: 3;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        }
+    }
 }

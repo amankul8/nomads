@@ -30,6 +30,13 @@ font-style: normal;
     font-family: 'Caveat Brush';
     font-size: 72px;
     font-weight: bold;
+    line-height: 1;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-title {
+        font-size: 48px;
+    }
 }
 
 .section-title {

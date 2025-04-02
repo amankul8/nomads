@@ -1,3 +1,4 @@
+@use 'breakpoints' as *;
 
 .main_block_content {
     display: flex;
@@ -26,7 +27,6 @@
             flex-direction: column;
             gap: 20px;
             overflow: hidden;
-            padding: 0 60px;
         }
 
         .photos {

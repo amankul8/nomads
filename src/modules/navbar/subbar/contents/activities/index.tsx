@@ -5,8 +5,8 @@ import { AnimatePresence, motion} from "framer-motion";
 import Link from "next/link";
 import { SubbarBtn } from "@/ui";
 import { useAppSelector } from "@/store/store";
-import { selectActivities, selectActivitiesLoadingStatus } from "@/store/slices/activities.slice";
 import { baseImageUrl } from "@/config";
+import { selectTourTypes, selectTourTypesLoadingStatus } from "@/store/slices/tourTypes.slice";
 
 type ActivitiesContent = {
     handleMouseEnter: (bg: string) => void, 
@@ -30,8 +30,8 @@ const itemVariants = {
 
 export const ActivitiesContent:React.FC<ActivitiesContent> = ({}) => {
 
-    const activities = useAppSelector(selectActivities);
-    const isLoading = useAppSelector(selectActivitiesLoadingStatus);
+    const tour_types = useAppSelector(selectTourTypes);
+    const isLoading = useAppSelector(selectTourTypesLoadingStatus);
 
     if(isLoading){
         return
@@ -48,7 +48,7 @@ export const ActivitiesContent:React.FC<ActivitiesContent> = ({}) => {
                 className={styles.list}
             >
                 {
-                        activities && activities.map( item => {
+                        tour_types && tour_types.map( item => {
                             return (
                                 <motion.li 
                                     // onMouseEnter={() => {
@@ -61,8 +61,7 @@ export const ActivitiesContent:React.FC<ActivitiesContent> = ({}) => {
                                 >
                                     <Link href={`/tours?activity=${item!.id}`}>
                                         <SubbarBtn
-                                            name={item!.name}
-                                            icon={baseImageUrl + item!.icon}
+                                            name={item!.type ?? ''}
                                         />
                                     </Link>
                                 </motion.li>

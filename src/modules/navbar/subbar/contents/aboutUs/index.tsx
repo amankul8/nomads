@@ -4,8 +4,12 @@ import cn from "classnames";
 import { AnimatePresence, motion} from "framer-motion";
 import { CustomButton, Headline, Paragraph } from "@/ui";
 import { useRouter } from "next/navigation";
+import { useAppSelector } from "@/store/store";
+import { selectStaticData } from "@/store/slices/static_data.slice";
 
 export const AboutUsContent = () => {
+
+    const staticData: Record<string, string> = useAppSelector(selectStaticData);
 
     const router = useRouter();
 
@@ -22,7 +26,7 @@ export const AboutUsContent = () => {
                     Who we are?
                 </Headline>
                 <Paragraph>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eligendi explicabo ut saepe repudiandae reiciendis eaque quae corporis et quaerat!Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, explicabo blanditiis necessitatibus dolores ad quibusdam eius voluptate culpa eos non vitae optio consequatur commodi hic.
+                    {staticData['who_we_are_short'] ?? ''}
                 </Paragraph>
                 <CustomButton color="white" handler={() => router.push('/about-us/who-we-are')}>
                     Discover
@@ -33,7 +37,7 @@ export const AboutUsContent = () => {
                     Our team
                 </Headline>
                 <Paragraph>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eligendi explicabo ut saepe repudiandae reiciendis eaque quae corporis et quaerat!Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, explicabo blanditiis necessitatibus dolores ad quibusdam eius voluptate culpa eos non vitae optio consequatur commodi hic.
+                    {staticData['our_team_short'] ?? ''}
                 </Paragraph>
                 <CustomButton color="white" handler={() => router.push('/about-us/our-team')}>
                     Discover

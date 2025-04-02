@@ -5,6 +5,9 @@ import { activitiesReducer } from "./slices/activities.slice";
 import { regionsReducer } from "./slices/regions.slice";
 import { api } from "@/config/axiosInstance";
 import { tourTypesReducer } from "./slices/tourTypes.slice";
+import { staticDataReducer } from "./slices/static_data.slice";
+import { toursReducer } from "./slices/tours.slice";
+import { tourFilterReducer } from "./slices/tour_filter.slice";
 
 export type ExtraArgument = {
   api: typeof api
@@ -20,6 +23,9 @@ export const store = configureStore({
     activities: activitiesReducer,
     destinations: destinationsReducer,
     regions: regionsReducer,
+    static_data: staticDataReducer,
+    tours: toursReducer,
+    tour_filter_data: tourFilterReducer
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware({
     thunk: {

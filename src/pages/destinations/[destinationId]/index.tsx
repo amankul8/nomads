@@ -1,66 +1,19 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import cls from "classnames";
-import Box from "@mui/material/Box";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import { Box, ImageList, ImageListItem, useMediaQuery } from '@mui/material';
 
-import { BlockWithSkirt, FirstBlockLayout, Layout } from "@/layouts";
+import { FirstBlockLayout, Layout } from "@/layouts";
 import styles from "./destination.module.scss";
 import { Paragraph, Headline } from "@/ui";
 import api from "@/config/axiosInstance";
 import { DestinationDetailSchema, DestinationDetailType, DestinationSchema } from "@/store/models/destinations";
 import { baseImageUrl } from "@/config";
-import { red } from "@mui/material/colors";
+import { TourSchema, ToursType } from "@/store/models/tours.ts";
 
 // Динамический импорт компонентовz
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
-const TourInfoCardSlider = dynamic(() => import("@/components/sliders/tour/tourInfoCardSlider"), { ssr: false });
-
-const images = [
-  "https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg",
-  "https://mcdn.wallpapersafari.com/medium/90/19/rKHwW9.jpg",
-  "https://mcdn.wallpapersafari.com/335/73/19/BF6f7i.jpg",
-  "https://mcdn.wallpapersafari.com/medium/51/76/M5Sixv.jpg",
-  "https://mcdn.wallpapersafari.com/335/82/70/nv9j5J.jpg",
-  "https://mcdn.wallpapersafari.com/medium/9/2/U8jznD.jpg",
-  "https://mcdn.wallpapersafari.com/medium/43/23/BpwJ56.jpg",
-  "https://mcdn.wallpapersafari.com/335/51/51/sdioGm.jpg",
-  "https://mcdn.wallpapersafari.com/medium/64/7/qrZYhn.jpg",
-];
-
-const slides = [
-  {
-    id: 1,
-    title: "The Virgin Nature 1",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit 1.",
-    image: "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg",
-  },
-  {
-    id: 2,
-    title: "The Virgin Nature 2",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit 2.",
-    image: "https://mcdn.wallpapersafari.com/medium/17/17/5f7pHi.jpg",
-  },
-  {
-    id: 3,
-    title: "The Virgin Nature 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit 3.",
-    image: "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg",
-  },
-  {
-    id: 4,
-    title: "The Virgin Nature 4",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit 4.",
-    image: "https://mcdn.wallpapersafari.com/medium/17/17/5f7pHi.jpg",
-  },
-  {
-    id: 5,
-    title: "The Virgin Nature 5",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit 5.",
-    image: "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg",
-  },
-];
+const TourSimpleCardSlider = dynamic(() => import("@/components/sliders/tour/tourSimpleCardSlider"), { ssr: false });
 
 export async function getStaticPaths() {
   let destinationsId: number[] = [];
@@ -93,27 +46,29 @@ export async function getStaticProps({ params }: { params: { destinationId: stri
   const destinationId = parseInt(params.destinationId, 10);
 
   try {
-    const res = await api.get(`destination?id=${destinationId}`)
+    const destinationRes = await api.get(`destination?id=${destinationId}`);
+    const toursRes = await api.get('tour');
 
-    if (res.status != 200 || !res.data) {
-      if (Array.isArray(res.data) && res.data.length === 0) {
-        return { notFound: true };
-      }
-    }
-
-    const result = DestinationDetailSchema.array().safeParse(res.data);
-
-    if (!result.success) {
+    if (destinationRes.status != 200 
+      || (Array.isArray(destinationRes.data) && destinationRes.data.length == 0)
+    ) {
       return { notFound: true };
     }
+
+    const destinationResult = DestinationDetailSchema.array().safeParse(destinationRes.data);
     
-    if(Array.isArray(result.data) && result.data.length == 0) {
+    const toursData = toursRes.status === 200 && toursRes.data ? toursRes.data : null;
+    const toursResult = toursData ? TourSchema.array().safeParse(toursData) : { success: true, data: [] };
+    const validTours = toursResult.success ? toursResult.data : [];
+
+    if (!destinationResult.success) {
       return { notFound: true };
     }
 
     return {
       props: {
-        destinationData: result.data[0],  
+        destination: destinationResult.data[0], 
+        tours: validTours
       },
       revalidate: 10,
     };
@@ -123,16 +78,22 @@ export async function getStaticProps({ params }: { params: { destinationId: stri
 }
 
 type Destination = {
-  destinationData?: DestinationDetailType;
+  destination: DestinationDetailType;
+  tours?: ToursType[]
 };
 
 
-export default function Destination({ destinationData }: Destination) {
-  if (!destinationData) {
-    return <div>Loading...</div>; // Покажем сообщение, если данные еще не загружены
+export default function Destination({ destination, tours }: Destination) {
+  if (!destination) {
+    return <div>Loading...</div>;
   }
 
-  const { title, description, images } = destinationData;
+  const { title, description, images, coordinates } = destination;
+  const isSmallScreen = useMediaQuery('(max-width:768px)');
+
+  React.useEffect(()=>{
+
+  }, []);
 
   return (
     <Layout>
@@ -146,7 +107,6 @@ export default function Destination({ destinationData }: Destination) {
 
       <section className={styles.wrapper}>
         <div className={cls('container', styles.content)}>
-          {/* Информация */}
           <div className={cls(styles.block, styles.info)}>
             <Headline color="black" type="section">
               {title}
@@ -154,13 +114,12 @@ export default function Destination({ destinationData }: Destination) {
             <Paragraph>{description}</Paragraph>
           </div>
 
-          {/* Фотографии */}
           <div className={cls(styles.block)}>
             <Headline color="black" type="section">
               Photo
             </Headline>
             <Box className={styles.photos}>
-              <ImageList variant="masonry" cols={3} gap={3}>
+              <ImageList variant="masonry" cols={isSmallScreen? 1: 3} gap={3}>
                 {images?.map((item: {url: string, alt: string}) => (
                   <ImageListItem key={item.url}>
                     <img
@@ -181,14 +140,20 @@ export default function Destination({ destinationData }: Destination) {
               Map
             </Headline>
             <div className={styles.map_block}>
-              <Map />
+              <Map coordinates={coordinates}/>
             </div>
           </div>
 
-          {/* Слайдер */}
-          <BlockWithSkirt image="">
-            <TourInfoCardSlider list={slides} isCenteredMode title="Find our popular tours" />
-          </BlockWithSkirt>
+
+          {
+            tours && tours.length != 0
+            ? <TourSimpleCardSlider 
+              list={tours}
+              isCenteredMode 
+              title="Find our popular tours"
+            />
+            : null
+          }
         </div>
       </section>
     </Layout>

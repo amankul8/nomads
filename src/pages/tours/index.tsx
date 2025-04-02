@@ -7,14 +7,17 @@ import cn from "classnames";
 import Slider from '@mui/material/Slider';
 import Checkbox from '@mui/material/Checkbox';
 import React from "react";
-import { Autocomplete, CircularProgress, Container, FormControlLabel, FormGroup, MenuItem, Select, SelectChangeEvent, Skeleton, Stack, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
-import Grid from '@mui/material/Grid2';
+import { Autocomplete, CircularProgress, FormControlLabel, FormGroup, MenuItem, Select, SelectChangeEvent, TextField, ToggleButton, ToggleButtonGroup } from "@mui/material";
 import ViewListIcon from '@mui/icons-material/ViewList';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { Headline } from "@/ui";
-import { z } from 'zod';
-import api from "@/config/axiosInstance";
-
+import { fetchTours, ToursType } from "@/store/models/tours.ts";
+import { useAppDispath, useAppSelector } from "@/store/store";
+import { selectFilteredTours, selectTours, selectToursLoadingStatus } from "@/store/slices/tours.slice";
+import { fetchTourFilterActivitiesAdd, fetchTourFilterActivitiesRemove, fetchTourFilterCountriesAdd, fetchTourFilterCountriesRemove, fetchTourFilterDestinations, fetchTourFilterDuration, fetchTourFilterLevels, fetchTourFilterPrice, selectTourFilterActivities, selectTourFilterCountries, selectTourFilterData, selectTourFilterDestinations, selectTourFilterDurations, selectTourFilterLevels, selectTourFilterPrices, selectTourFilterTypes } from "@/store/slices/tour_filter.slice";
+import { selectTourTypes } from "@/store/slices/tourTypes.slice";
+import { selectActivities } from "@/store/slices/activities.slice";
+import { selectDestinations } from "@/store/slices/destinations.slice";
 
 const top100Films = [
   { title: 'The Shawshank Redemption', year: 1994 },
@@ -26,21 +29,11 @@ const top100Films = [
   { title: 'Pulp Fiction', year: 1994 }, 
 ];
 
-export const TourSchema = z.object({
-  id: z.number(),
-  name: z.string(),
-  description: z.string(),
-  price: z.number(),
-  promotion: z.number(),
-  duration: z.string(),
-  difficulty: z.string(),
-  countries: z.array(z.string()),
-  tour_types: z.array(z.string()),
-  reviews: z.object({
-    count: z.number(),
-    rating: z.union([z.number(), z.null()])
-  })
-});
+const countries = [
+  {id: 1, name: 'Kyrgyzstan'},
+  {id: 2, name: 'Uzbekistan'},
+  {id: 3, name: 'Kyrgyzstan'},
+];
 
 type sortIdType = 'popular' | 'name' | 'low_to_high' | 'high_to_low';
 
@@ -53,48 +46,24 @@ const sortList: sortType = {
   'high_to_low': 'Price High to Low',
 };
 
-export type Tour = z.infer<typeof TourSchema>;
+export default function Tours() {
 
-const fetchTours = async (props?: Record<string, string>): Promise<Tour[]> => {
-  try {
-    const response = await api.get('/tour');
+  const dispatch = useAppDispath();
+  const loadingStatus = useAppSelector(selectToursLoadingStatus);
 
-    if (response.status === 200) {
+  const types = useAppSelector(selectTourTypes);
+  const activities = useAppSelector(selectActivities);
+  const destinations = useAppSelector(selectDestinations);
 
-      const result = TourSchema.array().safeParse(response.data);
+  const selectedDuration = useAppSelector(selectTourFilterDurations);
+  const selectedPrice = useAppSelector(selectTourFilterPrices);
+  const selectedLevels = useAppSelector(selectTourFilterLevels);
 
-      if (!result.success) {
-        throw new Error('Validation error!');
-      }
+  const filterData = useAppSelector(selectTourFilterData);
 
-      return result.data; 
-    } else {
-      throw new Error('Fetch data error!');
-    }
-  } catch (err: unknown) {
-    if (err instanceof Error) {
-      console.error('Ошибка при получении данных:', err.message);
-    } else {
-      console.error('Произошла неизвестная ошибка');
-    }
-    return [];
-  }
-}
-
-export default function Main() {
-
-  const [duration, setDuration] = React.useState<number[]>([20, 37]);
-  const [price, setPrice] = React.useState<number[]>([0, 15000]);
-  const [countries, setCountries] = React.useState<number[]>([]);
-  const [types, setTypes] = React.useState<number[]>([]);
-  const [destinations, setDestinations] = React.useState<typeof top100Films>([]);
-  const [activities, setActivities] = React.useState<number[]>([]);
-  const [levels, setLevels] = React.useState<number[]>([0, 10]);
+  const tours = useAppSelector(selectFilteredTours(filterData));
 
   const [view, setView] = React.useState<'list'|'module'>('module');
-
-  const [tours, setTours] = React.useState<Tour[]>([]);
-  const [status, setStatus] = React.useState<'idle'|'sussecced'|'loading'>('idle');
   const [sortId, setSortId] = React.useState<sortIdType>('popular');
 
   const handleSortChange = (event: SelectChangeEvent) => {
@@ -105,42 +74,7 @@ export default function Main() {
     setView(nextView);
   };
 
-  const handleDurationChange = (event: Event, newDuration: number | number[]) => {
-    setDuration(newDuration as number[]);
-  };
-
-  const handlePriceChange = (event: Event, newPrice: number | number[]) => {
-    setPrice(newPrice as number[]);
-  };
-
-  const handleCountriesChange = (event: Event, newPrice: number | number[]) => {
-    setPrice(newPrice as number[]);
-  };
-
-  const handleTypesChange = (event: Event, newPrice: number | number[]) => {
-    setPrice(newPrice as number[]);
-  };
-
-  const handleDestinationsChange = (newDescriptions: typeof top100Films) => {
-    setDestinations(newDescriptions);
-  };
-
-  const handleActivitiesChange = (event: Event, newPrice: number | number[]) => {
-    setPrice(newPrice as number[]);
-  };
-
-  const handleLevelsChange = (event: Event, newLevels: number | number[]) => {
-    setLevels(newLevels as number[]);
-  };
-
-  const fetchData = async () => {
-    setStatus('loading');
-    const data = await fetchTours();
-    setTours(data);
-    setStatus('sussecced');
-  }
-
-  const toSort = (tours: Tour[], id: sortIdType) => {
+  const toSort = (tours: ToursType[], id: sortIdType) => {
     switch (id) {
       case 'popular':
         return [...tours].sort((a, b) => a.name.localeCompare(b.name));
@@ -159,13 +93,10 @@ export default function Main() {
     }
   }
 
-  React.useEffect(() => {
-     
-    if(status === 'idle') {
-      fetchData();
-    }
+  React.useEffect(()=>{
+    dispatch(fetchTours());
+  }, [])
 
-  }, []);
 
   return (
     
@@ -233,20 +164,20 @@ export default function Main() {
                   <div className={ cn('text',styles.range_values)}>
                     <div className={styles.value}> 
                       <span className={styles.label}> From </span>
-                      {duration[0]}
+                      {selectedDuration[0]}
                     </div>
                     <div className={styles.value}> 
                       <span className={styles.label}> To (days) </span>
-                      {duration[1]}  
+                      {selectedDuration[1]}  
                     </div>
                   </div>
 
                   <Slider
-                    value={duration}
-                    onChange={handleDurationChange}
+                    value={selectedDuration}
+                    onChange={(event, values) => dispatch(fetchTourFilterDuration(values as number[]))}
                     valueLabelDisplay="off"
                     min={1}
-                    max={50}
+                    max={180}
                   />
                 </div>
               </DropdownBlock>
@@ -261,17 +192,17 @@ export default function Main() {
                 <div className={ cn('text',styles.range_values)}>
                   <div className={styles.value}> 
                     <span className={styles.label}> From </span>
-                    USD {price[0]}
+                    USD {selectedPrice[0]}
                   </div>
                   <div className={styles.value}> 
                     <span className={styles.label}> To </span>
-                    USD {price[1]}  
+                    USD {selectedPrice[1]}  
                   </div>
                 </div>
 
                 <Slider
-                  value={price}
-                  onChange={handlePriceChange}
+                  value={selectedPrice}
+                  onChange={(event, values) => dispatch(fetchTourFilterPrice(values as number[]))}
                   valueLabelDisplay="off"
                   min={0}
                   max={15000}
@@ -285,9 +216,22 @@ export default function Main() {
                 icon='duration'
               >
                 <FormGroup>
-                  <FormControlLabel control={<Checkbox defaultChecked />} label="Kyrgyzstan" />
-                  <FormControlLabel control={<Checkbox/>} label="Uzbekistan" />
-                  <FormControlLabel control={<Checkbox/>} label="Kazakhstan" />
+                  {
+                    countries.map(item => 
+                      <FormControlLabel 
+                        key={item.id} 
+                        control={
+                          <Checkbox 
+                            onChange={(e) => {
+                              if(e.currentTarget.checked) dispatch(fetchTourFilterCountriesAdd(item.id))
+                              else dispatch(fetchTourFilterCountriesRemove(item.id))
+                            }}
+                          />
+                        } 
+                        label={item.name} 
+                      />
+                    )
+                  }
                 </FormGroup>
               </DropdownBlock>
 
@@ -296,9 +240,13 @@ export default function Main() {
                 icon='duration'
               >
                 <FormGroup>
-                  <FormControlLabel control={<Checkbox defaultChecked />} label="Type 1" />
-                  <FormControlLabel control={<Checkbox/>} label="Type 2" />
-                  <FormControlLabel control={<Checkbox/>} label="Type 3" />
+                  {
+                    types.map(item => 
+                      <FormControlLabel key={item!.id} control={
+                        <Checkbox/>
+                      } label={item?.type} />
+                    )
+                  }
                 </FormGroup>
               </DropdownBlock>
 
@@ -310,10 +258,11 @@ export default function Main() {
                   multiple
                   id="size-small-outlined-multi"
                   size="small"
-                  options={top100Films}
-                  getOptionLabel={(option) => option.title}
-                  value={destinations}
-                  onChange={(event, neValue) => handleDestinationsChange(neValue)}
+                  options={destinations}
+                  getOptionLabel={(option) => option?.title || ""}
+                  onChange={(event, newValue) => {
+                    dispatch(fetchTourFilterDestinations(newValue.map(item => item!.id)));
+                  }}
                   renderInput={(params) => (
                     <TextField {...params} placeholder="Enter" />
                   )}
@@ -325,9 +274,20 @@ export default function Main() {
                 icon='duration'
               >
                 <FormGroup>
-                  <FormControlLabel control={<Checkbox defaultChecked />} label="Activity" />
-                  <FormControlLabel control={<Checkbox/>} label="Activity" />
-                  <FormControlLabel control={<Checkbox/>} label="Activity" />
+                  {
+                    activities.map(item => 
+                      <FormControlLabel key={item?.id} control={
+                        <Checkbox
+                          onChange={(e) => {
+                            if(e.currentTarget.checked) dispatch(fetchTourFilterActivitiesAdd(item!.id))
+                            else dispatch(fetchTourFilterActivitiesRemove(item!.id))
+                          }}
+                        />
+                      } 
+                      label={item?.name} />
+                    )  
+                  }
+                  
                 </FormGroup>
               </DropdownBlock>
               <DropdownBlock
@@ -339,17 +299,17 @@ export default function Main() {
                   <div className={ cn('text',styles.range_values)}>
                     <div className={styles.value}> 
                       <span className={styles.label}> Easy </span>
-                      {levels[0]}
+                      {selectedLevels[0]}
                     </div>
                     <div className={styles.value}> 
                       <span className={styles.label}> Dificult </span>
-                      {levels[1]}  
+                      {selectedLevels[1]}  
                     </div>
                   </div>
 
                   <Slider
-                    value={levels}
-                    onChange={handleLevelsChange}
+                    value={selectedLevels}
+                    onChange={(event, values) => dispatch(fetchTourFilterLevels(values as number[]))}
                     valueLabelDisplay="off"
                     min={0}
                     max={10}
@@ -363,10 +323,8 @@ export default function Main() {
             [styles.list]: view === 'list'
           })}>
             {  
-              status === 'loading'
-              ? <CircularProgress sx={{margin: 'auto'}}/>
-              : status === 'sussecced'
-              ? toSort(tours, sortId).map((item, index) => (
+              loadingStatus ? <CircularProgress sx={{margin: 'auto'}}/>
+              : toSort(tours, sortId).map((item, index) => (
                   <TourInfoCard
                     tourId ={item.id}
                     name={item.name}
@@ -377,13 +335,12 @@ export default function Main() {
                     promotion={item.promotion}
                     countries={item.countries}
                     complexity={parseInt(item.difficulty)}
-                    rating={item.reviews.rating}
+                    rating={item.reviews.rating? parseInt(item.reviews.rating): 0}
                     reviewsCount={item.reviews.count}
                     isList={view === 'list'}
                     key={item?.id}
                   />
                 ))
-              : null
             }
           </div>
 

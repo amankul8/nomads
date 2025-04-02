@@ -5,7 +5,6 @@ import {z} from 'zod';
 const ActivityScema = z.object({
     id: z.number(),
     name: z.string(),
-    icon: z.string(),
 })
 
 export type ActivityType = z.infer<typeof ActivityScema>;
@@ -21,6 +20,7 @@ export const fetchActivities = (): AppThunk => async (dispatch, getState, { api 
 
     try {
         const res = await api.get('activity');
+
         const data = res.data;
 
         const result = ActivityScema.array().safeParse(data);

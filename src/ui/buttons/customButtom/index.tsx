@@ -11,7 +11,7 @@ interface ICustomButton extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>
     color: BtnColorType,
     active?: boolean,
     children: ReactNode,
-    handler: () => void,
+    handler?: () => void,
     classname?: string
 }
 

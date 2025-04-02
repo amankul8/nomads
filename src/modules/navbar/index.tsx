@@ -58,9 +58,10 @@ const menuItems: MenuItems = {
 
 type Navbar = {
     mob_nav_open?: boolean
+    handleMobileMenu: ()=>void
 };
 
-export const Navbar: React.FC<Navbar> = ({mob_nav_open}) => {
+export const Navbar: React.FC<Navbar> = ({mob_nav_open, handleMobileMenu}) => {
     const pathname = usePathname();
     const dispatch = useAppDispath();
     
@@ -72,7 +73,7 @@ export const Navbar: React.FC<Navbar> = ({mob_nav_open}) => {
         if (foundKey) setCurrentPageId(foundKey);
 
         dispatch(fetchDestinations());
-        // dispatch(fetchTourTypes());
+        dispatch(fetchTourTypes());
         dispatch(fetchActivities());
         dispatch(fetchRegions());
 
@@ -133,10 +134,11 @@ export const Navbar: React.FC<Navbar> = ({mob_nav_open}) => {
                         <MobListItem
                             id={key}
                             name={menuItems[key].name}
+                            baseLink={menuItems[key].link}
+                            handleManuClose={handleMobileMenu}
                             key={key}
                         />
                     ))}
-                    
                 </ul>
                 
             </nav>

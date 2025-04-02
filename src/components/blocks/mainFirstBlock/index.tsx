@@ -5,15 +5,16 @@ import {
     Headline, 
 } from "@/ui";
 import React, {useRef, useState } from "react";
-import styles from "./MainBlock.module.css";
-import { ISlides } from "@/pages";
+import styles from "./mainBlock.module.css";
 import { motion } from "motion/react"
 import cn from "classnames";
 import Slider from "react-slick";
 import { TourSimpleCard } from "@/components/cards";
+import { ToursType } from "@/store/models/tours.ts";
+import Link from "next/link";
 
 interface IDestinationBlock{
-    slides: ISlides[],
+    slides: ToursType[],
 }
 
 export const MainFirstBlock=({slides}:IDestinationBlock) => {
@@ -72,7 +73,7 @@ export const MainFirstBlock=({slides}:IDestinationBlock) => {
                 animate={{ opacity: 1}}
                 exit={{ opacity: 0}}
                 transition={{ duration: 1 }}
-                src={slides[currentIndex].image}
+                src={'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'/*slides[currentIndex].image*/}
                 alt="Image"
                 className={styles.bg}
             />
@@ -109,21 +110,22 @@ export const MainFirstBlock=({slides}:IDestinationBlock) => {
                             color='white'
                             type='main'
                         >
-                            {slides[currentIndex].title}
+                            {slides[currentIndex]?.name}
                         </Headline>
                         <Paragraph
                             classname={styles.text}
                         >
-                            {slides[currentIndex].description}
+                            {slides[currentIndex]?.description}
                         </Paragraph>
-                        <CustomButton
-                            color="white"
-                            active={true}
-                            handler={()=>{}}
-                            classname={styles.discover_btn}
-                        >
-                            Discover
-                        </CustomButton>
+                        <Link href={`/tours/${slides[currentIndex]?.id}`}>
+                            <CustomButton
+                                color="white"
+                                active={true}
+                                classname={styles.discover_btn}
+                            >
+                                Discover
+                            </CustomButton>
+                        </Link>
                     </motion.div>
                 </div>
                 <div className={styles.right_block}>
@@ -140,9 +142,10 @@ export const MainFirstBlock=({slides}:IDestinationBlock) => {
                                             key={item.id}
                                         >
                                             <TourSimpleCard
-                                                name = {item.title}
+                                                id={item.id}
+                                                name = {item.name}
                                                 description = {item.description}
-                                                image = {item.image}
+                                                image = {'https://cdn.wallpapersafari.com/43/71/H9wItm.jpg'}
                                                 complexity = {3}
                                                 link = {''}
                                             />

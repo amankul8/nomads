@@ -30,7 +30,7 @@ export default function Destinations() {
                         Central Asia, Kyrgyzstan
                     </Headline>
                     <Paragraph>
-                        Средняя Азия — это земля, где древние традиции и магия природы встречаются в едином великолепии. Огромные песчаные пустыни, величественные горы и оазисы, скрытые в сердце степей, создают уникальный ландшафт, который завораживает. Исторические города, такие как Самарканд и Бухара, хранят тайны тысячелетий, а пустынные пейзажи и лазурные озера дарят умиротворение. Средняя Азия — это путешествие по самым красивым и загадочным уголкам мира, наполненное не только историей, но и гармонией природы.
+                        Central Asia is a land where ancient traditions and the magic of nature come together in a magnificent harmony. Vast sandy deserts, majestic mountains, and oases hidden in the heart of the steppes create a unique landscape that captivates the soul. Historic cities such as Samarkand and Bukhara hold the secrets of millennia, while desert landscapes and azure lakes provide tranquility. Central Asia is a journey through the most beautiful and mysterious corners of the world, filled not only with history but also with the harmony of nature.    
                     </Paragraph>
                 </div>
             </FirstBlockLayout>

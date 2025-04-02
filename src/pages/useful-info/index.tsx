@@ -11,6 +11,8 @@ import styles from "./useful.module.scss";
 import { fetchUsefulData, UsefulDataItemType } from "./model";
 import { SidebarItem } from "./sidebarItem";
 import Image from "next/image";
+import { useAppSelector } from "@/store/store";
+import { selectStaticData } from "@/store/slices/static_data.slice";
 
 export async function getStaticProps() {
   const data = await fetchUsefulData();
@@ -27,6 +29,8 @@ type UsefulInfoType = {
 };
 
 export default function UsefulInfo({ data }: UsefulInfoType) {
+
+  const staticData: Record<string, string> = useAppSelector(selectStaticData);
 
   const sidebarRef = useRef<HTMLElement | null>(null);
   const [isSidebarFixed, setIsSidebarFixed] = React.useState<boolean>(false);
@@ -80,6 +84,9 @@ export default function UsefulInfo({ data }: UsefulInfoType) {
             <Headline color="white" type="main">
               Useful Info
             </Headline>
+            <Paragraph>
+              {staticData['who_we_are']}
+            </Paragraph>
           </div>
         </div>
       </FirstBlockLayout>

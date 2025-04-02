@@ -7,22 +7,6 @@ import { TourInfoCard } from "@/components/cards";
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState, useMemo } from "react";
 import { CustomIconButton, Headline } from "@/ui";
 
-interface ITourInfoItem {
-  id?: string | number;
-  name?: string;
-  description?: string;
-  link?: string;
-  image?: string;
-  days?: number;
-  price?: number;
-  promotion?: number;
-  countries?: string[];
-  complexity?: number;
-  rating?: number;
-  reviewsCount?: number;
-  isList?: boolean;
-}
-
 interface ITourInfoCardSlider extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   isCenteredMode?: boolean;
   list: any;
@@ -90,9 +74,9 @@ function TourInfoCardSlider({ isCenteredMode, list, title }: ITourInfoCardSlider
           {list.map((item: any, index: number) => (
             <div className={styles.slider} key={item.id || index}>
               <TourInfoCard
+                tourId={item.id}
                 name={item.name || "Title"}
                 description={item.description || "Ipsum text"}
-                link={item.link || ""}
                 image={item.image || "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
                 days={item.days || 5}
                 price={item.price || 1000}

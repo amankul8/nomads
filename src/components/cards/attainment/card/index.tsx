@@ -1,4 +1,3 @@
-import { SubHeaderContent } from "@/components/content";
 import { Paragraph, Headline } from "@/ui";
 import React, { ReactElement } from "react";
 import styles from './AttainmentCard.module.css';
@@ -8,12 +7,12 @@ import Icon3 from "@/components/icons/attainment/icon_3.svg";
 import Icon4 from "@/components/icons/attainment/icon_4.svg";
 
 interface IAttainmentCard{
-    id: number
+    id: number,
     title: string,
     description: string,
 }
 
-export const AttainmentCard=({id, description, title}:IAttainmentCard):JSX.Element=>{
+export const AttainmentCard=({id, description, title}:IAttainmentCard) => {
 
     let Icon = Icon1;
 
