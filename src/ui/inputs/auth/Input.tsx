@@ -7,7 +7,7 @@ interface IInputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputEle
     isDisabled?: boolean
 }
 
-export const Input = forwardRef<HTMLInputElement, IInputProps>(({ isDisabled,...props}, ref):JSX.Element=>{
+export const Input = forwardRef<HTMLInputElement, IInputProps>(({ isDisabled,...props}, ref) => {
 
     return(
         <input ref={ref}  className={cn(styles.input, {

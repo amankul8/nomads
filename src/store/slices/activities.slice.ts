@@ -3,7 +3,7 @@ import { AppState } from "../store";
 import { ActivityType } from "../models/activities";
 
 interface ActivitiesState {
-    entities: Record<number, ActivityType | undefined>;
+    entities: Record<number, ActivityType>;
     ids: number[];
     status: 'idle'|'loading'|'successed'|'failed',
     error: string

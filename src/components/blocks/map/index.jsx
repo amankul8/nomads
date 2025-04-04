@@ -5,7 +5,7 @@ import * as ReactLeaflet from 'react-leaflet';
 
 const { MapContainer, TileLayer, Marker, Popup } = ReactLeaflet;
 
-const Map = ({ coordinates }) => {
+const Map = ({ coordinates = [51.505, -0.09]}) => {
 
     const customIcon = new Leaflet.Icon({
         iconUrl: "https://cdn3.iconfinder.com/data/icons/map-navigation-8/512/location-pin-coordinate-point-512.png",

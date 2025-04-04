@@ -75,6 +75,7 @@ export const selectFilteredTours = (filterData: TourFilterState) => createSelect
                 && (item.price < filterData.price_range[1])
                 && (filterData.level_range[0] < parseInt(item.difficulty)) 
                 && (parseInt(item.difficulty) < filterData.level_range[1])
+                && (filterData.types.length == 0 || filterData.types.some(types => item.tour_types.includes(types)))
             ) 
                 return item;
         })

@@ -6,7 +6,7 @@ interface ITourAdditionalBlock{
     text: string
 }
 
-export const TourAdditionalBlock = ({title, text}:ITourAdditionalBlock):JSX.Element=>{
+export const TourAdditionalBlock = ({title, text}:ITourAdditionalBlock) => {
 
     return(
         <div className={styles.wrapper}>

@@ -8,8 +8,8 @@ import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 
 import styles from "./useful.module.scss";
-import { fetchUsefulData, UsefulDataItemType } from "./model";
-import { SidebarItem } from "./sidebarItem";
+import { fetchUsefulData, UsefulDataItemType } from "../../store/models/useful_info";
+import { SidebarItem } from "../../components/useful_sidebar_item";
 import Image from "next/image";
 import { useAppSelector } from "@/store/store";
 import { selectStaticData } from "@/store/slices/static_data.slice";
@@ -72,7 +72,7 @@ export default function UsefulInfo({ data }: UsefulInfoType) {
       document.removeEventListener('scroll', handleDocumentScroll);
       window.removeEventListener('hashchange', updateIdFromHash);
     };
-  }, [sidebarTop, isSidebarFixed]);
+  }, [sidebarTop, isSidebarFixed, handleDocumentScroll]);
 
   return (
     <Layout>
@@ -109,8 +109,8 @@ export default function UsefulInfo({ data }: UsefulInfoType) {
               }
             >
               {data.length > 0
-                ? data.map((item) => (
-                    <SidebarItem item = {item} id={id}/>
+                ? data.map((item, index) => (
+                    <SidebarItem item = {item} id={id} key={index}/>
                   ))
                 : null}
             </List>
@@ -122,7 +122,7 @@ export default function UsefulInfo({ data }: UsefulInfoType) {
                   <React.Fragment key={item.id}>
                     <div id={item.id} className={styles.block}>
                       <Headline color="black" type="section">
-                        {item.id + '. ' + item.title}
+                        {item.title}
                       </Headline>
                       <Paragraph color="black">{item.text}</Paragraph>
                       {/* <figure>
@@ -140,7 +140,7 @@ export default function UsefulInfo({ data }: UsefulInfoType) {
                           key={child_item.id}
                         >
                           <Headline color="black" type="subsection">
-                            {child_item.id + '. ' + child_item.title}
+                            {child_item.title}
                           </Headline>
                           <Paragraph color="black">{child_item.text}</Paragraph>
                         </div>

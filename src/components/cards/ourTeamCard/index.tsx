@@ -5,9 +5,7 @@ import styles from "./ourTeamCard.module.scss";
 import cls from "classnames";
 import Image from "next/image";
 import { Headline, Paragraph } from "@/ui";
-import { style } from "@mui/system";
 import {ITeamMember} from "@/pages/about-us/our-team/member";
-import Link from "next/link";
 
 interface IOurTeamCard {
   members: ITeamMember[],
@@ -34,7 +32,7 @@ export const OurTeamCard: React.FC<IOurTeamCard> = ({ members, hanldeMember, rev
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [handleResize]);
 
   const joinedList = (points: number[], members: ITeamMember[]) => {
     let index = 0
@@ -69,9 +67,9 @@ export const OurTeamCard: React.FC<IOurTeamCard> = ({ members, hanldeMember, rev
             Encadrement
           </Headline>
           <Paragraph>
-            Passionnés par l'Arctique dont ils sont spécialistes, nos guides 66°Nord sont tous des professionnels de
-            l'encadrement, afin de vous permettre de profiter de votre séjour en toute sécurité dans cet univers
-            sauvage. Amoureux de la nature et respectueux de l'environnement, ils sauront vous transmettre leurs
+            Passionnés par l&apos;Arctique dont ils sont spécialistes, nos guides 66°Nord sont tous des professionnels de
+            l&apos;encadrement, afin de vous permettre de profiter de votre séjour en toute sécurité dans cet univers
+            sauvage. Amoureux de la nature et respectueux de l&apos;environnement, ils sauront vous transmettre leurs
             connaissances du pays : sa faune, sa flore et son histoire. Enfilez vos chaussures de marche et laissez-vous
             guider !
           </Paragraph>

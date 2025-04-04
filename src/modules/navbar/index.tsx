@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 
 import styles from "./navbar.module.scss";
 import cn from "classnames";
-import { Subbar } from "./subbar";
+import Subbar from "./subbar";
 import { MobListItem } from "./mobListItem";
 import { fetchDestinations } from "@/store/models/destinations";
 import { useAppDispath } from "@/store/store";
@@ -77,7 +77,7 @@ export const Navbar: React.FC<Navbar> = ({mob_nav_open, handleMobileMenu}) => {
         dispatch(fetchActivities());
         dispatch(fetchRegions());
 
-    }, [pathname]);
+    }, [pathname, dispatch]);
 
     const handleMouseEnter = useCallback(
         (event:  React.MouseEvent<HTMLLIElement>, id: string) => {
@@ -92,7 +92,7 @@ export const Navbar: React.FC<Navbar> = ({mob_nav_open, handleMobileMenu}) => {
         () => {
             setHoveredPageId('');
         },
-        [hoveredPageId]
+        []
     );
 
     const getListItemClass = useCallback(

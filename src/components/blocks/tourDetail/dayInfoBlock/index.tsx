@@ -8,7 +8,7 @@ import Man from "public/icons/tour/Man.svg";
 import Level from "public/icons/tour/Level.svg"
 
 
-export const DayInfoBlock = ():JSX.Element=>{
+export const DayInfoBlock = () => {
     return(
         <div className={styles.block_wrapper}>
             <div className={styles.right}>

@@ -13,21 +13,11 @@ import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { Headline } from "@/ui";
 import { fetchTours, ToursType } from "@/store/models/tours.ts";
 import { useAppDispath, useAppSelector } from "@/store/store";
-import { selectFilteredTours, selectTours, selectToursLoadingStatus } from "@/store/slices/tours.slice";
-import { fetchTourFilterActivitiesAdd, fetchTourFilterActivitiesRemove, fetchTourFilterCountriesAdd, fetchTourFilterCountriesRemove, fetchTourFilterDestinations, fetchTourFilterDuration, fetchTourFilterLevels, fetchTourFilterPrice, selectTourFilterActivities, selectTourFilterCountries, selectTourFilterData, selectTourFilterDestinations, selectTourFilterDurations, selectTourFilterLevels, selectTourFilterPrices, selectTourFilterTypes } from "@/store/slices/tour_filter.slice";
+import { selectFilteredTours, selectToursLoadingStatus } from "@/store/slices/tours.slice";
+import { fetchTourFilterActivitiesAdd, fetchTourFilterActivitiesRemove, fetchTourFilterCountriesAdd, fetchTourFilterCountriesRemove, fetchTourFilterDestinations, fetchTourFilterDuration, fetchTourFilterLevels, fetchTourFilterPrice, fetchTourFilterTypesAdd, fetchTourFilterTypesRemove, selectTourFilterActivities, selectTourFilterCountries, selectTourFilterData, selectTourFilterDestinations, selectTourFilterDurations, selectTourFilterLevels, selectTourFilterPrices, selectTourFilterTypes } from "@/store/slices/tour_filter.slice";
 import { selectTourTypes } from "@/store/slices/tourTypes.slice";
 import { selectActivities } from "@/store/slices/activities.slice";
 import { selectDestinations } from "@/store/slices/destinations.slice";
-
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994 },
-  { title: 'The Godfather', year: 1972 },
-  { title: 'The Godfather: Part II', year: 1974 },
-  { title: 'The Dark Knight', year: 2008 },
-  { title: '12 Angry Men', year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: 'Pulp Fiction', year: 1994 }, 
-];
 
 const countries = [
   {id: 1, name: 'Kyrgyzstan'},
@@ -95,7 +85,7 @@ export default function Tours() {
 
   React.useEffect(()=>{
     dispatch(fetchTours());
-  }, [])
+  }, [dispatch])
 
 
   return (
@@ -242,8 +232,13 @@ export default function Tours() {
                 <FormGroup>
                   {
                     types.map(item => 
-                      <FormControlLabel key={item!.id} control={
-                        <Checkbox/>
+                      <FormControlLabel key={item.id} control={
+                        <Checkbox
+                          onChange={(e) => {
+                            if(e.currentTarget.checked) dispatch(fetchTourFilterTypesAdd(item.type))
+                            else dispatch(fetchTourFilterTypesRemove(item.type))
+                          }}
+                        />
                       } label={item?.type} />
                     )
                   }
@@ -261,7 +256,7 @@ export default function Tours() {
                   options={destinations}
                   getOptionLabel={(option) => option?.title || ""}
                   onChange={(event, newValue) => {
-                    dispatch(fetchTourFilterDestinations(newValue.map(item => item!.id)));
+                    dispatch(fetchTourFilterDestinations(newValue.map(item => item.title)));
                   }}
                   renderInput={(params) => (
                     <TextField {...params} placeholder="Enter" />
@@ -279,8 +274,8 @@ export default function Tours() {
                       <FormControlLabel key={item?.id} control={
                         <Checkbox
                           onChange={(e) => {
-                            if(e.currentTarget.checked) dispatch(fetchTourFilterActivitiesAdd(item!.id))
-                            else dispatch(fetchTourFilterActivitiesRemove(item!.id))
+                            if(e.currentTarget.checked) dispatch(fetchTourFilterActivitiesAdd(item.name))
+                            else dispatch(fetchTourFilterActivitiesRemove(item.name))
                           }}
                         />
                       } 

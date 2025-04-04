@@ -9,7 +9,7 @@ interface IReviewCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
 
 }
 
-export const ReviewCard = ({}:IReviewCardProps):JSX.Element=>{
+export const ReviewCard = ({}:IReviewCardProps) => {
 
     return(
         <div 

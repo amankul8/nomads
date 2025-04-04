@@ -3,7 +3,7 @@ import { AppState } from "../store";
 import { TourTypeType } from "../models/tour_types";
 
 interface TourTypesState {
-    entities: Record<number, TourTypeType | undefined>;
+    entities: Record<number, TourTypeType>;
     ids: number[];
     status: 'idle'|'loading'|'successed'|'failed',
     error: string

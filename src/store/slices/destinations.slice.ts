@@ -5,7 +5,7 @@ import { DestinationType } from "../models/destinations";
 type StatusType = 'idle' | 'loading' | 'successed' | 'failed';
 
 interface DestinationsState {
-    entities: Record<number, DestinationType | undefined>;
+    entities: Record<number, DestinationType>;
     ids: number[];
     status: StatusType,
     error: string

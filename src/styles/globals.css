@@ -52,6 +52,10 @@ a {
   width: 100%;
 }
 
+.slick-slider .slick-list {
+  overflow: visible;
+}
+
 @media screen and (max-width: 1440px){
   .container {
     padding: 0 40px;

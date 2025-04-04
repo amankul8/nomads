@@ -3,12 +3,12 @@
     overflow: hidden;
     border-top-left-radius: 1.5em;
     border-bottom-right-radius: 1.5em;
-    border: 5px solid var(--blue);
+    border: 2px solid var(--blue);
 }
 
 .figure{
     position: relative;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3;
 }
 
 

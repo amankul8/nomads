@@ -7,7 +7,7 @@ interface INumberAttainmentCard{
     quantity: string,
 }
 
-export const NumberAttainmentCard = ({name, quantity}:INumberAttainmentCard):JSX.Element=>{
+export const NumberAttainmentCard = ({name, quantity}:INumberAttainmentCard) => {
 
     return(
         <div className={styles.card_wrapper}>

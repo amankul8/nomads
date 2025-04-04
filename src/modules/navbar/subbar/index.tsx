@@ -58,7 +58,7 @@ const contentMap: Record<string, ContentType> = {
     },
 };
 
-export const Subbar: React.FC<SubbarProps> = memo(({ pageId, classname }) => {
+const Subbar: React.FC<SubbarProps> = memo(({ pageId, classname }) => {
     const content = useMemo(() => contentMap[pageId], [pageId]);
     const [bg, setBg] = useState<string>(content ? content.bg : '');
 
@@ -106,3 +106,7 @@ export const Subbar: React.FC<SubbarProps> = memo(({ pageId, classname }) => {
         </AnimatePresence>
     );
 });
+
+
+Subbar.displayName = 'Subbar';
+export default Subbar;

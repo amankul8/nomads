@@ -14,7 +14,7 @@ interface IReviewBlock{
 }
 
 
-export const TourReviewBlock = ({userName, avatar, country, tour, date, review, grade}:IReviewBlock):JSX.Element=>{
+export const TourReviewBlock = ({userName, avatar, country, tour, date, review, grade}:IReviewBlock) => {
     return(
         <div className={styles.wrapper}>
             <div className={styles.user_block}>

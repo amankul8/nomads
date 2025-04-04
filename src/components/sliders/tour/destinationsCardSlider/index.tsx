@@ -3,9 +3,10 @@
 import Slider from "react-slick";
 import styles from "../sliderStyles.module.scss";
 import cn from "classnames";
-import { TourInfoCard } from "@/components/cards";
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState, useMemo } from "react";
 import { CustomIconButton, Headline } from "@/ui";
+import { DestinationCard } from "@/components/cards";
+import { baseImageUrl } from "@/config";
 
 interface ITourInfoCardSlider extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   isCenteredMode?: boolean;
@@ -13,7 +14,7 @@ interface ITourInfoCardSlider extends DetailedHTMLProps<HTMLAttributes<HTMLDivEl
   title: string;
 }
 
-function TourInfoCardSlider({ isCenteredMode, list, title }: ITourInfoCardSlider) {
+function DestinationsCardSlider({ isCenteredMode, list, title }: ITourInfoCardSlider) {
   const sliderRef = useRef<Slider>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -73,19 +74,10 @@ function TourInfoCardSlider({ isCenteredMode, list, title }: ITourInfoCardSlider
         <Slider ref={sliderRef} {...settings}>
           {list.map((item: any, index: number) => (
             <div className={styles.slider_item} key={item.id || index}>
-              <TourInfoCard
-                tourId={item.id}
-                name={item.name || "Title"}
-                description={item.description || "Ipsum text"}
-                image={item.image || "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
-                days={item.days || 5}
-                price={item.price || 1000}
-                promotion={item.promotion || 30}
-                countries={item.countries || ["Kyrgyzstan", "Kazakhstan"]}
-                complexity={item.complexity || 3}
-                rating={item.rating || 3}
-                reviewsCount={item.reviewsCount || 73}
-                isList={item.isList || false}
+              <DestinationCard
+                id={item.id}
+                name={item.title || "Title"}
+                image={baseImageUrl + item!.main_image || "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
               />
             </div>
           ))}
@@ -106,4 +98,4 @@ function TourInfoCardSlider({ isCenteredMode, list, title }: ITourInfoCardSlider
   );
 }
 
-export default TourInfoCardSlider;
+export default DestinationsCardSlider;

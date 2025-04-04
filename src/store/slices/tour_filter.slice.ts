@@ -6,9 +6,9 @@ export interface TourFilterState {
     duration_range: Array<number>,
     price_range: Array<number>,
     countries: Array<number>,
-    types: Array<number>,
-    destinations: Array<number>,
-    activities: Array<number>,
+    types: Array<string>,
+    destinations: Array<string>,
+    activities: Array<string>,
     level_range: Array<number>,
 }
 
@@ -29,13 +29,13 @@ export const fetchTourFilterPrice = createAction<number[]>('tour/filter/fetch/pr
 export const fetchTourFilterCountriesAdd = createAction<number>('tour/filter/fetch/countries/add');
 export const fetchTourFilterCountriesRemove = createAction<number>('tour/filter/fetch/countries/remove');
 
-export const fetchTourFilterTypesAdd = createAction<number>('tour/filter/fetch/types/add');
-export const fetchTourFilterTypesRemove = createAction<number>('tour/filter/fetch/types/remove');
+export const fetchTourFilterTypesAdd = createAction<string>('tour/filter/fetch/types/add');
+export const fetchTourFilterTypesRemove = createAction<string>('tour/filter/fetch/types/remove');
 
-export const fetchTourFilterDestinations = createAction<number[]>('tour/filter/fetch/destinations');
+export const fetchTourFilterDestinations = createAction<string[]>('tour/filter/fetch/destinations');
 
-export const fetchTourFilterActivitiesAdd = createAction<number>('tour/filter/fetch/activities/add');
-export const fetchTourFilterActivitiesRemove = createAction<number>('tour/filter/fetch/activities/remove');
+export const fetchTourFilterActivitiesAdd = createAction<string>('tour/filter/fetch/activities/add');
+export const fetchTourFilterActivitiesRemove = createAction<string>('tour/filter/fetch/activities/remove');
 
 export const fetchTourFilterLevels = createAction<number[]>('tour/filter/fetch/levels');
 
@@ -57,20 +57,20 @@ export const tourFilterReducer = createReducer(
                 const newCountries = state.countries.filter(item => item !== action.payload);
                 state.countries = newCountries;
             })
-            .addCase(fetchTourFilterTypesAdd, (state, action: PayloadAction<number>) => {
+            .addCase(fetchTourFilterTypesAdd, (state, action: PayloadAction<string>) => {
                 state.types = [... state.types, action.payload];
             })
-            .addCase(fetchTourFilterTypesRemove, (state, action: PayloadAction<number>) => {
+            .addCase(fetchTourFilterTypesRemove, (state, action: PayloadAction<string>) => {
                 const newTypes = state.types.filter(item => item !== action.payload);
                 state.types = newTypes;
             })
-            .addCase(fetchTourFilterDestinations, (state, action: PayloadAction<number[]>) => {
+            .addCase(fetchTourFilterDestinations, (state, action: PayloadAction<string[]>) => {
                 state.destinations = [...action.payload];
             })
-            .addCase(fetchTourFilterActivitiesAdd, (state, action: PayloadAction<number>) => {
+            .addCase(fetchTourFilterActivitiesAdd, (state, action: PayloadAction<string>) => {
                 state.activities = [... state.activities, action.payload];
             })
-            .addCase(fetchTourFilterActivitiesRemove, (state, action: PayloadAction<number>) => {
+            .addCase(fetchTourFilterActivitiesRemove, (state, action: PayloadAction<string>) => {
                 const newActivities = state.activities.filter(item => item !== action.payload);
                 state.activities = newActivities;
             })

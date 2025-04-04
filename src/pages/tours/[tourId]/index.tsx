@@ -10,7 +10,7 @@ import AutoIcon from '@mui/icons-material/AutoAwesomeMotion';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import {IconSquareBorder} from "@/components/icons/tour/square";
 import { ReviewInfoCard, TourAdditionalCard, TourDayAccommodationCard, TourDayInfoCard } from "@/components/cards";
-import { Box, ImageList, ImageListItem, Typography } from "@mui/material";
+import { Box, ImageList, ImageListItem, Typography, useMediaQuery } from "@mui/material";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -24,12 +24,13 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActionArea from '@mui/material/CardActionArea';
-import { TourDetailSection } from "./section";
+import { TourDetailSection } from "../../../components/blocks/tour_detail_block";
 import TourSimpleCardSlider from "@/components/sliders/tour/tourSimpleCardSlider";
 import { DestinationsList } from "@/modules/destinations/destinationsList";
 import api from "@/config/axiosInstance";
 import {TourSchema} from "@/store/models/tours.ts/";
 import { z } from 'zod';
+import Image from "next/image";
 
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 
@@ -106,6 +107,7 @@ type TourType = {
 };
 
 export default function Tour({data}: TourType) {
+  const isSmallScreen = useMediaQuery('(max-width:768px)');
 
   return (
     <Layout>
@@ -189,11 +191,10 @@ export default function Tour({data}: TourType) {
 
       <TourDetailSection title="Photos" Icon={AutoIcon} classname={styles.photos}>
         <Box>
-          <ImageList variant="masonry" cols={3} gap={3}>
+          <ImageList variant="masonry" cols={isSmallScreen? 1: 3} gap={3}>
             {images.map((item, index) => (
               <ImageListItem key={index}>
                 <img
-                  srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   src={`${item}?w=248&fit=crop&auto=format`}
                   alt=""
                   loading="lazy"
@@ -288,7 +289,7 @@ export default function Tour({data}: TourType) {
           {
             images.map((item, index) => {
               return (
-                <Card sx={{ maxWidth: 500, minWidth: 280 }} key={index}>
+                <Card sx={{ maxWidth: 550, minWidth: 280 }} key={index}>
                   <CardActionArea>
                     <CardMedia
                       component="img"

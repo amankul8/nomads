@@ -1,7 +1,7 @@
 import React from "react";
 import { ReviewCard } from "@/components/cards";
 import Slider from "react-slick";
-import styles from "./ReviewBlock.module.css";
+import styles from "./reviewBlock.module.css";
 import cn from "classnames";
 import { Headline } from "@/ui";
 

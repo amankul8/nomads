@@ -7,7 +7,7 @@ interface IKyrgyzRepublic{
     id: number
 }
 
-export const KyrgyzRepublic = ({clickHandler, id}:IKyrgyzRepublic):JSX.Element=>{
+export const KyrgyzRepublic = ({clickHandler, id}:IKyrgyzRepublic) => {
 
     return(
         <svg className={styles.map} viewBox="0 0 905 436" fill="none" xmlns="http://www.w3.org/2000/svg">

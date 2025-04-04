@@ -9,7 +9,7 @@ interface ISelect{
     className?: string
 }
 
-export const SelectCheckbox = ({list, label,className, selectHandler}:ISelect):JSX.Element => {
+export const SelectCheckbox = ({list, label,className, selectHandler}:ISelect) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const arr = [1,2,3,4,5];

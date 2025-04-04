@@ -8,7 +8,7 @@ interface ISpan {
     children: ReactNode
 }
 
-export const Span = ({children, classname}: ISpan):JSX.Element=>{
+export const Span = ({children, classname}: ISpan) => {
 
     return(
         <span 

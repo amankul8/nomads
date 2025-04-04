@@ -53,7 +53,7 @@ const destinations:{[key: string]: IDestination} = {
     }
 }
 
-export const MapContent = ():JSX.Element=>{
+export const MapContent = () => {
 
     const [destination, setDestination] = useState<IDestination>(destinations['0']);
 

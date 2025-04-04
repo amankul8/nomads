@@ -135,7 +135,7 @@ export const MainFirstBlock=({slides}:IDestinationBlock) => {
                             ref={sliderRef}
                         >
                             {
-                                slides.map((item)=>{
+                                [...slides, ...slides, ...slides].map((item)=>{
                                     return(
                                         <div 
                                             className={styles.slide}

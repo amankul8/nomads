@@ -10,6 +10,7 @@ import api from "@/config/axiosInstance";
 import { DestinationDetailSchema, DestinationDetailType, DestinationSchema } from "@/store/models/destinations";
 import { baseImageUrl } from "@/config";
 import { TourSchema, ToursType } from "@/store/models/tours.ts";
+import Image from "next/image";
 
 // Динамический импорт компонентовz
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
@@ -84,16 +85,13 @@ type Destination = {
 
 
 export default function Destination({ destination, tours }: Destination) {
+
+  const isSmallScreen = useMediaQuery('(max-width:768px)');
+
   if (!destination) {
     return <div>Loading...</div>;
   }
-
   const { title, description, images, coordinates } = destination;
-  const isSmallScreen = useMediaQuery('(max-width:768px)');
-
-  React.useEffect(()=>{
-
-  }, []);
 
   return (
     <Layout>
@@ -123,7 +121,6 @@ export default function Destination({ destination, tours }: Destination) {
                 {images?.map((item: {url: string, alt: string}) => (
                   <ImageListItem key={item.url}>
                     <img
-                      srcSet={baseImageUrl + item.url}
                       src={baseImageUrl + item.url}
                       alt={item.alt}
                       loading="lazy"

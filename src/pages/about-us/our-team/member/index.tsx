@@ -96,7 +96,7 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
                                     <div className={styles.content}>
                                         <figure className={styles.image}>
                                             <Image
-                                                src={member!.destination.image}
+                                                src={member?.destination.image?? ''}
                                                 width={1920}
                                                 height={1080}
                                                 alt=''
@@ -104,9 +104,9 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
                                         </figure>
 
                                         <div className={styles.text}>
-                                            <Headline color='black' type='subsection'> {member!.destination.name} </Headline>
-                                            <Headline color='blue' type='normal'> {member!.destination.country} </Headline>
-                                            <Paragraph> {member!.destination.description} </Paragraph>
+                                            <Headline color='black' type='subsection'> {member?.destination.name} </Headline>
+                                            <Headline color='blue' type='normal'> {member?.destination.country} </Headline>
+                                            <Paragraph> {member?.destination.description} </Paragraph>
                                         </div>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
                                     <div className={styles.content}>
                                         <figure className={styles.image}>
                                             <Image
-                                                src={member!.destination.image}
+                                                src={member?.destination.image ?? ''}
                                                 width={1920}
                                                 height={1080}
                                                 alt=''
@@ -128,9 +128,9 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
                                         </figure>
 
                                         <div className={styles.text}>
-                                            <Headline color='black' type='subsection'> {member!.destination.name} </Headline>
-                                            <Headline color='blue' type='normal'> {member!.destination.country} </Headline>
-                                            <Paragraph> {member!.destination.description} </Paragraph>
+                                            <Headline color='black' type='subsection'> {member?.destination.name} </Headline>
+                                            <Headline color='blue' type='normal'> {member?.destination.country} </Headline>
+                                            <Paragraph> {member?.destination.description} </Paragraph>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
                                     <div className={styles.content}>
                                         <figure className={styles.image}>
                                             <Image
-                                                src={member!.destination.image}
+                                                src={member?.destination.image?? ''}
                                                 width={1920}
                                                 height={1080}
                                                 alt=''
@@ -152,9 +152,9 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
                                         </figure>
 
                                         <div className={styles.text}>
-                                            <Headline color='black' type='subsection'> {member!.destination.name} </Headline>
-                                            <Headline color='blue' type='normal'> {member!.destination.country} </Headline>
-                                            <Paragraph> {member!.destination.description} </Paragraph>
+                                            <Headline color='black' type='subsection'> {member?.destination.name} </Headline>
+                                            <Headline color='blue' type='normal'> {member?.destination.country} </Headline>
+                                            <Paragraph> {member?.destination.description} </Paragraph>
                                         </div>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
                                     <div className={styles.content}>
                                         <figure className={styles.image}>
                                             <Image
-                                                src={member!.destination.image}
+                                                src={member?.destination.image ?? ''}
                                                 width={1920}
                                                 height={1080}
                                                 alt=''
@@ -176,9 +176,9 @@ const TeamMemberPage: FC<ITeamMemberProps> = ({member, handleClose, ...props}) =
                                         </figure>
 
                                         <div className={styles.text}>
-                                            <Headline color='black' type='subsection'> {member!.destination.name} </Headline>
-                                            <Headline color='blue' type='normal'> {member!.destination.country} </Headline>
-                                            <Paragraph> {member!.destination.description} </Paragraph>
+                                            <Headline color='black' type='subsection'> {member?.destination.name} </Headline>
+                                            <Headline color='blue' type='normal'> {member?.destination.country} </Headline>
+                                            <Paragraph> {member?.destination.description} </Paragraph>
                                         </div>
                                     </div>
                                 </div>

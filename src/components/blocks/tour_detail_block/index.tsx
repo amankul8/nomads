@@ -23,7 +23,7 @@ const sectionVariants: Variants = {
       visible: {
         height: "auto",
         opacity: 1,
-        overflow: "hidden",
+        overflow: "visible",
       },
       exit: {
         height: 0,

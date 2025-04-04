@@ -7,7 +7,7 @@ interface IInfoSticker{
     children: ReactNode
 }
 
-export const InfoSticker = ({Icon, children}:IInfoSticker):JSX.Element=>{
+export const InfoSticker = ({Icon, children}:IInfoSticker)=>{
 
     return(
         <div className={styles.wrapper}>

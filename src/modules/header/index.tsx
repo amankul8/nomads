@@ -48,7 +48,7 @@ export const Header = ({...props}) => {
 
     useEffect(() => {
         dispatch(fetchContacts());
-    }, []);
+    }, [dispatch]);
 
     return(
         <header className={styles.header} {...props}>

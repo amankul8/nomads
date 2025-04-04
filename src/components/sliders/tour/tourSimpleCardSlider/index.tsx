@@ -47,7 +47,7 @@ const TourSimpleCardSlider: React.FC<ITourSimpleCardSlider> = ({ isCenteredMode 
 
   const sliderResponsive = (width: number): number => {
     const breakpoints = [
-      { max: 460, slides: 1 },
+      { max: 560, slides: 1 },
       { max: 700, slides: 2 },
       { max: 900, slides: 3 },
       { max: 1300, slides: 4 },
@@ -60,6 +60,7 @@ const TourSimpleCardSlider: React.FC<ITourSimpleCardSlider> = ({ isCenteredMode 
   const settings = {
     infinite: list.length > 7,
     centerMode: isCenteredMode,
+    className: 'center',
     speed: 500,
     slidesToShow: sliderResponsive(containerWidth),
     slidesToScroll: 1,

@@ -17,17 +17,35 @@ import { useAppDispath, useAppSelector } from "@/store/store";
 import { selectStaticData } from "@/store/slices/static_data.slice";
 import { fetchTours } from "@/store/models/tours.ts";
 import { selectPopularTours } from "@/store/slices/tours.slice";
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import DestinationsCardSlider from "@/components/sliders/tour/destinationsCardSlider";
+import { fetchDestinations } from "@/store/models/destinations";
+import { selectDestinations } from "@/store/slices/destinations.slice";
+
+const images = [
+  "https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg",
+  "https://mcdn.wallpapersafari.com/medium/90/19/rKHwW9.jpg",
+  "https://mcdn.wallpapersafari.com/335/73/19/BF6f7i.jpg",
+  "https://mcdn.wallpapersafari.com/medium/51/76/M5Sixv.jpg",
+  "https://mcdn.wallpapersafari.com/335/82/70/nv9j5J.jpg",
+  "https://mcdn.wallpapersafari.com/medium/9/2/U8jznD.jpg",
+  "https://mcdn.wallpapersafari.com/medium/43/23/BpwJ56.jpg",
+  "https://mcdn.wallpapersafari.com/335/51/51/sdioGm.jpg",
+  "https://mcdn.wallpapersafari.com/medium/64/7/qrZYhn.jpg",
+];
 
 export default function Main() {
 
   const dispatch = useAppDispath();
 
   const popularTours = useAppSelector(selectPopularTours);
+  const destinations = useAppSelector(selectDestinations);
   const staticData: Record<string, string> = useAppSelector(selectStaticData);
   
   React.useEffect(()=>{
     dispatch(fetchTours());
-  }, [])
+    dispatch(fetchDestinations());
+  }, [dispatch])
 
   return (
     
@@ -78,7 +96,7 @@ export default function Main() {
         image=""
       >
         <TourInfoCardSlider
-          list={popularTours}
+          list={[...popularTours, ...popularTours, ...popularTours]}
           isCenteredMode
           title="Find our popular tours"
         />
@@ -111,6 +129,45 @@ export default function Main() {
       <BlockWithSkirt
         image=""
       >
+        <DestinationsCardSlider
+          list={destinations}
+          isCenteredMode
+          title="Destinations"
+        />
+      </BlockWithSkirt>
+
+      <UniversalBlock
+        isBg={true}
+        title="Activities"
+      >
+        <div className={styles.activities}>
+          {
+            images.map((item, index) => {
+              return (
+                <Card sx={{ maxWidth: 568, minWidth: 280, width: 'max-content' }} key={index}>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      height="280"
+                      image={item}
+                      alt="green iguana"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="div">
+                        Lizard
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              )
+            })
+          }
+        </div>
+      </UniversalBlock>
+
+      <BlockWithSkirt
+        image=""
+      >
         <ReviewBlock/>
       </BlockWithSkirt>
 
@@ -120,7 +177,7 @@ export default function Main() {
               color='black'
               type='section'
           >
-              We are featured in
+              Our partners
           </Headline>
           <div className={styles.content}>
               <Image
@@ -161,25 +218,25 @@ export default function Main() {
           </div>
         </div>
       </section>
-
+      
       <section className={styles.images}>
         <figure className={styles.frame}>
-          <img className={styles.image} src='https://alizila.oss-us-west-1.aliyuncs.com/uploads/2018/02/chinese-tourists_featured.jpg' alt={''} key={'1'}/>
+          <Image className={styles.image} width={1920} height={1080}  src='/images/bg/destinations/image1.webp' alt={''} key={'1'}/>
         </figure>
         <figure className={styles.frame}>
-          <img className={styles.image} src='https://static.euronews.com/articles/stories/07/20/09/70/1440x810_cmsv2_9fd3e55d-8994-5043-a421-db603f303be9-7200970.jpg' alt={''} key={'2'}/>
+          <Image className={styles.image} width={1920} height={1080}  src='/images/bg/destinations/image8.jpg' alt={''} key={'2'}/>
         </figure>
         <figure className={styles.frame}>
-          <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/57/40/lzjXFh.jpg' alt={''} key={'3'}/>
+          <Image className={styles.image} width={1920} height={1080}  src='/images/bg/destinations/image3.jpg' alt={''} key={'3'}/>
         </figure>
         <figure className={styles.frame}>
-          <img className={styles.image} src='https://mcdn.wallpapersafari.com/medium/0/89/LjaVd1.jpg' alt={''} key={'4'} />
+          <Image className={styles.image} width={1920} height={1080}  src='/images/bg/destinations/image4.jpg' alt={''} key={'4'} />
         </figure>
         <figure className={styles.frame}>
-          <img className={styles.image} src='https://www.marketplace.org/wp-content/uploads/2022/05/LastTourist_cropped_nl.jpg?w=1200' alt={''} key={'5'}/>
+          <Image className={styles.image} width={1920} height={1080}  src='/images/bg/destinations/image5.jpg' alt={''} key={'5'}/>
         </figure>
 
-        <img className={styles.skirt} src={'/images/blockSkirts/blueBlockSkirt.svg'} alt="" />
+        <img className={styles.skirt}  src={'/images/blockSkirts/blueBlockSkirt.svg'} alt="" />
       </section>
 
     </Layout>
