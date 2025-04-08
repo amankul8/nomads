@@ -77,7 +77,7 @@ function DestinationsCardSlider({ isCenteredMode, list, title }: ITourInfoCardSl
               <DestinationCard
                 id={item.id}
                 name={item.title || "Title"}
-                image={baseImageUrl + item!.main_image || "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
+                image={item.main_image? baseImageUrl + item.main_image: "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
               />
             </div>
           ))}

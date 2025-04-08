@@ -36,12 +36,15 @@
             gap: 16px;
 
             li {
-                display: flex;
-                align-items: center;
-                gap: 16px;
+                position: relative;
+                padding-left: 30px;
 
                 svg {
-                    width: 40px;    
+                    width: 20px;
+                    position: absolute;
+                    fill: var(--blue);
+                    left: 0;
+                    top: center;
                 }
             }
         }

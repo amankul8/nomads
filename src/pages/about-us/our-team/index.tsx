@@ -5,8 +5,8 @@ import cls from "classnames";
 
 import styles from "./ourTeam.module.scss";
 import { OurTeamCard } from "@/components/cards";
-import { ITeamMember } from "./member"
-import TeamMemberPage from "./member";
+import { ITeamMember } from "../../../components/cards/memberCard"
+import TeamMemberPage from "../../../components/cards/memberCard";
 
 import Modal from '@mui/material/Modal';
 

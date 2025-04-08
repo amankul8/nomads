@@ -1,12 +1,25 @@
+@use "breakpoints" as *;
+
 .team_section { 
     position: relative;
     min-height: 320px;
+    
+    @include respond-to('1080') {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
 
     .text_wrapper {
         position: relative;
         width: 50%;
         display: flex;
         justify-content: center;
+
+        @include respond-to('1080') {
+            width: 100%;
+        }
 
         .text_content {
             position: absolute;
@@ -17,17 +30,35 @@
             top: 40px;
             gap: 8px;
             z-index: 2;
+
+            @include respond-to('1080') {
+                position: relative; 
+                top: 0;
+                max-width: 100%;
+                padding: 0;
+            }
         }
     }
 
     .team_grid {
-        position: absolute; 
-        left: 0;
-        top: 0;
+        position: relative; 
         display: grid;  
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: auto;
         width: 100%;
+
+        @include respond-to('1080') {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 8px;
+        }
+
+        @include respond-to('tablet') {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 6px;
+        }
+        @include respond-to('phone') {
+            grid-template-columns: 1fr 1fr;
+        }
 
         .grid_item {
             display: flex;

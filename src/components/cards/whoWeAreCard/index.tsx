@@ -4,19 +4,21 @@ import cls from "classnames";
 import { Headline, Paragraph } from "@/ui";
 import Image from "next/image";
 import Ornament from "@/components/icons/general/ornament.svg"
+import { WhoWeAreDataType } from "@/store/models/who_we_are";
 
  
 interface IWhoWeAreCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    data: WhoWeAreDataType,
     classname?: string
 }
 
-export const WhoWeAreCard:React.FC<IWhoWeAreCard> = ({classname, ...props}) => {
+export const WhoWeAreCard:React.FC<IWhoWeAreCard> = ({classname, data, ...props}) => {
 
     return (
         <div className={cls(classname, styles.card)} {...props}>
-            <Paragraph classname={styles.up_text}> Quality, but not luxury </Paragraph>
+            <Paragraph classname={styles.up_text}> {data.subtitle || 'Quality, but not luxury'} </Paragraph>
             <Headline color="black" type="section">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet neque neque. 
+                {data.title || ''}
             </Headline>
             <figure className={styles.figure}>
                 <Image
@@ -29,32 +31,27 @@ export const WhoWeAreCard:React.FC<IWhoWeAreCard> = ({classname, ...props}) => {
             </figure>
             <div className={styles.description}>
                 <Paragraph>
-                    We offer adventure trips of all levels, accessible to the uninitiated as well
-                    as suitable for the more experienced, adults and families. With us, there is no mass tourism.
+                    {
+                        data.description || ''
+                    }
+                </Paragraph>
+                <Paragraph>
+                    {
+                        data.list.title && data.list.title != '' ?
+                        data.list.title: ''
+                    }
                 </Paragraph>
                 <ul className={styles.list}>
-                    <li> 
-                        <Ornament/>
-                        <Paragraph> 
-                            We offer adventure trips of all levels, accessible to the uninitiated as well
-                            as suitable for the more experienced, adults and families. With us, there is no mass tourism. 
-                        </Paragraph>
-                    </li>
-                    <li> 
-                        <Ornament/>
-                        <Paragraph> 
-                            We offer adventure trips of all levels, accessible to the uninitiated as well
-                            as suitable for the more experienced, adults and families. With us, there is no mass tourism. 
-                        </Paragraph>
-                    </li>
-                    <li> 
-                        <Ornament/>
-                        <Paragraph> 
-                            We offer adventure trips of all levels, accessible to the uninitiated as well
-                            as suitable for the more experienced, adults and families. With us, there is no mass tourism. 
-                        </Paragraph>
-                    </li>
-
+                    {
+                        data.list.data && data.list.data.map(item => 
+                            <li> 
+                                <Ornament/>
+                                <Paragraph> 
+                                    {item}
+                                </Paragraph>
+                            </li> 
+                        )
+                    }
                 </ul>   
             </div>
         </div>

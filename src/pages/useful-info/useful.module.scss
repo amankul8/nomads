@@ -76,9 +76,6 @@
             .sub_block {
                 width: calc(100% - 24px);
                 align-self: flex-end;
-                &:last-child {
-                    margin-bottom: 40px;
-                }
             }
         }
     }

@@ -7,8 +7,24 @@ import styles from "./whoWeAre.module.scss";
 import { WhoWeAreCard } from "@/components/cards";
 import { useAppSelector } from "@/store/store";
 import { selectStaticData } from "@/store/slices/static_data.slice";
+import { fetchWhoWeAreData, WhoWeAreDataType } from "@/store/models/who_we_are";
 
-export default function WhoWeAre() {
+
+export async function getStaticProps() {
+  const data = await fetchWhoWeAreData();
+  return {
+    props: {
+      data,
+    },
+    revalidate: 60,
+  };
+}
+
+interface IWhoWeAre {
+  data: WhoWeAreDataType[]
+}
+
+export default function WhoWeAre({data}: IWhoWeAre) {
 
   const staticData: Record<string, string> = useAppSelector(selectStaticData);
     
@@ -34,11 +50,11 @@ export default function WhoWeAre() {
 
       <section className={styles.content_section}>
         <div className={cls('container', styles.content)}>
-          <WhoWeAreCard classname={styles.card}/>
-          <WhoWeAreCard classname={styles.card}/>
-          <WhoWeAreCard classname={styles.card}/>
-          <WhoWeAreCard classname={styles.card}/>
-          <WhoWeAreCard classname={styles.card}/>
+          {
+            data && data.map(item => 
+              <WhoWeAreCard classname={styles.card} data={item} />
+            )
+          }
         </div>
       </section>
     </Layout>

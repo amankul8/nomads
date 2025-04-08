@@ -1,0 +1,106 @@
+[
+  {
+    "subtitle": "Nomads",
+    "title": "A mission-driven company Footprints in the sand, hearts in the journey",
+    "image": "yurt_camp_sunset.jpg",
+    "description": "In 2017, Nomads Travel became a mission-driven company, embedding social responsibility and environmental stewardship into every expedition. Our purpose: To awaken transformative connections between people and the wild landscapes of Central Asia—because travel should leave the world better than we found it.",
+    "list": {
+      "title": "At Nomads Travel, we believe that travel is more than just movement—it's a way to connect, to understand, and to care. As a mission-driven company, we’ve chosen to place social and environmental responsibility at the core of everything we do. Our mission:",
+      "data": [
+        "To travel with purpose—meeting people, cultures, and landscapes with respect, to help shape a more conscious and connected world.",
+        "We’re not trying to be the biggest travel company—only the most meaningful. Each journey is guided by values: authenticity, sustainability, and solidarity with local communities. We walk lightly on the land, honor ancient traditions, and share experiences that matter.",
+        "Not just travel for the sake of it—but travel that gives back. Learn more about our mission and impact"        
+      ]
+    }
+  },
+
+  {
+    "subtitle": "Certified for",
+    "title": "Your Peace of Mind",
+    "image": "yurt_camp_sunset.jpg",
+    "description": "Nomads Travel is a fully certified travel company, meeting all national and international standards for responsible tourism and guided adventure.",
+    "list": {
+      "title": "Our certifications are not just paperwork—they reflect our commitment to professionalism, safety, and ethical travel practices. From qualified guides to insured operations, every journey with us is backed by official recognition and years of field experience.",
+      "data": [
+        "When you travel with Nomads, you're choosing a trusted and accredited team that puts your well-being, the environment, and cultural respect at the heart of every adventure."
+      ]
+    }
+  },
+  {
+    "subtitle": "Locally rooted",
+    "title": "without intermediaries",
+    "image": "yurt_camp_sunset.jpg",
+    "description": "We are deeply rooted in the nomadic way of life. Our local presence allows us to seamlessly organize and oversee every aspect of the journey: route planning, maintaining our fleet of vehicles and horses, preparing essential supplies and equipment, providing 24/7 assistance, arranging airport pickups, coordinating transfers, securing accommodations, scouting the best routes, and offering camping gear when needed.",
+    "list": {
+      "title": "With our firsthand knowledge of the terrain and traditions, we ensure every traveler's experience is smooth, authentic, and enriching. From helping you choose the perfect adventure to guiding you on the ground, we handle every detail—no intermediaries, just pure nomadic expertise.",
+      "data": [
+      ]
+    }
+  },
+
+  {
+    "subtitle": "Authenticity Over Luxury",
+    "title": "A true nomadic spirit—active, engaged, and in harmony with nature.",
+    "image": "yurt_camp_sunset.jpg",
+    "description": "At Nomads Travel, we offer immersive adventures for all levels—whether you're new to travel in remote lands or an experienced wanderer. Our trips are designed for curious souls: adults, families, and anyone seeking genuine connection over commercial tourism.",
+    "list": {
+      "title": "",
+      "data": [
+        "We keep our groups small—no more than 15 travelers—so that every journey remains personal and respectful of the environment and local communities.",
+        "You're not just a spectator—you take part in the adventure, in the rhythm of nomadic life, and in the collective experience under the open sky.",
+        "We stay in places that reflect the spirit of the land: yurts, tents under the stars, guesthouses, desert camps, and homes of local families. There's no luxury here—just simplicity, warmth, and authenticity.",
+        "We explore stunning landscapes using respectful, low-impact modes of travel: on foot, by camel, on horseback, or in 4x4s across vast plains—slowly, mindfully, and always connected to the world around us."
+      ]
+    }
+  },
+  
+  {
+    "subtitle": "Your Safety,",
+    "title": "Our Priority",
+    "image": "yurt_camp_sunset.jpg",
+    "description": "At Nomads Travel, your security is at the core of everything we do. The vastness of the desert, the remoteness of nomadic routes, and the unpredictability of nature require preparation, experience, and vigilance.",
+    "list": {
+      "title": "We never leave safety to chance. For us, it means:",
+      "data": [
+        "Well-adapted itineraries tailored to each traveler's level and comfort;",
+        "Clear and practiced security protocols for every type of terrain and travel style;",
+        "A team of trained professionals with deep knowledge of the land and its challenges;",
+        "Carefully inspected equipment and technical gear, checked before each departure and made fully available to you.",
+        "At Nomads Travel, we equip every expedition with satellite phones - because when you're exploring Central Asia's remote corners, reliable communication is non-negotiable."
+      ]
+    }
+  },
+
+  {
+    "subtitle": "Team",
+    "title": "Meet our guides: The heartbeat of every expedition",
+    "image": "",
+    "description": "At Nomads Travel, we don’t just employ guides. we collaborate with storytellers, wilderness experts, and cultural ambassadors who breathe life into every journey. These are the people who’ll lead you to hidden alpine lakes, introduce you to eagle hunters in Kyrgyzstan’s Tian Shan mountains, and teach you how to brew traditional Kazakh tea over a campfire.",
+    "list": {
+      "title": "",
+      "data": [
+        "Our team is 100% locally sourced—from Kyrgyz shepherds who grew up riding horses across the Celestial Mountains to Uzbek archaeologists who’ve spent decades studying Silk Road ruins.",
+        "They don’t just know the trails; they know where the wild tulips bloom in spring, which mountain pass nomadic families use for seasonal migrations, and how to predict storms by reading the clouds.",
+        "Leave No Trace masterclasses to protect fragile ecosystems",
+        "Advanced wilderness first aid (certified by the Local Federation of Mountain Guides Associations).",
+        "Cultural interpretation training to share traditions authentically.",
+        "Equestrian Guides: Generational  horse breeders who train fleet of semi-wild Kyrgyz horses using traditional methods."
+      ]
+    }
+  },
+
+  {
+    "subtitle": "Team",
+    "title": "Adventurers and Central Asia Specialists",
+    "image": "",
+    "list": {
+      "title": "From the mountains of Kyrgyzstan to the deserts of Uzbekistan, the Nomads Travel team shares",
+      "data":  [
+        "The same passion for exploration (discovering hidden trails, sharing stories, being awed by nature, embracing the unexpected).",
+        "The same values (respect for local cultures, commitment to sustainable travel, belief in authentic connections)",
+        "The same vision (that every journey should transform you—you’ll return richer in experiences, not just souvenirs)"]
+    },
+    "description": "At Nomads Travel, we live by a simple rule: We only guide where we’ve lived. That’s why every year, our office team joins expeditions across Central Asia—hiking the same trails, sleeping in the same yurts, and sharing meals with the same families you’ll meet. When you travel with us, you’re guided by true insiders: people who’ve herded sheep with Kazakh nomads, traced ancient Silk Road routes, and know which hilltop offers the perfect sunset over the Pamirs."
+  }
+
+]

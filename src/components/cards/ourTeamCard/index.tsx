@@ -5,7 +5,7 @@ import styles from "./ourTeamCard.module.scss";
 import cls from "classnames";
 import Image from "next/image";
 import { Headline, Paragraph } from "@/ui";
-import {ITeamMember} from "@/pages/about-us/our-team/member";
+import {ITeamMember} from "@/components/cards/memberCard";
 
 interface IOurTeamCard {
   members: ITeamMember[],
@@ -16,25 +16,28 @@ interface IOurTeamCard {
 const emptyPoints = [0, 1, 2, 3, 5, 6, 7, 8];
 
 export const OurTeamCard: React.FC<IOurTeamCard> = ({ members, hanldeMember, reverse }) => {
-  const [teamGridHeight, setTeamGridHeight] = useState(0);
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
   const teamGridElement = useRef<HTMLDivElement>(null);
 
-  // Функция для установки высоты контейнера
   const handleResize = useCallback(() => {
     if (teamGridElement.current) {
-      setTeamGridHeight(teamGridElement.current.clientHeight);
+      setWindowWidth(window.innerWidth);
     }
   }, []);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-
     handleResize();
-
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
 
   const joinedList = (points: number[], members: ITeamMember[]) => {
+
+    if(windowWidth < 1080) {
+      return members;
+    }
+
     let index = 0
     let newList:Array<ITeamMember | null> = [];
 
@@ -57,7 +60,7 @@ export const OurTeamCard: React.FC<IOurTeamCard> = ({ members, hanldeMember, rev
     <section className={cls("container", styles.team_section, {
         [styles.reverse]: reverse
     }
-    )} style={{ height: teamGridHeight }}>
+    )}>
       <div className={styles.text_wrapper}>
         <div className={styles.text_content}>
           <Headline color="blue" type="normal">

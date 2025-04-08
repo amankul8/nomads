@@ -133,17 +133,34 @@ export default function UsefulInfo({ data }: UsefulInfoType) {
                     </div>
 
                     {item.list &&
-                      item.list.map((child_item) => (
-                        <div
-                          id={child_item.id}
-                          className={cn(styles.block, styles.sub_block)}
-                          key={child_item.id}
-                        >
-                          <Headline color="black" type="subsection">
-                            {child_item.title}
-                          </Headline>
-                          <Paragraph color="black">{child_item.text}</Paragraph>
-                        </div>
+                      item.list.map((item) => (
+                        <React.Fragment key={item.id}>
+                          <div
+                            id={item.id}
+                            className={cn(styles.block, styles.sub_block)}
+                            key={item.id}
+                          >
+                            <Headline color="black" type="subsection">
+                              {item.title}
+                            </Headline>
+                            <Paragraph color="black">{item.text}</Paragraph>
+
+                            {
+                              item.list && item.list.map(item => (
+                                <div
+                                  id={item.id}
+                                  className={cn(styles.block, styles.sub_block)}
+                                  key={item.id}
+                                >
+                                  <Headline color="black" type="subsection">
+                                    {item.title}
+                                  </Headline>
+                                  <Paragraph color="black">{item.text}</Paragraph>
+                                </div>
+                              ))
+                            }
+                          </div>
+                        </React.Fragment>
                       ))}
                   </React.Fragment>
                 ))
