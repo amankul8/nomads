@@ -5,6 +5,7 @@ import { Headline, Paragraph } from "@/ui";
 import Image from "next/image";
 import Ornament from "@/components/icons/general/ornament.svg"
 import { WhoWeAreDataType } from "@/store/models/who_we_are";
+import Link from "next/link";
 
  
 interface IWhoWeAreCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -22,13 +23,20 @@ export const WhoWeAreCard:React.FC<IWhoWeAreCard> = ({classname, data, ...props}
             </Headline>
             <figure className={styles.figure}>
                 <Image
-                    src={'/images/bg/nature_bg.jpg'}
+                    src={data.image != ''? data.image: '/images/bg/nature_bg.jpg'}
                     className={styles.image}
                     width={1920}
                     height={1080}
                     alt=""
                 />
             </figure>
+            {
+                data.link != ""
+                ?   <a className={styles.doc_link} href={`http://localhost:3000/${data.link}`} target="_blank" rel="noopener noreferrer">
+                        Document PDF
+                    </a>
+                : null    
+            }
             <div className={styles.description}>
                 <Paragraph>
                     {

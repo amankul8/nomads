@@ -21,6 +21,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/m
 import DestinationsCardSlider from "@/components/sliders/tour/destinationsCardSlider";
 import { fetchDestinations } from "@/store/models/destinations";
 import { selectDestinations } from "@/store/slices/destinations.slice";
+import Link from "next/link";
 
 const images = [
   "https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg",
@@ -144,21 +145,23 @@ export default function Main() {
           {
             images.map((item, index) => {
               return (
-                <Card sx={{ maxWidth: 568, minWidth: 280, width: 'max-content' }} key={index}>
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="280"
-                      image={item}
-                      alt="green iguana"
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h6" component="div">
-                        Lizard
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
+                <Link href={`/activities/${index}`} key={index}>
+                  <Card sx={{ maxWidth: 568, minWidth: 280, width: 'max-content' }}>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="280"
+                        image={item}
+                        alt="green iguana"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h6" component="div">
+                          Lizard
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Link>
               )
             })
           }

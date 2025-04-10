@@ -10,6 +10,7 @@ const WhoWeAreDataSchema = z.object({
     subtitle: z.string().optional(),
     title: z.string(),
     image: z.string(),
+    link: z.string(),
     description: z.string(),
     list: ListSchema,
 });

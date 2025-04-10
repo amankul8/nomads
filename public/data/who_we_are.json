@@ -2,7 +2,8 @@
   {
     "subtitle": "Nomads",
     "title": "A mission-driven company Footprints in the sand, hearts in the journey",
-    "image": "yurt_camp_sunset.jpg",
+    "image": "/images/who_we_are/nomads.jpg",
+    "link": "",
     "description": "In 2017, Nomads Travel became a mission-driven company, embedding social responsibility and environmental stewardship into every expedition. Our purpose: To awaken transformative connections between people and the wild landscapes of Central Asia—because travel should leave the world better than we found it.",
     "list": {
       "title": "At Nomads Travel, we believe that travel is more than just movement—it's a way to connect, to understand, and to care. As a mission-driven company, we’ve chosen to place social and environmental responsibility at the core of everything we do. Our mission:",
@@ -17,7 +18,8 @@
   {
     "subtitle": "Certified for",
     "title": "Your Peace of Mind",
-    "image": "yurt_camp_sunset.jpg",
+    "image": "/images/who_we_are/certificate.jpg",
+    "link": "/docs/certificate.pdf",
     "description": "Nomads Travel is a fully certified travel company, meeting all national and international standards for responsible tourism and guided adventure.",
     "list": {
       "title": "Our certifications are not just paperwork—they reflect our commitment to professionalism, safety, and ethical travel practices. From qualified guides to insured operations, every journey with us is backed by official recognition and years of field experience.",
@@ -29,7 +31,8 @@
   {
     "subtitle": "Locally rooted",
     "title": "without intermediaries",
-    "image": "yurt_camp_sunset.jpg",
+    "image": "/images/who_we_are/without_intermediaries.jpg",
+    "link": "",
     "description": "We are deeply rooted in the nomadic way of life. Our local presence allows us to seamlessly organize and oversee every aspect of the journey: route planning, maintaining our fleet of vehicles and horses, preparing essential supplies and equipment, providing 24/7 assistance, arranging airport pickups, coordinating transfers, securing accommodations, scouting the best routes, and offering camping gear when needed.",
     "list": {
       "title": "With our firsthand knowledge of the terrain and traditions, we ensure every traveler's experience is smooth, authentic, and enriching. From helping you choose the perfect adventure to guiding you on the ground, we handle every detail—no intermediaries, just pure nomadic expertise.",
@@ -41,7 +44,8 @@
   {
     "subtitle": "Authenticity Over Luxury",
     "title": "A true nomadic spirit—active, engaged, and in harmony with nature.",
-    "image": "yurt_camp_sunset.jpg",
+    "image": "/images/who_we_are/nature.jpg",
+    "link": "",
     "description": "At Nomads Travel, we offer immersive adventures for all levels—whether you're new to travel in remote lands or an experienced wanderer. Our trips are designed for curious souls: adults, families, and anyone seeking genuine connection over commercial tourism.",
     "list": {
       "title": "",
@@ -57,7 +61,8 @@
   {
     "subtitle": "Your Safety,",
     "title": "Our Priority",
-    "image": "yurt_camp_sunset.jpg",
+    "image": "/images/who_we_are/priority.jpg",
+    "link": "",
     "description": "At Nomads Travel, your security is at the core of everything we do. The vastness of the desert, the remoteness of nomadic routes, and the unpredictability of nature require preparation, experience, and vigilance.",
     "list": {
       "title": "We never leave safety to chance. For us, it means:",
@@ -74,7 +79,8 @@
   {
     "subtitle": "Team",
     "title": "Meet our guides: The heartbeat of every expedition",
-    "image": "",
+    "image": "/images/who_we_are/team.jpg",
+    "link": "",
     "description": "At Nomads Travel, we don’t just employ guides. we collaborate with storytellers, wilderness experts, and cultural ambassadors who breathe life into every journey. These are the people who’ll lead you to hidden alpine lakes, introduce you to eagle hunters in Kyrgyzstan’s Tian Shan mountains, and teach you how to brew traditional Kazakh tea over a campfire.",
     "list": {
       "title": "",
@@ -92,7 +98,8 @@
   {
     "subtitle": "Team",
     "title": "Adventurers and Central Asia Specialists",
-    "image": "",
+    "image": "/images/who_we_are/adventurers.jpg",
+    "link": "",
     "list": {
       "title": "From the mountains of Kyrgyzstan to the deserts of Uzbekistan, the Nomads Travel team shares",
       "data":  [

@@ -17,18 +17,18 @@ const languages: Languages = {
         name: 'English',
         code: 'ENG',
     },
-    fra: {
-        name: 'Français',
-        code: 'FRA'
-    },
-    trk: {
-        name: 'Türkçe',
-        code: 'TRK'
-    },
-    deu: {
-        name: 'Deutsch',
-        code: 'DEU'
-    },
+    // fra: {
+    //     name: 'Français',
+    //     code: 'FRA'
+    // },
+    // trk: {
+    //     name: 'Türkçe',
+    //     code: 'TRK'
+    // },
+    // deu: {
+    //     name: 'Deutsch',
+    //     code: 'DEU'
+    // },
 }
 
 type LanguagesType = {

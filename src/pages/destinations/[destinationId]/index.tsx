@@ -9,8 +9,7 @@ import api from "@/config/axiosInstance";
 import { DestinationDetailSchema, DestinationDetailType, DestinationSchema } from "@/store/models/destinations";
 import { baseImageUrl } from "@/config";
 import { TourSchema, ToursType } from "@/store/models/tours.ts";
-import Modal from '@mui/material/Modal';
-import Slider from "react-slick";
+import {ImagesModal} from "@/components/modal";
 
 // Динамический импорт компонентов
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
@@ -83,11 +82,21 @@ export default function Destination({ destination, tours }: Destination) {
   const { title, description, images, coordinates } = destination;
 
   const isSmallScreen = useMediaQuery('(max-width:768px)');
-  const [showImageIndex, setShowImageIndex] = React.useState<number | null>(null);
+  const [currImg, setCurrImg] = React.useState<number>(0);
+  const [isShowModal, setIsShowModal] = React.useState<boolean>(false);
 
   if (!destination) {
     return <div>Loading...</div>;
   }
+
+  const handleModalShow = React.useCallback((imgInd: number) => {
+    setCurrImg(imgInd);
+    setIsShowModal(true);
+  }, [])
+
+  const handleModalClose = React.useCallback(() => {
+    setIsShowModal(false);
+  }, [])
 
   return (
     <Layout>
@@ -120,7 +129,7 @@ export default function Destination({ destination, tours }: Destination) {
                       src={baseImageUrl + item.url}
                       alt={item.alt}
                       loading="lazy"
-                      onClick={() => setShowImageIndex(index)} // Сохраняем индекс для слайдера
+                      onClick={() => handleModalShow(index)}
                     />
                   </ImageListItem>
                 ))}
@@ -144,23 +153,13 @@ export default function Destination({ destination, tours }: Destination) {
         </div>
       </section>
 
-      <Modal
-        open={showImageIndex !== null}
-        onClose={() => setShowImageIndex(null)}
-        disableScrollLock={true}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        className={styles.modal_window}
-      >
-        <div className={cls("container", styles.content)}>
-          <div className={styles.slider_container}>
-            
-            <div>
+      <ImagesModal 
+          images={images}
+          ind={currImg}
+          isVisible={isShowModal}
+          handlerModalClose={handleModalClose}
+      />
 
-            </div>
-          </div>
-        </div>
-      </Modal>
     </Layout>
   );
 }
