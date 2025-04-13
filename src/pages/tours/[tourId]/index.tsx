@@ -31,6 +31,7 @@ import api from "@/config/axiosInstance";
 import {TourSchema} from "@/store/models/tours.ts/";
 import { z } from 'zod';
 import Image from "next/image";
+import { REVALIDATE_INTERVAL } from "@/config";
 
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 
@@ -417,7 +418,7 @@ export async function getStaticProps({ params }: { params: { tourId: string } })
       props: {
         data: result.data[0],  
       },
-      revalidate: 60 * 30,
+      revalidate: REVALIDATE_INTERVAL,
     };
   } catch (error) {
     return { notFound: true };

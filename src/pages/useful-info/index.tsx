@@ -13,6 +13,7 @@ import { SidebarItem } from "../../components/useful_sidebar_item";
 import Image from "next/image";
 import { useAppSelector } from "@/store/store";
 import { selectStaticData } from "@/store/slices/static_data.slice";
+import { REVALIDATE_INTERVAL } from "@/config";
 
 export async function getStaticProps() {
   const data = await fetchUsefulData();
@@ -20,7 +21,7 @@ export async function getStaticProps() {
     props: {
       data,
     },
-    revalidate: 60,
+    revalidate: REVALIDATE_INTERVAL,
   };
 }
 

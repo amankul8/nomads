@@ -7,9 +7,10 @@ import styles from "./destination.module.scss";
 import { Paragraph, Headline } from "@/ui";
 import api from "@/config/axiosInstance";
 import { DestinationDetailSchema, DestinationDetailType, DestinationSchema } from "@/store/models/destinations";
-import { baseImageUrl } from "@/config";
+import { baseImageUrl, REVALIDATE_INTERVAL } from "@/config";
 import { TourSchema, ToursType } from "@/store/models/tours.ts";
 import {ImagesModal} from "@/components/modal";
+import Head from "next/head";
 
 // Динамический импорт компонентов
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
@@ -66,7 +67,7 @@ export async function getStaticProps({ params }: { params: { destinationId: stri
         destination: destinationResult.data[0],
         tours: validTours,
       },
-      revalidate: 10,
+      revalidate: REVALIDATE_INTERVAL,
     };
   } catch (error) {
     return { notFound: true };
@@ -100,6 +101,11 @@ export default function Destination({ destination, tours }: Destination) {
 
   return (
     <Layout>
+      <Head>
+        <title> { 'Nomads | ' + title} </title>
+        <meta property="og:title" content="My new title" key="title" />
+      </Head>
+      
       <FirstBlockLayout bg_image={images[0].url ? baseImageUrl + images[0].url : "https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"}>
         <div className={cls('container', styles.main_block_content)}>
           <Headline color="white" type="main">

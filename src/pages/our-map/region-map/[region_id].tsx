@@ -1,4 +1,5 @@
 import { RegionMapContent } from "@/components/content/regionMapContent";
+import { REVALIDATE_INTERVAL } from "@/config";
 import { Layout } from "@/layouts";
 
 export default function RegionMap(props:any) {
@@ -27,6 +28,6 @@ export async function getStaticProps(){
         props:{
             
         },
-        revalidate: 60 * 30
+        revalidate: REVALIDATE_INTERVAL
     }
 }

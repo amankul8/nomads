@@ -8,6 +8,7 @@ import { WhoWeAreCard } from "@/components/cards";
 import { useAppSelector } from "@/store/store";
 import { selectStaticData } from "@/store/slices/static_data.slice";
 import { fetchWhoWeAreData, WhoWeAreDataType } from "@/store/models/who_we_are";
+import { REVALIDATE_INTERVAL } from "@/config";
 
 
 export async function getStaticProps() {
@@ -16,7 +17,7 @@ export async function getStaticProps() {
     props: {
       data,
     },
-    revalidate: 60,
+    revalidate: REVALIDATE_INTERVAL,
   };
 }
 

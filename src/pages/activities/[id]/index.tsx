@@ -5,6 +5,7 @@ import cls from "classnames";
 
 import styles from "./activity.module.scss";
 import TourSimpleCardSlider from "@/components/sliders/tour/tourSimpleCardSlider";
+import { REVALIDATE_INTERVAL } from "@/config";
 
 export async function getStaticPaths() {
 //   let destinationsId: number[] = [];
@@ -37,7 +38,7 @@ export async function getStaticProps({ params }: { params: { id: string } }) {
         props: {
           activity: {}, 
         },
-        revalidate: 10,
+        revalidate: REVALIDATE_INTERVAL,
       };
 }
 
