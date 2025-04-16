@@ -1,0 +1,19 @@
+[
+    {
+      "id": 3,
+      "title": "Green Bazaar Almaty",
+      "description": "The Green Bazaar, also known as Zelyony Bazaar or Kök Bazaar, is one of the most vibrant and iconic markets in Almaty, Kazakhstan...",
+        "type": "city | medeo | bazar",
+        "region_id": 1,
+      "coordinates": {
+        "latitude": 43.263699009463664,
+        "longitude": 76.95484435533473
+      },
+      "images": [
+        {
+          "alt": "Green Bazaar Almaty",
+          "url": "/media/destination/9.jpg"
+        }
+      ]
+    }
+]

@@ -1,5 +1,6 @@
 import { fatchTourTypesFailedStatus, fatchTourTypesLoadingStatus, fatchTourTypesSuccessedStatus, selectTourTypesIdleStatus } from "@/store/slices/tourTypes.slice";
 import { AppThunk } from "@/store/store";
+import axios from "axios";
 import {z} from 'zod';
 
 export const TourTypeScema = z.object({
@@ -20,7 +21,8 @@ export const fetchTourTypes = (): AppThunk => async (dispatch, getState, { api }
     dispatch(fatchTourTypesLoadingStatus());
 
     try {
-        const res = await api.get('type-of-tour');
+        // const res = await api.get('type-of-tour');
+        const res = await axios.get('http://localhost:3000/data/types.json');
         const data = res.data;
 
         const result = TourTypeScema.array().safeParse(data);

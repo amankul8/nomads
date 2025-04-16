@@ -1,0 +1,82 @@
+[
+    {
+        "id": 5,
+        "type": "Trekking",
+        "icon": null
+    },
+    {
+        "id": 6,
+        "type": "Hikking",
+        "icon": null
+    },
+    {
+        "id": 7,
+        "type": "Horseback Riding",
+        "icon": null
+    },
+    {
+        "id": 4,
+        "type": "Historical and Cultural",
+        "icon": null
+    },
+    {
+        "id": 1,
+        "type": "Sightseeing",
+        "icon": null
+    },
+    {
+        "id": 2,
+        "type": "Lake Tour",
+        "icon": null
+    },
+    {
+        "id": 3,
+        "type": "Ski and Snowboarding",
+        "icon": null
+    },
+    {
+        "id": 8,
+        "type": "Jeep",
+        "icon": null
+    },
+    {
+        "id": 9,
+        "type": "Family",
+        "icon": null
+    },
+    {
+        "id": 10,
+        "type": "Photo",
+        "icon": null
+    },
+    {
+        "id": 11,
+        "type": "Culture",
+        "icon": null
+    },
+    {
+        "id": 12,
+        "type": "Cycle",
+        "icon": null
+    },
+    {
+        "id": 13,
+        "type": "Wildlife",
+        "icon": null
+    },
+    {
+        "id": 14,
+        "type": "Multiactive",
+        "icon": null
+    },
+    {
+        "id": 15,
+        "type": "Rafting",
+        "icon": null
+    },
+    {
+        "id": 16,
+        "type": "Paragryiding",
+        "icon": null
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "id": "1",
+        "name": "Kyrgyzstan",
+        "description": "Nestled in the heart of Central Asia, Kyrgyzstan is a land of breathtaking natural beauty, ancient traditions, and warm hospitality. With over 90% of its territory covered by mountains, it's a true paradise for adventurers, nature lovers, and cultural explorers alike. From the towering peaks of the Tian Shan Mountains to the crystal-clear waters of Issyk-Kul Lake — one of the world’s largest alpine lakes — Kyrgyzstan offers an unforgettable experience in every season. Trek through untouched valleys, ride horses across sweeping steppes, or sleep under the stars in a traditional yurt. But it's not just about nature. The country is rich in nomadic heritage, with colorful festivals, handcrafted felt goods, and traditional music that bring the past to life. Visit bustling bazaars, explore Silk Road cities like Osh, and share a cup of tea with locals who treat strangers like family. Whether you're seeking high-altitude hiking, authentic cultural encounters, or peaceful solitude, Kyrgyzstan is a destination like no other — raw, real, and absolutely unforgettable."
+    },
+    {
+        "id": "2",
+        "name": "Kazakhstan",
+        "description": "Stretching across two continents and vast open landscapes, Kazakhstan is a land of contrasts — where ancient history meets futuristic cities, and endless steppes roll into dramatic mountains. As the ninth-largest country in the world, Kazakhstan remains one of travel’s best-kept secrets, offering a rare blend of nature, culture, and modern wonder. Explore the cosmopolitan energy of Nur-Sultan and the vibrant cultural life of Almaty, where coffee shops and museums sit against a backdrop of snow-capped peaks. Venture into the wild to see the surreal beauty of the Charyn Canyon, the silence of the Kazakh steppe, or the mystique of the Altai Mountains. Kazakhstan’s rich nomadic heritage lives on through traditional music, eagle hunting, felt crafts, and heartfelt hospitality. Whether you’re enjoying beshbarmak in a family yurt, attending a national festival, or riding horses across the open land, you’ll feel the depth of tradition in every experience. With its welcoming people, epic landscapes, and deep-rooted identity, Kazakhstan is a place that stays with you long after you leave. Come for the adventure — stay for the stories."
+    },
+    {
+        "id": "3",
+        "name": "Uzbekistan",
+        "description": "Step into a world of ancient cities, vibrant bazaars, and timeless architecture — Uzbekistan is where the Silk Road comes to life. From the turquoise domes of Samarkand, to the desert fortresses of Khiva, and the intricate mosaics of Bukhara, every corner of the country tells a story of empires, scholars, and traders. Marvel at stunning Islamic architecture, stroll through centuries-old medinas, and lose yourself in the scent of spices and fresh bread in bustling markets. Uzbekistan is not just a destination — it's a living museum of Central Asian heritage. But beyond the monuments, it’s the people who leave the strongest impression — warm, proud, and eager to share their culture and cuisine, from plov to traditional tea rituals. Whether you're wandering the ancient caravan routes or exploring modern Tashkent, Uzbekistan welcomes you with open arms and unforgettable hospitality."
+    },
+    {
+        "id": "4",
+        "name": "Tajikistan",
+        "description": "Cradled by some of the world’s tallest peaks, Tajikistan is a land of raw, untouched beauty and deep spiritual roots. Over 90% of the country is mountainous, making it a dream for trekkers, climbers, and anyone seeking true adventure off the beaten path. Travel along the legendary Pamir Highway, one of the world’s highest roads, where every turn reveals dramatic valleys, glacial lakes, and isolated villages steeped in tradition. Discover the serene beauty of Iskanderkul Lake, the towering Fann Mountains, and the poetic soul of ancient cities like Khujand. Tajikistan’s culture is shaped by Persian roots, Sufi mysticism, and the enduring spirit of its highland communities. Guests are welcomed like family, and every shared meal is an experience in warmth and generosity. If you're seeking a journey of both the soul and the senses, Tajikistan offers a rare chance to connect with nature, history, and humanity in one of the world’s most overlooked yet astonishingly beautiful places."
+    }
+]
