@@ -6,13 +6,11 @@ import Head from "next/head";
 import { REVALIDATE_INTERVAL } from "@/config";
 import Script from "next/script";
 
-// This function runs on the server side at build time and fetches the HTML content.
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "public/static-pages/uaz/uaz.html");
   let htmlContent = "";
 
   try {
-    // Try reading the file content from the given path
     htmlContent = fs.readFileSync(filePath, "utf8");
   } catch (error) {
     console.error("Error reading HTML file:", error);
@@ -23,7 +21,7 @@ export async function getStaticProps() {
     props: {
       htmlContent,
     },
-    revalidate: REVALIDATE_INTERVAL, // Periodic regeneration for static props
+    revalidate: REVALIDATE_INTERVAL,
   };
 }
 
@@ -57,14 +55,12 @@ const Uaz: React.FC<UazProps> = ({ htmlContent }) => {
         <link rel="stylesheet" href="/static-pages/uaz/assets/css/stl.css" />
       </Head>
 
-      {/* Render HTML content safely */}
       {htmlContent ? (
         <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
       ) : (
         <div>Error loading the page content. Please try again later.</div>
       )}
 
-      {/* Load JavaScript files after the page becomes interactive */}
       <Script src="/static-pages/uaz/assets/js/script.js" strategy="afterInteractive" />
       <Script src="/static-pages/uaz/assets/js/360img.js" strategy="afterInteractive" />
       <Script src="/static-pages/uaz/assets/js/360.js" strategy="afterInteractive" />
