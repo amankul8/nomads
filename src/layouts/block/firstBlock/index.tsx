@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import React, { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import styles from "./firstBlockLayout.module.css";
-import cloudImage from '/public/images/blockSkirts/headerSkirt.png';
 import cn from "classnames";
 
 interface IFirstBlockLayout extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
@@ -21,19 +19,11 @@ export const FirstBlockLayout:React.FC<IFirstBlockLayout> = ({children, bg_image
       )}
       style={bg_image?{backgroundImage: `url(${bg_image})`}:{}}
     >
-        <div className={styles.content_layout}>
+        <div className={cn(styles.content_layout, {
+              [styles.hidden_cloud]: !withCloud
+            })}>
           {children}
         </div>
-        <Image
-            className={cn(styles.skirt, {
-              [styles.hidden_skirt]: !withCloud
-            })}
-            height={1080}
-            width={1920}
-            src={cloudImage}
-            alt={''}
-            priority
-        />
     </section>
   )
 }

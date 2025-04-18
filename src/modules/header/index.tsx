@@ -70,11 +70,11 @@ export const Header = ({...props}) => {
 
                         <Languages classname={styles.lang}/>
 
-                        <Avatar
+                        {/* <Avatar
                             sx={{width: 40, height: 40, marginLeft: 2, bgcolor: deepOrange[500] }}
                             alt="Remy Sharp"
                             src=""
-                        />
+                        /> */}
                     </menu>
                 </div>
                 <div className={styles.low_side}>
