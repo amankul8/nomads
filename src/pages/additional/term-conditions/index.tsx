@@ -6,7 +6,7 @@ import Head from 'next/head';
 import { REVALIDATE_INTERVAL } from "@/config";
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), 'public/static-pages/uaz.html');
+  const filePath = path.join(process.cwd(), 'public/static-pages/tourism/terms&conditions.html');
   const htmlContent = fs.readFileSync(filePath, 'utf8');
 
   return {
@@ -17,28 +17,32 @@ export async function getStaticProps() {
   };
 }
 
-interface TermCondition {
+interface TermsConditions {
     htmlContent: string
 }
 
-const TermCondition:React.FC<TermCondition> = ({htmlContent}) => {
+const TermsConditions:React.FC<TermsConditions> = ({htmlContent}) => {
+
+    React.useEffect(()=>{
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/static-pages/tourism/assets/css/style.css';
+        document.head.appendChild(link);
+
+        return () => {
+        document.head.removeChild(link);
+        };
+    }, []);
 
     return (
-        <React.Fragment>
+        <Layout>
             <Head>
-                <title>Моя статическая страница</title>
-                {/* <link rel="stylesheet" href="/static-page/style.css"/>
-                <script src="/static-page/script.js" defer></script> */}
+                <title>Terms and Conditions - Nomads Voyage</title>
             </Head>
-
-            <Layout>
-                <section className="container">
-                    <div dangerouslySetInnerHTML={{ __html: htmlContent }}/>
-                </section>
-            </Layout>
-        </React.Fragment>
+            <div dangerouslySetInnerHTML={{ __html: htmlContent }}/>
+        </Layout>
     )
 }
 
-TermCondition.displayName = "TermCondition";
-export default TermCondition;
+TermsConditions.displayName = "TermsConditions";
+export default TermsConditions;
