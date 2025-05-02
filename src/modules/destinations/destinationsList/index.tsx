@@ -2,7 +2,7 @@ import { DestinationCard } from "@/components/cards";
 import React from "react";
 import styles from "./destinationsList.module.scss";
 import { DestinationType } from "@/store/models/destinations";
-import { baseImageUrl } from "@/config";
+import { BASE_IMAGE_ULR } from "@/config";
 
 
 type DestinationsList = {
@@ -19,7 +19,7 @@ export const DestinationsList = ( {list}: DestinationsList ) => {
                         <DestinationCard 
                             id={item!.id}
                             name={item!.title}
-                            image={baseImageUrl + item!.main_image}
+                            image={BASE_IMAGE_ULR + item!.main_image}
                             key={item!.title}
                         />
                     )

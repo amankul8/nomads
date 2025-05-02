@@ -18,7 +18,7 @@ export enum MultiRisk {
 }
 
 export const TourOrderSchema = z.object({
-    id: z.number(),
+    tour_id: z.number(),
     name: z.string(),
     adults: z.number(),
     childs: z.number(),
@@ -31,6 +31,16 @@ export const TourOrderSchema = z.object({
     multiRiskInsurance: z.number(),
     premiumMultiRiskInsurance: z.number(),
     taxesAndFees: z.number(),
+
+    agreedToTravelConditions: z.boolean().default(false),
+    hasAcceptedTravelRisks: z.boolean().default(false),
+    hasReviewedForeignTravelAdvice: z.boolean().default(false),
+    hasAgreedToResponsibleTourismPolicy: z.boolean().default(false),
+
+    subscribedToNomadsNewsletter: z.boolean().optional().default(false),
+    subscribedToPartnerNewsletter: z.boolean().optional().default(false),
+
+
     details: z.object({
         firstName: z.string(),
         lastName: z.string(),

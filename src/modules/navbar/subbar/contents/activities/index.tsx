@@ -5,7 +5,7 @@ import { AnimatePresence, motion} from "framer-motion";
 import Link from "next/link";
 import { SubbarBtn } from "@/ui";
 import { useAppSelector } from "@/store/store";
-import { baseImageUrl } from "@/config";
+import { BASE_IMAGE_ULR } from "@/config";
 import { selectTourTypes, selectTourTypesLoadingStatus } from "@/store/slices/tourTypes.slice";
 
 type ActivitiesContent = {
@@ -52,7 +52,7 @@ export const ActivitiesContent:React.FC<ActivitiesContent> = ({}) => {
                             return (
                                 <motion.li 
                                     // onMouseEnter={() => {
-                                    //     const image = baseImageUrl + item!.icon
+                                    //     const image = BASE_IMAGE_ULR + item!.icon
                                     //     handleMouseEnter(image);
                                     // }}
                                     // onMouseLeave={handleMouseLeave}

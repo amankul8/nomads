@@ -6,7 +6,7 @@ import Link from "next/link";
 import { SubbarBtn } from "@/ui";
 import { useAppSelector } from "@/store/store";
 import { selectDestinations, selectDestinationsFailedStatus, selectDestinationsIds, selectDestinationsLoadingStatus, selectDestinationsSuccessedStatus } from "@/store/slices/destinations.slice";
-import { baseImageUrl } from "@/config";
+import { BASE_IMAGE_ULR } from "@/config";
 
 type DestinationsSubbar = {
     handleMouseEnter: (bg: string) => void, 
@@ -60,7 +60,7 @@ export const DestinationsContent:React.FC<DestinationsSubbar> = ({handleMouseEnt
                             return (
                                 <motion.li 
                                     onMouseEnter={() => {
-                                        const image = baseImageUrl + item!.main_image
+                                        const image = BASE_IMAGE_ULR + item!.main_image
                                         handleMouseEnter(image);
                                     }}
                                     // onMouseLeave={handleMouseLeave}

@@ -6,7 +6,7 @@ import cn from "classnames";
 import { DetailedHTMLProps, HTMLAttributes, useEffect, useRef, useState, useMemo } from "react";
 import { CustomIconButton, Headline } from "@/ui";
 import { DestinationCard } from "@/components/cards";
-import { baseImageUrl } from "@/config";
+import { BASE_IMAGE_ULR } from "@/config";
 
 interface ITourInfoCardSlider extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   isCenteredMode?: boolean;
@@ -77,7 +77,7 @@ function DestinationsCardSlider({ isCenteredMode, list, title }: ITourInfoCardSl
               <DestinationCard
                 id={item.id}
                 name={item.title || "Title"}
-                image={item.main_image? baseImageUrl + item.main_image: "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
+                image={item.main_image? BASE_IMAGE_ULR + item.main_image: "https://cdn.wallpapersafari.com/43/71/H9wItm.jpg"}
               />
             </div>
           ))}

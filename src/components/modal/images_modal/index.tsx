@@ -3,7 +3,7 @@ import styles from './images.module.scss';
 import Modal from '@mui/material/Modal';
 import { AnimatePresence, motion } from "motion/react"
 import cls from 'classnames';
-import { baseImageUrl } from "@/config";
+import { BASE_IMAGE_ULR } from "@/config";
 
 type Image = {
     url: string,
@@ -51,7 +51,7 @@ export const ImagesModal:React.FC<IImagesModal> = ({images, ind, isVisible, hand
                             x: '-100%'
                         }}
                         transition={{ duration: .3}}
-                        src={baseImageUrl + images[currImageIndex].url}
+                        src={BASE_IMAGE_ULR + images[currImageIndex].url}
                         alt=""
                     />
                 </AnimatePresence>
@@ -69,7 +69,7 @@ export const ImagesModal:React.FC<IImagesModal> = ({images, ind, isVisible, hand
                         initial={{opacity: 0}}
                         animate={{opacity: 1}}
                         exit={{opacity: 0}}
-                        src={baseImageUrl + item.url}
+                        src={BASE_IMAGE_ULR + item.url}
                         alt=""
                         onClick={()=>setCurrImageIndex(index)}
                         key={item.url}

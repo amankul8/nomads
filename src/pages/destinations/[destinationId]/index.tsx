@@ -7,7 +7,7 @@ import styles from "./destination.module.scss";
 import { Paragraph, Headline } from "@/ui";
 import api from "@/config/axiosInstance";
 import { DestinationDetailSchema, DestinationDetailType, DestinationSchema } from "@/store/models/destinations";
-import { baseImageUrl, REVALIDATE_INTERVAL } from "@/config";
+import { BASE_IMAGE_ULR, REVALIDATE_INTERVAL } from "@/config";
 import { TourSchema, ToursType } from "@/store/models/tours.ts";
 import {ImagesModal} from "@/components/modal";
 import Head from "next/head";
@@ -106,7 +106,7 @@ export default function Destination({ destination, tours }: Destination) {
         <meta property="og:title" content="My new title" key="title" />
       </Head>
       
-      <FirstBlockLayout bg_image={images[0].url ? baseImageUrl + images[0].url : "https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"}>
+      <FirstBlockLayout bg_image={images[0].url ? BASE_IMAGE_ULR + images[0].url : "https://mcdn.wallpapersafari.com/medium/55/12/PZ6DvS.jpg"}>
         <div className={cls('container', styles.main_block_content)}>
           <Headline color="white" type="main">
             {title}
@@ -132,7 +132,7 @@ export default function Destination({ destination, tours }: Destination) {
                 {images?.map((item: { url: string, alt: string }, index) => (
                   <ImageListItem key={item.url}>
                     <img
-                      src={baseImageUrl + item.url}
+                      src={BASE_IMAGE_ULR + item.url}
                       alt={item.alt}
                       loading="lazy"
                       onClick={() => handleModalShow(index)}

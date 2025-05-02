@@ -1,9 +1,17 @@
 import axios from "axios";
-import { APP_BASE_URL } from ".";
+import { BASE_IMAGE_ULR } from "../config";
 
+class ApiClient {
+
+    
+
+    constructor(baseUrl: string) {
+        
+    }
+}
 
 export const api = axios.create({
-    baseURL: APP_BASE_URL,
+    baseURL: BASE_IMAGE_ULR,
     headers: {
         'Content-Type': 'application/json',
     },
