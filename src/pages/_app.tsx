@@ -5,18 +5,25 @@ import "slick-carousel/slick/slick-theme.css";
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
-import { appWithTranslation } from 'next-i18next'
+import { appWithTranslation } from 'next-i18next';
+import type { AppProps } from 'next/app';
+import { wrapper } from '@/store/store';
 import { Provider } from 'react-redux';
-
-import type { AppProps } from 'next/app'
-import { store } from '@/store/store';
+import { useEffect } from 'react';
+import { fetchCountries } from '@/store/models/countries';
 
 function App({ Component, pageProps }: AppProps) {
-  return (  
+  const { store, props } = wrapper.useWrappedStore(pageProps);
+
+  useEffect(() => {
+    store.dispatch(fetchCountries());
+  }, [store]);
+
+  return (
     <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>  
+      <Component {...props.pageProps} />
+    </Provider>
   );
 }
 
-export default appWithTranslation(App)
+export default appWithTranslation(App);

@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 
 class RestCountriesApi {
     private static instance: RestCountriesApi;
-    private api: AxiosInstance;
+    public api: AxiosInstance;
 
     private constructor() {
         this.api = axios.create({

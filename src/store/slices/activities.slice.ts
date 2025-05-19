@@ -10,10 +10,10 @@ interface ActivitiesState {
 }
 
 // Actions
-export const fatchActivitiesIdleStatus = createAction('activities/fetch/idle')
-export const fatchActivitiesLoadingStatus = createAction('activities/fetch/loading')
-export const fatchActivitiesSuccessedStatus = createAction<ActivityType[]>('activities/fetch/successed')
-export const fatchActivitiesFailedStatus = createAction<string>('activities/fetch/failed')
+export const fetchActivitiesIdleStatus = createAction('activities/fetch/idle')
+export const fetchActivitiesLoadingStatus = createAction('activities/fetch/loading')
+export const fetchActivitiesSuccessedStatus = createAction<ActivityType[]>('activities/fetch/successed')
+export const fetchActivitiesFailedStatus = createAction<string>('activities/fetch/failed')
 
 // Начальное состояние
 const initialState: ActivitiesState = {
@@ -26,14 +26,14 @@ const initialState: ActivitiesState = {
 // Редюсер
 export const activitiesReducer = createReducer(initialState, (builder) => {
     builder
-        .addCase(fatchActivitiesIdleStatus, (state) => {
+        .addCase(fetchActivitiesIdleStatus, (state) => {
             state.status = 'idle';
             state.error = '';
         })
-        .addCase(fatchActivitiesLoadingStatus, (state) => {
+        .addCase(fetchActivitiesLoadingStatus, (state) => {
             state.status = 'loading';
         })
-        .addCase(fatchActivitiesSuccessedStatus, (state, action: PayloadAction<ActivityType[]>) => {
+        .addCase(fetchActivitiesSuccessedStatus, (state, action: PayloadAction<ActivityType[]>) => {
             state.status = 'successed'
 
             state.entities = action.payload.reduce((acc, activity) => {
@@ -44,7 +44,7 @@ export const activitiesReducer = createReducer(initialState, (builder) => {
             state.ids = action.payload.map(activity => activity.id);
         })
         
-        .addCase(fatchActivitiesFailedStatus, (state, action: PayloadAction<string>) => {
+        .addCase(fetchActivitiesFailedStatus, (state, action: PayloadAction<string>) => {
             state.status = 'failed';
             state.error = action.payload;
         })

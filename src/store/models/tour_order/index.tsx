@@ -1,14 +1,13 @@
-import z from 'zod';
 
 export enum Tiers {
-    'basic',
-    'standart',
-    'premium'
+    basic = 'Basic',
+    standart = 'Standart',
+    premium = 'Premium'
 }
 
 export enum Gender {
-    'woman',
-    'man'
+    woman,
+    man
 }
 
 export enum MultiRisk {
@@ -17,60 +16,59 @@ export enum MultiRisk {
     'insured'
 }
 
-export const TourOrderSchema = z.object({
-    tour_id: z.number(),
-    name: z.string(),
-    adults: z.number(),
-    childs: z.number(),
-    rooms: z.number(),
-    tiers: z.nativeEnum(Tiers),
-    startDate: z.date(),
-    endDate: z.date(),
-    duration: z.number(),
-    singleRooms: z.number(), 
-    multiRiskInsurance: z.number(),
-    premiumMultiRiskInsurance: z.number(),
-    taxesAndFees: z.number(),
+export enum Civility {
+    Mr,
+    Mrs,
+    Miss
+}
 
-    agreedToTravelConditions: z.boolean().default(false),
-    hasAcceptedTravelRisks: z.boolean().default(false),
-    hasReviewedForeignTravelAdvice: z.boolean().default(false),
-    hasAgreedToResponsibleTourismPolicy: z.boolean().default(false),
+export interface BookingUser {
+    civility: Civility;
+    firstName: string;
+    lastName: string;
+    gender: Gender;
+    countryId: string | null;
+    cityId: string | null;
+    address: string;
+    gmail: string;
+    phone: string;
+}
 
-    subscribedToNomadsNewsletter: z.boolean().optional().default(false),
-    subscribedToPartnerNewsletter: z.boolean().optional().default(false),
+export interface Adult {
+    name: string;
+    firstName: string;
+    lastName: string;
+    gender: Gender;
+    birthday: Date;
+    countryId: number;
+    multiRisk: MultiRisk;
+}
 
+export interface Child {
+    name: string;
+    firstName: string;
+    lastName: string;
+    gender: Gender;
+    birthday: Date;
+    countryId: number;
+}
 
-    details: z.object({
-        firstName: z.string(),
-        lastName: z.string(),
-        gender: z.nativeEnum(Gender),
-        countryId: z.number(),
-        cityId: z.number(),
-        adress: z.string(),
-        gmail: z.string(),
-        phone: z.string(),
-    }),
-    adultsDetails: z.array(
-        z.object({
-            name: z.string(),
-            firstName: z.string(),
-            lastName: z.string(),
-            gender: z.nativeEnum(Gender),
-            birthday: z.date(),
-            coutryId: z.number(),
-            multiRisk: z.nativeEnum(MultiRisk)
-
-        })
-    ),
-    childsDetails: z.array(
-        z.object({
-            name: z.string(),
-            firstName: z.string(),
-            lastName: z.string(),
-            gender: z.nativeEnum(Gender),
-            birthday: z.date(),
-            coutryId: z.number(),
-        })
-    )
-});
+export interface TourOrderType {
+    tour_id: number | null;
+    adultsCount: number;
+    childsCount: number;
+    singleRooms: number;
+    tiers: Tiers;
+    startDate: Date | null;
+    endDate: Date | null;
+    duration: number | null;
+    bookingUser: BookingUser;
+    adults: Adult[];
+    childs: Child[];
+    agreedToTravelConditions: boolean;
+    hasAcceptedTravelRisks: boolean;
+    hasReviewedForeignTravelAdvice: boolean;
+    hasAgreedToResponsibleTourismPolicy: boolean;
+    subscribedToNomadsNewsletter: boolean;
+    subscribedToPartnerNewsletter: boolean;
+}

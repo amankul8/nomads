@@ -8,6 +8,9 @@ import { tourTypesReducer } from "./slices/tourTypes.slice";
 import { staticDataReducer } from "./slices/static_data.slice";
 import { toursReducer } from "./slices/tours.slice";
 import { tourFilterReducer } from "./slices/tour_filter.slice";
+import { countriesReducer } from "./slices/countries.slice";
+import { createWrapper } from 'next-redux-wrapper';
+import { tourOrderReducer } from "./slices/tour_order.slice";
 
 export type ExtraArgument = {
   api: typeof api
@@ -17,7 +20,7 @@ const extraArgument = {
   api
 }
 
-export const store = configureStore({
+export const store = () => configureStore({
   reducer: {
     tour_types: tourTypesReducer,
     activities: activitiesReducer,
@@ -25,7 +28,9 @@ export const store = configureStore({
     regions: regionsReducer,
     static_data: staticDataReducer,
     tours: toursReducer,
-    tour_filter_data: tourFilterReducer
+    tour_filter_data: tourFilterReducer,
+    countries: countriesReducer,
+    tourBooking: tourOrderReducer,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware({
     thunk: {
@@ -34,8 +39,9 @@ export const store = configureStore({
   })
 });
 
-export type AppState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof store>;
+export type AppState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];
 export type AppThunk<T = void> =  ThunkAction<
   T,
   AppState,
@@ -45,5 +51,7 @@ export type AppThunk<T = void> =  ThunkAction<
 
 export const useAppSelector = useSelector.withTypes<AppState>();
 export const useAppDispath = useDispatch.withTypes<AppDispatch>();
-export const useAppStore = useStore.withTypes<typeof store>();
-export const createAppSelector = createSelector.withTypes<AppState>();
+export const useAppStore = useStore.withTypes<AppStore>();
+export const createAppSelector = createSelector.withTypes<AppState>();4
+
+export const wrapper = createWrapper<AppStore>(store);

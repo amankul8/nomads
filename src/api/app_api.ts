@@ -1,8 +1,8 @@
 import { APP_BASE_URL } from "@/config";
 import axios, { AxiosInstance } from 'axios';
 
-class RestCountriesApi {
-    private static instance: RestCountriesApi;
+class AppApi {
+    private static instance: AppApi;
     private api: AxiosInstance;
 
     private constructor() {
@@ -15,12 +15,12 @@ class RestCountriesApi {
         });
     }
 
-    static getInstance(): RestCountriesApi {
-        if (!RestCountriesApi.instance) {
-            RestCountriesApi.instance = new RestCountriesApi();
+    static getInstance(): AppApi {
+        if (!AppApi.instance) {
+            AppApi.instance = new AppApi();
         }
-        return RestCountriesApi.instance;
+        return AppApi.instance;
     }
 }
 
-export default RestCountriesApi.getInstance();
+export default AppApi.getInstance();

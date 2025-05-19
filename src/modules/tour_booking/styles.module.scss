@@ -1,0 +1,117 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+
+    .title {
+        width: 100%;
+        font-size: 2.5em;
+        font-weight: normal;
+        color: var(--white);
+    }
+
+    .form {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+
+        .progress_side {
+            width: 32px;
+            background: var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            .progress {
+                width: 2px;
+                height: 90%;
+                position: relative;
+                background-color: rgba(235, 235, 235, 0.4);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                
+                .point {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: var(--lightGrey);
+                    font-size: 12px;
+                    transition: 300ms linear;
+                    color: var(--blue);
+                }
+                .active {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 8px;
+                }
+            }
+        }
+
+        .form_side {
+            width: calc(62% - 32px);
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .control_side {
+            width: 38%;
+            background: var(--blue);
+            color: var(--white);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .up {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                border-radius: 1px;
+            }
+
+            .line {
+                width: 100%;
+                height: 2px;
+                background-color: var(--white);
+            }
+
+            .down {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .subtitle {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+            }
+
+            .title {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+            .list {
+                list-style: none;
+            }
+            
+            .space {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .buttons {
+                margin-top: 30px;
+            }
+        }
+    }
+}
+
+
+

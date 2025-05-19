@@ -1,4 +1,4 @@
-import { fatchActivitiesFailedStatus, fatchActivitiesLoadingStatus, fatchActivitiesSuccessedStatus, selectActivitiesIdleStatus } from "@/store/slices/activities.slice";
+import { fetchActivitiesFailedStatus, fetchActivitiesLoadingStatus, fetchActivitiesSuccessedStatus, selectActivitiesIdleStatus } from "@/store/slices/activities.slice";
 import { AppThunk } from "@/store/store";
 import {z} from 'zod';
 
@@ -16,7 +16,7 @@ export const fetchActivities = (): AppThunk => async (dispatch, getState, { api 
         return;
     }
 
-    dispatch(fatchActivitiesLoadingStatus());
+    dispatch(fetchActivitiesLoadingStatus());
 
     try {
         const res = await api.get('activity');
@@ -26,15 +26,15 @@ export const fetchActivities = (): AppThunk => async (dispatch, getState, { api 
         const result = ActivityScema.array().safeParse(data);
 
         if (!result.success) {
-            dispatch(fatchActivitiesFailedStatus('Data validation error!'));
+            dispatch(fetchActivitiesFailedStatus('Data validation error!'));
             return;
         }
 
-        dispatch(fatchActivitiesSuccessedStatus(result.data));
+        dispatch(fetchActivitiesSuccessedStatus(result.data));
 
     } catch (error: any) {
         const errorMessage = error?.message || 'Failed to fetch destinations';
-        dispatch(fatchActivitiesFailedStatus(errorMessage));
+        dispatch(fetchActivitiesFailedStatus(errorMessage));
     }
 };
 
