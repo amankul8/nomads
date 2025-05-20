@@ -5,11 +5,11 @@ import { useSelector } from "react-redux";
 import { selectTourBookingStep, updateTourBookingStep } from "@/store/slices/tour_order.slice";
 import { CustomButton, Headline, Paragraph } from "@/ui";
 import { useAppDispath, useAppSelector } from "@/store/store";
-import TravelersForm from "./components/travelers";
+import TravelersForm from "./form_parts/travelers";
 import { AnimatePresence, motion } from "motion/react"
-import ContactsForm from "./components/contacts";
-import OptionsForm from "./components/options";
-import ValidationForm from "./components/validation";
+import ContactsForm from "./form_parts/contacts";
+import OptionsForm from "./form_parts/options";
+import ValidationForm from "./form_parts/validation";
 
 const TourBookingSteps: Record<string, string> = {
     '1': 'Travelers',

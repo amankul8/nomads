@@ -55,8 +55,16 @@
 
         .form_side {
             width: calc(62% - 32px);
+            height: 650px;
             background: var(--white);
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                display: none;  
+            }
         }
 
         .control_side {

@@ -1,0 +1,14 @@
+.title {
+    width: 100%;
+    border-bottom: 1px solid var(--blue);
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    padding: 12px 0;
+    color: var(--blue);
+
+    .text {
+        font-weight: 500;
+        font-size: 20px;
+    }
+}

@@ -35,6 +35,7 @@ export interface BookingUser {
 }
 
 export interface Adult {
+    civility: Civility;
     name: string;
     firstName: string;
     lastName: string;

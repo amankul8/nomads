@@ -1,0 +1,22 @@
+.wrapper {
+    width: 100%;
+    height: min-content;
+    padding: 60px 40px; 
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .block {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .line {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            align-items: center;
+        }
+        
+    }
+}
