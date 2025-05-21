@@ -18,5 +18,10 @@
             align-items: center;
         }
         
+        .colunm {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
     }
 }

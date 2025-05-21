@@ -29,9 +29,19 @@
 
         .bottom {
             width: 100%;
-            padding: 16px 12px;
+            padding: 5px 16px;
             background: var(--blue);
-            
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+
+            .line {
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
         }
     }
 

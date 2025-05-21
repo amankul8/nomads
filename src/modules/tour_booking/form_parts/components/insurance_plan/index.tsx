@@ -1,6 +1,7 @@
 import React, { SVGProps } from "react";
 import styles from "./styles.module.scss";
 import { Headline, Paragraph } from "@/ui";
+import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 
 type ITourBookingFormTitle = {
     tourists: Array<string>,
@@ -50,7 +51,25 @@ export const InsurancePlanCard = ({ tourists }: ITourBookingFormTitle) => {
                                 </a>
                             </div>
                             <div className={styles.bottom}>
+                                {
+                                    ['Askat', 'Aman'].map((name, index) => {
+                                        return (
+                                            <div className={styles.line}>
+                                                
+                                                <FormControlLabel
+                                                    required
+                                                    control={
+                                                        <Checkbox sx={{ color: 'white', '&.Mui-checked': { color: 'white' } }} />
+                                                    }
+                                                    label={name}
+                                                    sx={{ color: 'var(--white)' }}
+                                                />
 
+                                                <span>{item.price}</span>
+                                            </div>
+                                        )
+                                    })
+                                }
                             </div>
                         </div>
                     )

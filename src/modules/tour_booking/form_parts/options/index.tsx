@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react"
 
 import TextField from '@mui/material/TextField';
 import { Box } from "@mui/material";
-import { Headline, Paragraph } from "@/ui";
+import { Headline, Paragraph, Span } from "@/ui";
 
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -16,11 +16,14 @@ import { useAppSelector } from "@/store/store";
 import { selectTourBookingData } from "@/store/slices/tour_order.slice";
 import { TourBookingFormTitle } from "../components/title";
 
-import LabelIcon from '@mui/icons-material/Label';
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import DescriptionIcon from '@mui/icons-material/Description';
+import ShieldIcon from '@mui/icons-material/Shield';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 import { AdditionalBenefitsCard } from "../components/additional_benefits";
 import { InsurancePlanCard } from "../components/insurance_plan";
+import { MoreTextCheckbox } from "../components/more_text_checkbox";
 
 
 
@@ -44,7 +47,7 @@ export default function OptionsForm() {
 
             <div className={styles.block}>
                 <TourBookingFormTitle
-                    icon={<LabelIcon/>}
+                    icon={<LocalOfferIcon/>}
                     title="Additional benefits"
                 />
 
@@ -63,7 +66,7 @@ export default function OptionsForm() {
 
             <div className={styles.block}>
                 <TourBookingFormTitle
-                    icon={<DescriptionIcon/>}
+                    icon={<ShieldIcon/>}
                     title="Choose your insurance plan"
                 />
 
@@ -81,37 +84,36 @@ export default function OptionsForm() {
 
             <div className={styles.block}>
                 <TourBookingFormTitle
-                    icon={<LabelIcon/>}
+                    icon={<CheckCircleIcon/>}
                     title="Validation & acceptance of the travel contract"
                 />
 
-                <div className={styles.line}>
-                    
-                </div>
+                <MoreTextCheckbox text={<> I, the undersigned, $name , acting both for myself and on behalf of the other registered persons, certify that I have read the program from which I registered for this trip, as well as the administrative formalities and health, information related to the security of the country and information related to insurance.</>}/>
                 
+                <MoreTextCheckbox text={<>I have read the <a href='#' style={{color: 'var(--blue)'}}> terms and conditions </a> of Nomads Travel on travel and accept in full. I am fully aware that during this trip, I may run certain risks inherent in particular to isolation, far from medical centers, and I assume them with full knowledge of the facts.</>}/>
             </div>
 
             <div className={styles.block}>
                 <TourBookingFormTitle
-                    icon={<LabelIcon/>}
+                    icon={<CheckCircleIcon/>}
                     title="Responsible Traveler Charter"
                 />
 
-                <div className={styles.line}>
-                    
-                </div>
+                <MoreTextCheckbox text={<> In addition, I have read the information about the country chosen on the website of the Ministry of Foreign Affairs in the section "Advice for travelers". I will check this information a few days before my departure. The signatory commits all the participants making up the group. </>}/>  
+
+                <MoreTextCheckbox text={<> In addition, I have familiarized myself with <a href='#' style={{color: 'var(--blue)'}}> Nomads Voyage's Responsible Tourism Policy</a>, which outlines best practices for minimizing environmental and social impacts while traveling through Central Asia. I pledge to uphold these principles throughout my journey. </>}/>  
                 
             </div>
 
             <div className={styles.block}>
                 <TourBookingFormTitle
-                    icon={<LabelIcon/>}
+                    icon={<DescriptionIcon/>}
                     title="Newsletter & news"
                 />
 
-                <div className={styles.line}>
-                    
-                </div>
+                <MoreTextCheckbox text={<>I would like to receive offers and news from Nomads Travel by e-mail</>}/>
+
+                <MoreTextCheckbox text={<>I would like to receive offers and news from Nomads Travel partners by e-mail</>}/>
                 
             </div>
         </motion.div>
