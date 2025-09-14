@@ -1,0 +1,37 @@
+/* headlinses size styles */
+.headline{
+    position: relative;
+    font-style: normal;
+    display: inline-block;
+}
+
+/* headlines color styles*/
+.black {
+    color: var(--black);
+}
+.white {
+    color: var(--white);
+}
+.blue {
+    color: var(--blue);
+}
+
+.black::before {
+    background: var(--black);
+}
+.white::before {
+    background: var(--white);
+}
+.blue::before {
+    background: var(--blue);
+}
+
+.underline::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 3px;
+    left: 0;
+    bottom: -5px;
+    border-radius: 2px;
+}

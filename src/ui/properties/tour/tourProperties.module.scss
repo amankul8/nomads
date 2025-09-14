@@ -1,0 +1,30 @@
+.activity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min-content;
+    gap: 5px;
+    white-space: nowrap;
+    position: relative;
+
+    svg {
+        height: 16px;
+        max-width: 25px;
+    }
+
+    .text {
+        width: calc(100% - 25px);
+    }
+
+    .blue {
+        fill: var(--blue);
+    }
+    
+    .white {
+        fill: var(--white);
+    }
+    
+    .red {
+        fill: var(--red);
+    }
+}

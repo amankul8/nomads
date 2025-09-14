@@ -1,0 +1,24 @@
+@use "sass:map";
+
+$breakpoints: (
+  'phone': 480px,
+  'tablet': 768px,
+  '1080': 1080px,
+  'hd': 1280px,
+  'qhd': 1440px,
+  'fullhd': 1920px,
+  '2k': 2560px,
+  '4k': 3840px,
+);
+
+@mixin respond-to($breakpoint) {
+  $width: map.get($breakpoints, $breakpoint);
+
+  @if $width {
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @warn "Брекпоинт #{$breakpoint} не найден в списке.";
+  }
+}

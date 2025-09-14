@@ -1,0 +1,10 @@
+.card {
+    max-width: 360px;
+    cursor: pointer;
+    border: 2px solid rgb(255, 255, 255);
+    transition: 300ms linear; 
+    
+    &:hover {
+        border: 2px solid rgb(214, 214, 214);
+    }
+}

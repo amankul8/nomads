@@ -1,0 +1,33 @@
+@use 'breakpoints' as *;
+
+.wrapper {
+    width: 100%;
+    height: min-content;
+    padding: 60px 40px; 
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include respond-to('1080') {
+        padding: 40px 20px; 
+    }
+
+    .block {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .line {
+            display: flex;
+            flex-direction: row;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .colunm {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+}

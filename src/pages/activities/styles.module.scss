@@ -1,0 +1,32 @@
+@use 'breakpoints' as *;
+
+.section {
+    width: 100%;
+    padding: 60px 0;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .list {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 32px;
+            align-items: center;
+            justify-content: center;
+
+            @include respond-to('hd') {
+                grid-template-columns: auto auto auto;
+            }
+
+            @include respond-to('tablet') {
+                grid-template-columns: auto auto;
+            }
+
+            @include respond-to('phone') {
+                grid-template-columns: auto;
+            }
+        }
+    }
+}

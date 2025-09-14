@@ -1,0 +1,13 @@
+@use 'breakpoints' as *;
+
+.main_block_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.tours_section {
+    width: 100%;
+    overflow: hidden;
+}

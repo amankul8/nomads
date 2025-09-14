@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "name": "Rixos Almaty",
+        "description": "Luxurious hotel in the heart of Almaty",
+        "price": 370,
+        "images": [
+            {
+                "url": "accommodadtion/1/images/rixos_almaty1.webp",
+                "alt": "Hall of Rixos Almaty"
+            },
+            {
+                "url": "accommodadtion/1/images/rixos_almaty2.webp",
+                "alt": "Room of Rixos Almaty"
+            },
+            {
+                "url": "accommodadtion/1/images/rixos_almaty3.webp",
+                "alt": "Entry of Rixos Almaty"
+            }
+        ],
+        "rating": 5,
+        "tier": "1",
+        "type": "Hotel",
+        "stars": 5,
+        "stations": [
+            1
+        ],
+        "details": {
+            "shared_room": false,
+            "toilet": true,
+            "bath": true,
+            "wifi": true,
+            "restaurant": false,
+            "laundry_ironing_services": true
+        }
+    },
+    {
+        "id": 2,
+        "name": "Rixos Almaty 2",
+        "description": "Luxurious hotel in the heart of Almaty",
+        "price": 370,
+        "images": [
+            {
+                "url": "accommodadtion/1/images/rixos_almaty1.webp",
+                "alt": "Hall of Rixos Almaty"
+            },
+            {
+                "url": "accommodadtion/1/images/rixos_almaty2.webp",
+                "alt": "Room of Rixos Almaty"
+            },
+            {
+                "url": "accommodadtion/1/images/rixos_almaty3.webp",
+                "alt": "Entry of Rixos Almaty"
+            }
+        ],
+        "rating": 5,
+        "tier": "1",
+        "type": "Hotel",
+        "stars": 5,
+        "stations": [
+            1
+        ],
+        "details": {
+            "shared_room": false,
+            "toilet": true,
+            "bath": true,
+            "wifi": true,
+            "restaurant": false,
+            "laundry_ironing_services": true
+        }
+    },
+    {
+        "id": 3,
+        "name": "Rixos Almaty 3",
+        "description": "Luxurious hotel in the heart of Almaty",
+        "price": 370,
+        "images": [
+            {
+                "url": "accommodadtion/1/images/rixos_almaty1.webp",
+                "alt": "Hall of Rixos Almaty"
+            },
+            {
+                "url": "accommodadtion/1/images/rixos_almaty2.webp",
+                "alt": "Room of Rixos Almaty"
+            },
+            {
+                "url": "accommodadtion/1/images/rixos_almaty3.webp",
+                "alt": "Entry of Rixos Almaty"
+            }
+        ],
+        "rating": 5,
+        "tier": "1",
+        "type": "Hotel",
+        "stars": 5,
+        "stations": [
+            1
+        ],
+        "details": {
+            "shared_room": false,
+            "toilet": true,
+            "bath": true,
+            "wifi": true,
+            "restaurant": false,
+            "laundry_ironing_services": true
+        }
+    }
+]

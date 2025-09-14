@@ -1,0 +1,49 @@
+.btn {
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &:hover .icon_wr::before {
+        opacity: 0;
+    }
+
+    &:hover .icon_wr::after {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.icon_wr {
+    padding: 10px 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 300ms linear;
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        border: 4px solid var(--white);
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        transition: opacity 300ms linear, transform 300ms linear;
+    }
+
+    &::before {
+        opacity: 1;
+    }
+
+    &::after {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+}
+
+.text {
+    max-width: 140px;
+}

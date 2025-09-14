@@ -1,0 +1,72 @@
+@import url('./fonts.css');
+
+:root {
+  /* Colors */
+  --red: #CB0202;
+  --blue: #0083E6;
+  --white: white;
+  --black: #191919;
+  --lightGrey: #f3f3f3;
+  --grey: #878787;
+  --darkGrey: #444444;
+  --green: #00E663;
+  --orange: #E68A00;
+  --darkYellow: #E6B800;
+  --pink: #E60083;
+
+  /* Font families */
+  --caveat_brush: 'Caveat Brush';
+  --open_sans:  'Open Sans';
+  --montserrat: 'Montserrat';
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  margin: auto;
+  max-width: 1440px;
+  width: 100%;
+}
+
+.slick-slider .slick-list {
+  overflow: visible;
+}
+
+@media screen and (max-width: 1440px){
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .container {
+    padding: 0 20px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}

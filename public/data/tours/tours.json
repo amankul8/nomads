@@ -1,0 +1,1311 @@
+[
+    {
+        "id": 1,
+        "name": "Kyrgyzstan and Kazakhstan | 13 Days |  Horseriding, Mountains, Lakes, Culture, Eagle Show",
+        "description": "Discover the breathtaking natural beauty and rich nomadic culture of Central Asia on this unforgettable 13-day journey through Kazakhstan and Kyrgyzstan. Starting from vibrant Almaty, you’ll explore surreal landscapes including the dramatic Charyn Canyon, the emerald waters of Kolsay and Kaindy Lakes, and the historic Burana Tower. \n\nCrossing into Kyrgyzstan, the adventure continues with scenic hikes and horseback rides through alpine valleys and lush mountain pastures. Visit iconic destinations like Karakol, the thermal springs of Altyn Arashan, the turquoise gem Ala Kul Lake, the red rock formations of Jeti Oguz and Skazka Canyon, and the green gorge of Chunkurchak.\n\nYou’ll experience authentic nomadic life at high-altitude camps near Son Kul, sleep in yurts near Tash Rabat, and end your journey with a visit to the remote and otherworldly Kel Suu Lake, near the Chinese border.",
+        "video": "https://www.nomads.voyage/videos/111.mp4",
+        "price": 3900,
+        "promotion": 0.1,
+        "duration": 13,
+        "difficulty": 3.5,
+        "countries": [
+            1,
+            2
+        ],
+        "tour_types": [
+            5,
+            6,
+            7
+        ],
+        "next_departure": "2025-09-23T18:25:43.511Z",
+        "total_details": {
+            "car_range": 2500,
+            "foot_range": 100,
+            "horse_time": 100,
+            "ski_range": null,
+            "cycle_range": null,
+            "boat_range": null
+        },
+        "map": "https://www.google.com/maps/d/u/0/viewer?mid=1IarkPdaI3570KmeirkeLoDKTmQdcN_o&ll=41.541365346094594%2C76.44761894710007&z=8",
+        "images": [
+            {
+                "url": "tours/1/images/1.webp",
+                "alt": "beatiful country of Kazakhstan"
+            },
+            {
+                "url": "tours/1/images/2.webp",
+                "alt": "beatiful country of Kyrgyzstan"
+            },
+            {
+                "url": "tours/1/images/3.webp",
+                "alt": "beatiful country of Kazakhstan"
+            }
+        ],
+        "tour_price": [
+            {
+                "id": "1",
+                "start_date": "2025-09-23T18:25:43.511Z",
+                "end_date": "2025-10-05T18:25:43.511Z",
+                "tier": "1",
+                "price": 1500,
+                "registered": "0"
+            }
+        ],
+        "coverage": {
+            "included": [
+                "Food",
+                "Accommodation",
+                "All transfers in vehicle",
+                "English speaking tour guide",
+                "Horse Riding",
+                "Carrying luggage during trekking and horse riding",
+                "All the visits indicated in the program",
+                "Entry fees at national parks or nature reserves",
+                "Entry fees at museums mentioned in the program",
+                "National or regional flights specified in the program"
+            ],
+            "excluded": [
+                "Insurance repatriation and CR insurance",
+                "Alcoholic beverages",
+                "Additional services not mentioned in the program",
+                "Additional costs due to personal problems",
+                "International banking fees",
+                "Any charged activity not mentioned in the program",
+                "Visas",
+                "Tips (always optional, always appreciated)"
+            ]
+        },
+        "days": [
+            {
+                "id": 1,
+                "name": "Almaty City Tour with visiting Shymbulak and Medeu",
+                "description": "Today you will visit Panfilov Park, which is named after World War II General Panfilov. An impressive monument has been erected in the center of the park in honor of Panfilov’s division. Almaty’s most famous sight, the wooden Zenkov Cathedral built in 1904, is situated in Panfilov Park as well. At Green Bazaar, you will have the chance to experience local Kazakh culture as you shop for fresh fruits and vegetables.\n\n After the market, you will take a cable car to reach one of the main landmarks of Almaty, the Shymbulak ski resort, where you will enjoy wonderful views of the Ili Alatau Mountains. On the way to the ski resort you will pass the legendary Medeo skating rink. It is located in the picturesque Medeo Gorge at an altitude of 1,600 m and it is one of the largest and highest ice rinks in the world. You will have lunch here on the summer terrace of a Kazakh restaurant at an altitude of 2,260 m.\n\n Then you will take another cable car and continue to the top of the ski resort (3,200 m). It will be a bit cold and windy, so make sure you bring a warm jacket. After taking in more mountain views, you will drive back into the city for a walk along Arbat, a delightful path along the Almaty. It is one of the most popular places for locals, where Almaty’s residents come to have food or simply enjoy a stroll. Dinner and Overnight.",
+                "meals": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "accommodations": [
+                    1
+                ],
+                "details": {
+                    "car_range": 400,
+                    "foot_range": 200,
+                    "horse_time": null,
+                    "ski_range": null,
+                    "cycle_range": null,
+                    "boat_range": null
+                },
+                "destinations": [
+                    40,
+                    41
+                ],
+                "entertainments": [
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            },
+            {
+                "id": 10,
+                "name": "Almaty City Tour with visiting Shymbulak and Medeu",
+                "description": "After breakfast in Saty, we begin our drive toward one of Kazakhstan’s most iconic natural wonders — Charyn Canyon. The road takes us through open valleys and rolling steppe, with sweeping views of the surrounding mountains fading behind us. After a couple of hours, the red rock walls of Charyn begin to rise in the distance.\n\n At the canyon, we take time to explore the famous Valley of Castles, where wind-sculpted rock towers and narrow passages create a surreal, ancient landscape. We can hike down into the canyon, walk along the riverbed, and admire the towering cliffs that glow in shades of orange and red under the sun.\n\n After our visit, we continue the journey west, passing scattered villages and endless steppe as we make our way to Almaty. As we approach the city, the silhouette of the Tien Shan mountains reappears on the horizon. By evening, we arrive in Kazakhstan’s largest city—a vibrant mix of modern energy and natural beauty, nestled at the foot of the mountains",
+                "meals": [
+                    1,
+                    4
+                ],
+                "accommodations": [
+                    1,
+                    2
+                ],
+                "details": {
+                    "car_range": 400,
+                    "foot_range": 200,
+                    "horse_time": null,
+                    "ski_range": null,
+                    "cycle_range": null,
+                    "boat_range": null
+                },
+                "destinations": [
+                    40,
+                    41
+                ],
+                "entertainments": [
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            }
+        ],
+        "avg_reviews": {
+            "excellent": 4.5,
+            "good": 4.0,
+            "avg": 3.5,
+            "poor": 2.0,
+            "terrible": 0
+        },
+        "tour_reviews": [
+            {
+                "user": {
+                    "id": "1",
+                    "first_name": "Askat",
+                    "last_name": "Taalaibekov",
+                    "country": "Kazakhstan",
+                    "city": "Almaty"
+                },
+                "tour_date": "2025-09-23T18:25:43.511Z",
+                "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
+                "images": [
+                    {
+                        "url": "reviews/tours/tour_review_1.webp",
+                        "alt": "A beautiful view of the mountains during the tour"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_2.webp",
+                        "alt": "A group photo with the tour guide"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_3.webp",
+                        "alt": "A scenic view from the tour"
+                    }
+                ],
+                "details": {
+                    "accommodation": "5",
+                    "entertainment": "4",
+                    "food": "5",
+                    "guide": "5",
+                    "vehicle": "4"
+                }
+            }
+        ],
+        "personal_gears": [
+            {
+                "id": "1",
+                "name": "Sleeping Bag (0℃<)",
+                "description": "Warm sleeping bag suitable for temperatures above 0℃. Optional if you have your own.",
+                "image": "personal_gears/sleeping_bag.webp"
+            },
+            {
+                "id": "2",
+                "name": "Sunglasses",
+                "description": "UV-protected sunglasses to shield your eyes during sunny hikes.",
+                "image": "personal_gears/sunglasses.webp"
+            },
+            {
+                "id": "3",
+                "name": "50+ Sun Cream",
+                "description": "High SPF (50+) sun cream to protect your skin from UV rays.",
+                "image": "personal_gears/sun_cream.webp"
+            },
+            {
+                "id": "4",
+                "name": "Hat / Beanie",
+                "description": "Protective hat for sun or warm beanie for cold weather.",
+                "image": "personal_gears/hat_beanie.webp"
+            },
+            {
+                "id": "5",
+                "name": "Scarf",
+                "description": "A scarf or buff to protect your neck from cold and wind.",
+                "image": "personal_gears/scarf.webp"
+            },
+            {
+                "id": "6",
+                "name": "Light Gloves",
+                "description": "Lightweight gloves for chilly mornings or evenings.",
+                "image": "personal_gears/gloves.webp"
+            },
+            {
+                "id": "7",
+                "name": "Headlamp",
+                "description": "Headlamp for hands-free visibility during nighttime activities.",
+                "image": "personal_gears/headlamp.webp"
+            },
+            {
+                "id": "8",
+                "name": "Hiking Bottle",
+                "description": "Reusable hiking bottle to stay hydrated on the trail.",
+                "image": "personal_gears/hiking_bottle.webp"
+            },
+            {
+                "id": "9",
+                "name": "Trekking Shoes",
+                "description": "Durable and comfortable trekking shoes for various terrains.",
+                "image": "personal_gears/trekking_shoes.webp"
+            },
+            {
+                "id": "10",
+                "name": "Camera",
+                "description": "Capture the stunning scenery and amazing memories.",
+                "image": "personal_gears/camera.webp"
+            },
+            {
+                "id": "11",
+                "name": "Clothes for Cold Evenings",
+                "description": "Warm clothing to keep comfortable during chilly nights.",
+                "image": "personal_gears/cold_clothes.webp"
+            },
+            {
+                "id": "12",
+                "name": "Fleece Jacket",
+                "description": "Fleece jacket for insulation and layering in cold weather.",
+                "image": "personal_gears/fleece_jacket.webp"
+            },
+            {
+                "id": "13",
+                "name": "Hiking Poles",
+                "description": "Adjustable trekking poles for stability on uneven ground.",
+                "image": "personal_gears/hiking_poles.webp"
+            },
+            {
+                "id": "14",
+                "name": "Rain Mountain Jacket",
+                "description": "Waterproof jacket for protection against mountain rain.",
+                "image": "personal_gears/rain_jacket.webp"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Horseriding, Mountains, Lakes, Culture, Eagle Show",
+        "description": "Discover the breathtaking natural beauty and rich nomadic culture of Central Asia on this unforgettable 13-day journey through Kazakhstan and Kyrgyzstan. Starting from vibrant Almaty, you’ll explore surreal landscapes including the dramatic Charyn Canyon, the emerald waters of Kolsay and Kaindy Lakes, and the historic Burana Tower. \n\nCrossing into Kyrgyzstan, the adventure continues with scenic hikes and horseback rides through alpine valleys and lush mountain pastures. Visit iconic destinations like Karakol, the thermal springs of Altyn Arashan, the turquoise gem Ala Kul Lake, the red rock formations of Jeti Oguz and Skazka Canyon, and the green gorge of Chunkurchak.\n\nYou’ll experience authentic nomadic life at high-altitude camps near Son Kul, sleep in yurts near Tash Rabat, and end your journey with a visit to the remote and otherworldly Kel Suu Lake, near the Chinese border.",
+        "video": "https://www.nomads.voyage/videos/111.mp4",
+        "price": 3900,
+        "promotion": 0.1,
+        "duration": 13,
+        "difficulty": 3.5,
+        "countries": [
+            1,
+            2
+        ],
+        "tour_types": [
+            5,
+            6,
+            7
+        ],
+        "next_departure": "2025-09-23T18:25:43.511Z",
+        "total_details": {
+            "car_range": 2500,
+            "foot_range": 100,
+            "horse_time": 100,
+            "ski_range": null,
+            "cycle_range": null,
+            "boat_range": null
+        },
+        "map": "https://www.google.com/maps/d/u/0/viewer?mid=1IarkPdaI3570KmeirkeLoDKTmQdcN_o&ll=41.541365346094594%2C76.44761894710007&z=8",
+        "images": [
+            {
+                "url": "tours/1/images/1.webp",
+                "alt": "beatiful country of Kazakhstan"
+            },
+            {
+                "url": "tours/1/images/2.webp",
+                "alt": "beatiful country of Kyrgyzstan"
+            },
+            {
+                "url": "tours/1/images/3.webp",
+                "alt": "beatiful country of Kazakhstan"
+            }
+        ],
+        "tour_price": [
+            {
+                "id": "1",
+                "start_date": "2025-09-23T18:25:43.511Z",
+                "end_date": "2025-10-05T18:25:43.511Z",
+                "tier": "1",
+                "price": 1500,
+                "registered": "0"
+            }
+        ],
+        "coverage": {
+            "included": [
+                "Food",
+                "Accommodation",
+                "All transfers in vehicle",
+                "English speaking tour guide",
+                "Horse Riding",
+                "Carrying luggage during trekking and horse riding",
+                "All the visits indicated in the program",
+                "Entry fees at national parks or nature reserves",
+                "Entry fees at museums mentioned in the program",
+                "National or regional flights specified in the program"
+            ],
+            "excluded": [
+                "Insurance repatriation and CR insurance",
+                "Alcoholic beverages",
+                "Additional services not mentioned in the program",
+                "Additional costs due to personal problems",
+                "International banking fees",
+                "Any charged activity not mentioned in the program",
+                "Visas",
+                "Tips (always optional, always appreciated)"
+            ]
+        },
+        "days": [
+            {
+                "id": 1,
+                "name": "Almaty City Tour with visiting Shymbulak and Medeu",
+                "description": "Today you will visit Panfilov Park, which is named after World War II General Panfilov. An impressive monument has been erected in the center of the park in honor of Panfilov’s division. Almaty’s most famous sight, the wooden Zenkov Cathedral built in 1904, is situated in Panfilov Park as well. At Green Bazaar, you will have the chance to experience local Kazakh culture as you shop for fresh fruits and vegetables.\n\n After the market, you will take a cable car to reach one of the main landmarks of Almaty, the Shymbulak ski resort, where you will enjoy wonderful views of the Ili Alatau Mountains. On the way to the ski resort you will pass the legendary Medeo skating rink. It is located in the picturesque Medeo Gorge at an altitude of 1,600 m and it is one of the largest and highest ice rinks in the world. You will have lunch here on the summer terrace of a Kazakh restaurant at an altitude of 2,260 m.\n\n Then you will take another cable car and continue to the top of the ski resort (3,200 m). It will be a bit cold and windy, so make sure you bring a warm jacket. After taking in more mountain views, you will drive back into the city for a walk along Arbat, a delightful path along the Almaty. It is one of the most popular places for locals, where Almaty’s residents come to have food or simply enjoy a stroll. Dinner and Overnight.",
+                "meals": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "accommodations": [
+                    1
+                ],
+                "details": {
+                    "car_range": 400,
+                    "foot_range": 200,
+                    "horse_time": null,
+                    "ski_range": null,
+                    "cycle_range": null,
+                    "boat_range": null
+                },
+                "destinations": [
+                    40,
+                    41
+                ],
+                "entertainments": [
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            },
+            {
+                "id": 10,
+                "name": "Almaty City Tour with visiting Shymbulak and Medeu",
+                "description": "After breakfast in Saty, we begin our drive toward one of Kazakhstan’s most iconic natural wonders — Charyn Canyon. The road takes us through open valleys and rolling steppe, with sweeping views of the surrounding mountains fading behind us. After a couple of hours, the red rock walls of Charyn begin to rise in the distance.\n\n At the canyon, we take time to explore the famous Valley of Castles, where wind-sculpted rock towers and narrow passages create a surreal, ancient landscape. We can hike down into the canyon, walk along the riverbed, and admire the towering cliffs that glow in shades of orange and red under the sun.\n\n After our visit, we continue the journey west, passing scattered villages and endless steppe as we make our way to Almaty. As we approach the city, the silhouette of the Tien Shan mountains reappears on the horizon. By evening, we arrive in Kazakhstan’s largest city—a vibrant mix of modern energy and natural beauty, nestled at the foot of the mountains",
+                "meals": [
+                    1,
+                    4
+                ],
+                "accommodations": [
+                    1
+                ],
+                "details": {
+                    "car_range": 400,
+                    "foot_range": 200,
+                    "horse_time": null,
+                    "ski_range": null,
+                    "cycle_range": null,
+                    "boat_range": null
+                },
+                "destinations": [
+                    40,
+                    41
+                ],
+                "entertainments": [
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            }
+        ],
+        "avg_reviews": {
+            "excellent": 4.5,
+            "good": 4.0,
+            "avg": 3.5,
+            "poor": 2.0,
+            "terrible": 0
+        },
+        "tour_reviews": [
+            {
+                "user": {
+                    "id": "1",
+                    "first_name": "Askat",
+                    "last_name": "Taalaibekov",
+                    "country": "Kazakhstan",
+                    "city": "Almaty"
+                },
+                "tour_date": "2025-09-23T18:25:43.511Z",
+                "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
+                "images": [
+                    {
+                        "url": "reviews/tours/tour_review_1.webp",
+                        "alt": "A beautiful view of the mountains during the tour"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_2.webp",
+                        "alt": "A group photo with the tour guide"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_3.webp",
+                        "alt": "A scenic view from the tour"
+                    }
+                ],
+                "details": {
+                    "accommodation": "5",
+                    "entertainment": "4",
+                    "food": "5",
+                    "guide": "5",
+                    "vehicle": "4"
+                }
+            }
+        ],
+        "personal_gears": [
+            {
+                "id": "1",
+                "name": "Sleeping Bag (0℃<)",
+                "description": "Warm sleeping bag suitable for temperatures above 0℃. Optional if you have your own.",
+                "image": "personal_gears/sleeping_bag.webp"
+            },
+            {
+                "id": "2",
+                "name": "Sunglasses",
+                "description": "UV-protected sunglasses to shield your eyes during sunny hikes.",
+                "image": "personal_gears/sunglasses.webp"
+            },
+            {
+                "id": "3",
+                "name": "50+ Sun Cream",
+                "description": "High SPF (50+) sun cream to protect your skin from UV rays.",
+                "image": "personal_gears/sun_cream.webp"
+            },
+            {
+                "id": "4",
+                "name": "Hat / Beanie",
+                "description": "Protective hat for sun or warm beanie for cold weather.",
+                "image": "personal_gears/hat_beanie.webp"
+            },
+            {
+                "id": "5",
+                "name": "Scarf",
+                "description": "A scarf or buff to protect your neck from cold and wind.",
+                "image": "personal_gears/scarf.webp"
+            },
+            {
+                "id": "6",
+                "name": "Light Gloves",
+                "description": "Lightweight gloves for chilly mornings or evenings.",
+                "image": "personal_gears/gloves.webp"
+            },
+            {
+                "id": "7",
+                "name": "Headlamp",
+                "description": "Headlamp for hands-free visibility during nighttime activities.",
+                "image": "personal_gears/headlamp.webp"
+            },
+            {
+                "id": "8",
+                "name": "Hiking Bottle",
+                "description": "Reusable hiking bottle to stay hydrated on the trail.",
+                "image": "personal_gears/hiking_bottle.webp"
+            },
+            {
+                "id": "9",
+                "name": "Trekking Shoes",
+                "description": "Durable and comfortable trekking shoes for various terrains.",
+                "image": "personal_gears/trekking_shoes.webp"
+            },
+            {
+                "id": "10",
+                "name": "Camera",
+                "description": "Capture the stunning scenery and amazing memories.",
+                "image": "personal_gears/camera.webp"
+            },
+            {
+                "id": "11",
+                "name": "Clothes for Cold Evenings",
+                "description": "Warm clothing to keep comfortable during chilly nights.",
+                "image": "personal_gears/cold_clothes.webp"
+            },
+            {
+                "id": "12",
+                "name": "Fleece Jacket",
+                "description": "Fleece jacket for insulation and layering in cold weather.",
+                "image": "personal_gears/fleece_jacket.webp"
+            },
+            {
+                "id": "13",
+                "name": "Hiking Poles",
+                "description": "Adjustable trekking poles for stability on uneven ground.",
+                "image": "personal_gears/hiking_poles.webp"
+            },
+            {
+                "id": "14",
+                "name": "Rain Mountain Jacket",
+                "description": "Waterproof jacket for protection against mountain rain.",
+                "image": "personal_gears/rain_jacket.webp"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "13 Days |  Horseriding, Mountains, Lakes, Culture, Eagle Show",
+        "description": "Discover the breathtaking natural beauty and rich nomadic culture of Central Asia on this unforgettable 13-day journey through Kazakhstan and Kyrgyzstan. Starting from vibrant Almaty, you’ll explore surreal landscapes including the dramatic Charyn Canyon, the emerald waters of Kolsay and Kaindy Lakes, and the historic Burana Tower. \n\nCrossing into Kyrgyzstan, the adventure continues with scenic hikes and horseback rides through alpine valleys and lush mountain pastures. Visit iconic destinations like Karakol, the thermal springs of Altyn Arashan, the turquoise gem Ala Kul Lake, the red rock formations of Jeti Oguz and Skazka Canyon, and the green gorge of Chunkurchak.\n\nYou’ll experience authentic nomadic life at high-altitude camps near Son Kul, sleep in yurts near Tash Rabat, and end your journey with a visit to the remote and otherworldly Kel Suu Lake, near the Chinese border.",
+        "video": "https://www.nomads.voyage/videos/111.mp4",
+        "price": 3900,
+        "promotion": 0.1,
+        "duration": 13,
+        "difficulty": 3.5,
+        "countries": [
+            1,
+            2
+        ],
+        "tour_types": [
+            5,
+            6,
+            7
+        ],
+        "next_departure": "2025-09-23T18:25:43.511Z",
+        "total_details": {
+            "car_range": 2500,
+            "foot_range": 100,
+            "horse_time": 100,
+            "ski_range": null,
+            "cycle_range": null,
+            "boat_range": null
+        },
+        "map": "https://www.google.com/maps/d/u/0/viewer?mid=1IarkPdaI3570KmeirkeLoDKTmQdcN_o&ll=41.541365346094594%2C76.44761894710007&z=8",
+        "images": [
+            {
+                "url": "tours/1/images/1.webp",
+                "alt": "beatiful country of Kazakhstan"
+            },
+            {
+                "url": "tours/1/images/2.webp",
+                "alt": "beatiful country of Kyrgyzstan"
+            },
+            {
+                "url": "tours/1/images/3.webp",
+                "alt": "beatiful country of Kazakhstan"
+            }
+        ],
+        "tour_price": [
+            {
+                "id": "1",
+                "start_date": "2025-09-23T18:25:43.511Z",
+                "end_date": "2025-10-05T18:25:43.511Z",
+                "tier": "1",
+                "price": 1500,
+                "registered": "0"
+            }
+        ],
+        "coverage": {
+            "included": [
+                "Food",
+                "Accommodation",
+                "All transfers in vehicle",
+                "English speaking tour guide",
+                "Horse Riding",
+                "Carrying luggage during trekking and horse riding",
+                "All the visits indicated in the program",
+                "Entry fees at national parks or nature reserves",
+                "Entry fees at museums mentioned in the program",
+                "National or regional flights specified in the program"
+            ],
+            "excluded": [
+                "Insurance repatriation and CR insurance",
+                "Alcoholic beverages",
+                "Additional services not mentioned in the program",
+                "Additional costs due to personal problems",
+                "International banking fees",
+                "Any charged activity not mentioned in the program",
+                "Visas",
+                "Tips (always optional, always appreciated)"
+            ]
+        },
+        "days": [
+            {
+                "id": 1,
+                "name": "Almaty City Tour with visiting Shymbulak and Medeu",
+                "description": "Today you will visit Panfilov Park, which is named after World War II General Panfilov. An impressive monument has been erected in the center of the park in honor of Panfilov’s division. Almaty’s most famous sight, the wooden Zenkov Cathedral built in 1904, is situated in Panfilov Park as well. At Green Bazaar, you will have the chance to experience local Kazakh culture as you shop for fresh fruits and vegetables.\n\n After the market, you will take a cable car to reach one of the main landmarks of Almaty, the Shymbulak ski resort, where you will enjoy wonderful views of the Ili Alatau Mountains. On the way to the ski resort you will pass the legendary Medeo skating rink. It is located in the picturesque Medeo Gorge at an altitude of 1,600 m and it is one of the largest and highest ice rinks in the world. You will have lunch here on the summer terrace of a Kazakh restaurant at an altitude of 2,260 m.\n\n Then you will take another cable car and continue to the top of the ski resort (3,200 m). It will be a bit cold and windy, so make sure you bring a warm jacket. After taking in more mountain views, you will drive back into the city for a walk along Arbat, a delightful path along the Almaty. It is one of the most popular places for locals, where Almaty’s residents come to have food or simply enjoy a stroll. Dinner and Overnight.",
+                "meals": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "accommodations": [
+                    1
+                ],
+                "details": {
+                    "car_range": 400,
+                    "foot_range": 200,
+                    "horse_time": null,
+                    "ski_range": null,
+                    "cycle_range": null,
+                    "boat_range": null
+                },
+                "destinations": [
+                    40,
+                    41
+                ],
+                "entertainments": [
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            },
+            {
+                "id": 10,
+                "name": "Almaty City Tour with visiting Shymbulak and Medeu",
+                "description": "After breakfast in Saty, we begin our drive toward one of Kazakhstan’s most iconic natural wonders — Charyn Canyon. The road takes us through open valleys and rolling steppe, with sweeping views of the surrounding mountains fading behind us. After a couple of hours, the red rock walls of Charyn begin to rise in the distance.\n\n At the canyon, we take time to explore the famous Valley of Castles, where wind-sculpted rock towers and narrow passages create a surreal, ancient landscape. We can hike down into the canyon, walk along the riverbed, and admire the towering cliffs that glow in shades of orange and red under the sun.\n\n After our visit, we continue the journey west, passing scattered villages and endless steppe as we make our way to Almaty. As we approach the city, the silhouette of the Tien Shan mountains reappears on the horizon. By evening, we arrive in Kazakhstan’s largest city—a vibrant mix of modern energy and natural beauty, nestled at the foot of the mountains",
+                "meals": [
+                    1,
+                    4
+                ],
+                "accommodations": [
+                    1
+                ],
+                "details": {
+                    "car_range": 400,
+                    "foot_range": 200,
+                    "horse_time": null,
+                    "ski_range": null,
+                    "cycle_range": null,
+                    "boat_range": null
+                },
+                "destinations": [
+                    40,
+                    41
+                ],
+                "entertainments": [
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            }
+        ],
+        "avg_reviews": {
+            "excellent": 4.5,
+            "good": 4.0,
+            "avg": 3.5,
+            "poor": 2.0,
+            "terrible": 0
+        },
+        "tour_reviews": [
+            {
+                "user": {
+                    "id": "1",
+                    "first_name": "Askat",
+                    "last_name": "Taalaibekov",
+                    "country": "Kazakhstan",
+                    "city": "Almaty"
+                },
+                "tour_date": "2025-09-23T18:25:43.511Z",
+                "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
+                "images": [
+                    {
+                        "url": "reviews/tours/tour_review_1.webp",
+                        "alt": "A beautiful view of the mountains during the tour"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_2.webp",
+                        "alt": "A group photo with the tour guide"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_3.webp",
+                        "alt": "A scenic view from the tour"
+                    }
+                ],
+                "details": {
+                    "accommodation": "5",
+                    "entertainment": "4",
+                    "food": "5",
+                    "guide": "5",
+                    "vehicle": "4"
+                }
+            }
+        ],
+        "personal_gears": [
+            {
+                "id": "1",
+                "name": "Sleeping Bag (0℃<)",
+                "description": "Warm sleeping bag suitable for temperatures above 0℃. Optional if you have your own.",
+                "image": "personal_gears/sleeping_bag.webp"
+            },
+            {
+                "id": "2",
+                "name": "Sunglasses",
+                "description": "UV-protected sunglasses to shield your eyes during sunny hikes.",
+                "image": "personal_gears/sunglasses.webp"
+            },
+            {
+                "id": "3",
+                "name": "50+ Sun Cream",
+                "description": "High SPF (50+) sun cream to protect your skin from UV rays.",
+                "image": "personal_gears/sun_cream.webp"
+            },
+            {
+                "id": "4",
+                "name": "Hat / Beanie",
+                "description": "Protective hat for sun or warm beanie for cold weather.",
+                "image": "personal_gears/hat_beanie.webp"
+            },
+            {
+                "id": "5",
+                "name": "Scarf",
+                "description": "A scarf or buff to protect your neck from cold and wind.",
+                "image": "personal_gears/scarf.webp"
+            },
+            {
+                "id": "6",
+                "name": "Light Gloves",
+                "description": "Lightweight gloves for chilly mornings or evenings.",
+                "image": "personal_gears/gloves.webp"
+            },
+            {
+                "id": "7",
+                "name": "Headlamp",
+                "description": "Headlamp for hands-free visibility during nighttime activities.",
+                "image": "personal_gears/headlamp.webp"
+            },
+            {
+                "id": "8",
+                "name": "Hiking Bottle",
+                "description": "Reusable hiking bottle to stay hydrated on the trail.",
+                "image": "personal_gears/hiking_bottle.webp"
+            },
+            {
+                "id": "9",
+                "name": "Trekking Shoes",
+                "description": "Durable and comfortable trekking shoes for various terrains.",
+                "image": "personal_gears/trekking_shoes.webp"
+            },
+            {
+                "id": "10",
+                "name": "Camera",
+                "description": "Capture the stunning scenery and amazing memories.",
+                "image": "personal_gears/camera.webp"
+            },
+            {
+                "id": "11",
+                "name": "Clothes for Cold Evenings",
+                "description": "Warm clothing to keep comfortable during chilly nights.",
+                "image": "personal_gears/cold_clothes.webp"
+            },
+            {
+                "id": "12",
+                "name": "Fleece Jacket",
+                "description": "Fleece jacket for insulation and layering in cold weather.",
+                "image": "personal_gears/fleece_jacket.webp"
+            },
+            {
+                "id": "13",
+                "name": "Hiking Poles",
+                "description": "Adjustable trekking poles for stability on uneven ground.",
+                "image": "personal_gears/hiking_poles.webp"
+            },
+            {
+                "id": "14",
+                "name": "Rain Mountain Jacket",
+                "description": "Waterproof jacket for protection against mountain rain.",
+                "image": "personal_gears/rain_jacket.webp"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Discover the breathtaking natural beauty and rich nomadic culture of Central Asia on this unforgettable 13-day",
+        "description": "Discover the breathtaking natural beauty and rich nomadic culture of Central Asia on this unforgettable 13-day journey through Kazakhstan and Kyrgyzstan. Starting from vibrant Almaty, you’ll explore surreal landscapes including the dramatic Charyn Canyon, the emerald waters of Kolsay and Kaindy Lakes, and the historic Burana Tower. \n\nCrossing into Kyrgyzstan, the adventure continues with scenic hikes and horseback rides through alpine valleys and lush mountain pastures. Visit iconic destinations like Karakol, the thermal springs of Altyn Arashan, the turquoise gem Ala Kul Lake, the red rock formations of Jeti Oguz and Skazka Canyon, and the green gorge of Chunkurchak.\n\nYou’ll experience authentic nomadic life at high-altitude camps near Son Kul, sleep in yurts near Tash Rabat, and end your journey with a visit to the remote and otherworldly Kel Suu Lake, near the Chinese border.",
+        "video": "https://www.nomads.voyage/videos/111.mp4",
+        "price": 3900,
+        "promotion": 0.1,
+        "duration": 13,
+        "difficulty": 3.5,
+        "countries": [
+            1,
+            2
+        ],
+        "tour_types": [
+            5,
+            6,
+            7
+        ],
+        "next_departure": "2025-09-23T18:25:43.511Z",
+        "total_details": {
+            "car_range": 2500,
+            "foot_range": 100,
+            "horse_time": 100,
+            "ski_range": null,
+            "cycle_range": null,
+            "boat_range": null
+        },
+        "map": "https://www.google.com/maps/d/u/0/viewer?mid=1IarkPdaI3570KmeirkeLoDKTmQdcN_o&ll=41.541365346094594%2C76.44761894710007&z=8",
+        "images": [
+            {
+                "url": "tours/1/images/1.webp",
+                "alt": "beatiful country of Kazakhstan"
+            },
+            {
+                "url": "tours/1/images/2.webp",
+                "alt": "beatiful country of Kyrgyzstan"
+            },
+            {
+                "url": "tours/1/images/3.webp",
+                "alt": "beatiful country of Kazakhstan"
+            }
+        ],
+        "tour_price": [
+            {
+                "id": "1",
+                "start_date": "2025-09-23T18:25:43.511Z",
+                "end_date": "2025-10-05T18:25:43.511Z",
+                "tier": "1",
+                "price": 1500,
+                "registered": "0"
+            }
+        ],
+        "coverage": {
+            "included": [
+                "Food",
+                "Accommodation",
+                "All transfers in vehicle",
+                "English speaking tour guide",
+                "Horse Riding",
+                "Carrying luggage during trekking and horse riding",
+                "All the visits indicated in the program",
+                "Entry fees at national parks or nature reserves",
+                "Entry fees at museums mentioned in the program",
+                "National or regional flights specified in the program"
+            ],
+            "excluded": [
+                "Insurance repatriation and CR insurance",
+                "Alcoholic beverages",
+                "Additional services not mentioned in the program",
+                "Additional costs due to personal problems",
+                "International banking fees",
+                "Any charged activity not mentioned in the program",
+                "Visas",
+                "Tips (always optional, always appreciated)"
+            ]
+        },
+        "days": [
+            {
+                "id": 1,
+                "name": "Almaty City Tour with visiting Shymbulak and Medeu",
+                "description": "Today you will visit Panfilov Park, which is named after World War II General Panfilov. An impressive monument has been erected in the center of the park in honor of Panfilov’s division. Almaty’s most famous sight, the wooden Zenkov Cathedral built in 1904, is situated in Panfilov Park as well. At Green Bazaar, you will have the chance to experience local Kazakh culture as you shop for fresh fruits and vegetables.\n\n After the market, you will take a cable car to reach one of the main landmarks of Almaty, the Shymbulak ski resort, where you will enjoy wonderful views of the Ili Alatau Mountains. On the way to the ski resort you will pass the legendary Medeo skating rink. It is located in the picturesque Medeo Gorge at an altitude of 1,600 m and it is one of the largest and highest ice rinks in the world. You will have lunch here on the summer terrace of a Kazakh restaurant at an altitude of 2,260 m.\n\n Then you will take another cable car and continue to the top of the ski resort (3,200 m). It will be a bit cold and windy, so make sure you bring a warm jacket. After taking in more mountain views, you will drive back into the city for a walk along Arbat, a delightful path along the Almaty. It is one of the most popular places for locals, where Almaty’s residents come to have food or simply enjoy a stroll. Dinner and Overnight.",
+                "meals": [
+                    1,
+                    2,
+                    3,
+                    4
+                ],
+                "accommodations": [
+                    1
+                ],
+                "details": {
+                    "car_range": 400,
+                    "foot_range": 200,
+                    "horse_time": null,
+                    "ski_range": null,
+                    "cycle_range": null,
+                    "boat_range": null
+                },
+                "destinations": [
+                    40,
+                    41
+                ],
+                "entertainments": [
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            },
+            {
+                "id": 10,
+                "name": "Almaty City Tour with visiting Shymbulak and Medeu",
+                "description": "After breakfast in Saty, we begin our drive toward one of Kazakhstan’s most iconic natural wonders — Charyn Canyon. The road takes us through open valleys and rolling steppe, with sweeping views of the surrounding mountains fading behind us. After a couple of hours, the red rock walls of Charyn begin to rise in the distance.\n\n At the canyon, we take time to explore the famous Valley of Castles, where wind-sculpted rock towers and narrow passages create a surreal, ancient landscape. We can hike down into the canyon, walk along the riverbed, and admire the towering cliffs that glow in shades of orange and red under the sun.\n\n After our visit, we continue the journey west, passing scattered villages and endless steppe as we make our way to Almaty. As we approach the city, the silhouette of the Tien Shan mountains reappears on the horizon. By evening, we arrive in Kazakhstan’s largest city—a vibrant mix of modern energy and natural beauty, nestled at the foot of the mountains",
+                "meals": [
+                    1,
+                    4
+                ],
+                "accommodations": [
+                    1
+                ],
+                "details": {
+                    "car_range": 400,
+                    "foot_range": 200,
+                    "horse_time": null,
+                    "ski_range": null,
+                    "cycle_range": null,
+                    "boat_range": null
+                },
+                "destinations": [
+                    40,
+                    41
+                ],
+                "entertainments": [
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            }
+        ],
+        "avg_reviews": {
+            "excellent": 4.5,
+            "good": 4.0,
+            "avg": 3.5,
+            "poor": 2.0,
+            "terrible": 0
+        },
+        "tour_reviews": [
+            {
+                "user": {
+                    "id": "1",
+                    "first_name": "Askat",
+                    "last_name": "Taalaibekov",
+                    "country": "Kazakhstan",
+                    "city": "Almaty"
+                },
+                "tour_date": "2025-09-23T18:25:43.511Z",
+                "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
+                "images": [
+                    {
+                        "url": "reviews/tours/tour_review_1.webp",
+                        "alt": "A beautiful view of the mountains during the tour"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_2.webp",
+                        "alt": "A group photo with the tour guide"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_3.webp",
+                        "alt": "A scenic view from the tour"
+                    }
+                ],
+                "details": {
+                    "accommodation": "5",
+                    "entertainment": "4",
+                    "food": "5",
+                    "guide": "5",
+                    "vehicle": "4"
+                }
+            }
+        ],
+        "personal_gears": [
+            {
+                "id": "1",
+                "name": "Sleeping Bag (0℃<)",
+                "description": "Warm sleeping bag suitable for temperatures above 0℃. Optional if you have your own.",
+                "image": "personal_gears/sleeping_bag.webp"
+            },
+            {
+                "id": "2",
+                "name": "Sunglasses",
+                "description": "UV-protected sunglasses to shield your eyes during sunny hikes.",
+                "image": "personal_gears/sunglasses.webp"
+            },
+            {
+                "id": "3",
+                "name": "50+ Sun Cream",
+                "description": "High SPF (50+) sun cream to protect your skin from UV rays.",
+                "image": "personal_gears/sun_cream.webp"
+            },
+            {
+                "id": "4",
+                "name": "Hat / Beanie",
+                "description": "Protective hat for sun or warm beanie for cold weather.",
+                "image": "personal_gears/hat_beanie.webp"
+            },
+            {
+                "id": "5",
+                "name": "Scarf",
+                "description": "A scarf or buff to protect your neck from cold and wind.",
+                "image": "personal_gears/scarf.webp"
+            },
+            {
+                "id": "6",
+                "name": "Light Gloves",
+                "description": "Lightweight gloves for chilly mornings or evenings.",
+                "image": "personal_gears/gloves.webp"
+            },
+            {
+                "id": "7",
+                "name": "Headlamp",
+                "description": "Headlamp for hands-free visibility during nighttime activities.",
+                "image": "personal_gears/headlamp.webp"
+            },
+            {
+                "id": "8",
+                "name": "Hiking Bottle",
+                "description": "Reusable hiking bottle to stay hydrated on the trail.",
+                "image": "personal_gears/hiking_bottle.webp"
+            },
+            {
+                "id": "9",
+                "name": "Trekking Shoes",
+                "description": "Durable and comfortable trekking shoes for various terrains.",
+                "image": "personal_gears/trekking_shoes.webp"
+            },
+            {
+                "id": "10",
+                "name": "Camera",
+                "description": "Capture the stunning scenery and amazing memories.",
+                "image": "personal_gears/camera.webp"
+            },
+            {
+                "id": "11",
+                "name": "Clothes for Cold Evenings",
+                "description": "Warm clothing to keep comfortable during chilly nights.",
+                "image": "personal_gears/cold_clothes.webp"
+            },
+            {
+                "id": "12",
+                "name": "Fleece Jacket",
+                "description": "Fleece jacket for insulation and layering in cold weather.",
+                "image": "personal_gears/fleece_jacket.webp"
+            },
+            {
+                "id": "13",
+                "name": "Hiking Poles",
+                "description": "Adjustable trekking poles for stability on uneven ground.",
+                "image": "personal_gears/hiking_poles.webp"
+            },
+            {
+                "id": "14",
+                "name": "Rain Mountain Jacket",
+                "description": "Waterproof jacket for protection against mountain rain.",
+                "image": "personal_gears/rain_jacket.webp"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Discover the breathtaking natural beauty and",
+        "description": "Discover the breathtaking natural beauty and rich nomadic culture of Central Asia on this unforgettable 13-day journey through Kazakhstan and Kyrgyzstan. Starting from vibrant Almaty, you’ll explore surreal landscapes including the dramatic Charyn Canyon, the emerald waters of Kolsay and Kaindy Lakes, and the historic Burana Tower. \n\nCrossing into Kyrgyzstan, the adventure continues with scenic hikes and horseback rides through alpine valleys and lush mountain pastures. Visit iconic destinations like Karakol, the thermal springs of Altyn Arashan, the turquoise gem Ala Kul Lake, the red rock formations of Jeti Oguz and Skazka Canyon, and the green gorge of Chunkurchak.\n\nYou’ll experience authentic nomadic life at high-altitude camps near Son Kul, sleep in yurts near Tash Rabat, and end your journey with a visit to the remote and otherworldly Kel Suu Lake, near the Chinese border.",
+        "video": "https://www.nomads.voyage/videos/111.mp4",
+        "price": 3900,
+        "promotion": 0.1,
+        "duration": 13,
+        "difficulty": 3.5,
+        "countries": [
+            1,
+            2
+        ],
+        "tour_types": [
+            5,
+            6,
+            7
+        ],
+        "next_departure": "2025-09-23T18:25:43.511Z",
+        "total_details": {
+            "car_range": 2500,
+            "foot_range": 100,
+            "horse_time": 100,
+            "ski_range": null,
+            "cycle_range": null,
+            "boat_range": null
+        },
+        "map": "https://www.google.com/maps/d/u/0/viewer?mid=1IarkPdaI3570KmeirkeLoDKTmQdcN_o&ll=41.541365346094594%2C76.44761894710007&z=8",
+        "images": [
+            {
+                "url": "tours/1/images/1.webp",
+                "alt": "beatiful country of Kazakhstan"
+            },
+            {
+                "url": "tours/1/images/2.webp",
+                "alt": "beatiful country of Kyrgyzstan"
+            },
+            {
+                "url": "tours/1/images/3.webp",
+                "alt": "beatiful country of Kazakhstan"
+            }
+        ],
+        "tour_price": [
+            {
+                "id": "1",
+                "start_date": "2025-09-23T18:25:43.511Z",
+                "end_date": "2025-10-05T18:25:43.511Z",
+                "tier": "1",
+                "price": 1500,
+                "registered": "0"
+            }
+        ],
+        "coverage": {
+            "included": [
+                "Food",
+                "Accommodation",
+                "All transfers in vehicle",
+                "English speaking tour guide",
+                "Horse Riding",
+                "Carrying luggage during trekking and horse riding",
+                "All the visits indicated in the program",
+                "Entry fees at national parks or nature reserves",
+                "Entry fees at museums mentioned in the program",
+                "National or regional flights specified in the program"
+            ],
+            "excluded": [
+                "Insurance repatriation and CR insurance",
+                "Alcoholic beverages",
+                "Additional services not mentioned in the program",
+                "Additional costs due to personal problems",
+                "International banking fees",
+                "Any charged activity not mentioned in the program",
+                "Visas",
+                "Tips (always optional, always appreciated)"
+            ]
+        },
+        "days": [
+            {
+                "id": 10,
+                "name": "Almaty City Tour with visiting Shymbulak and Medeu",
+                "description": "After breakfast in Saty, we begin our drive toward one of Kazakhstan’s most iconic natural wonders — Charyn Canyon. The road takes us through open valleys and rolling steppe, with sweeping views of the surrounding mountains fading behind us. After a couple of hours, the red rock walls of Charyn begin to rise in the distance.\n\n At the canyon, we take time to explore the famous Valley of Castles, where wind-sculpted rock towers and narrow passages create a surreal, ancient landscape. We can hike down into the canyon, walk along the riverbed, and admire the towering cliffs that glow in shades of orange and red under the sun.\n\n After our visit, we continue the journey west, passing scattered villages and endless steppe as we make our way to Almaty. As we approach the city, the silhouette of the Tien Shan mountains reappears on the horizon. By evening, we arrive in Kazakhstan’s largest city—a vibrant mix of modern energy and natural beauty, nestled at the foot of the mountains",
+                "meals": [
+                    1,
+                    4
+                ],
+                "accommodations": [
+                    1
+                ],
+                "details": {
+                    "car_range": 400,
+                    "foot_range": 200,
+                    "horse_time": null,
+                    "ski_range": null,
+                    "cycle_range": null,
+                    "boat_range": null
+                },
+                "destinations": [
+                    40,
+                    41
+                ],
+                "entertainments": [
+                    11,
+                    12,
+                    13,
+                    14
+                ]
+            }
+        ],
+        "avg_reviews": {
+            "excellent": 4.5,
+            "good": 4.0,
+            "avg": 3.5,
+            "poor": 2.0,
+            "terrible": 0
+        },
+        "tour_reviews": [
+            {
+                "user": {
+                    "id": "1",
+                    "first_name": "Askat",
+                    "last_name": "Taalaibekov",
+                    "country": "Kazakhstan",
+                    "city": "Almaty"
+                },
+                "tour_date": "2025-09-23T18:25:43.511Z",
+                "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
+                "images": [
+                    {
+                        "url": "reviews/tours/tour_review_1.webp",
+                        "alt": "A beautiful view of the mountains during the tour"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_2.webp",
+                        "alt": "A group photo with the tour guide"
+                    },
+                    {
+                        "url": "reviews/tours/tour_review_3.webp",
+                        "alt": "A scenic view from the tour"
+                    }
+                ],
+                "details": {
+                    "accommodation": "5",
+                    "entertainment": "4",
+                    "food": "5",
+                    "guide": "5",
+                    "vehicle": "4"
+                }
+            }
+        ],
+        "personal_gears": [
+            {
+                "id": "1",
+                "name": "Sleeping Bag (0℃<)",
+                "description": "Warm sleeping bag suitable for temperatures above 0℃. Optional if you have your own.",
+                "image": "personal_gears/sleeping_bag.webp"
+            },
+            {
+                "id": "2",
+                "name": "Sunglasses",
+                "description": "UV-protected sunglasses to shield your eyes during sunny hikes.",
+                "image": "personal_gears/sunglasses.webp"
+            },
+            {
+                "id": "3",
+                "name": "50+ Sun Cream",
+                "description": "High SPF (50+) sun cream to protect your skin from UV rays.",
+                "image": "personal_gears/sun_cream.webp"
+            },
+            {
+                "id": "4",
+                "name": "Hat / Beanie",
+                "description": "Protective hat for sun or warm beanie for cold weather.",
+                "image": "personal_gears/hat_beanie.webp"
+            },
+            {
+                "id": "5",
+                "name": "Scarf",
+                "description": "A scarf or buff to protect your neck from cold and wind.",
+                "image": "personal_gears/scarf.webp"
+            },
+            {
+                "id": "6",
+                "name": "Light Gloves",
+                "description": "Lightweight gloves for chilly mornings or evenings.",
+                "image": "personal_gears/gloves.webp"
+            },
+            {
+                "id": "7",
+                "name": "Headlamp",
+                "description": "Headlamp for hands-free visibility during nighttime activities.",
+                "image": "personal_gears/headlamp.webp"
+            },
+            {
+                "id": "8",
+                "name": "Hiking Bottle",
+                "description": "Reusable hiking bottle to stay hydrated on the trail.",
+                "image": "personal_gears/hiking_bottle.webp"
+            },
+            {
+                "id": "9",
+                "name": "Trekking Shoes",
+                "description": "Durable and comfortable trekking shoes for various terrains.",
+                "image": "personal_gears/trekking_shoes.webp"
+            },
+            {
+                "id": "10",
+                "name": "Camera",
+                "description": "Capture the stunning scenery and amazing memories.",
+                "image": "personal_gears/camera.webp"
+            },
+            {
+                "id": "11",
+                "name": "Clothes for Cold Evenings",
+                "description": "Warm clothing to keep comfortable during chilly nights.",
+                "image": "personal_gears/cold_clothes.webp"
+            },
+            {
+                "id": "12",
+                "name": "Fleece Jacket",
+                "description": "Fleece jacket for insulation and layering in cold weather.",
+                "image": "personal_gears/fleece_jacket.webp"
+            },
+            {
+                "id": "13",
+                "name": "Hiking Poles",
+                "description": "Adjustable trekking poles for stability on uneven ground.",
+                "image": "personal_gears/hiking_poles.webp"
+            },
+            {
+                "id": "14",
+                "name": "Rain Mountain Jacket",
+                "description": "Waterproof jacket for protection against mountain rain.",
+                "image": "personal_gears/rain_jacket.webp"
+            }
+        ]
+    }
+]

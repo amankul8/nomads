@@ -1,0 +1,15 @@
+.wrapper{
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+.title{
+    margin: 40px 0;
+}
+
+.bg{
+    background-image: url('/images/attainment/attainment_bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

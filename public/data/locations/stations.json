@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "name": "Almaty",
+        "elevation": "720",
+        "description": "werwe r",
+        "region_id": 2,
+        "coordinates": [43.249391988186446, 76.93461619706035]
+    }
+]

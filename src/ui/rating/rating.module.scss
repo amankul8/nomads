@@ -1,0 +1,53 @@
+.rating {
+    display: inline-block;
+    width: min-content;
+    height: min-content;
+    position: relative;
+    
+    svg {
+        width: 1em;
+        margin-left: 2px;
+    }
+    svg:first-child {
+        margin-left: 0;
+    }
+
+    .icons {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        z-index: 4;
+    }
+
+    .shadows {
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        z-index: 3;
+
+        svg {
+            opacity: 0.4;
+        }
+    }
+
+    .blue {
+        svg {
+            fill: var(--blue);
+        }
+    }
+
+    .white {
+        svg {
+            fill: var(--white);
+        }
+    }
+
+    .red {
+        svg {
+            fill: var(--red);
+        }
+    } 
+}

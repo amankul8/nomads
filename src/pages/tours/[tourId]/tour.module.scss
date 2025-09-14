@@ -1,0 +1,174 @@
+@use 'breakpoints' as *;
+
+.main_block {
+    position: relative;
+    height: 100%;    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--white);
+    gap: 10rem;
+    padding: 3rem 0;
+
+    .content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 25px;
+
+        .rating_info {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            
+            span {
+                display: flex;
+                content: "";
+                flex-direction: column;
+                justify-content: space-between;
+                gap: 7px;
+                height: 100%;
+            }
+        }
+    }
+    
+    .lower {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include respond-to("hd") {
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+    }
+
+    .mini_info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: max-content;
+        gap: 10px;
+    }
+}
+
+.itinerary {
+    width: 100%;
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.map {
+    width: 100%;
+    
+    .body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.accommodations {
+    width: 100%;
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.destinations {
+    width: 100%;
+
+    .body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+.prices {
+    .price {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .includes {
+        display: flex;
+        gap: 60px;
+        color: var(--blue);
+        padding: 30px 0;
+        align-items: flex-start;
+
+        @include respond-to("hd") {
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .included {
+            display: flex;
+            gap: 10px;
+
+            svg {
+                margin-right: 5px;
+            }
+        }
+
+        .excluded {
+            display: flex;
+            gap: 10px;
+
+            svg {
+                margin-right: 5px;
+                color: var(--red);
+            }
+        }
+    }
+}
+
+.activities {
+    width: 100%;
+    
+    .body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+.reviews {
+    width: 100%;
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+.additional {
+    width: 100%;
+
+    .body {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .content_wrapper{
+        padding: 30px;
+    }
+}
