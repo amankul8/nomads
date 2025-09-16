@@ -9,7 +9,7 @@ import AutoIcon from '@mui/icons-material/AutoAwesomeMotion';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { IconSquareBorder } from "@/components/icons/tour/square";
 import { ReviewInfoCard, TourAdditionalCard, TourDayAccommodationCard, TourDayInfoCard } from "@/components/cards";
-import {Box, ImageList, ImageListItem, Typography, useMediaQuery } from "@mui/material";
+import { Box, ImageList, ImageListItem, Typography, useMediaQuery } from "@mui/material";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -28,9 +28,11 @@ import TourSimpleCardSlider from "@/components/sliders/tour/tourSimpleCardSlider
 import { DestinationsList } from "@/components/list/destinationsList";
 import { NextSeo } from "next-seo";
 import { useAppSelector } from "@/store/hooks";
-import { selectPopularTours, selectTourById} from "@/store/slices/tours.slice";
+import { selectPopularTours, selectTourById } from "@/store/slices/tours.slice";
 import { useRouter } from "next/router";
 import Loading from "@/components/loading";
+import { useEffect, useMemo, useState } from "react";
+import { selectDestinationsByIds } from "@/store/slices/destinations.slice";
 
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
 
@@ -66,24 +68,36 @@ const rows = [
 
 
 interface TourProps {
-  data1: string;
+
 }
 
-export default function Tour({ data1 }: TourProps) {
+export default function Tour({ }: TourProps) {
 
   const isSmallScreen = useMediaQuery('(max-width:768px)');
 
   const router = useRouter();
-  const {tourId} = router.query;
+  const { tourId } = router.query;
 
   const parsedTourId = typeof tourId === 'string' ? parseInt(tourId, 10) : undefined;
 
   const tour = useAppSelector(parsedTourId ? selectTourById(parsedTourId) : () => undefined);
   const popularTours = useAppSelector(selectPopularTours);
-  
-  if(!tour) {
+
+  const destinationsIds = useMemo(() => {
+    if (!tour) return [];
+    const allDestinations = tour.days.flatMap(day => day.destinations);
+    return Array.from(new Set<number>(allDestinations));
+  }, [tour]);
+
+  const destinations = useAppSelector(
+    destinationsIds.length > 0
+      ? selectDestinationsByIds(destinationsIds)
+      : () => undefined
+  );
+
+  if (!tour) {
     return (
-      <Loading/>
+      <Loading />
     )
   }
 
@@ -101,7 +115,7 @@ export default function Tour({ data1 }: TourProps) {
       />
 
       <Layout>
-         <FirstBlockLayout
+        <FirstBlockLayout
           bg_image="https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg?cs=srgb&dl=pexels-pixabay-247600.jpg&fm=jpg"
           withCloud={false}
           bg_video="/video/video.mp4"
@@ -156,7 +170,7 @@ export default function Tour({ data1 }: TourProps) {
             </div>
 
           </div>
-        </FirstBlockLayout> 
+        </FirstBlockLayout>
 
         <TourDetailSection title="Description" Icon={AutoIcon} className={styles.itinerary}>
           <div className={styles.body}>
@@ -170,7 +184,7 @@ export default function Tour({ data1 }: TourProps) {
           <div className={styles.body}>
             {
               tour.days.map((day, index) => {
-                return <TourDayInfoCard day={day} key={index}/>
+                return <TourDayInfoCard day={day} key={index} />
               })
             }
           </div>
@@ -185,15 +199,21 @@ export default function Tour({ data1 }: TourProps) {
         <TourDetailSection title="Photos" Icon={AutoIcon} className={styles.photos}>
           <Box>
             <ImageList variant="masonry" cols={isSmallScreen ? 1 : 3} gap={3}>
-              {images.map((item, index) => (
-                <ImageListItem key={index}>
-                  <img
-                    src={`${item}?w=248&fit=crop&auto=format`}
-                    alt=""
-                    loading="lazy"
-                  />
-                </ImageListItem>
-              ))}
+
+              {
+                destinations ?
+                  destinations.flatMap(item => item && item.images ? item.images : []).map((image, index) => (
+                    <ImageListItem key={index + 1}>
+                      <img
+                        src={`${image.url}?w=248&fit=crop&auto=format`}
+                        alt=""
+                        loading="lazy"
+                      />
+                    </ImageListItem>
+                  ))
+                  : ''
+              }
+
             </ImageList>
           </Box>
         </TourDetailSection>
