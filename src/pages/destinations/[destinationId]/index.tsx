@@ -6,9 +6,8 @@ import { Alert, Box, ImageList, ImageListItem, useMediaQuery } from "@mui/materi
 import { FirstBlockLayout, Layout, UniversalBlock } from "@/layouts";
 import styles from "./destination.module.scss";
 import { Paragraph, Headline } from "@/ui";
-import { BASE_IMAGE_ULR, REVALIDATE_INTERVAL } from "@/config";
+import { BASE_IMAGE_ULR} from "@/config";
 import { ImagesModal } from "@/components/modal";
-import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useAppSelector } from "@/store/hooks";

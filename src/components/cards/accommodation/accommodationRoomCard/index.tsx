@@ -1,119 +1,99 @@
 'use client';
 
-import React, { DetailedHTMLProps, HTMLAttributes, useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import styles from "./accommodationRoomCard.module.scss";
 import { Headline, Paragraph } from "@/ui";
-import HotelIcon from '@mui/icons-material/Hotel';
-import Image from "next/image";
+import { AccommodationType } from "@/store/models/accommodations/type";
+import { housingTypeMap } from "@/store/models/accommodations";
+import {FallbackImage} from "../../image/FallbackImage";
 
-interface IAccommodationRoomCard extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>,HTMLDivElement> {
+// Icons
+import BathtubIcon from '@mui/icons-material/Bathtub';
+import IronIcon from '@mui/icons-material/Iron';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import NetworkWifiIcon from '@mui/icons-material/NetworkWifi';
+import WcIcon from '@mui/icons-material/Wc';
 
+interface IAccommodationRoomCard {
+  accommodation: AccommodationType;
 }
 
+export const AccommodationRoomCard: React.FC<IAccommodationRoomCard> = ({ accommodation }) => {
+  const [images, setImages] = useState(accommodation.images || []);
 
-export const AccommodationRoomCard:React.FC<IAccommodationRoomCard> = () => {
+  // Responsive image limit
+  useEffect(() => {
+    const updateImages = () => {
+      const isDesktop = window.innerWidth > 768;
+      const maxCount = isDesktop ? 4 : 2;
+      const allImages = accommodation.images || [];
 
-    const [windowWidth, setWindowWidth] = useState(0);
+      setImages(allImages.slice(0, maxCount));
+    };
 
-    useEffect(() => {
-        const handleResize = () => {
-          setWindowWidth(window.innerWidth);
-        };
-    
-        window.addEventListener("resize", handleResize);
-    
-        return () => {
-          window.removeEventListener("resize", handleResize);
-        };
-      }, []);
+    window.addEventListener("resize", updateImages);
+    updateImages();
 
-    return (
-        <div className={styles.card}>
-            <Headline color="black" type="normal"> Economy: </Headline>
-            <Paragraph classname={styles.bread_crumbs}> Karagat Karakol / Karagat Karakol / Karagat Karakol / Karagat Karakol </Paragraph>
-            <div className={styles.includes}> 
-                <div className={styles.include}>
-                    <HotelIcon/>
-                    Share room
-                </div>
-                <div className={styles.include}>
-                    <HotelIcon/>
-                    Share room
-                </div>
-                <div className={styles.include}>
-                    <HotelIcon/>
-                    Share room
-                </div>
-                <div className={styles.include}>
-                    <HotelIcon/>
-                    Share room
-                </div>
-            </div> 
-            <div className={styles.images}>
+    return () => window.removeEventListener("resize", updateImages);
+  }, [accommodation.images]);
 
-                {
-                    windowWidth < 768
-                    ?   <>
-                            <figure className={styles.image}>
-                                <Image
-                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                                    width={300}
-                                    height={200}
-                                    alt=""
-                                />
-                            </figure>
-                            <figure className={styles.image}>
-                                <Image
-                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                                    width={300}
-                                    height={200}
-                                    alt=""
-                                />
-                                <div className={styles.text_layer}>
-                                    + 32 more
-                                </div>
-                            </figure>
-                        </>
-                    :   <>
-                            <figure className={styles.image}>
-                                <Image
-                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                                    width={300}
-                                    height={200}
-                                    alt=""
-                                />
-                            </figure>
-                            <figure className={styles.image}>
-                                <Image
-                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                                    width={300}
-                                    height={200}
-                                    alt=""
-                                />
-                            </figure>
-                            <figure className={styles.image}>
-                                <Image
-                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                                    width={300}
-                                    height={200}
-                                    alt=""
-                                />
-                            </figure>
-                            <figure className={styles.image}>
-                                <Image
-                                    src="https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg"
-                                    width={300}
-                                    height={200}
-                                    alt=""
-                                />
-                                <div className={styles.text_layer}>
-                                    + 32 more
-                                </div>
-                            </figure>
-                        </>    
-                }
+  // Features config
+  const features = [
+    { key: "bath", label: "Bath", icon: <BathtubIcon /> },
+    { key: "restaurant", label: "Restaurant", icon: <RestaurantIcon /> },
+    { key: "laundry_ironing_services", label: "Laundry ironing services", icon: <IronIcon /> },
+    { key: "shared_room", label: "Shared room", icon: <ConnectWithoutContactIcon /> },
+    { key: "wifi", label: "Wifi", icon: <NetworkWifiIcon /> },
+    { key: "toilet", label: "WC", icon: <WcIcon /> },
+  ];
+
+  return (
+    <div className={styles.card}>
+      <div className={styles.title}>
+        <Headline color="black" type="normal">
+          {accommodation.name} ({housingTypeMap[accommodation.type]})
+        </Headline>
+
+        {accommodation.type === 1 && accommodation.stars && (
+          <div className={styles.star}>{accommodation.stars}</div>
+        )}
+      </div>
+
+      <Paragraph classname={styles.bread_crumbs}>
+        {accommodation.description}
+      </Paragraph>
+
+      <div className={styles.includes}>
+        {features.map(({ key, label, icon }) =>
+          (accommodation.details as any)[key] ? (
+            <div className={styles.include} key={key}>
+              {icon}
+              {label}
             </div>
-        </div>
-    )
-}
+          ) : null
+        )}
+      </div>
+
+      <div className={styles.images}>
+        {images.map((image, index) => {
+          const isLast = index === images.length - 1;
+
+          return (
+            <figure className={styles.image} key={index}>
+              <FallbackImage
+                src={image.url}
+                width={300}
+                height={200}
+                alt={image.alt || ""}
+              />
+              {isLast && (
+                <div className={styles.text_layer}>+ 32 more</div>
+              )}
+            </figure>
+          );
+        })}
+      </div>
+    </div>
+  );
+};

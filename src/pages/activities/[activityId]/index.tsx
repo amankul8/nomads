@@ -35,8 +35,6 @@ export default function Activity() {
   const activity = useAppSelector(id ? selectActivityById(id) : () => undefined);
   const tours = useAppSelector(id ? selectToursByActivityId(id) : () => undefined);
 
-  console.log(tours);
-
   const handleModalShow = React.useCallback((imgInd: number) => {
     setCurrImg(imgInd);
     setIsShowModal(true);

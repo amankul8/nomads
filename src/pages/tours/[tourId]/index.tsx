@@ -9,7 +9,7 @@ import AutoIcon from '@mui/icons-material/AutoAwesomeMotion';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import { IconSquareBorder } from "@/components/icons/tour/square";
 import { ReviewInfoCard, TourAdditionalCard, TourDayAccommodationCard, TourDayInfoCard } from "@/components/cards";
-import { Box, ImageList, ImageListItem, Typography, useMediaQuery } from "@mui/material";
+import { Box, ImageList, ImageListItem, List, ListItem, ListItemText, Typography, useMediaQuery } from "@mui/material";
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -33,20 +33,11 @@ import { useRouter } from "next/router";
 import Loading from "@/components/loading";
 import { useEffect, useMemo, useState } from "react";
 import { selectDestinationsByIds } from "@/store/slices/destinations.slice";
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+import { selectActivitiesByIds } from "@/store/slices/activities.slice";
 
 const Map = dynamic(() => import("@/components/blocks/map"), { ssr: false });
-
-const images = [
-  "https://mcdn.wallpapersafari.com/medium/25/61/wnkqoS.jpg",
-  "https://mcdn.wallpapersafari.com/medium/90/19/rKHwW9.jpg",
-  "https://mcdn.wallpapersafari.com/335/73/19/BF6f7i.jpg",
-  "https://mcdn.wallpapersafari.com/medium/51/76/M5Sixv.jpg",
-  "https://mcdn.wallpapersafari.com/335/82/70/nv9j5J.jpg",
-  "https://mcdn.wallpapersafari.com/medium/9/2/U8jznD.jpg",
-  "https://mcdn.wallpapersafari.com/medium/43/23/BpwJ56.jpg",
-  "https://mcdn.wallpapersafari.com/335/51/51/sdioGm.jpg",
-  "https://mcdn.wallpapersafari.com/medium/64/7/qrZYhn.jpg",
-];
 
 function createData(
   name: string,
@@ -94,6 +85,18 @@ export default function Tour({ }: TourProps) {
       ? selectDestinationsByIds(destinationsIds)
       : () => undefined
   );
+
+  const activitiesIds = useMemo(() => {
+    if (!tour) return [];
+    const allActivities = tour.days.flatMap(day => day.entertainments);
+    return Array.from(new Set<number>(allActivities));
+  }, [tour]);
+
+  const activities = useAppSelector(
+    activitiesIds.length > 0
+      ? selectActivitiesByIds(activitiesIds)
+      : () => undefined
+  )
 
   if (!tour) {
     return (
@@ -220,8 +223,21 @@ export default function Tour({ }: TourProps) {
 
         <TourDetailSection title="Accommodation" Icon={AutoIcon} className={styles.accommodations}>
           <div className={styles.body}>
-            <TourDayAccommodationCard />
-            <TourDayAccommodationCard />
+            {
+              tour
+              &&
+              tour.days
+              &&
+              tour.days.length > 0
+              &&
+              tour.days.map((days, index) =>
+                <TourDayAccommodationCard
+                  accommodationsIds={days.accommodations}
+                  day={index + 1}
+                  key={index}
+                />
+              )
+            }
           </div>
         </TourDetailSection>
 
@@ -229,13 +245,13 @@ export default function Tour({ }: TourProps) {
 
           <div className={styles.body}>
             <DestinationsList
-              list={[]}
+              list={destinations || []}
             />
           </div>
         </TourDetailSection>
 
-        <TourDetailSection title="Prices" Icon={AutoIcon} className={styles.prices}>
-          <TableContainer component={Paper}>
+        <TourDetailSection title="Ditails" Icon={AutoIcon} className={styles.prices}>
+          {/* <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
@@ -263,36 +279,36 @@ export default function Tour({ }: TourProps) {
                 ))}
               </TableBody>
             </Table>
-          </TableContainer>
+          </TableContainer> */}
 
           <div className={styles.includes}>
             <div className={styles.included}>
               <Headline color="blue" type="subsection"> Included: </Headline>
-              {/* <List dense={true}>
-              {[1,2,3,4,5,6,7,8].map((item) =>
-                <ListItem key={item}>
-                  <CheckIcon />
-                  <ListItemText
-                    primary="Single-line item"
-                  />
-                </ListItem>
-              )
-                
-              }
-            </List> */}
+              <List dense={true}>
+                {
+                  tour.coverage.included.map((item) =>
+                    <ListItem key={item}>
+                      <CheckIcon />
+                      <ListItemText
+                        primary={item}
+                      />
+                    </ListItem>
+                  )
+                }
+              </List>
             </div>
             <div className={styles.excluded}>
               <Headline color="blue" type="subsection"> Excluded: </Headline>
-              {/* <List dense={true}>
-              {[1,2,3,4,5,6,7,8].map((item) => 
-                <ListItem key={item}>
-                  <CloseIcon />
-                  <ListItemText
-                    primary="Single-line item"
-                  />
-                </ListItem>
-            )}
-            </List> */}
+              <List dense={true}>
+                {tour.coverage.excluded.map((item) =>
+                  <ListItem key={item}>
+                    <CloseIcon />
+                    <ListItemText
+                      primary={item}
+                    />
+                  </ListItem>
+                )}
+              </List>
             </div>
           </div>
         </TourDetailSection>
@@ -300,25 +316,28 @@ export default function Tour({ }: TourProps) {
         <TourDetailSection title="Activities" Icon={AutoIcon} className={styles.activities}>
           <div className={styles.body}>
             {
-              images.map((item, index) => {
-                return (
-                  <Card sx={{ maxWidth: 550, minWidth: 280 }} key={index}>
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="200"
-                        image={item}
-                        alt="green iguana"
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h6" component="div">
-                          Lizard
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                )
-              })
+              activities &&
+              activities.map((activity, activityIndex) => (
+                activity?.images
+                  ? activity.images.slice(0, 5).map((image, imageIndex) => (
+                    <Card sx={{ maxWidth: 550, minWidth: 280 }} key={`${activityIndex}-${imageIndex}`}>
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          height="200"
+                          image={image.url}
+                          alt={activity.title || 'Activity image'}
+                        />
+                        <CardContent>
+                          <Typography gutterBottom variant="h6" component="div">
+                            {activity.title || 'Activity'}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
+                  ))
+                  : null
+              ))
             }
           </div>
         </TourDetailSection>

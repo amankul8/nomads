@@ -6,22 +6,22 @@
         "price": 370,
         "images": [
             {
-                "url": "accommodadtion/1/images/rixos_almaty1.webp",
+                "url": "/accommodadtion/1/images/rixos_almaty1.webp",
                 "alt": "Hall of Rixos Almaty"
             },
             {
-                "url": "accommodadtion/1/images/rixos_almaty2.webp",
+                "url": "/accommodadtion/1/images/rixos_almaty2.webp",
                 "alt": "Room of Rixos Almaty"
             },
             {
-                "url": "accommodadtion/1/images/rixos_almaty3.webp",
+                "url": "/accommodadtion/1/images/rixos_almaty3.webp",
                 "alt": "Entry of Rixos Almaty"
             }
         ],
         "rating": 5,
-        "tier": "1",
-        "type": "Hotel",
-        "stars": 5,
+        "tier": 1,
+        "type": 1,
+        "stars": 4.8,
         "stations": [
             1
         ],
@@ -41,22 +41,22 @@
         "price": 370,
         "images": [
             {
-                "url": "accommodadtion/1/images/rixos_almaty1.webp",
+                "url": "/accommodadtion/1/images/rixos_almaty1.webp",
                 "alt": "Hall of Rixos Almaty"
             },
             {
-                "url": "accommodadtion/1/images/rixos_almaty2.webp",
+                "url": "/accommodadtion/1/images/rixos_almaty2.webp",
                 "alt": "Room of Rixos Almaty"
             },
             {
-                "url": "accommodadtion/1/images/rixos_almaty3.webp",
+                "url": "/accommodadtion/1/images/rixos_almaty3.webp",
                 "alt": "Entry of Rixos Almaty"
             }
         ],
         "rating": 5,
-        "tier": "1",
-        "type": "Hotel",
-        "stars": 5,
+        "tier": 1,
+        "type": 1,
+        "stars": 4.8,
         "stations": [
             1
         ],
@@ -76,22 +76,22 @@
         "price": 370,
         "images": [
             {
-                "url": "accommodadtion/1/images/rixos_almaty1.webp",
+                "url": "/accommodadtion/1/images/rixos_almaty1.webp",
                 "alt": "Hall of Rixos Almaty"
             },
             {
-                "url": "accommodadtion/1/images/rixos_almaty2.webp",
+                "url": "/accommodadtion/1/images/rixos_almaty2.webp",
                 "alt": "Room of Rixos Almaty"
             },
             {
-                "url": "accommodadtion/1/images/rixos_almaty3.webp",
+                "url": "/accommodadtion/1/images/rixos_almaty3.webp",
                 "alt": "Entry of Rixos Almaty"
             }
         ],
         "rating": 5,
-        "tier": "1",
-        "type": "Hotel",
-        "stars": 5,
+        "tier": 1,
+        "type": 1,
+        "stars": 4.8,
         "stations": [
             1
         ],

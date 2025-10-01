@@ -5,10 +5,10 @@ import { CustomButton, Headline, Paragraph } from "@/ui";
 import styles from './destinations.module.scss';
 import cn from 'classnames';
 import { DestinationsList } from "@/components/list/destinationsList";
-import { Alert, CircularProgress } from "@mui/material";
+import { Alert } from "@mui/material";
 import { useAppSelector } from "@/store/hooks";
 import { selectSortedRegions, selectRegionsLoadingStatus } from "@/store/slices/regions.slice";
-import { selectDestinationsByRegion, selectDestinationsLoadingStatus, selectDestinationsSuccessedStatus } from "@/store/slices/destinations.slice";
+import { selectDestinationsByRegion, selectDestinationsLoadingStatus } from "@/store/slices/destinations.slice";
 import Loading from "@/components/loading";
 import { NextSeo } from "next-seo";
 

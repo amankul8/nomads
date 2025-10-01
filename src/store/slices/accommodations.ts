@@ -6,7 +6,7 @@ import { AccommodationType } from "../models/accommodations/type";
 interface AccommodationsState {
     entities: Record<number, AccommodationType>;
     ids: number[];
-    status: 'idle'|'loading'|'successed'|'failed',
+    status: 'idle' | 'loading' | 'successed' | 'failed',
     error: string
 }
 
@@ -44,7 +44,7 @@ export const accommodationsReducer = createReducer(initialState, (builder) => {
 
             state.ids = action.payload.map(accommodation => accommodation.id);
         })
-        
+
         .addCase(fetchAccommodationsFailedStatus, (state, action: PayloadAction<string>) => {
             state.status = 'failed';
             state.error = action.payload;
@@ -55,17 +55,20 @@ export const selectAccommodationsEntities = (state: AppState) => state.accommoda
 
 // Селекторы
 export const selectAccommodations = createSelector(
-  [selectAccommodationsEntities],
-  (entities) => Object.values(entities)
+    [selectAccommodationsEntities],
+    (entities) => Object.values(entities)
 );
 
 export const selectAccommodationsByIds = (ids: number[]) => createSelector(
-   [selectAccommodationsEntities],
-  (entities) => ids.map(id => entities[id])
+    [selectAccommodationsEntities],
+    (entities) => ids
+        .map(id => entities[id])
+        .filter(Boolean)
+        .sort((a, b) => a.tier - b.tier)
 );
 
 export const selectAccommodationById = (id: number) => (state: AppState) =>
-  state.accommodations.entities[id];
+    state.accommodations.entities[id];
 
 export const selectAccommodationsIdleStatus = (state: AppState) => state.accommodations.status === 'idle';
 export const selectAccommodationsLoadingStatus = (state: AppState) => state.accommodations.status === 'loading';

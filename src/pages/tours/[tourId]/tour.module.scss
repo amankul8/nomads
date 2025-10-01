@@ -2,13 +2,17 @@
 
 .main_block {
     position: relative;
-    height: 100%;    
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     color: var(--white);
     gap: 10rem;
     padding: 3rem 0;
+
+    @include respond-to("qhd") {
+        padding: 3rem;
+    }
 
     .content {
         width: 100%;
@@ -21,7 +25,7 @@
             display: flex;
             flex-direction: row;
             gap: 30px;
-            
+
             span {
                 display: flex;
                 content: "";
@@ -32,7 +36,7 @@
             }
         }
     }
-    
+
     .lower {
         width: 100%;
         display: flex;
@@ -68,7 +72,7 @@
 
 .map {
     width: 100%;
-    
+
     .body {
         display: flex;
         align-items: center;
@@ -137,7 +141,7 @@
 
 .activities {
     width: 100%;
-    
+
     .body {
         display: flex;
         flex-wrap: wrap;
@@ -167,8 +171,8 @@
     }
 }
 
-@media only screen and (max-width: 720px){
-    .content_wrapper{
+@media only screen and (max-width: 720px) {
+    .content_wrapper {
         padding: 30px;
     }
 }

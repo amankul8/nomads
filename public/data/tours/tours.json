@@ -891,9 +891,7 @@
                     3,
                     4
                 ],
-                "accommodations": [
-                    1
-                ],
+                "accommodations": [1, 2, 3],
                 "details": {
                     "car_range": 400,
                     "foot_range": 200,

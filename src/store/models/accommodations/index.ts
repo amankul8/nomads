@@ -1,9 +1,19 @@
 import { } from "@/store/slices/activities.slice";
 import { AppThunk } from "@/store/type";
 import {z} from 'zod';
-import { AccommodationSchema } from "./type";
+import { AccommodationSchema, HousingType } from "./type";
 import { fetchAccommodationsFailedStatus, fetchAccommodationsLoadingStatus, fetchAccommodationsSuccessedStatus, selectAccommodationsIdleStatus } from "@/store/slices/accommodations";
 
+export const housingTypeMap: Record<HousingType, string> = {
+  1: 'Hotel',
+  2: 'Guest House',
+  3: 'Yurt Camp',
+  4: 'Dormitory',
+  5: 'Tent',
+  6: 'Hostel',
+  7: 'Glamping',
+  8: 'Villa',
+};
 export const fetchAccommodations = (): AppThunk => async (dispatch, getState, { apiClient }) => {
     
     const isIdle = selectAccommodationsIdleStatus(getState());
