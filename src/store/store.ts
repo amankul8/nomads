@@ -8,7 +8,7 @@ import { toursReducer } from "./slices/tours.slice";
 import { tourFilterReducer } from "./slices/tour_filter.slice";
 import { countriesReducer } from "./slices/countries.slice";
 import { createWrapper } from 'next-redux-wrapper';
-import { tourOrderReducer } from "./slices/tour_order.slice";
+import { tourOrderReducer } from "./slices/tour_booking.slice";
 import { stationsReducer } from "./slices/stations.slice";
 import { apiClient } from "@/api";
 import { AppStore } from "./type";

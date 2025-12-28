@@ -344,8 +344,11 @@ export default function Tour({ }: TourProps) {
 
         <TourDetailSection title="Reviews" Icon={AutoIcon} className={styles.reviews}>
           <div className={styles.body}>
-            <ReviewInfoCard />
-            <ReviewInfoCard />
+            {
+              tour.tour_reviews.map( (review, index) => {
+                return <ReviewInfoCard review = {review} key={index}/>
+              })
+            }
           </div>
         </TourDetailSection>
 

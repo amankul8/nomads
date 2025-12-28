@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import cn from "classnames";
 import styles from './styles.module.scss';
-import { useSelector } from "react-redux";
-import { selectTourBookingStep, updateTourBookingStep } from "@/store/slices/tour_order.slice";
+import { selectTourBookingData, selectTourBookingStep, updateTourBookingStep } from "@/store/slices/tour_booking.slice";
 import { CustomButton, Headline, Paragraph } from "@/ui";
-import { useAppDispath, useAppSelector } from "@/store/store";
+import { useAppDispath, useAppSelector } from "@/store/hooks";
 import TravelersForm from "./form_parts/travelers";
 import { AnimatePresence, motion } from "motion/react"
 import ContactsForm from "./form_parts/contacts";
 import OptionsForm from "./form_parts/options";
-import ValidationForm from "./form_parts/validation";
+import { Button } from "@mui/material";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { useRouter } from "next/navigation";
+import ValidationForm from "./validation";
 
 const TourBookingSteps: Record<string, string> = {
     '1': 'Travelers',
@@ -20,7 +22,9 @@ const TourBookingSteps: Record<string, string> = {
 
 export default function TourBookingForm() {
 
+    const router = useRouter();
     const step = useAppSelector(selectTourBookingStep);
+    const formData = useAppSelector(selectTourBookingData);
     const dispatch = useAppDispath();
 
     const nextPageHandler = () => {
@@ -33,26 +37,45 @@ export default function TourBookingForm() {
     }
 
     const previousPageHandler = () => {
-        if(step == 1) return;
-
+        if(step == 1) return; 
         dispatch(updateTourBookingStep(step-1))
     }
     
+    const handleBackToPreviousPage = () => {
+        router.back();
+    }
+
+    const validated = useMemo(() => {
+        if(step == 1 && (formData.adultsCount <= 0)) return false;
+        else return true;
+    }, [step, formData.adultsCount]);
+
     return (
         <div className={cn('container', styles.wrapper)}>
             
-            <AnimatePresence mode="wait">
-                <motion.h2
-                    key={step}
-                    className={styles.title}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
+            <div className={styles.title_wr}>
+                <AnimatePresence mode="wait">
+                    <motion.h2
+                        key={step}
+                        className={styles.title}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {TourBookingSteps[step]}
+                    </motion.h2>
+                </AnimatePresence>
+
+                <Button 
+                    variant="text" 
+                    className={cn('btn', styles.back_btn)}
+                    onClick={handleBackToPreviousPage}
                 >
-                    {TourBookingSteps[step]}
-                </motion.h2>
-            </AnimatePresence>
+                    <ArrowBackIosIcon/>
+                    Back                
+                </Button>
+            </div>
                 
             <div className={styles.form}>
                 <div className={styles.progress_side}>

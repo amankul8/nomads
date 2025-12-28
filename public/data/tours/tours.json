@@ -150,7 +150,7 @@
         "tour_reviews": [
             {
                 "user": {
-                    "id": "1",
+                    "id": 1,
                     "first_name": "Askat",
                     "last_name": "Taalaibekov",
                     "country": "Kazakhstan",
@@ -160,24 +160,24 @@
                 "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
                 "images": [
                     {
-                        "url": "reviews/tours/tour_review_1.webp",
+                        "url": "/reviews/tours/tour_review_1.webp",
                         "alt": "A beautiful view of the mountains during the tour"
                     },
                     {
-                        "url": "reviews/tours/tour_review_2.webp",
+                        "url": "/reviews/tours/tour_review_2.webp",
                         "alt": "A group photo with the tour guide"
                     },
                     {
-                        "url": "reviews/tours/tour_review_3.webp",
+                        "url": "/reviews/tours/tour_review_3.webp",
                         "alt": "A scenic view from the tour"
                     }
                 ],
                 "details": {
-                    "accommodation": "5",
-                    "entertainment": "4",
-                    "food": "5",
-                    "guide": "5",
-                    "vehicle": "4"
+                    "accommodation": 5,
+                    "entertainment": 4,
+                    "food": 5,
+                    "guide": 5,
+                    "vehicle": 4
                 }
             }
         ],
@@ -418,7 +418,7 @@
         "tour_reviews": [
             {
                 "user": {
-                    "id": "1",
+                    "id": 1,
                     "first_name": "Askat",
                     "last_name": "Taalaibekov",
                     "country": "Kazakhstan",
@@ -428,24 +428,24 @@
                 "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
                 "images": [
                     {
-                        "url": "reviews/tours/tour_review_1.webp",
+                        "url": "/reviews/tours/tour_review_1.webp",
                         "alt": "A beautiful view of the mountains during the tour"
                     },
                     {
-                        "url": "reviews/tours/tour_review_2.webp",
+                        "url": "/reviews/tours/tour_review_2.webp",
                         "alt": "A group photo with the tour guide"
                     },
                     {
-                        "url": "reviews/tours/tour_review_3.webp",
+                        "url": "/reviews/tours/tour_review_3.webp",
                         "alt": "A scenic view from the tour"
                     }
                 ],
                 "details": {
-                    "accommodation": "5",
-                    "entertainment": "4",
-                    "food": "5",
-                    "guide": "5",
-                    "vehicle": "4"
+                    "accommodation": 5,
+                    "entertainment": 4,
+                    "food": 5,
+                    "guide": 5,
+                    "vehicle": 4
                 }
             }
         ],
@@ -686,7 +686,7 @@
         "tour_reviews": [
             {
                 "user": {
-                    "id": "1",
+                    "id": 1,
                     "first_name": "Askat",
                     "last_name": "Taalaibekov",
                     "country": "Kazakhstan",
@@ -696,24 +696,24 @@
                 "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
                 "images": [
                     {
-                        "url": "reviews/tours/tour_review_1.webp",
+                        "url": "/reviews/tours/tour_review_1.webp",
                         "alt": "A beautiful view of the mountains during the tour"
                     },
                     {
-                        "url": "reviews/tours/tour_review_2.webp",
+                        "url": "/reviews/tours/tour_review_2.webp",
                         "alt": "A group photo with the tour guide"
                     },
                     {
-                        "url": "reviews/tours/tour_review_3.webp",
+                        "url": "/reviews/tours/tour_review_3.webp",
                         "alt": "A scenic view from the tour"
                     }
                 ],
                 "details": {
-                    "accommodation": "5",
-                    "entertainment": "4",
-                    "food": "5",
-                    "guide": "5",
-                    "vehicle": "4"
+                    "accommodation": 5,
+                    "entertainment": 4,
+                    "food": 5,
+                    "guide": 5,
+                    "vehicle": 4
                 }
             }
         ],
@@ -952,7 +952,7 @@
         "tour_reviews": [
             {
                 "user": {
-                    "id": "1",
+                    "id": 1,
                     "first_name": "Askat",
                     "last_name": "Taalaibekov",
                     "country": "Kazakhstan",
@@ -962,24 +962,24 @@
                 "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
                 "images": [
                     {
-                        "url": "reviews/tours/tour_review_1.webp",
+                        "url": "/reviews/tours/tour_review_1.webp",
                         "alt": "A beautiful view of the mountains during the tour"
                     },
                     {
-                        "url": "reviews/tours/tour_review_2.webp",
+                        "url": "/reviews/tours/tour_review_2.webp",
                         "alt": "A group photo with the tour guide"
                     },
                     {
-                        "url": "reviews/tours/tour_review_3.webp",
+                        "url": "/reviews/tours/tour_review_3.webp",
                         "alt": "A scenic view from the tour"
                     }
                 ],
                 "details": {
-                    "accommodation": "5",
-                    "entertainment": "4",
-                    "food": "5",
-                    "guide": "5",
-                    "vehicle": "4"
+                    "accommodation": 5,
+                    "entertainment": 4,
+                    "food": 5,
+                    "guide": 5,
+                    "vehicle": 4
                 }
             }
         ],
@@ -1188,7 +1188,7 @@
         "tour_reviews": [
             {
                 "user": {
-                    "id": "1",
+                    "id": 1,
                     "first_name": "Askat",
                     "last_name": "Taalaibekov",
                     "country": "Kazakhstan",
@@ -1198,24 +1198,24 @@
                 "description": "We had a tour of 5days in Kyrgyzstan with Nomads Travel and our experience were beyond awesome. Our organiser and guide-driver Rakhat and Igor made the trip memorable. A must recommended tour agency to avail a relaxed tour in Kyrgyzstan.",
                 "images": [
                     {
-                        "url": "reviews/tours/tour_review_1.webp",
+                        "url": "/reviews/tours/tour_review_1.webp",
                         "alt": "A beautiful view of the mountains during the tour"
                     },
                     {
-                        "url": "reviews/tours/tour_review_2.webp",
+                        "url": "/reviews/tours/tour_review_2.webp",
                         "alt": "A group photo with the tour guide"
                     },
                     {
-                        "url": "reviews/tours/tour_review_3.webp",
+                        "url": "/reviews/tours/tour_review_3.webp",
                         "alt": "A scenic view from the tour"
                     }
                 ],
                 "details": {
-                    "accommodation": "5",
-                    "entertainment": "4",
-                    "food": "5",
-                    "guide": "5",
-                    "vehicle": "4"
+                    "accommodation": 5,
+                    "entertainment": 4,
+                    "food": 5,
+                    "guide": 5,
+                    "vehicle": 4
                 }
             }
         ],

@@ -42,7 +42,7 @@ const CoverageSchema = z.object({
 })
 
 const UserSchema = z.object({
-  id: z.string(),
+  id: z.number(),
   first_name: z.string(),
   last_name: z.string(),
   country: z.string(),
@@ -50,11 +50,11 @@ const UserSchema = z.object({
 })
 
 const ReviewDetailsSchema = z.object({
-  accommodation: z.string(),
-  entertainment: z.string(),
-  food: z.string(),
-  guide: z.string(),
-  vehicle: z.string()
+  accommodation: z.number(),
+  entertainment: z.number(),
+  food: z.number(),
+  guide: z.number(),
+  vehicle: z.number()
 })
 
 const TourReviewSchema = z.object({
@@ -108,3 +108,5 @@ export const TourSchema = z.object({
 export type TourType = z.infer<typeof TourSchema>;
 
 export type TourDayType = z.infer<typeof DaySchema>;
+
+export type TourReviewType = z.infer<typeof TourReviewSchema>;

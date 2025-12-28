@@ -12,8 +12,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Tiers } from "@/store/models/tour_order";
-import { useAppSelector } from "@/store/store";
-import { selectTourBookingData } from "@/store/slices/tour_order.slice";
+import { useAppSelector } from "@/store/hooks";
+import { selectTourBookingData } from "@/store/slices/tour_booking.slice";
 import { TourBookingFormTitle } from "../components/title";
 
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';

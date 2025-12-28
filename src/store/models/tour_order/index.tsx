@@ -54,16 +54,15 @@ export interface Child {
     countryId: number;
 }
 
-export interface TourOrderType {
+export interface TourBookingType {
     tour_id: number | null;
     adultsCount: number;
     childsCount: number;
     singleRooms: number;
     tiers: Tiers;
-    startDate: Date | null;
-    endDate: Date | null;
-    duration: number | null;
-    bookingUser: BookingUser;
+    startDate: string;
+    endDate: string;
+    duration: number;
     adults: Adult[];
     childs: Child[];
     agreedToTravelConditions: boolean;

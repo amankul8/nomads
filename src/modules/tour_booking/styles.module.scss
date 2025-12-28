@@ -10,11 +10,22 @@
         gap: 1em;
     }
 
-    .title {
+    .title_wr{
         width: 100%;
-        font-size: 2.5em;
-        font-weight: normal;
-        color: var(--white);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .title {
+            width: 100%;
+            font-size: 2.5em;
+            font-weight: normal;
+            color: var(--white);
+        }
+
+        .back_btn {
+            color: white;
+        }
     }
 
     .form {

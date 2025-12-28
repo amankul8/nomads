@@ -5,8 +5,8 @@ import { AnimatePresence, motion } from "motion/react"
 import { Headline } from "@/ui";
 import { Autocomplete, FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { Civility } from "@/store/models/tour_order";
-import { useAppSelector } from "@/store/store";
-import { selectTourBookingData } from "@/store/slices/tour_order.slice";
+import { useAppSelector } from "@/store/hooks";
+import { selectTourBookingData, selectTourBookingUserData } from "@/store/slices/tour_booking.slice";
 import { TourBookingFormTitle } from "../components/title";
 
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
@@ -19,6 +19,9 @@ import { TourBookingFormUsersCard } from "../components/user_card_wrap";
 export default function ContactsForm() {
 
     const bookingData = useAppSelector(selectTourBookingData);
+    const userData = useAppSelector(selectTourBookingUserData);
+
+    if(!bookingData) return null; 
 
     return (
         <motion.div 
@@ -43,7 +46,7 @@ export default function ContactsForm() {
                             labelId="demo-select-small-label"
                             id="demo-select-small"
                             label="Civility"
-                            value={bookingData.bookingUser.civility}
+                            value={userData.civility}
                             // onChange={handleChange}
                         >
                             <MenuItem selected value={Civility.Mr}>Mr</MenuItem>
@@ -151,17 +154,22 @@ export default function ContactsForm() {
                             <div className={styles.line}>
                                 <FormControl sx={{ m: 1, minWidth: 100}} size="small">
                                     <InputLabel id="demo-select-small-label"> Civility </InputLabel>
-                                    <Select
-                                        labelId="user_civility"
-                                        id="demo-select-small"
-                                        label="Civility"
-                                        value={bookingData.adults[1]?.civility}
-                                        // onChange={handleChange}
-                                    >
-                                        <MenuItem selected value={Civility.Mr}>Mr</MenuItem>
-                                        <MenuItem value={Civility.Mrs}>Mrs</MenuItem>
-                                        <MenuItem value={Civility.Miss}>Miss</MenuItem>
-                                    </Select>
+                                    
+                                    {
+                                        bookingData.adults[1]
+                                        &&
+                                        <Select
+                                            labelId="user_civility"
+                                            id="demo-select-small"
+                                            label="Civility"
+                                            value={bookingData.adults[1].civility}
+                                            // onChange={handleChange}
+                                        >
+                                            <MenuItem selected value={Civility.Mr}>Mr</MenuItem>
+                                            <MenuItem value={Civility.Mrs}>Mrs</MenuItem>
+                                            <MenuItem value={Civility.Miss}>Miss</MenuItem>
+                                        </Select> 
+                                    }
                                 </FormControl>
 
                                 <TextField
@@ -226,17 +234,22 @@ export default function ContactsForm() {
                             <div className={styles.line}>
                                 <FormControl sx={{ m: 1, minWidth: 100}} size="small">
                                     <InputLabel id="demo-select-small-label"> Civility </InputLabel>
-                                    <Select
-                                        labelId="user_civility"
-                                        id="demo-select-small"
-                                        label="Civility"
-                                        value={bookingData.adults[1]?.civility}
-                                        // onChange={handleChange}
-                                    >
-                                        <MenuItem selected value={Civility.Mr}>Mr</MenuItem>
-                                        <MenuItem value={Civility.Mrs}>Mrs</MenuItem>
-                                        <MenuItem value={Civility.Miss}>Miss</MenuItem>
-                                    </Select>
+
+                                    {
+                                        bookingData.adults[1]
+                                        &&
+                                        <Select
+                                            labelId="user_civility"
+                                            id="demo-select-small"
+                                            label="Civility"
+                                            value={bookingData.adults[1].civility}
+                                            // onChange={handleChange}
+                                        >
+                                            <MenuItem selected value={Civility.Mr}>Mr</MenuItem>
+                                            <MenuItem value={Civility.Mrs}>Mrs</MenuItem>
+                                            <MenuItem value={Civility.Miss}>Miss</MenuItem>
+                                        </Select>
+                                    }
                                 </FormControl>
 
                                 <TextField

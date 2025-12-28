@@ -3,7 +3,7 @@ import styels from "./styles.module.scss";
 import TourBookingForm from "@/modules/tour_booking";
 import { useRouter } from 'next/router';
 import { useAppDispath } from "@/store/hooks";
-import { updateTourBookingData } from "@/store/slices/tour_order.slice";
+import { updateTourBookingData } from "@/store/slices/tour_booking.slice";
 
 export default function TourBookingPage() {
 

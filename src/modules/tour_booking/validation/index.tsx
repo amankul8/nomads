@@ -1,28 +1,19 @@
 import React from "react";
-import cn from "classnames";
-import styles from '../general.module.scss';
-import { AnimatePresence, motion } from "motion/react"
+import styles from '../styles.module.scss';
+import { motion } from "motion/react"
 
-import TextField from '@mui/material/TextField';
-import { Box } from "@mui/material";
 import { Headline, Paragraph } from "@/ui";
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Tiers } from "@/store/models/tour_order";
-import { useAppSelector } from "@/store/store";
-import { selectTourBookingData } from "@/store/slices/tour_order.slice";
-import { TourBookingFormTitle } from "../components/title";
+import { useAppSelector } from "@/store/hooks";
+import { selectTourBookingData } from "@/store/slices/tour_booking.slice";
 
 import TourIcon from '@mui/icons-material/Tour';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import PriceChangeIcon from '@mui/icons-material/PriceChange';
 import InfoIcon from '@mui/icons-material/Info';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-
 import Image from "next/image";
+import { TourBookingFormTitle } from "../form_parts/components/title";
 
 
 export default function ValidationForm() {

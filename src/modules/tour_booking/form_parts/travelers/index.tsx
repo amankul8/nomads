@@ -1,33 +1,48 @@
 import React from "react";
-import cn from "classnames";
 import styles from '../general.module.scss';
-import { AnimatePresence, motion } from "motion/react"
+import { motion } from "motion/react"
 
 import TextField from '@mui/material/TextField';
-import { Box } from "@mui/material";
-import { Headline } from "@/ui";
 
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { Tiers } from "@/store/models/tour_order";
-import { useAppSelector } from "@/store/store";
-import { selectTourBookingData } from "@/store/slices/tour_order.slice";
+import { Tiers, TourBookingType } from "@/store/models/tour_order";
+import { useAppDispath, useAppSelector } from "@/store/hooks";
+import { selectTourBookingData, updateTourBookingData } from "@/store/slices/tour_booking.slice";
 import { TourBookingFormTitle } from "../components/title";
 import BoyIcon from '@mui/icons-material/Boy';
+import { format } from "date-fns";
+import { MUI_DATE_FORMAT } from "@/config";
 
+const today = format(new Date(), MUI_DATE_FORMAT);
 
 export default function TravelersForm() {
 
     const bookingData = useAppSelector(selectTourBookingData);
+    const dispatch = useAppDispath();
 
-    const handleChange = (field: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
-        
-    };
+    const handleInputChange =
+        <K extends keyof TourBookingType>(field: K) =>
+            (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+                dispatch(updateTourBookingData({
+                    field,
+                    value: event.target.value as TourBookingType[K]
+                }));
+            };
+
+    const handleSelectChange =
+        <K extends keyof TourBookingType>(field: K) =>
+            (event: SelectChangeEvent) => {
+                dispatch(updateTourBookingData({
+                    field,
+                    value: event.target.value as TourBookingType[K]
+                }));
+            };
 
     return (
-        <motion.div 
+        <motion.div
             key="treveler"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -38,7 +53,7 @@ export default function TravelersForm() {
 
             <div className={styles.block}>
                 <TourBookingFormTitle
-                    icon={<BoyIcon/>}
+                    icon={<BoyIcon />}
                     title="Number of Travelers"
                 />
 
@@ -49,10 +64,15 @@ export default function TravelersForm() {
                         type="number"
                         size="small"
                         sx={{ width: 140 }}
-                        value={2}
-                        onChange={handleChange('adults')}
-                        error={false}
+                        value={bookingData.adultsCount}
+                        onChange={handleInputChange('adultsCount')}
+                        error={bookingData.adultsCount < 1}
                         helperText={null}
+                        slotProps={{
+                            htmlInput: {
+                                min: 0
+                            }
+                        }}
                     />
                     <TextField
                         id="children"
@@ -60,9 +80,14 @@ export default function TravelersForm() {
                         type="number"
                         size="small"
                         sx={{ width: 160 }}
-                        value={2}
-                        onChange={handleChange('children')}
+                        value={bookingData.childsCount}
+                        onChange={handleInputChange('childsCount')}
                         error={false}
+                        slotProps={{
+                            htmlInput: {
+                                min: 0
+                            }
+                        }}
                     />
                     <TextField
                         id="singleRooms"
@@ -70,9 +95,14 @@ export default function TravelersForm() {
                         type="number"
                         size="small"
                         sx={{ width: 140 }}
-                        value={2}
-                        onChange={handleChange('singleRooms')}
+                        value={bookingData.singleRooms}
+                        onChange={handleInputChange('singleRooms')}
                         error={false}
+                        slotProps={{
+                            htmlInput: {
+                                min: 0
+                            }
+                        }}
                     />
                 </div>
 
@@ -83,11 +113,13 @@ export default function TravelersForm() {
                         type="date"
                         size="small"
                         sx={{ width: 200 }}
-                        onChange={handleChange('startDate')}
-                        // error={Boolean(errors.startDate)}
-                        // helperText={errors.startDate}
+                        onChange={handleInputChange('startDate')}
+                        value={bookingData.startDate}
                         slotProps={{
-                            inputLabel: { shrink: true }
+                            inputLabel: { shrink: true },
+                            htmlInput: {
+                                min: today
+                            }
                         }}
                     />
 
@@ -98,7 +130,7 @@ export default function TravelersForm() {
                             id="demo-select-small"
                             label="Tiers"
                             value={bookingData.tiers}
-                            // onChange={handleChange}
+                            onChange={handleSelectChange('tiers')}
                         >
                             <MenuItem selected value={Tiers.basic}>Basic</MenuItem>
                             <MenuItem value={Tiers.standart}>Standard</MenuItem>
@@ -106,7 +138,7 @@ export default function TravelersForm() {
                         </Select>
                     </FormControl>
                 </div>
-                
+
             </div>
         </motion.div>
     )
